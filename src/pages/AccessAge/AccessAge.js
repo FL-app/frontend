@@ -37,7 +37,7 @@ export const AccessAge = () => {
 					name="too-young"
 					isOpen={tooYoungPopupOpened}
 					onClose={() => setTooYoungPopupOpened(false)}
-					onSubmit={() => {}}
+					onSubmit={() => void 0}
 					formWidth="335px"
 				>
 					<div className="access-age_popup-container">

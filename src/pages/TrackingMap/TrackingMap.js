@@ -110,7 +110,7 @@ export function TrackingMap() {
 				<MainLayout
 					headerClassName="header"
 					footerClassName="footer"
-					handleSearch={() => {}}
+					handleSearch={() => void 0}
 				>
 					{displayMap}
 					<ButtonUserLocation handleClick={findUserLocation} />

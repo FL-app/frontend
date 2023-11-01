@@ -169,7 +169,7 @@ export const Profile = () => {
 							size="medium"
 							onClick={() => setInviteFreindsPopupOpened(true)}
 							className="profile-invite-banner-add-btn"
-							onSubmit={() => {}}
+							onSubmit={() => void 0}
 						/>
 						<img
 							className="profile-invite-banner-circle"
@@ -206,7 +206,7 @@ export const Profile = () => {
 									nicknameValue: e.target.value,
 								}));
 							}}
-							onBlur={() => {}}
+							onBlur={() => void 0}
 						/>
 						<div className="popup-button-container">
 							<Button
@@ -257,7 +257,7 @@ export const Profile = () => {
 									inviteEmailValue: e.target.value,
 								}));
 							}}
-							onBlur={() => {}}
+							onBlur={() => void 0}
 						/>
 						<div className="popup-button-container">
 							<Button

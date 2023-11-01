@@ -18,7 +18,6 @@ function PopupWithForm({
 	}
 
 	return (
-		/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */
 		<div
 			className={`popup popup_type_${name} ${isOpen && 'popup_opened'}`}
 			onMouseDown={handleMouseDown}
