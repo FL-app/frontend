@@ -2,25 +2,25 @@ import avatarMale from '../images/icon_profile_man.png';
 import avatarFemale from '../images/icon_profile_woman.png';
 
 interface IFrend {
-	id: number,
-	name: string,
-	sex: string,
-	avatar: string,
+	id: number;
+	name: string;
+	sex: string;
+	avatar: string;
 }
 
 interface IUserData {
-	id: number,
-	name: string,
-	surname: string,
-	nickname: string,
-	sex: string,
-	email: string,
-	avatar: string,
-	status: string,
-	friends: IFrend[]
+	id: number;
+	name: string;
+	surname: string;
+	nickname: string;
+	sex: string;
+	email: string;
+	avatar: string;
+	status: string;
+	friends: IFrend[];
 }
 
-export const userData :IUserData = {
+export const userData: IUserData = {
 	id: 1,
 	name: 'Екатерина',
 	surname: 'Иванова',

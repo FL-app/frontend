@@ -8,8 +8,8 @@ TBA
 
 Web application for finding friends on the map. Here people can search and add new friends, share their geolocation and see the location of a friend, gather for fun meetings and have a great time.
 
-Used technologies:
--
+## Used technologies:
+
     - Figma
     - React
     - React Leaflet
@@ -28,8 +28,8 @@ Used technologies:
     - PostgreSQL 13.0
     - Docker
 
-Features:
--
+## Features:
+
     - You can search and add new friends
     - You can view your friends location
     - You can invite new friends
