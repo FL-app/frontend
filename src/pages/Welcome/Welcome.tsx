@@ -1,6 +1,6 @@
 import './Welcome.scss';
 import { Link } from 'react-router-dom';
-import Button from '../../components/Button/Button.tsx';
+import Button from '../../components/Button/Button';
 import Carousel from '../../components/Carousel/Carousel';
 import { ROUTES } from '../../constants';
 

@@ -1,14 +1,14 @@
 import './Button.scss';
 
-interface IButtonProp {
-	label: string;
-	url: string | undefined;
-	type: 'link' | 'button' | 'submit';
-	color: 'primary' | 'secondary' | undefined;
-	size: 'medium' | 'large';
-	disabled: boolean;
-	onClick: undefined | (() => void);
-	className: string;
+interface IButtonProps {
+	label: string,
+	url?: string,
+	type: 'link' | 'button' | 'submit',
+	color?: 'primary' | 'secondary',
+	size: 'medium' | 'large',
+	disabled?: boolean,
+	onClick?: () => void,
+	className?: string
 }
 
 export default function Button({
@@ -20,7 +20,7 @@ export default function Button({
 	disabled = false,
 	onClick = undefined,
 	className = '',
-}: IButtonProp) {
+}: IButtonProps) {
 	const props = {
 		disabled,
 		onClick,
