@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import Slider from 'react-slick';
 
 import 'slick-carousel/slick/slick.css';
@@ -8,7 +9,7 @@ import carousel1 from '../../images/Carousel1.png';
 import carousel2 from '../../images/Carousel2.png';
 import carousel3 from '../../images/Carousel3.png';
 
-const Carousel = () => {
+const Carousel: FC = () => {
 	const settings = {
 		dots: true,
 		infinite: true,
