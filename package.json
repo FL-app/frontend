@@ -20,6 +20,7 @@
 		"@types/leaflet": "^1.9.3",
 		"@types/react": "^18.2.33",
 		"@types/react-dom": "^18.2.14",
+		"@types/react-slick": "^0.23.11",
 		"babel-plugin-named-exports-order": "^0.0.2",
 		"commitizen": "^4.3.0",
 		"cz-conventional-changelog": "^3.3.0",
@@ -47,7 +48,6 @@
 		"react-redux": "^8.1.1",
 		"react-router-dom": "^6.14.0",
 		"react-scripts": "5.0.1",
-		"react-slick": "^0.29.0",
 		"slick-carousel": "^1.8.1",
 		"web-vitals": "^2.1.4"
 	},

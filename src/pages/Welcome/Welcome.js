@@ -1,13 +1,10 @@
-import React from 'react';
 import './Welcome.scss';
 import { Link } from 'react-router-dom';
 import Button from '../../components/Button/Button.tsx';
 import Carousel from '../../components/Carousel/Carousel';
 import { ROUTES } from '../../constants';
-import { testTS } from '../../testTS.ts';
 
 export function Welcome() {
-	testTS();
 	return (
 		<main className="welcome">
 			<div className="welcome_container">
