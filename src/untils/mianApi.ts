@@ -1,7 +1,19 @@
 /* eslint-disable no-undef */
-import { fetchTemplate } from '../constants';
+import { IFetchBody, fetchTemplate } from '../constants';
 
-export const register = ({ email, nickname, name, surname, password, sex }) =>
+interface IFetchParam extends IFetchBody {
+	id: string
+	nickname: string,
+	name: string,
+	surname: string,
+	sex: string,
+	newPassword: string,
+	currentPassword: string,
+	firstName: string,
+	lastName: string
+}
+
+export const register = ({ email, nickname, name, surname, password, sex }: IFetchParam) =>
 	fetchTemplate({
 		path: '/users/',
 		method: 'POST',
@@ -11,11 +23,12 @@ export const register = ({ email, nickname, name, surname, password, sex }) =>
 			first_name: name,
 			last_name: surname,
 			password,
-			gender: sex,
-		},
+			gender: sex
+		}
 	});
 
-export const login = ({ email, password }) =>
+
+export const login = ({ email, password }: IFetchParam) =>
 	fetchTemplate({
 		path: '/jwt/create/',
 		method: 'POST',
@@ -25,14 +38,14 @@ export const login = ({ email, password }) =>
 		},
 	});
 
-export const getCurrentUser = (token) =>
+export const getCurrentUser = (token: string) =>
 	fetchTemplate({
 		path: '/users/me/',
 		method: 'GET',
 		token: `Bearer ${token}`,
 	});
 
-export const refreshToken = (token) =>
+export const refreshToken = (token: string) =>
 	fetchTemplate({
 		path: '/jwt/refresh/',
 		method: 'POST',
@@ -41,7 +54,7 @@ export const refreshToken = (token) =>
 		},
 	});
 
-export const verifyToken = (token) =>
+export const verifyToken = (token: string) =>
 	fetchTemplate({
 		path: '/jwt/verify/',
 		method: 'POST',
@@ -56,7 +69,7 @@ export const getTags = () =>
 		method: 'GET',
 	});
 
-export const getTagById = (id) =>
+export const getTagById = (id: string) =>
 	fetchTemplate({
 		path: `/tags/${id}/`,
 		method: 'GET',
@@ -86,14 +99,14 @@ export const getFriendsData = () =>
 		method: 'GET',
 	});
 
-export const updateUserProfile = (userData) =>
+export const updateUserProfile = (userData: unknown) =>
 	fetchTemplate({
 		path: '/users/me/',
 		method: 'PUT',
 		body: JSON.stringify(userData),
 	});
 
-export const updateUserDetails = (userData) =>
+export const updateUserDetails = (userData: unknown) =>
 	fetchTemplate({
 		path: '/users/me/',
 		method: 'PATCH',
@@ -106,28 +119,28 @@ export const deleteUserProfile = () =>
 		method: 'DELETE',
 	});
 
-export const resendActivationEmail = ({ email }) =>
+export const resendActivationEmail = ({ email }: IFetchParam) =>
 	fetchTemplate({
 		path: '/users/resend_activation/',
 		method: 'POST',
 		body: { email },
 	});
 
-export const resetEmail = ({ email }) =>
+export const resetEmail = ({ email }: IFetchParam) =>
 	fetchTemplate({
 		path: '/users/reset_email/',
 		method: 'POST',
 		body: { email },
 	});
 
-export const confirmResetEmail = ({ email }) =>
+export const confirmResetEmail = ({ email }: IFetchParam) =>
 	fetchTemplate({
 		path: '/users/reset_email_confirm/',
 		method: 'POST',
 		body: { new_email: email },
 	});
 
-export const resetPassword = ({ password }) =>
+export const resetPassword = ({ password }: IFetchParam) =>
 	fetchTemplate({
 		path: '/users/reset_password/',
 		method: 'POST',
@@ -136,7 +149,7 @@ export const resetPassword = ({ password }) =>
 		},
 	});
 
-export const resetPasswordConfirm = ({ uid, token, password }) =>
+export const resetPasswordConfirm = ({ uid, token, password }: IFetchParam) =>
 	fetchTemplate({
 		path: '/users/reset_password_confirm/',
 		method: 'POST',
@@ -147,7 +160,7 @@ export const resetPasswordConfirm = ({ uid, token, password }) =>
 		},
 	});
 
-export const setEmail = ({ password, email }) =>
+export const setEmail = ({ password, email }: IFetchParam) =>
 	fetchTemplate({
 		path: '/users/set_email/',
 		method: 'POST',
@@ -157,7 +170,7 @@ export const setEmail = ({ password, email }) =>
 		},
 	});
 
-export const setPassword = ({ newPassword, currentPassword }) =>
+export const setPassword = ({ newPassword, currentPassword }: IFetchParam) =>
 	fetchTemplate({
 		path: '/users/set_password/',
 		method: 'POST',
@@ -167,7 +180,7 @@ export const setPassword = ({ newPassword, currentPassword }) =>
 		},
 	});
 
-export const getUser = (id) =>
+export const getUser = (id: string) =>
 	fetchTemplate({
 		path: `/users/${id}/`,
 		method: 'GET',
@@ -182,7 +195,7 @@ export const updateUser = ({
 	longitude,
 	latitude,
 	status,
-}) =>
+}: IFetchParam) =>
 	fetchTemplate({
 		path: `/users/${id}/`,
 		method: 'PUT',
@@ -206,7 +219,7 @@ export const updateUserDataDetails = ({
 	longitude,
 	latitude,
 	status,
-}) =>
+}: IFetchParam) =>
 	fetchTemplate({
 		path: `/users/${id}/`,
 		method: 'PATCH',
@@ -221,7 +234,7 @@ export const updateUserDataDetails = ({
 		},
 	});
 
-export const deleteUser = (id) =>
+export const deleteUser = (id: string) =>
 	fetchTemplate({
 		path: `/users/${id}/`,
 		method: 'DELETE',
@@ -236,7 +249,7 @@ export const addFriend = ({
 	longitude,
 	latitude,
 	status,
-}) =>
+}: IFetchParam) =>
 	fetchTemplate({
 		path: `/users/${id}/add-friend/`,
 		method: 'POST',
@@ -260,7 +273,7 @@ export const approveUser = ({
 	longitude,
 	latitude,
 	status,
-}) =>
+}: IFetchParam) =>
 	fetchTemplate({
 		path: `/users/${id}/approved/`,
 		method: 'POST',
@@ -275,13 +288,13 @@ export const approveUser = ({
 		},
 	});
 
-export const deleteFriend = (id) =>
+export const deleteFriend = (id: string) =>
 	fetchTemplate({
 		path: `/users/${id}/delete-friend/`,
 		method: 'DELETE',
 	});
 
-export const deleteRequest = (id) =>
+export const deleteRequest = (id: string) =>
 	fetchTemplate({
 		path: `/users/${id}/delete-request/`,
 		method: 'DELETE',
@@ -296,7 +309,7 @@ export const updateFriendsCategory = ({
 	longitude,
 	latitude,
 	status,
-}) =>
+}: IFetchParam) =>
 	fetchTemplate({
 		path: `/users/${id}/update-friends-category/`,
 		method: 'PATCH',
@@ -320,7 +333,7 @@ export const updateUserPic = ({
 	longitude,
 	latitude,
 	status,
-}) =>
+}: IFetchParam) =>
 	fetchTemplate({
 		path: `/users/${id}/update-user-pic/`,
 		method: 'PATCH',
@@ -344,7 +357,7 @@ export const updateUserStatus = ({
 	longitude,
 	latitude,
 	status,
-}) =>
+}: IFetchParam) =>
 	fetchTemplate({
 		path: `/users/${id}/update-user-status/`,
 		method: 'PATCH',
@@ -359,13 +372,13 @@ export const updateUserStatus = ({
 		},
 	});
 
-export const getUserPlaces = (userId) =>
+export const getUserPlaces = (userId: string) =>
 	fetchTemplate({
 		path: `/users/${userId}/places/`,
 		method: 'GET',
 	});
 
-export const createPlace = (userId, { name, latitude, longitude }) =>
+export const createPlace = (userId: string, { name, latitude, longitude }: IFetchParam) =>
 	fetchTemplate({
 		path: `/users/${userId}/places/`,
 		method: 'POST',
@@ -376,19 +389,19 @@ export const createPlace = (userId, { name, latitude, longitude }) =>
 		},
 	});
 
-export const getAllSharedPlaces = (userId) =>
+export const getAllSharedPlaces = (userId: string) =>
 	fetchTemplate({
 		path: `/users/${userId}/places/all-shared-places/`,
 		method: 'GET',
 	});
 
-export const getPlaceById = (userId, placeId) =>
+export const getPlaceById = (userId: string, placeId: string) =>
 	fetchTemplate({
 		path: `/users/${userId}/places/${placeId}/`,
 		method: 'GET',
 	});
 
-export const updatePlace = (userId, placeId, { name, latitude, longitude }) =>
+export const updatePlace = (userId: string, placeId: string, { name, latitude, longitude }:IFetchParam) =>
 	fetchTemplate({
 		path: `/users/${userId}/places/${placeId}/`,
 		method: 'PUT',
@@ -400,9 +413,9 @@ export const updatePlace = (userId, placeId, { name, latitude, longitude }) =>
 	});
 
 export const updatePlaceDetails = (
-	userId,
-	placeId,
-	{ name, latitude, longitude }
+	userId: string,
+	placeId: string,
+	{ name, latitude, longitude }:IFetchParam
 ) =>
 	fetchTemplate({
 		path: `/users/${userId}/places/${placeId}/`,
@@ -414,13 +427,13 @@ export const updatePlaceDetails = (
 		},
 	});
 
-export const deletePlace = (userId, placeId) =>
+export const deletePlace = (userId: string, placeId: string) =>
 	fetchTemplate({
 		path: `/users/${userId}/places/${placeId}/`,
 		method: 'DELETE',
 	});
 
-export const sharePlace = (userId, placeId, { name, latitude, longitude }) =>
+export const sharePlace = (userId: string, placeId: string, { name, latitude, longitude }: IFetchParam) =>
 	fetchTemplate({
 		path: `/users/${userId}/places/${placeId}/share-place/`,
 		method: 'POST',
@@ -431,13 +444,13 @@ export const sharePlace = (userId, placeId, { name, latitude, longitude }) =>
 		},
 	});
 
-export const stopSharingPlace = (userId, placeId) =>
+export const stopSharingPlace = (userId: string, placeId: string) =>
 	fetchTemplate({
 		path: `/users/${userId}/places/${placeId}/stop-sharing-place/`,
 		method: 'DELETE',
 	});
 
-export const setNickname = ({ username, token }) =>
+export const setNickname = ({ username, token }: IFetchParam) =>
 	fetchTemplate({
 		path: '/users/me/',
 		method: 'PATCH',
@@ -447,7 +460,7 @@ export const setNickname = ({ username, token }) =>
 		},
 	});
 
-export const updateCoordinates = ({ token, id, longitude, latitude }) =>
+export const updateCoordinates = ({ token, id, longitude, latitude }: IFetchParam) =>
 	fetchTemplate({
 		path: `/users/${id}/update-coordinates/`,
 		method: 'PATCH',
