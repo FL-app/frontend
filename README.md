@@ -11,7 +11,7 @@ Web application for finding friends on the map. Here people can search and add n
 ## Used technologies:
 
     - Figma
-    - React
+    - React js
     - React Leaflet
     - Html
     - Scss
