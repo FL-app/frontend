@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 import { IFetchBody, fetchTemplate } from '../constants';
 
-interface IFetchParam extends IFetchBody {
+export interface IFetchParam extends IFetchBody {
 	id: string
 	nickname: string,
 	name: string,
