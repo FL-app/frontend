@@ -1,4 +1,5 @@
 @import "src/sassStyles/variables";
+@import "src/sassStyles/mixins";
 
 .checkbox {
 	display: flex;
@@ -10,15 +11,13 @@
 	}
 }
 .checkbox__input {
+    @include size(36px, 20px);
 	appearance: none;
-	width: 36px;
-	height: 20px;
 	cursor: pointer;
 	&::after {
+        @include size(36px, 20px);
 		background-color: $color_background_disabled;
 		border-radius: 10px;
-		width: 36px;
-		height: 20px;
 		content: '';
 		position: absolute;
 	}
@@ -41,8 +40,7 @@
 	margin-right: 12px;
 }
 .checkbox__toggle {
-	width: 16px;
-	height: 16px;
+    @include size(16px, 16px);
 	border-radius: 10px;
 	position: absolute;
 	background-color: $color_white;

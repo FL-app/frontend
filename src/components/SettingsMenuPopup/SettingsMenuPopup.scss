@@ -16,9 +16,8 @@
 		cursor: pointer;
 
 		&_arrow-back {
+            @include size(24px, 24px);
 			background: url('../../images/arrow-back.svg') no-repeat center;
-			width: 24px;
-			height: 24px;
 			margin-right: 20px;
 		}
 
