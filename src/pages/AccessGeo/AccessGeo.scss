@@ -63,9 +63,8 @@
 	}
 
 	&_title {
-		margin: 0;
-		margin-top: 24px;
-		color: $color_main_font;
+        margin: 24px 0 0;
+        color: $color_main_font;
 		text-align: center;
 		font-size: 24px;
 		font-style: normal;
@@ -75,9 +74,8 @@
 	}
 
 	&_subtitle {
-		margin: 0;
-		margin-top: 16px;
-		color: $color_main_font;
+        margin: 16px 0 0;
+        color: $color_main_font;
 		text-align: center;
 		font-size: 15px;
 		font-style: normal;

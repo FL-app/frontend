@@ -16,8 +16,7 @@
 		margin-right: 12px;
 		border-radius: 50%;
 		border: 1px solid $color_background_disabled;
-		background: url(../../images/icon-burger.svg) no-repeat;
-		background-position: center;
-		cursor: pointer;
+        background: url(../../images/icon-burger.svg) no-repeat center;
+        cursor: pointer;
 	}
 }

@@ -15,12 +15,11 @@
 	&-avatar {
         @include size(72px, 72px);
 		padding: 0;
-		margin: 0;
-		border: none;
+        border: none;
 		border-radius: 50%;
 		background: none;
-		margin-right: 16px;
-		cursor: pointer;
+        margin: 0 16px 0 0;
+        cursor: pointer;
 
 		&-image {
             @include size(100%, 100%);

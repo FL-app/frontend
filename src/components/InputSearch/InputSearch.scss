@@ -7,8 +7,6 @@
 	padding: 8px 12px 8px 36px;
 	border-radius: 20px;
 	border: 1px solid $color_background_disabled;
-	background: url(../../images/icon-search.svg) no-repeat scroll 16px 16px;
-	background-position: center;
-	background-position-x: calc(0% + 12px);
-	background-color: $color_white;
+    background-position-x: calc(0% + 12px);
+    background: $color_white url(../../images/icon-search.svg) no-repeat scroll center;
 }
