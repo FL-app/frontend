@@ -1,3 +1,5 @@
+@import "src/sassStyles/mixins";
+
 .signin {
 	display: flex;
 	justify-content: center;
@@ -12,7 +14,6 @@
 			#fff;
 		height: 812px;
 		max-width: 375px;
-
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -22,59 +23,50 @@
 	}
 
 	&_btn-back {
+        @include size(32px, 32px);
 		z-index: 1;
 		cursor: pointer;
 		position: absolute;
 		border: none;
 		outline: none;
-		width: 32px;
-		height: 32px;
 		top: 62px;
 		left: 20px;
 		background: url(../../images/arrow-back.svg) transparent no-repeat;
 	}
 
 	&_vector-1 {
+        @include size(274.48px, 137.44px);
 		position: absolute;
-		width: 274.48px;
-		height: 137.44px;
 		top: 270px;
 		left: 0;
-
 		background-image: url(../../images/vector-signin-1.svg);
 		background-repeat: no-repeat;
 	}
 
 	&_vector-2 {
+        @include size(90px, 90px);
 		position: absolute;
-		width: 90px;
-		height: 90px;
 		top: 70px;
 		left: 168px;
-
 		background-image: url(../../images/vector-signin-2.svg);
 		background-repeat: no-repeat;
 	}
 
 	&_semicircle {
+        @include size(159.862px, 159.862px);
 		z-index: 1;
 		position: absolute;
-		width: 159.862px;
-		height: 159.862px;
 		top: 48.19px;
 		left: 58.19px;
-
 		background-image: url(../../images/semicircle-signin.png);
 		background-repeat: no-repeat;
 	}
 
 	&_spiral {
+        @include size(222.412px, 222.412px);
 		position: absolute;
-		width: 222.412px;
-		height: 222.412px;
 		top: 137px;
 		left: 197px;
-
 		background-image: url(../../images/spiral-signin.png);
 		background-repeat: no-repeat;
 	}

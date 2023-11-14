@@ -1,3 +1,5 @@
+@import "src/sassStyles/mixins";
+
 .friends {
 	display: flex;
 	justify-content: center;
@@ -12,10 +14,9 @@
 	}
 
 	&__header {
+        @include size(100%, 64px);
 		position: relative;
 		box-sizing: border-box;
-		width: 100%;
-		height: 64px;
 		padding: 12px 20px;
 		display: flex;
 		background-color: #fff;
@@ -42,8 +43,7 @@
 			background-color: #fafafa;
 
 			&-img {
-				width: 42px;
-				height: 42px;
+                @include size(42px, 42px);
 			}
 		}
 	}

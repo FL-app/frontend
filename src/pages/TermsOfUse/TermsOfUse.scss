@@ -1,3 +1,5 @@
+@import "src/sassStyles/mixins";
+
 .terms-of-use {
 	display: flex;
 	justify-content: center;
@@ -17,14 +19,13 @@
 	}
 
 	&__btn-back {
+        @include size(32px, 32px);
 		margin-left: 20px;
 		margin-right: 12px;
 		padding: 0;
 		cursor: pointer;
 		border: none;
 		outline: none;
-		width: 32px;
-		height: 32px;
 		background: transparent url(../../images/arrow-back.svg) no-repeat;
 	}
 

@@ -1,17 +1,18 @@
+@import "src/sassStyles/mixins";
+
 .access-age {
 	display: flex;
 	justify-content: center;
 	position: relative;
 
 	&_cylinder {
+        @include size(177px, 177px);
 		content: '';
 		background-image: url(../../images/access-age-cylinder.png);
 		background-repeat: no-repeat;
 		position: absolute;
 		left: 222.11px;
 		top: 36.11px;
-		width: 177px;
-		height: 177px;
 	}
 
 	&_container {
@@ -28,7 +29,6 @@
 			#fff;
 		max-width: 375px;
 		height: 812px;
-
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -37,6 +37,7 @@
 	}
 
 	&_container::before {
+        @include size(193px, 195px);
 		z-index: 1;
 		content: '';
 		background-image: url(../../images/access-age-vector-1.svg);
@@ -44,19 +45,16 @@
 		position: absolute;
 		left: 200px;
 		top: 84px;
-		width: 193px;
-		height: 195px;
 	}
 
 	&_container::after {
+        @include size(135px, 68px);
 		content: '';
 		background-image: url(../../images/access-age-vector-2.svg);
 		background-repeat: no-repeat;
 		position: absolute;
 		left: 0;
 		top: 411px;
-		width: 135px;
-		height: 68px;
 	}
 
 	&_title {
