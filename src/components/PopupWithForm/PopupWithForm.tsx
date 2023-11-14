@@ -1,17 +1,26 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import { FC, ReactNode, MouseEvent } from 'react';
 import './PopupWithForm.scss';
 
-function PopupWithForm({
-	title,
+interface IProps {
+	title?: string;
+	name: string;
+	children: ReactNode;
+	isOpen: boolean;
+	onClose: () => void;
+	onSubmit: () => void;
+	formWidth: string;
+}
+
+const PopupWithForm: FC<IProps> = ({
+	title = '',
 	name,
 	children,
-	isOpen,
+	isOpen = false,
 	onClose,
 	onSubmit,
-	formWidth,
-}) {
-	function handleMouseDown(evt) {
+	formWidth = '320px',
+}) => {
+	function handleMouseDown(evt: MouseEvent<HTMLDivElement>) {
 		if (evt.target === evt.currentTarget) {
 			onClose();
 		}
@@ -36,23 +45,6 @@ function PopupWithForm({
 			</div>
 		</div>
 	);
-}
-PopupWithForm.propTypes = {
-	title: PropTypes.string,
-	name: PropTypes.string.isRequired,
-	children: PropTypes.node.isRequired,
-	isOpen: PropTypes.bool,
-	onClose: PropTypes.func,
-	onSubmit: PropTypes.func,
-	formWidth: PropTypes.string,
-};
-
-PopupWithForm.defaultProps = {
-	title: '',
-	isOpen: false,
-	onClose: undefined,
-	onSubmit: undefined,
-	formWidth: '320px',
 };
 
 export default PopupWithForm;
