@@ -6,7 +6,7 @@ import { logout } from '../../store/slices/user';
 import UserAvatar from '../UserAvatar/UserAvatar';
 import Checkbox from '../Checkbox/Checkbox';
 import chat from '../../images/chat_menu.svg';
-import { ROUTES } from '../../constants';
+import RoutesPath from '../../constants/routesPath';
 import friendsNew from '../../images/friendsNew_menu.svg';
 import places from '../../images/places_menu.svg';
 import profile from '../../images/profile_menu.svg';
@@ -46,7 +46,7 @@ function GeneralMenuPopup({
 				</div>
 				<section className="generalMenuPopup__navigation">
 					<Link
-						to={ROUTES.CHAT}
+						to={RoutesPath.chat}
 						className="generalMenuPopup__link"
 						onClick={onClose}
 					>
@@ -54,7 +54,7 @@ function GeneralMenuPopup({
 						<p className="generalMenuPopup__link-text">Чат</p>
 					</Link>
 					<Link
-						to={ROUTES.FRIENDS}
+						to={RoutesPath.friends}
 						className="generalMenuPopup__link"
 						onClick={onClose}
 					>
@@ -65,7 +65,7 @@ function GeneralMenuPopup({
 						/>
 						<p className="generalMenuPopup__link-text">Друзья</p>
 					</Link>
-					<Link to={ROUTES.COMING_SOON} className="generalMenuPopup__link">
+					<Link to={RoutesPath.comingSoon} className="generalMenuPopup__link">
 						<img
 							className="generalMenuPopup__link-img"
 							src={places}
@@ -73,7 +73,7 @@ function GeneralMenuPopup({
 						/>
 						<p className="generalMenuPopup__link-text">Места</p>
 					</Link>
-					<Link to={ROUTES.COMING_SOON} className="generalMenuPopup__link">
+					<Link to={RoutesPath.comingSoon} className="generalMenuPopup__link">
 						<img
 							className="generalMenuPopup__link-img"
 							src={events}
@@ -82,7 +82,7 @@ function GeneralMenuPopup({
 						<p className="generalMenuPopup__link-text">Мероприятия</p>
 					</Link>
 					<Link
-						to={ROUTES.PROFILE}
+						to={RoutesPath.profile}
 						className="generalMenuPopup__link"
 						onClick={onClose}
 					>
@@ -107,7 +107,7 @@ function GeneralMenuPopup({
 				</section>
 			</div>
 			<Link
-				to={ROUTES.LOGIN}
+				to={RoutesPath.login}
 				className="generalMenuPopup__button"
 				onClick={handleExitClick}
 			>

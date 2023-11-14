@@ -1,7 +1,6 @@
 import './Login.scss';
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-
 import { useDispatch, useSelector } from 'react-redux';
 import { loginUser } from '../../store/thunk/loginUser';
 import {
@@ -9,10 +8,9 @@ import {
 	emptyEmailErrorText,
 	emptyPasswordErrorText,
 	invalidEmailErrorText,
-	ROUTES,
 } from '../../constants';
-
 import { Button, InputText, InputPassword } from '../../components';
+import RoutesPath from '../../constants/routesPath';
 
 export const Login = () => {
 	const navigate = useNavigate();
@@ -94,7 +92,7 @@ export const Login = () => {
 
 	useEffect(() => {
 		if (isAuthenticated) {
-			navigate(ROUTES.MAP);
+			navigate(RoutesPath.map);
 		}
 		if (!isAuthenticated && errorMessage) {
 			const errors = JSON.parse(errorMessage);
@@ -167,7 +165,7 @@ export const Login = () => {
 					/>
 					<span className="signin_form_span">
 						Еще нет аккаунта?{' '}
-						<Link to={ROUTES.REGISTRATION} className="signin_form_link">
+						<Link to={RoutesPath.registration} className="signin_form_link">
 							Зарегистрироваться
 						</Link>
 					</span>

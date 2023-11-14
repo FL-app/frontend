@@ -15,16 +15,13 @@ import {
 	invalidNicknameErrorText,
 	invalidEmailErrorText,
 	invalidConfirmPasswordErrorText,
-	ROUTES,
 	nicknamePattern,
 } from '../../constants';
-
 import { Button, InputText, InputPassword } from '../../components';
-
 import avatarman from '../../images/avatarman.png';
 import avatarwoman from '../../images/avatarwoman.png';
-
 import { registerUser } from '../../store/thunk/registerUser';
+import RoutesPath from '../../constants/routesPath';
 
 export const Registration = () => {
 	const navigate = useNavigate();
@@ -229,7 +226,7 @@ export const Registration = () => {
 	);
 
 	useEffect(() => {
-		if (registerSuccess) navigate(ROUTES.ACCESS_GEO);
+		if (registerSuccess) navigate(RoutesPath.accessGeo);
 		if (!registerSuccess && errorMessage) {
 			const errors = JSON.parse(errorMessage);
 
@@ -384,7 +381,7 @@ export const Registration = () => {
 
 							<span className="registration_form_span">
 								У тебя уже есть аккаунт?{' '}
-								<Link to={ROUTES.LOGIN} className="registration_form_link">
+								<Link to={RoutesPath.login} className="registration_form_link">
 									Войти
 								</Link>
 							</span>
@@ -449,7 +446,7 @@ export const Registration = () => {
 									Регистрируясь, ты подтверждаешь,
 									<br /> что прочитал(а) и принимаешь &nbsp;
 									<Link
-										to={ROUTES.PRIVACY_POLICY}
+										to={RoutesPath.privacyPolicy}
 										className="registration_form_terms-of-use-link"
 										target="_blank"
 									>
@@ -457,7 +454,7 @@ export const Registration = () => {
 									</Link>
 									&nbsp;и&nbsp;
 									<Link
-										to={ROUTES.TERMS_OF_USE}
+										to={RoutesPath.termsOfUse}
 										className="registration_form_terms-of-use-link"
 										target="_blank"
 									>
@@ -476,7 +473,7 @@ export const Registration = () => {
 
 							<span className="registration_form_span">
 								У тебя уже есть аккаунт?{' '}
-								<Link to={ROUTES.LOGIN} className="registration_form_link">
+								<Link to={RoutesPath.login} className="registration_form_link">
 									Войти
 								</Link>
 							</span>

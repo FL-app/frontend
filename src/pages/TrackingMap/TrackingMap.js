@@ -9,7 +9,7 @@ import './TrackingMap.scss';
 import geotag from '../../images/geotag_map.svg';
 import { friendsLocation } from './friendsLocation'; // TODO делать запрос к серверу для получения списка друзей, брать их координаты
 import ButtonUserLocation from '../../components/ButtonUserLocation/ButtonUserLocation';
-import { ROUTES } from '../../constants';
+import RoutesPath from '../../constants/routesPath';
 import { sendCoords } from '../../store/thunk/sendCoords';
 
 const userIcon = new Icon({
@@ -51,13 +51,13 @@ export function TrackingMap() {
 					);
 				}
 			} else {
-				navigate(ROUTES.ACCESS_GEO);
+				navigate(RoutesPath.accessGeo);
 			}
 			// };
 		};
 
 		const handleError = () => {
-			navigate(ROUTES.ACCESS_GEO_ERROR);
+			navigate(RoutesPath.accessGeoError);
 		};
 
 		const idWatch = navigator.geolocation.watchPosition(

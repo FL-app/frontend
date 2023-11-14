@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import './SettingsMenuPopup.scss';
 import Checkbox from '../Checkbox/Checkbox';
-import { ROUTES } from '../../constants';
+import RoutesPath from '../../constants/routesPath';
 
 function SettingsMenuPopup({
 	onClose,
@@ -29,18 +29,21 @@ function SettingsMenuPopup({
 			</div>
 			<section className="settingsMenuPopup__navigation">
 				<div className="settingsMenuPopup__link-container">
-					<Link className="settingsMenuPopup__link" to={ROUTES.COMING_SOON}>
+					<Link className="settingsMenuPopup__link" to={RoutesPath.comingSoon}>
 						Видимость на карте
 					</Link>
-					<Link className="settingsMenuPopup__link" to={ROUTES.COMING_SOON}>
+					<Link className="settingsMenuPopup__link" to={RoutesPath.comingSoon}>
 						Сменить пароль
 					</Link>
 				</div>
 				<div className="settingsMenuPopup__link-container">
-					<Link className="settingsMenuPopup__link" to={ROUTES.TERMS_OF_USE}>
+					<Link className="settingsMenuPopup__link" to={RoutesPath.termsOfUse}>
 						Условия использования
 					</Link>
-					<Link className="settingsMenuPopup__link" to={ROUTES.PRIVACY_POLICY}>
+					<Link
+						className="settingsMenuPopup__link"
+						to={RoutesPath.privacyPolicy}
+					>
 						Политика конфиденциальности
 					</Link>
 					<button

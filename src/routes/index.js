@@ -14,14 +14,14 @@ import {
 	ComingSoon,
 } from '../pages';
 
-import { ROUTES } from '../constants';
+import RoutesPath from '../constants/routesPath';
 import { TrackingMap } from '../pages/TrackingMap/TrackingMap';
 import { PrivateRoute, PublicRoute } from '../components';
 
 export const Routes = () => (
 	<RoutesDOM>
 		<Route
-			path={ROUTES.ROOT}
+			path={RoutesPath.root}
 			element={
 				<PublicRoute>
 					<Welcome />
@@ -29,7 +29,7 @@ export const Routes = () => (
 			}
 		/>
 		<Route
-			path={ROUTES.REGISTRATION}
+			path={RoutesPath.registration}
 			element={
 				<PublicRoute>
 					<Registration />
@@ -37,17 +37,17 @@ export const Routes = () => (
 			}
 		/>
 		<Route
-			path={ROUTES.LOGIN}
+			path={RoutesPath.login}
 			element={
 				<PublicRoute>
 					<Login />
 				</PublicRoute>
 			}
 		/>
-		<Route path={ROUTES.PRIVACY_POLICY} element={<PrivacyPolicy />} />
-		<Route path={ROUTES.TERMS_OF_USE} element={<TermsOfUse />} />
+		<Route path={RoutesPath.privacyPolicy} element={<PrivacyPolicy />} />
+		<Route path={RoutesPath.termsOfUse} element={<TermsOfUse />} />
 		<Route
-			path={ROUTES.FRIENDS}
+			path={RoutesPath.friends}
 			element={
 				<PrivateRoute>
 					<Friends />
@@ -55,7 +55,7 @@ export const Routes = () => (
 			}
 		/>
 		<Route
-			path={ROUTES.ACCESS_GEO}
+			path={RoutesPath.accessGeo}
 			element={
 				<PrivateRoute>
 					<AccessGeo />
@@ -63,7 +63,7 @@ export const Routes = () => (
 			}
 		/>
 		<Route
-			path={ROUTES.ACCESS_GEO_ERROR}
+			path={RoutesPath.accessGeoError}
 			element={
 				<PrivateRoute>
 					<AccessGeoError />
@@ -71,7 +71,7 @@ export const Routes = () => (
 			}
 		/>
 		<Route
-			path={ROUTES.MAP}
+			path={RoutesPath.map}
 			element={
 				<PrivateRoute>
 					<TrackingMap />
@@ -79,7 +79,7 @@ export const Routes = () => (
 			}
 		/>
 		<Route
-			path={ROUTES.PROFILE}
+			path={RoutesPath.profile}
 			element={
 				<PrivateRoute>
 					<Profile />
@@ -87,14 +87,14 @@ export const Routes = () => (
 			}
 		/>
 		<Route
-			path={ROUTES.ACCESS_AGE}
+			path={RoutesPath.accessAge}
 			element={
 				<PublicRoute>
 					<AccessAge />
 				</PublicRoute>
 			}
 		/>
-		<Route path={ROUTES.COMING_SOON} element={<ComingSoon />} />
+		<Route path={RoutesPath.comingSoon} element={<ComingSoon />} />
 		<Route path="*" element={<ComingSoon />} />
 	</RoutesDOM>
 );

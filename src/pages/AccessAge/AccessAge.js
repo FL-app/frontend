@@ -1,7 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { Button, PopupWithForm } from '../../components';
-import { ROUTES } from '../../constants';
+import RoutesPath from '../../constants/routesPath';
 import './AccessAge.scss';
 
 export const AccessAge = () => {
@@ -14,7 +14,7 @@ export const AccessAge = () => {
 				<div className="access-age_cylinder" />
 				<h1 className="access-age_title">Привет! Тебе уже есть 18 лет?</h1>
 				<h2 className="access-age_subtitle">Только честно</h2>
-				<Link to={ROUTES.REGISTRATION}>
+				<Link to={RoutesPath.registration}>
 					<Button
 						label="Да"
 						type="button"
@@ -45,7 +45,7 @@ export const AccessAge = () => {
 							Сервис предназначен для пользователей, достигших 18-летнего
 							возраста. Подробнее в{' '}
 							<Link
-								to={ROUTES.TERMS_OF_USE}
+								to={RoutesPath.termsOfUse}
 								className="access-age_popup-container_title_terms-of-use-link"
 								target="_blank"
 							>
@@ -60,7 +60,7 @@ export const AccessAge = () => {
 							className="access-age_popup-container_btn-ok"
 							onClick={() => {
 								setTooYoungPopupOpened(false);
-								navigate(ROUTES.ROOT);
+								navigate(RoutesPath.root);
 							}}
 						/>
 					</div>

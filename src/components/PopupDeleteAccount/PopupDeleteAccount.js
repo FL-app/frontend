@@ -4,7 +4,7 @@ import { useState } from 'react';
 import './PopupDeleteAccount.scss';
 import PopupWithForm from '../PopupWithForm/PopupWithForm';
 import Button from '../Button/Button';
-import { ROUTES } from '../../constants';
+import RoutesPath from '../../constants/routesPath';
 import success from '../../images/icon-success.svg';
 
 function PopupDeleteAccount({ isOpen, onClose, deleteAccount }) {
@@ -56,7 +56,7 @@ function PopupDeleteAccount({ isOpen, onClose, deleteAccount }) {
 					</>
 				)}
 				{title === '' && (
-					<Link to={ROUTES.ROOT}>
+					<Link to={RoutesPath.root}>
 						<Button
 							label="На главную"
 							type="button"
