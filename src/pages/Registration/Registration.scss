@@ -1,4 +1,5 @@
 @import "src/sassStyles/mixins";
+@import "src/sassStyles/variables";
 
 .registration {
 	font-family: 'Noto Sans', 'Arial', sans-serif;
@@ -25,7 +26,7 @@
 					rgba(244, 66, 0, 0) 100%
 				)
 				/* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
-			#ffffff;
+        $color_white;
 		height: 812px;
 		max-width: 375px;
 		display: flex;
@@ -41,7 +42,7 @@
 					rgba(244, 66, 0, 0.3) 0%,
 					rgba(244, 66, 0, 0) 100%
 				),
-				#fff;
+            $color_white;
 		}
 	}
 
@@ -86,7 +87,7 @@
 		flex-direction: column;
 		align-items: center;
 		padding: 24px 36px 33px;
-		background: #ffffff;
+		background: $color_white;
 		border-radius: 30px 30px 0 0;
 		width: 100%;
 
@@ -129,13 +130,13 @@
 		}
 
 		&_terms-of-use-text {
-			color: #141513;
+			color: $color_main_font;
 			font-size: 11px;
 		}
 
 		&_terms-of-use-link {
 			text-decoration: none;
-			color: #3fe911;
+			color: $color_buttons_background_active;
 			font-size: 11px;
 			cursor: pointer;
 		}
@@ -145,7 +146,7 @@
 			font-weight: 500;
 			font-size: 14px;
 			line-height: 19px;
-			color: #aeafa4;
+			color: $color_link;
 			margin: 0 0 16px;
 		}
 
@@ -154,7 +155,7 @@
 			font-weight: 700;
 			font-size: 24px;
 			line-height: 130%;
-			color: #000000;
+			color: $color_black;
 			margin-bottom: 12px;
 		}
 
@@ -169,7 +170,7 @@
 			&_legend {
 				box-sizing: border-box;
 				margin-bottom: 12px;
-				color: #000;
+				color: $color_black;
 				font-size: 13px;
 				font-family: 'Noto Sans', 'Arial', sans-serif;
 				font-weight: 500;
@@ -212,12 +213,12 @@
 		&_span {
 			margin-top: 20px;
 			margin-bottom: 34px;
-			color: #141513;
+			color: $color_main_font;
 			font-size: 14px;
 		}
 
 		&_link {
-			color: #3fe911;
+			color: $color_buttons_background_active;
 			font-size: 14px;
 			text-decoration-line: underline;
 		}

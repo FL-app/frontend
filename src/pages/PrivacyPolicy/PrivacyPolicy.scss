@@ -1,4 +1,5 @@
 @import "src/sassStyles/mixins";
+@import "src/sassStyles/variables";
 
 .privacy-policy {
 	display: flex;
@@ -8,14 +9,14 @@
 		max-width: 375px;
 		height: 100vh;
 		padding-top: 12px;
-		background-color: #fff;
+		background-color: $color_white;
 	}
 
 	&__header {
 		display: flex;
 		align-items: center;
 		padding-bottom: 12px;
-		border-bottom: 1px solid #cccdc2;
+		border-bottom: 1px solid $color_background_disabled;
 	}
 
 	&__btn-back {

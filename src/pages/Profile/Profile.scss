@@ -1,4 +1,5 @@
 @import "src/sassStyles/mixins";
+@import "src/sassStyles/variables";
 
 .profile {
 	display: flex;
@@ -78,7 +79,7 @@
 		&-change-nickname {
 			margin: 0;
 			padding: 0;
-			color: #3fe911;
+			color: $color_buttons_background_active;
 			font-size: 12px;
 			font-weight: 400;
 			line-height: normal;
@@ -92,7 +93,7 @@
 		display: flex;
 		flex-direction: column;
 		align-items: flex-start;
-		color: var(--black, #141513);
+		color: var(--black, $color_main_font);
 		font-size: 13px;
 		font-weight: 500;
 		line-height: 130%;
@@ -115,8 +116,8 @@
 			gap: 8px;
 			align-self: stretch;
 			border-radius: 10px;
-			border: 1px solid var(--grey, #cccdc2);
-			background: var(--white, #fff);
+			border: 1px solid var(--grey, $color_background_disabled);
+			background: var(--white, $color_white);
 		}
 
 		&-bar {
@@ -134,8 +135,8 @@
 				justify-content: center;
 				align-items: center;
 				border-radius: 24px;
-				border: 1px solid var(--grey, #cccdc2);
-				background: var(--light-grey, #fafafa);
+				border: 1px solid var(--grey, $color_background_disabled);
+				background: var(--light-grey, $color_popup_background);
 				font-size: 12px;
 				font-weight: 400;
 				line-height: normal;
@@ -152,7 +153,7 @@
 		align-items: center;
 		color: white;
 		border-radius: 20px;
-		background: var(--black, #141513);
+		background: var(--black, $color_main_font);
 		overflow: hidden;
 
 		&-add-btn {
@@ -162,8 +163,8 @@
 			align-items: center;
 			gap: 8px;
 			border-radius: 8px;
-			border: 2px solid var(--laim, #c3f402);
-			background: var(--white, #fff);
+			border: 2px solid var(--laim, $color_buttons_background_hover);
+			background: var(--white, $color_white);
 		}
 
 		&-text-container {
