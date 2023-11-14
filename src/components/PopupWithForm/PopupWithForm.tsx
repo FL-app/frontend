@@ -1,24 +1,24 @@
-import { FC, ReactNode, MouseEvent} from 'react';
+import { FC, ReactNode, MouseEvent } from 'react';
 import './PopupWithForm.scss';
 
 interface IProps {
-	title?: string,
-	name: string,
-	children: ReactNode,
-	isOpen: boolean,
-	onClose: () => void,
-	onSubmit: () => void,
-	formWidth: string,
+	title?: string;
+	name: string;
+	children: ReactNode;
+	isOpen: boolean;
+	onClose: () => void;
+	onSubmit: () => void;
+	formWidth: string;
 }
 
 const PopupWithForm: FC<IProps> = ({
-	title = "",
+	title = '',
 	name,
 	children,
 	isOpen = false,
 	onClose,
 	onSubmit,
-	formWidth = '320px'
+	formWidth = '320px',
 }) => {
 	function handleMouseDown(evt: MouseEvent<HTMLDivElement>) {
 		if (evt.target === evt.currentTarget) {
@@ -45,6 +45,6 @@ const PopupWithForm: FC<IProps> = ({
 			</div>
 		</div>
 	);
-}
+};
 
 export default PopupWithForm;
