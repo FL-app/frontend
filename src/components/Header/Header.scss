@@ -1,3 +1,5 @@
+@import "src/sassStyles/variables";
+
 .header {
 	position: relative;
 	box-sizing: border-box;
@@ -5,8 +7,8 @@
 	height: 64px;
 	padding: 12px 20px;
 	display: flex;
-	background-color: #fff;
-	border-bottom: 1px solid #cccdc2;
+	background-color: $color_white;
+	border-bottom: 1px solid $color_background_disabled;
 
 	&__menu {
 		box-sizing: border-box;
@@ -14,7 +16,7 @@
 		height: 40px;
 		margin-right: 12px;
 		border-radius: 50%;
-		border: 1px solid #cccdc2;
+		border: 1px solid $color_background_disabled;
 		background: url(../../images/icon-burger.svg) no-repeat;
 		background-position: center;
 		cursor: pointer;

@@ -1,3 +1,6 @@
+@import "src/sassStyles/variables";
+@import "src/sassStyles/mixins";
+
 .button {
 	box-sizing: border-box;
 	border: none;
@@ -6,7 +9,7 @@
 	font-size: 16px;
 	line-height: 24px;
 	cursor: pointer;
-	color: #000000;
+	color: $color_black;
 
 	&_link {
 		display: inline-flex;
@@ -23,62 +26,61 @@
 	}
 
 	&_large {
-		width: 303px;
-		height: 48px;
+      @include size(303px, 48px);
 	}
 
 	/* Colors */
 
 	&_color-primary {
-		background: linear-gradient(94.71deg, #c3f402 46.19%, #3fe911 124.54%);
+		background: linear-gradient(94.71deg, $color_buttons_background_hover 46.19%, $color_buttons_background_active 124.54%);
 	}
 
 	&_color-primary:disabled {
-		background: #cccdc2;
-		color: #fff;
+		background: $color_background_disabled;
+		color: $color_white;
 		cursor: auto;
 	}
 
 	&_color-primary:hover {
-		background: #c3f402;
+		background: $color_buttons_background_hover;
 	}
 
 	&_color-primary:active {
-		background: #3fe911;
+		background: $color_buttons_background_active;
 	}
 
 	&_color-primary:hover:disabled {
-		background: #cccdc2;
+		background: $color_background_disabled;
 	}
 
 	&_color-secondary {
 		background: transparent;
 		padding: 6px 14px;
-		border: 2px solid #c3f402;
+		border: 2px solid $color_buttons_background_hover;
 	}
 
 	&_color-secondary:disabled {
 		background: transparent;
-		border: 2px solid #cccdc2;
-		color: #cccdc2;
+		border: 2px solid $color_background_disabled;
+		color: $color_background_disabled;
 		cursor: auto;
 	}
 
 	&_color-secondary:hover {
-		border-color: rgba($color: #000000, $alpha: 0);
+		border-color: rgba($color: $color_black, $alpha: 0);
 		padding: 6px 14px;
-		background: #c3f402;
+		background: $color_buttons_background_hover;
 	}
 
 	&_color-secondary:active {
-		border-color: rgba($color: #000000, $alpha: 0);
+		border-color: rgba($color: $color_black, $alpha: 0);
 		padding: 6px 14px;
-		background: #3fe911;
+		background: $color_buttons_background_active;
 	}
 
 	&_color-secondary:hover:disabled {
 		background: transparent;
 		padding: 6px 14px;
-		border: 2px solid #cccdc2;
+		border: 2px solid $color_background_disabled;
 	}
 }

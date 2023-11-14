@@ -1,17 +1,10 @@
-$grey: #cccdc2;
-$light-yellow: #fdffe2;
-@mixin font15 {
-	font-size: 15px;
-	font-weight: 500;
-	font-style: normal;
-	line-height: normal;
-	color: #141513;
-}
+@import "src/sassStyles/variables";
+@import "src/sassStyles/mixins";
 
 .settingsMenuPopup {
 	&__header {
 		height: 64px;
-		border-bottom: 1px solid $grey;
+		border-bottom: 1px solid $color_background_disabled;
 		display: flex;
 		align-items: center;
 		padding: 12px 20px;
@@ -66,6 +59,6 @@ $light-yellow: #fdffe2;
 
 	&__link:hover,
 	&__button_delete-account:hover {
-		background: $light-yellow;
+		background: $color_popup_link_hover;
 	}
 }
