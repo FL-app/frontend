@@ -7,7 +7,9 @@ import App from './components/App/App';
 import './index.scss';
 import reportWebVitals from './reportWebVitals';
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+const rootElement: HTMLDivElement | null = document.querySelector('#root');
+if (!rootElement) throw new Error('Failed to find the root element');
+ReactDOM.createRoot(rootElement).render(
 	<React.StrictMode>
 		<Provider store={store}>
 			<BrowserRouter>
@@ -16,5 +18,4 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
 		</Provider>
 	</React.StrictMode>
 );
-
 reportWebVitals();
