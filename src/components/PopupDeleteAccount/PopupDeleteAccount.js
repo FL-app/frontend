@@ -4,7 +4,7 @@ import { useState } from 'react';
 import './PopupDeleteAccount.scss';
 import PopupWithForm from '../PopupWithForm/PopupWithForm';
 import Button from '../Button/Button';
-import RoutesPath from '../../constants/routesPath';
+import RoutesPath from '../../constants/enums/routesPath';
 import success from '../../images/icon-success.svg';
 
 function PopupDeleteAccount({ isOpen, onClose, deleteAccount }) {

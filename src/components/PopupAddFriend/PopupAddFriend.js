@@ -5,22 +5,19 @@ import { useUser } from '../../context/AppContext';
 import PopupWithForm from '../PopupWithForm/PopupWithForm';
 import InputText from '../InputText/InputText';
 import Button from '../Button/Button';
-import {
-	emailPattern,
-	emptyEmailErrorText,
-	invalidEmailErrorText,
-	friendExistErrorText,
-} from '../../constants';
-
 import './PopupAddFriend.scss';
 import avatar from '../../images/icon_profile_man.png';
 import success from '../../images/icon-success.svg';
+import ValidationErrorMessages from '../../constants/enums/validation';
+import { emailPattern } from '../../constants/regExp/validation';
 
 function PopupAddFriend({ isOpen, onClose }) {
 	const { currentUser } = useUser();
 
 	const [step, setStep] = useState(1);
-	const [emailError, setEmailError] = useState(emptyEmailErrorText);
+	const [emailError, setEmailError] = useState(
+		ValidationErrorMessages.emptyEmailErrorText
+	);
 	const [emailDirty, setEmailDirty] = useState(false);
 	const [foundFriend, setFoundFriend] = useState(null);
 	const [isContinueBtnDisabled, setIsContinueBtnDisabled] = useState(true);
@@ -40,20 +37,20 @@ function PopupAddFriend({ isOpen, onClose }) {
 		}
 
 		if (String(value).length === 0) {
-			setEmailError(emptyEmailErrorText);
+			setEmailError(ValidationErrorMessages.emptyEmailErrorText);
 			setFoundFriend(null);
 			setIsContinueBtnDisabled(true);
 		} else if (!value.match(emailPattern)) {
-			setEmailError(invalidEmailErrorText);
+			setEmailError(ValidationErrorMessages.invalidEmailErrorText);
 			setFoundFriend(null);
 			setIsContinueBtnDisabled(true);
 		} else if (currentUser.friends.some((friend) => friend.email === value)) {
 			const friend = currentUser.friends.find((elem) => elem.email === value);
-			setEmailError(friendExistErrorText);
+			setEmailError(ValidationErrorMessages.friendExistErrorText);
 			setFoundFriend(friend);
 			setIsContinueBtnDisabled(true);
 		} else {
-			setEmailError('');
+			setEmailError(ValidationErrorMessages.emptyString);
 			setFoundFriend(null);
 			setIsContinueBtnDisabled(false);
 		}
@@ -213,7 +210,7 @@ function PopupAddFriend({ isOpen, onClose }) {
 							color="primary"
 							size="medium"
 							className="add-friend__btn"
-							onClick={handleSubmit}
+							onClick={() => handleSubmit()}
 						/>
 					</>
 				) : step === 3 ? (
@@ -235,7 +232,7 @@ function PopupAddFriend({ isOpen, onClose }) {
 							color="primary"
 							size="medium"
 							className="add-friend__btn"
-							onClick={handleSubmit}
+							onClick={() => handleSubmit()}
 						/>
 					</>
 				) : (

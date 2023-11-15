@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import './SettingsMenuPopup.scss';
 import Checkbox from '../Checkbox/Checkbox';
-import RoutesPath from '../../constants/routesPath';
+import RoutesPath from '../../constants/enums/routesPath';
 
 function SettingsMenuPopup({
 	onClose,

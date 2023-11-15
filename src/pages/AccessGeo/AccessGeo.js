@@ -5,7 +5,7 @@ import {
 	setLocationError,
 } from '../../store/slices/location';
 import { Button } from '../../components';
-import RoutesPath from '../../constants/routesPath';
+import RoutesPath from '../../constants/enums/routesPath';
 import geoTag from '../../images/geo-tag.png';
 import './AccessGeo.scss';
 // import { sendCoords } from '../../store/thunk/sendCoords';

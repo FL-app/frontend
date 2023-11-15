@@ -3,14 +3,10 @@ import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginUser } from '../../store/thunk/loginUser';
-import {
-	emailPattern,
-	emptyEmailErrorText,
-	emptyPasswordErrorText,
-	invalidEmailErrorText,
-} from '../../constants';
 import { Button, InputText, InputPassword } from '../../components';
-import RoutesPath from '../../constants/routesPath';
+import RoutesPath from '../../constants/enums/routesPath';
+import { emailPattern } from '../../constants/regExp/validation';
+import ValidationErrorMessages from '../../constants/enums/validation';
 
 export const Login = () => {
 	const navigate = useNavigate();
@@ -23,8 +19,12 @@ export const Login = () => {
 	const [emailDirty, setEmailDirty] = useState(false);
 	const [passwordDirty, setPasswordDirty] = useState(false);
 
-	const [emailError, setEmailError] = useState(emptyEmailErrorText);
-	const [passwordError, setPasswordError] = useState(emptyPasswordErrorText);
+	const [emailError, setEmailError] = useState(
+		ValidationErrorMessages.emptyEmailErrorText
+	);
+	const [passwordError, setPasswordError] = useState(
+		ValidationErrorMessages.emptyPasswordErrorText
+	);
 
 	const [passwordType, setPasswordType] = useState('password');
 
@@ -39,18 +39,18 @@ export const Login = () => {
 		switch (name) {
 			case 'email':
 				if (String(value).length === 0) {
-					setEmailError(emptyEmailErrorText);
+					setEmailError(ValidationErrorMessages.emptyEmailErrorText);
 				} else if (!value.match(emailPattern)) {
-					setEmailError(invalidEmailErrorText);
+					setEmailError(ValidationErrorMessages.invalidEmailErrorText);
 				} else {
-					setEmailError('');
+					setEmailError(ValidationErrorMessages.emptyString);
 				}
 				break;
 			case 'password':
 				if (String(value).length === 0) {
-					setPasswordError(emptyPasswordErrorText);
+					setPasswordError(ValidationErrorMessages.emptyPasswordErrorText);
 				} else {
-					setPasswordError('');
+					setPasswordError(ValidationErrorMessages.emptyString);
 				}
 				break;
 			default:
@@ -96,10 +96,10 @@ export const Login = () => {
 		}
 		if (!isAuthenticated && errorMessage) {
 			const errors = JSON.parse(errorMessage);
-			setPasswordError('');
+			setPasswordError(ValidationErrorMessages.emptyString);
 
 			if (errors.detail) {
-				setPasswordError('Неверный логин или пароль');
+				setPasswordError(ValidationErrorMessages.wrongLoginOrPassword);
 			}
 		}
 	}, [navigate, errorMessage, isAuthenticated, requestCounter]);
@@ -161,7 +161,7 @@ export const Login = () => {
 						color="primary"
 						size="large"
 						className="registration_form_btn-continue"
-						onClick={handleSubmit}
+						onClick={() => handleSubmit()}
 					/>
 					<span className="signin_form_span">
 						Еще нет аккаунта?{' '}

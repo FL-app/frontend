@@ -9,7 +9,7 @@ import './TrackingMap.scss';
 import geotag from '../../images/geotag_map.svg';
 import { friendsLocation } from './friendsLocation'; // TODO делать запрос к серверу для получения списка друзей, брать их координаты
 import ButtonUserLocation from '../../components/ButtonUserLocation/ButtonUserLocation';
-import RoutesPath from '../../constants/routesPath';
+import RoutesPath from '../../constants/enums/routesPath';
 import { sendCoords } from '../../store/thunk/sendCoords';
 
 const userIcon = new Icon({

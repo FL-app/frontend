@@ -6,7 +6,7 @@ import { logout } from '../../store/slices/user';
 import UserAvatar from '../UserAvatar/UserAvatar';
 import Checkbox from '../Checkbox/Checkbox';
 import chat from '../../images/chat_menu.svg';
-import RoutesPath from '../../constants/routesPath';
+import RoutesPath from '../../constants/enums/routesPath';
 import friendsNew from '../../images/friendsNew_menu.svg';
 import places from '../../images/places_menu.svg';
 import profile from '../../images/profile_menu.svg';

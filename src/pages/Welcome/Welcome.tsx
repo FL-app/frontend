@@ -2,7 +2,7 @@ import './Welcome.scss';
 import { Link } from 'react-router-dom';
 import Button from '../../components/Button/Button';
 import Carousel from '../../components/Carousel/Carousel';
-import RoutesPath from '../../constants/routesPath';
+import RoutesPath from '../../constants/enums/routesPath';
 
 export function Welcome() {
 	return (

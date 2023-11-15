@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { useNavigate } from 'react-router-dom';
 import { sendCoords } from '../thunk/sendCoords';
-import RoutesPath from '../../constants/routesPath';
+import RoutesPath from '../../constants/enums/routesPath';
 
 const locationSlice = createSlice({
 	name: 'location',

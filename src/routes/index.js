@@ -14,7 +14,7 @@ import {
 	ComingSoon,
 } from '../pages';
 
-import RoutesPath from '../constants/routesPath';
+import RoutesPath from '../constants/enums/routesPath';
 import { TrackingMap } from '../pages/TrackingMap/TrackingMap';
 import { PrivateRoute, PublicRoute } from '../components';
 
