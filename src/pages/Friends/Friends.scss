@@ -1,5 +1,5 @@
-@import "src/sassStyles/mixins";
-@import "src/sassStyles/variables";
+@import 'src/sassStyles/mixins';
+@import 'src/sassStyles/variables';
 
 .friends {
 	display: flex;
@@ -15,7 +15,7 @@
 	}
 
 	&__header {
-        @include size(100%, 64px);
+		@include size(100%, 64px);
 		position: relative;
 		box-sizing: border-box;
 		padding: 12px 20px;
@@ -44,7 +44,7 @@
 			background-color: $color_popup_background;
 
 			&-img {
-                @include size(42px, 42px);
+				@include size(42px, 42px);
 			}
 		}
 	}

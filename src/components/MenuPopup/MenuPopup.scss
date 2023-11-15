@@ -1,5 +1,5 @@
-@import "src/sassStyles/variables";
-@import "src/sassStyles/mixins";
+@import 'src/sassStyles/variables';
+@import 'src/sassStyles/mixins';
 
 .menuPopup {
 	position: absolute;
@@ -17,7 +17,7 @@
 	}
 
 	&__container {
-        @include size(80%, 100vh);
+		@include size(80%, 100vh);
 		background-color: $color_popup_background;
 		box-sizing: border-box;
 	}

@@ -1,5 +1,5 @@
-@import "src/sassStyles/mixins";
-@import "src/sassStyles/variables";
+@import 'src/sassStyles/mixins';
+@import 'src/sassStyles/variables';
 
 .signin {
 	display: flex;
@@ -12,7 +12,7 @@
 				rgba(244, 66, 0, 0.3) 0%,
 				rgba(244, 66, 0, 0) 100%
 			),
-        $color_white;
+			$color_white;
 		height: 812px;
 		max-width: 375px;
 		display: flex;
@@ -24,7 +24,7 @@
 	}
 
 	&_btn-back {
-        @include size(32px, 32px);
+		@include size(32px, 32px);
 		z-index: 1;
 		cursor: pointer;
 		position: absolute;
@@ -36,7 +36,7 @@
 	}
 
 	&_vector-1 {
-        @include size(274.48px, 137.44px);
+		@include size(274.48px, 137.44px);
 		position: absolute;
 		top: 270px;
 		left: 0;
@@ -45,7 +45,7 @@
 	}
 
 	&_vector-2 {
-        @include size(90px, 90px);
+		@include size(90px, 90px);
 		position: absolute;
 		top: 70px;
 		left: 168px;
@@ -54,7 +54,7 @@
 	}
 
 	&_semicircle {
-        @include size(159.862px, 159.862px);
+		@include size(159.862px, 159.862px);
 		z-index: 1;
 		position: absolute;
 		top: 48.19px;
@@ -64,7 +64,7 @@
 	}
 
 	&_spiral {
-        @include size(222.412px, 222.412px);
+		@include size(222.412px, 222.412px);
 		position: absolute;
 		top: 137px;
 		left: 197px;

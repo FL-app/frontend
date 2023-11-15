@@ -1,4 +1,4 @@
-@import "src/sassStyles/mixins";
+@import 'src/sassStyles/mixins';
 
 .add-friend__container {
 	margin-bottom: 25px;
@@ -24,7 +24,7 @@
 	margin-top: -35px;
 
 	&-icon {
-        @include size(48px, 48px);
+		@include size(48px, 48px);
 		margin-bottom: 15px;
 	}
 

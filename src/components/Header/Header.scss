@@ -1,8 +1,8 @@
-@import "src/sassStyles/variables";
-@import "src/sassStyles/mixins";
+@import 'src/sassStyles/variables';
+@import 'src/sassStyles/mixins';
 
 .header {
-    @include size(100%, 64px);
+	@include size(100%, 64px);
 	position: relative;
 	box-sizing: border-box;
 	padding: 12px 20px;
@@ -11,12 +11,12 @@
 	border-bottom: 1px solid $color_background_disabled;
 
 	&__menu {
-        @include size(40px, 40px);
+		@include size(40px, 40px);
 		box-sizing: border-box;
 		margin-right: 12px;
 		border-radius: 50%;
 		border: 1px solid $color_background_disabled;
-        background: url(../../images/icon-burger.svg) no-repeat center;
-        cursor: pointer;
+		background: url(../../images/icon-burger.svg) no-repeat center;
+		cursor: pointer;
 	}
 }

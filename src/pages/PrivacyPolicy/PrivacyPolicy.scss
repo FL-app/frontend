@@ -1,5 +1,5 @@
-@import "src/sassStyles/mixins";
-@import "src/sassStyles/variables";
+@import 'src/sassStyles/mixins';
+@import 'src/sassStyles/variables';
 
 .privacy-policy {
 	display: flex;
@@ -20,7 +20,7 @@
 	}
 
 	&__btn-back {
-        @include size(32px, 32px);
+		@include size(32px, 32px);
 		margin-left: 20px;
 		margin-right: 12px;
 		padding: 0;

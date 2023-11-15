@@ -1,6 +1,6 @@
-@import "src/sassStyles/mixins";
+@import 'src/sassStyles/mixins';
 
 .loader {
-    @include size(212px, 86px);
-    background: url(../../images/Logo.png) no-repeat center;
+	@include size(212px, 86px);
+	background: url(../../images/Logo.png) no-repeat center;
 }

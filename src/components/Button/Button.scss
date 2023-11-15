@@ -1,5 +1,5 @@
-@import "src/sassStyles/variables";
-@import "src/sassStyles/mixins";
+@import 'src/sassStyles/variables';
+@import 'src/sassStyles/mixins';
 
 .button {
 	box-sizing: border-box;
@@ -26,13 +26,17 @@
 	}
 
 	&_large {
-      @include size(303px, 48px);
+		@include size(303px, 48px);
 	}
 
 	/* Colors */
 
 	&_color-primary {
-		background: linear-gradient(94.71deg, $color_buttons_background_hover 46.19%, $color_buttons_background_active 124.54%);
+		background: linear-gradient(
+			94.71deg,
+			$color_buttons_background_hover 46.19%,
+			$color_buttons_background_active 124.54%
+		);
 	}
 
 	&_color-primary:disabled {
