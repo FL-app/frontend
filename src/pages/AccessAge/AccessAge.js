@@ -1,7 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { Button, PopupWithForm } from '../../components';
-import RoutesPath from '../../constants/routesPath';
+import RoutesPath from '../../constants/enums/routesPath';
 import './AccessAge.scss';
 
 export const AccessAge = () => {
