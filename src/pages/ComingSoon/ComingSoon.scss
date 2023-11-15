@@ -1,9 +1,13 @@
+@import "src/sassStyles/mixins";
+@import "src/sassStyles/variables";
+
 .coming-soon {
 	display: flex;
 	justify-content: center;
 	position: relative;
 
 	&_diamond {
+        @include size(115.779px, 115.779px);
 		z-index: 2;
 		content: '';
 		background-image: url(../../images/coming-soon-diamond.png);
@@ -11,43 +15,36 @@
 		position: absolute;
 		left: 270.01px;
 		top: 531px;
-		width: 115.779px;
-		height: 115.779px;
 	}
 
 	&_container {
-		background: #fafafa;
-		width: 375px;
-		height: 812px;
-
+        @include size(375px, 812px);
+		background: $color_popup_background;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		position: relative;
 		overflow: hidden;
-		position: relative;
 	}
 
 	&_container::before {
+        @include size(150px, 150px);
 		content: '';
 		background-image: url(../../images/coming-soon-vector-1.svg);
 		background-repeat: no-repeat;
 		position: absolute;
 		left: 0;
 		top: 114px;
-		width: 150px;
-		height: 150px;
 	}
 
 	&_container::after {
+        @include size(180px, 180px);
 		content: '';
 		background-image: url(../../images/coming-soon-vector-2.svg);
 		background-repeat: no-repeat;
 		position: absolute;
 		left: 245px;
 		top: 498px;
-		width: 180px;
-		height: 180px;
 	}
 
 	&_img-container {
@@ -58,16 +55,14 @@
 	}
 
 	&_logo {
-		width: 167px;
-		height: 65px;
+        @include size(167px, 65px);
 		margin-top: 70px;
 		margin-bottom: 24px;
 	}
 
 	&_main-img {
+        @include size(335px, 455px);
 		z-index: 1;
-		width: 335px;
-		height: 455px;
 	}
 
 	&_text-container {
@@ -80,7 +75,7 @@
 
 	&_title {
 		margin: 0;
-		color: #141513;
+		color: $color_main_font;
 		text-align: center;
 		font-size: 24px;
 		font-style: normal;
@@ -89,9 +84,8 @@
 	}
 
 	&_subtitle {
-		margin: 0;
-		margin-top: 8px;
-		color: #141513;
+        margin: 8px 0 0;
+        color: $color_main_font;
 		text-align: center;
 		font-size: 15px;
 		font-style: normal;

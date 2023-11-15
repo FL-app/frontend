@@ -1,3 +1,6 @@
+@import "src/sassStyles/variables";
+@import "src/sassStyles/mixins";
+
 .footer {
 	box-sizing: border-box;
 	display: flex;
@@ -9,8 +12,8 @@
 		padding: 0 8px 20px 8px;
 		display: flex;
 		column-gap: 12px;
-		border-top: 1px solid #cccdc2;
-		background-color: #fff;
+		border-top: 1px solid $color_background_disabled;
+		background-color: $color_white;
 	}
 
 	&__link {
@@ -24,12 +27,11 @@
 		background-color: transparent;
 		text-decoration: none;
 		cursor: pointer;
-		color: #aeafa4;
+		color: $color_link;
 	}
 
 	&__link-icon {
-		width: 24px;
-		height: 24px;
+        @include size(24px, 24px);
 	}
 
 	&__link-text {
@@ -39,10 +41,10 @@
 	}
 
 	&__link_active {
-		color: #000;
+		color: $color_black;
 
 		& svg {
-			fill: #000;
+			fill: $color_black;
 		}
 	}
 }

@@ -1,3 +1,5 @@
+@import "src/sassStyles/variables";
+
 .form-input-container {
 	position: relative;
 	width: 100%;
@@ -18,22 +20,21 @@
 
 .form-input {
 	margin-top: 4px;
-	border: 1px solid #cccdc2;
+	border: 1px solid $color_background_disabled;
 	border-radius: 10px;
 	padding: 0 8px;
 	height: 40px;
-
-	color: #000;
+	color: $color_black;
 	font-size: 14px;
 	line-height: 130%;
 	letter-spacing: -0.266px;
 
 	&_error {
-		border-color: #e90000;
+		border-color: $color_error;
 	}
 
 	&_error-text {
-		color: #e90000;
+		color: $color_error;
 		font-size: 11px;
 		margin-top: 4px;
 	}

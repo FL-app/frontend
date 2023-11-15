@@ -1,3 +1,6 @@
+@import "src/sassStyles/mixins";
+@import "src/sassStyles/variables";
+
 .terms-of-use {
 	display: flex;
 	justify-content: center;
@@ -6,25 +9,24 @@
 		max-width: 375px;
 		height: 100vh;
 		padding-top: 12px;
-		background-color: #fff;
+		background-color: $color_white;
 	}
 
 	&__header {
 		display: flex;
 		align-items: center;
 		padding-bottom: 12px;
-		border-bottom: 1px solid #cccdc2;
+		border-bottom: 1px solid $color_background_disabled;
 	}
 
 	&__btn-back {
+        @include size(32px, 32px);
 		margin-left: 20px;
 		margin-right: 12px;
 		padding: 0;
 		cursor: pointer;
 		border: none;
 		outline: none;
-		width: 32px;
-		height: 32px;
 		background: transparent url(../../images/arrow-back.svg) no-repeat;
 	}
 
