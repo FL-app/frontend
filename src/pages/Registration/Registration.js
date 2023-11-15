@@ -470,7 +470,7 @@ export const Registration = () => {
 								color="primary"
 								size="large"
 								className="registration_form_btn-continue"
-								onClick={() => handleSubmit()}
+								onClick={handleSubmit}
 							/>
 
 							<span className="registration_form_span">

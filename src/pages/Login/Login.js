@@ -161,7 +161,7 @@ export const Login = () => {
 						color="primary"
 						size="large"
 						className="registration_form_btn-continue"
-						onClick={() => handleSubmit()}
+						onClick={handleSubmit}
 					/>
 					<span className="signin_form_span">
 						Еще нет аккаунта?{' '}
