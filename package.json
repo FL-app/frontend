@@ -6,10 +6,8 @@
 		"start": "react-scripts start",
 		"build": "react-scripts build",
 		"test": "react-scripts test",
-		"storybook": "storybook dev -p 6006",
-		"build-storybook": "storybook build",
 		"lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-		"lint:fix": "npm run lint -- --fix",
+		"lint:fix": "eslint --fix .",
 		"format": "prettier . --check --ignore-path ./.prettierignore",
 		"format:fix": "prettier . --write --ignore-path ./.prettierignore",
 		"prepare": "husky install",
@@ -17,66 +15,53 @@
 	},
 	"devDependencies": {
 		"@babel/plugin-proposal-private-property-in-object": "^7.21.11",
-		"@types/leaflet": "^1.9.3",
-		"@types/react": "^18.2.33",
-		"@types/react-dom": "^18.2.14",
-		"@types/react-slick": "^0.23.11",
+		"@babel/plugin-transform-class-properties": "^7.23.3",
+		"@babel/plugin-transform-nullish-coalescing-operator": "^7.23.3",
+		"@babel/plugin-transform-numeric-separator": "^7.23.3",
+		"@jridgewell/sourcemap-codec": "^1.4.15",
+		"@testing-library/jest-dom": "^6.1.4",
+		"@testing-library/react": "^14.1.0",
+		"@testing-library/user-event": "^14.5.1",
+		"@types/leaflet": "^1.9.8",
+		"@types/react": "^18.2.37",
+		"@types/react-dom": "^18.2.15",
+		"@types/react-slick": "^0.23.12",
+		"@typescript-eslint/eslint-plugin": "^6.11.0",
+		"@typescript-eslint/parser": "^6.11.0",
 		"babel-plugin-named-exports-order": "^0.0.2",
 		"commitizen": "^4.3.0",
 		"cz-conventional-changelog": "^3.3.0",
+		"eslint": "^8.2.0",
 		"eslint-config-airbnb": "^19.0.4",
-		"eslint-config-prettier": "^8.8.0",
+		"eslint-config-airbnb-typescript": "^17.1.0",
+		"eslint-config-prettier": "^9.0.0",
+		"eslint-plugin-import": "^2.25.3",
+		"eslint-plugin-jsx-a11y": "^6.5.1",
+		"eslint-plugin-prettier": "^5.0.1",
+		"eslint-plugin-react": "^7.28.0",
+		"eslint-plugin-react-hooks": "^4.3.0",
 		"husky": "^8.0.3",
-		"lint-staged": "^13.2.2",
-		"prettier": "^2.8.8",
+		"instead": "^1.0.3",
+		"lint-staged": "^15.1.0",
+		"prettier": "^3.1.0",
+		"react-scripts": "^5.0.1",
 		"sass": "^1.63.4",
-		"storybook": "^7.0.21",
 		"typescript": "^4.9.5",
+		"web-vitals": "^3.5.0",
 		"webpack": "^5.87.0"
 	},
 	"dependencies": {
 		"@reduxjs/toolkit": "^1.9.5",
-		"@testing-library/jest-dom": "^5.16.5",
-		"@testing-library/react": "^13.4.0",
-		"@testing-library/user-event": "^13.5.0",
-		"clsx": "^1.2.1",
 		"leaflet": "^1.9.4",
+		"node": "^18.17.0",
 		"prop-types": "^15.8.1",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
 		"react-leaflet": "^4.2.1",
 		"react-redux": "^8.1.1",
 		"react-router-dom": "^6.14.0",
-		"react-scripts": "5.0.1",
 		"react-slick": "^0.29.0",
-		"slick-carousel": "^1.8.1",
-		"web-vitals": "^2.1.4"
-	},
-	"eslintConfig": {
-		"extends": [
-			"react-app",
-			"react-app/jest",
-			"airbnb",
-			"airbnb/hooks",
-			"prettier"
-		],
-		"rules": {
-			"react/jsx-filename-extension": [
-				1,
-				{
-					"extensions": [
-						".js",
-						".jsx"
-					]
-				}
-			],
-			"react/react-in-jsx-scope": "off",
-			"import/prefer-default-export": "off",
-			"react/function-component-definition": "off",
-			"react/jsx-props-no-spreading": "off",
-			"react/no-unescaped-entities": "off",
-			"react/button-has-type": "off"
-		}
+		"slick-carousel": "^1.8.1"
 	},
 	"browserslist": {
 		"production": [
