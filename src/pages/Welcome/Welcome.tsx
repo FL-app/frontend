@@ -1,10 +1,11 @@
+import React from 'react';
 import './Welcome.scss';
 import { Link } from 'react-router-dom';
 import Button from '../../components/Button/Button';
 import Carousel from '../../components/Carousel/Carousel';
 import RoutesPath from '../../constants/enums/routesPath';
 
-export function Welcome() {
+export default function Welcome() {
 	return (
 		<main className="welcome">
 			<div className="welcome_container">

@@ -1,4 +1,4 @@
-import { FC, ReactNode, MouseEvent } from 'react';
+import React, { FC, ReactNode, MouseEvent } from 'react';
 import './PopupWithForm.scss';
 
 interface IProps {

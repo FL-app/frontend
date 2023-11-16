@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { registerUser } from '../thunk/registerUser';
 import { loginUser } from '../thunk/loginUser';
-import { getCurrentUser } from '../thunk/getCurrentUser';
+import getCurrentUser from '../thunk/getCurrentUser';
 import { refreshToken } from '../thunk/refreshToken';
 import { setNickname } from '../thunk/setNickname';
 

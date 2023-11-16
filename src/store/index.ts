@@ -7,6 +7,8 @@ const rootReducer = combineReducers({
 	user: userSlice,
 });
 
-export const store = configureStore({
+const store = configureStore({
 	reducer: rootReducer,
 });
+
+export default store;

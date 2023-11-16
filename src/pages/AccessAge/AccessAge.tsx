@@ -1,10 +1,10 @@
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useState } from 'react';
 import { Button, PopupWithForm } from '../../components';
 import RoutesPath from '../../constants/enums/routesPath';
 import './AccessAge.scss';
 
-export const AccessAge = () => {
+export default function AccessAge() {
 	const navigate = useNavigate();
 	const [tooYoungPopupOpened, setTooYoungPopupOpened] = useState(false);
 
@@ -37,7 +37,7 @@ export const AccessAge = () => {
 					name="too-young"
 					isOpen={tooYoungPopupOpened}
 					onClose={() => setTooYoungPopupOpened(false)}
-					onSubmit={() => void 0}
+					onSubmit={() => undefined}
 					formWidth="335px"
 				>
 					<div className="access-age_popup-container">
@@ -68,4 +68,4 @@ export const AccessAge = () => {
 			</div>
 		</section>
 	);
-};
+}
