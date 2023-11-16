@@ -10,7 +10,9 @@
 	background-color: rgba(0, 0, 0, 0.5);
 	visibility: hidden;
 	opacity: 0;
-	transition: visibility 0.5s, opacity 0.5s;
+	transition:
+		visibility 0.5s,
+		opacity 0.5s;
 	z-index: 10;
 
 	&__container {
@@ -29,7 +31,9 @@
 	&_opened {
 		visibility: visible;
 		opacity: 1;
-		transition: visibility 0.5s, opacity 0.5s;
+		transition:
+			visibility 0.5s,
+			opacity 0.5s;
 	}
 
 	/* @TODO добавить общие стили чтобы можно было убрать некоторые свойсва стилей */
