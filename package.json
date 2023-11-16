@@ -80,13 +80,12 @@
 		]
 	},
 	"lint-staged": {
-		"*.{js,jsx}": [
-			"npm run lint:fix",
-			"git add"
+		"*.{js,jsx,ts,tsx}": [
+			"prettier . --write",
+			"eslint --fix ."
 		],
-		"*.{js,jsx,ts,tsx,css,md,html,json}": [
-			"npm run format:fix",
-			"git add"
+		"*.{scss,md,html,json}": [
+			"prettier . --write"
 		]
 	},
 	"config": {
