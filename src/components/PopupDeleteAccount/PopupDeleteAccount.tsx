@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import './PopupDeleteAccount.scss';
@@ -7,7 +6,14 @@ import Button from '../Button/Button';
 import RoutesPath from '../../constants/enums/routesPath';
 import success from '../../images/icon-success.svg';
 
-function PopupDeleteAccount({ isOpen, onClose, deleteAccount }) {
+interface PopupDeleteAccountProps {
+	isOpen: boolean;
+	onClose: () => void;
+	deleteAccount: () => void;
+}
+
+function PopupDeleteAccount(props: PopupDeleteAccountProps) {
+	const { isOpen, onClose, deleteAccount } = props;
 	const [title, setTitle] = useState(
 		'Вы действительно хотите удалить свой профиль в «Где друзья»?'
 	);
@@ -28,7 +34,7 @@ function PopupDeleteAccount({ isOpen, onClose, deleteAccount }) {
 				<div className="delete-account__container">
 					<img
 						className="delete-account__img"
-						src={success}
+						src={success as string}
 						alt="Профиль удалён"
 					/>
 					<p className="delete-account__text">Профиль удалён</p>
@@ -69,11 +75,5 @@ function PopupDeleteAccount({ isOpen, onClose, deleteAccount }) {
 		</PopupWithForm>
 	);
 }
-
-PopupDeleteAccount.propTypes = {
-	isOpen: PropTypes.bool.isRequired,
-	onClose: PropTypes.func.isRequired,
-	deleteAccount: PropTypes.func.isRequired,
-};
 
 export default PopupDeleteAccount;
