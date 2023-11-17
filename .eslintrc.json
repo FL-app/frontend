@@ -27,6 +27,8 @@
 	},
 	"plugins": ["@typescript-eslint", "react", "prettier"],
 	"rules": {
+		"react/react-in-jsx-scope": "off",
+		"react/jsx-uses-react": "off",
 		"react/require-default-props": "off",
 		"react/jsx-filename-extension": "off",
 		"react/jsx-props-no-spreading": "off",
