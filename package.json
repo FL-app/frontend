@@ -3,8 +3,9 @@
 	"version": "0.1.0",
 	"private": true,
 	"scripts": {
-		"start": "react-scripts start",
-		"build": "react-scripts build",
+		"start": "vite",
+		"build": "tsc && vite build",
+		"serve": "vite preview",
 		"test": "jest",
 		"lint": "eslint . --ext .js,.jsx,.ts,.tsx",
 		"lint:fix": "eslint --fix .",
