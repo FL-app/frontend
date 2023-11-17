@@ -4,11 +4,11 @@ import './PopupWithForm.scss';
 interface IProps {
 	title?: string;
 	name: string;
-	children: ReactNode;
+	children?: ReactNode;
 	isOpen: boolean;
 	onClose: () => void;
-	onSubmit: () => void;
-	formWidth: string;
+	onSubmit?: () => void;
+	formWidth?: string;
 }
 
 const PopupWithForm: FC<IProps> = ({
