@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import './SettingsMenuPopup.scss';
-import Checkbox from '../Checkbox/Checkbox';
+import Checkbox from '../Checkbox/Checkbox.jsx';
 import RoutesPath from '../../constants/enums/routesPath';
 
 function SettingsMenuPopup({

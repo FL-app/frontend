@@ -7,8 +7,8 @@ import {
 	GeneralMenuPopup,
 	SettingsMenuPopup,
 } from '../components';
-import { useUser } from '../context/AppContext';
-import MenuPopup from '../components/MenuPopup/MenuPopup';
+import { useUser } from '../context/AppContext.jsx';
+import MenuPopup from '../components/MenuPopup/MenuPopup.jsx';
 import PopupDeleteAccount from '../components/PopupDeleteAccount/PopupDeleteAccount';
 
 export default function MainLayout({

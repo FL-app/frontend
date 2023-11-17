@@ -1,9 +1,9 @@
 /* eslint-disable no-nested-ternary */
 import PropTypes from 'prop-types';
 import { useState } from 'react';
-import { useUser } from '../../context/AppContext';
+import { useUser } from '../../context/AppContext.jsx';
 import PopupWithForm from '../PopupWithForm/PopupWithForm';
-import InputText from '../InputText/InputText';
+import InputText from '../InputText/InputText.jsx';
 import Button from '../Button/Button';
 import './PopupAddFriend.scss';
 import avatar from '../../images/icon_profile_man.png';

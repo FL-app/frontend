@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button, PopupWithForm, Input } from '../../components';
-import MainLayout from '../../layouts/MainLayout';
+import MainLayout from '../../layouts/MainLayout.jsx';
 import spiralPng from '../../images/spiral-banner.png';
 import vectorCircle from '../../images/vector-signin-2.svg';
 import avatarMale from '../../images/icon_profile_man.png';
