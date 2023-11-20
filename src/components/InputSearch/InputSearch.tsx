@@ -1,7 +1,7 @@
 import './InputSearch.scss';
 
 interface InputSearchProps {
-	handleSearch?: (searchKeyword: string) => void;
+	handleSearch: (searchKeyword: string) => void;
 }
 
 const InputSearch = (props: InputSearchProps) => {
@@ -10,9 +10,7 @@ const InputSearch = (props: InputSearchProps) => {
 	return (
 		<input
 			placeholder="Поиск друзей"
-			onChange={(event) =>
-				handleSearch ? handleSearch(event.target.value) : undefined
-			}
+			onChange={(event) => handleSearch(event.target.value)}
 			className="input-search"
 		/>
 	);
