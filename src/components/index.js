@@ -11,5 +11,5 @@ export { default as PopupAddFriend } from './PopupAddFriend/PopupAddFriend.jsx';
 export { default as GeneralMenuPopup } from './GeneralMenuPopup/GeneralMenuPopup.jsx';
 export { default as InputSearch } from './InputSearch/InputSearch.jsx';
 export { default as PrivateRoute } from './PrivateRoute/PrivateRoute.jsx';
-export { default as PublicRoute } from './PublicRoute/PublicRoute.jsx';
+export { default as PublicRoute } from './PublicRoute/PublicRoute.tsx';
 export { default as SettingsMenuPopup } from './SettingsMenuPopup/SettingsMenuPopup.jsx';
