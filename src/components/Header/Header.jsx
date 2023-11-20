@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import InputSearch from '../InputSearch/InputSearch.jsx';
+import InputSearch from '../InputSearch/InputSearch.tsx';
 import './Header.scss';
 
 const Header = ({ handleSearch, className, openGeneralMenuPopup }) => (
