@@ -5,7 +5,7 @@ export { default as InputPassword } from './InputPassword/InputPassword.jsx';
 export { default as Header } from './Header/Header.jsx';
 export { default as Footer } from './Footer/Footer.jsx';
 export { default as Carousel } from './Carousel/Carousel';
-export { default as Loader } from './Loader/Loader.jsx';
+export { default as Loader } from './Loader/Loader.tsx';
 export { default as Input } from './Input/Input.jsx';
 export { default as PopupAddFriend } from './PopupAddFriend/PopupAddFriend.jsx';
 export { default as GeneralMenuPopup } from './GeneralMenuPopup/GeneralMenuPopup.jsx';
