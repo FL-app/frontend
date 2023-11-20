@@ -3,15 +3,17 @@ import { useNavigate } from 'react-router-dom';
 import { sendCoords } from '../thunk/sendCoords';
 import RoutesPath from '../../constants/enums/routesPath';
 
+const initialState = {
+	latitude: '',
+	longitude: '',
+	errorMessage: '',
+	isAccessAllowed: false,
+	isLoading: false,
+};
+
 const locationSlice = createSlice({
 	name: 'location',
-	initialState: {
-		latitude: '',
-		longitude: '',
-		errorMessage: '',
-		isAccessAllowed: false,
-		isLoading: false,
-	},
+	initialState: initialState,
 	reducers: {
 		setAccessAllowed(state, action) {
 			return {
