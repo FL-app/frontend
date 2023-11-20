@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { logout } from '../../store/slices/user';
 import UserAvatar from '../UserAvatar/UserAvatar.jsx';
-import Checkbox from '../Checkbox/Checkbox.jsx';
+import Checkbox from '../Checkbox/Checkbox.tsx';
 import chat from '../../images/chat_menu.svg';
 import RoutesPath from '../../constants/enums/routesPath';
 import friendsNew from '../../images/friendsNew_menu.svg';

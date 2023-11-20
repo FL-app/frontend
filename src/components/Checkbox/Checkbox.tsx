@@ -1,7 +1,13 @@
 import './Checkbox.scss';
-import PropTypes from 'prop-types';
 
-function Checkbox({ option, chooseOption, isActiveOption }) {
+interface CheckboxProps {
+	option: string;
+	chooseOption: () => void;
+	isActiveOption: boolean;
+}
+
+const Checkbox = (props: CheckboxProps) => {
+	const { option, chooseOption, isActiveOption } = props;
 	return (
 		<label className="checkbox" htmlFor="checkbox">
 			<span className="checkbox__title">{option}</span>
@@ -17,12 +23,6 @@ function Checkbox({ option, chooseOption, isActiveOption }) {
 			</div>
 		</label>
 	);
-}
-
-Checkbox.propTypes = {
-	option: PropTypes.string.isRequired,
-	chooseOption: PropTypes.func.isRequired,
-	isActiveOption: PropTypes.bool.isRequired,
 };
 
 export default Checkbox;
