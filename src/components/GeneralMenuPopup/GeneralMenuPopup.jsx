@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { logout } from '../../store/slices/user';
-import UserAvatar from '../UserAvatar/UserAvatar.jsx';
+import UserAvatar from '../UserAvatar/UserAvatar.tsx';
 import Checkbox from '../Checkbox/Checkbox.tsx';
 import chat from '../../images/chat_menu.svg';
 import RoutesPath from '../../constants/enums/routesPath';
