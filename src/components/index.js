@@ -12,4 +12,4 @@ export { default as GeneralMenuPopup } from './GeneralMenuPopup/GeneralMenuPopup
 export { default as InputSearch } from './InputSearch/InputSearch.tsx';
 export { default as PrivateRoute } from './PrivateRoute/PrivateRoute.tsx';
 export { default as PublicRoute } from './PublicRoute/PublicRoute.tsx';
-export { default as SettingsMenuPopup } from './SettingsMenuPopup/SettingsMenuPopup.jsx';
+export { default as SettingsMenuPopup } from './SettingsMenuPopup/SettingsMenuPopup.tsx';
