@@ -1,19 +1,34 @@
 import './InputPassword.scss';
-import PropTypes from 'prop-types';
+import InputTypes from '../../constants/enums/inputTypes';
 
-export default function InputPassword({
-	label,
-	passwordType,
-	id,
-	name,
-	isRequired,
-	inputValue,
-	onChange,
-	onBlur,
-	passwordDirty,
-	passwordError,
-	onPasswordBtnClick,
-}) {
+interface InputPasswordProps {
+	label: string;
+	passwordType: InputTypes;
+	id: string;
+	name: string;
+	isRequired?: boolean;
+	inputValue: string;
+	onChange?: () => void;
+	onBlur?: () => void;
+	passwordDirty: boolean;
+	passwordError: string;
+	onPasswordBtnClick?: () => void;
+}
+
+export default function InputPassword(props: InputPasswordProps) {
+	const {
+		label,
+		passwordType,
+		id,
+		name,
+		isRequired,
+		inputValue,
+		onChange,
+		onBlur,
+		passwordDirty,
+		passwordError,
+		onPasswordBtnClick,
+	} = props;
 	return (
 		<div className="registration_form_input-container">
 			<label htmlFor={id} className="registration_form_label">
@@ -34,7 +49,7 @@ export default function InputPassword({
 					type="button"
 					aria-label="show/hide button click"
 					className={`registration_form_password-control ${
-						passwordType === 'text' &&
+						passwordType === InputTypes.text &&
 						'registration_form_password-control_active'
 					}`}
 					onClick={onPasswordBtnClick}
@@ -48,24 +63,3 @@ export default function InputPassword({
 		</div>
 	);
 }
-
-InputPassword.propTypes = {
-	label: PropTypes.string.isRequired,
-	passwordType: PropTypes.oneOf(['password', 'text']).isRequired,
-	id: PropTypes.string.isRequired,
-	name: PropTypes.string.isRequired,
-	isRequired: PropTypes.bool,
-	inputValue: PropTypes.string.isRequired,
-	onChange: PropTypes.func,
-	onBlur: PropTypes.func,
-	passwordDirty: PropTypes.bool.isRequired,
-	passwordError: PropTypes.string.isRequired,
-	onPasswordBtnClick: PropTypes.func,
-};
-
-InputPassword.defaultProps = {
-	isRequired: false,
-	onChange: undefined,
-	onBlur: undefined,
-	onPasswordBtnClick: undefined,
-};
