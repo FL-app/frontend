@@ -12,7 +12,7 @@ interface IButtonProps {
 	className?: string;
 }
 
-export default function Button({
+const Button = ({
 	label,
 	url = undefined,
 	type = 'button',
@@ -21,7 +21,7 @@ export default function Button({
 	disabled = false,
 	onClick = undefined,
 	className = '',
-}: IButtonProps) {
+}: IButtonProps) => {
 	const props = {
 		disabled,
 		onClick,
@@ -50,4 +50,6 @@ export default function Button({
 				</button>
 			);
 	}
-}
+};
+
+export default Button;
