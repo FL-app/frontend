@@ -6,7 +6,7 @@ export { default as Header } from './Header/Header.tsx';
 export { default as Footer } from './Footer/Footer.tsx';
 export { default as Carousel } from './Carousel/Carousel';
 export { default as Loader } from './Loader/Loader.tsx';
-export { default as Input } from './Input/Input.jsx';
+export { default as Input } from './Input/Input.tsx';
 export { default as PopupAddFriend } from './PopupAddFriend/PopupAddFriend.jsx';
 export { default as GeneralMenuPopup } from './GeneralMenuPopup/GeneralMenuPopup.jsx';
 export { default as InputSearch } from './InputSearch/InputSearch.tsx';
