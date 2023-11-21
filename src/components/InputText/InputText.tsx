@@ -1,3 +1,4 @@
+import { ChangeEvent } from 'react';
 import './InputText.scss';
 import InputTypes from '../../constants/enums/inputTypes';
 
@@ -8,10 +9,10 @@ interface InputTextProps {
 	name: string;
 	isRequired?: boolean;
 	inputValue: string;
-	onChange?: () => void | undefined;
-	onBlur?: () => void | undefined;
+	onChange?: (evt: ChangeEvent<HTMLInputElement>) => void;
+	onBlur?: () => void;
 	inputDirty: boolean;
-	inputError: boolean;
+	inputError: string;
 }
 
 const InputText = (props: InputTextProps) => {

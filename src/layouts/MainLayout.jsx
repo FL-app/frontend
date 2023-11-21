@@ -7,7 +7,7 @@ import {
 	GeneralMenuPopup,
 	SettingsMenuPopup,
 } from '../components';
-import { useUser } from '../context/AppContext.jsx';
+import { useUser } from '../context/AppContext.tsx';
 import MenuPopup from '../components/MenuPopup/MenuPopup.tsx';
 import PopupDeleteAccount from '../components/PopupDeleteAccount/PopupDeleteAccount';
 
