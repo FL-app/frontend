@@ -1,5 +1,4 @@
-import React, { useState, useCallback } from 'react';
-import PropTypes from 'prop-types';
+import React, { useState, useCallback, ReactElement } from 'react';
 import { useSelector } from 'react-redux';
 import {
 	Header,
@@ -7,25 +6,28 @@ import {
 	GeneralMenuPopup,
 	SettingsMenuPopup,
 } from '../components';
-import { useUser } from '../context/AppContext.tsx';
-import MenuPopup from '../components/MenuPopup/MenuPopup.tsx';
+import { useUser } from '../context/AppContext';
+import MenuPopup from '../components/MenuPopup/MenuPopup';
 import PopupDeleteAccount from '../components/PopupDeleteAccount/PopupDeleteAccount';
+import { RootState } from '../store';
 
-export default function MainLayout({
-	handleSearch,
-	headerClassName,
-	footerClassName,
-	children,
-}) {
-	const { currentUser } = useUser();
+interface MainLayoutProps {
+	handleSearch?: () => void;
+	headerClassName: string;
+	footerClassName: string;
+	children: ReactElement | ReactElement[];
+}
 
+export default function MainLayout(props: MainLayoutProps) {
+	const { handleSearch, headerClassName, footerClassName, children } = props;
+	const currentUser = useUser();
 	const [isGeneralMenuPopupOpen, setIsGeneralMenuPopupOpen] = useState(false);
 	const [isSettingsMenuPopupOpen, setIsSettingsMenuPopupOpen] = useState(false);
 	const [isPopupDeleteAccountOpen, setIsPopupDeleteAccountOpen] =
 		useState(false);
 	const [isActiveInvisible, setIsActiveInvisible] = useState(false);
 	const [isActiveNightTheme, setIsActiveNightTheme] = useState(false);
-	const userStatus = useSelector((state) => state.user.status);
+	const userStatus = useSelector((state: RootState) => state.user.status);
 
 	const handleOpenGeneralMenuPopup = useCallback(() => {
 		setIsGeneralMenuPopupOpen(true);
@@ -106,16 +108,3 @@ export default function MainLayout({
 		</>
 	);
 }
-
-MainLayout.propTypes = {
-	handleSearch: PropTypes.func,
-	headerClassName: PropTypes.string,
-	footerClassName: PropTypes.string,
-	children: PropTypes.node.isRequired,
-};
-
-MainLayout.defaultProps = {
-	handleSearch: undefined,
-	headerClassName: '',
-	footerClassName: '',
-};
