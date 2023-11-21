@@ -2,7 +2,7 @@ import './App.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import Routes from '../../routes';
-import { AppContextProvider } from '../../context/AppContext.jsx';
+import { AppContextProvider } from '../../context/AppContext.tsx';
 import getCurrentUser from '../../store/thunk/getCurrentUser';
 import { refreshToken } from '../../store/thunk/refreshToken';
 
