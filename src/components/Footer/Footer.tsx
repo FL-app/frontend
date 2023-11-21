@@ -1,14 +1,18 @@
 import { NavLink } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import RoutesPath from '../../constants/enums/routesPath';
 import './Footer.scss';
 
-const Footer = ({ className }) => {
-	const setActive = ({ isActive }) =>
+interface FooterProps {
+	className?: string;
+}
+
+const Footer = (props: FooterProps) => {
+	const { className } = props;
+	const setActive = ({ isActive }: { isActive: boolean }) =>
 		isActive ? 'footer__link footer__link_active' : 'footer__link';
 
 	return (
-		<footer className={`footer ${className}`}>
+		<footer className={`footer ${className ?? ''}`}>
 			<nav className="footer_container">
 				<NavLink to={RoutesPath.map} className={setActive}>
 					<span className="footer__link-icon">
@@ -75,13 +79,6 @@ const Footer = ({ className }) => {
 			</nav>
 		</footer>
 	);
-};
-Footer.propTypes = {
-	className: PropTypes.string,
-};
-
-Footer.defaultProps = {
-	className: '',
 };
 
 export default Footer;
