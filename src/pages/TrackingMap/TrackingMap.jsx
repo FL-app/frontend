@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { MapContainer, Marker, TileLayer } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import { Icon } from 'leaflet';
-import MainLayout from '../../layouts/MainLayout.jsx';
+import MainLayout from '../../layouts/MainLayout.tsx';
 import './TrackingMap.scss';
 import geotag from '../../images/geotag_map.svg';
 import { friendsLocation } from './friendsLocation'; // TODO делать запрос к серверу для получения списка друзей, брать их координаты
