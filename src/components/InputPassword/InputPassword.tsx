@@ -15,7 +15,7 @@ interface InputPasswordProps {
 	onPasswordBtnClick?: () => void;
 }
 
-export default function InputPassword(props: InputPasswordProps) {
+const InputPassword = (props: InputPasswordProps) => {
 	const {
 		label,
 		passwordType,
@@ -62,4 +62,6 @@ export default function InputPassword(props: InputPasswordProps) {
 			)}
 		</div>
 	);
-}
+};
+
+export default InputPassword;

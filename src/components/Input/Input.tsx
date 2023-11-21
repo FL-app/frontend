@@ -17,7 +17,7 @@ interface InputProps {
 	inputError?: string;
 }
 
-export default function Input(props: InputProps) {
+const Input = (props: InputProps) => {
 	const {
 		label,
 		type,
@@ -55,4 +55,6 @@ export default function Input(props: InputProps) {
 			)}
 		</div>
 	);
-}
+};
+
+export default Input;
