@@ -1,25 +1,30 @@
-/* eslint-disable no-nested-ternary */
-import PropTypes from 'prop-types';
-import { useState } from 'react';
-import { useUser } from '../../context/AppContext.jsx';
+/* eslint no-nested-ternary: "off" */
+import { ChangeEvent, useState } from 'react';
+import { useUser } from '../../context/AppContext.js';
 import PopupWithForm from '../PopupWithForm/PopupWithForm';
-import InputText from '../InputText/InputText.tsx';
+import InputText from '../InputText/InputText';
 import Button from '../Button/Button';
 import './PopupAddFriend.scss';
 import avatar from '../../images/icon_profile_man.png';
 import success from '../../images/icon-success.svg';
 import ValidationErrorMessages from '../../constants/enums/validation';
 import { emailPattern } from '../../constants/regExp/validation';
+import { IFrend } from '../../constants/tempUserData';
 
-function PopupAddFriend({ isOpen, onClose }) {
-	const { currentUser } = useUser();
+interface PopupAddFriendProps {
+	isOpen: boolean;
+	onClose: () => void;
+}
 
+function PopupAddFriend(props: PopupAddFriendProps) {
+	const { isOpen, onClose } = props;
+	const currentUser = useUser();
 	const [step, setStep] = useState(1);
 	const [emailError, setEmailError] = useState(
 		ValidationErrorMessages.emptyEmailErrorText
 	);
 	const [emailDirty, setEmailDirty] = useState(false);
-	const [foundFriend, setFoundFriend] = useState(null);
+	const [foundFriend, setFoundFriend] = useState<IFrend | null>(null);
 	const [isContinueBtnDisabled, setIsContinueBtnDisabled] = useState(true);
 	const [enteredEmail, setEnteredEmail] = useState('');
 	const [backButtonClicked, setBackButtonClicked] = useState(false);
@@ -27,9 +32,8 @@ function PopupAddFriend({ isOpen, onClose }) {
 	// @TODO Добавил email для теста потом убрать
 	const testEmail = '1234@mail.ru';
 
-	const handleChange = (evt) => {
+	const handleChange = (evt: ChangeEvent<HTMLInputElement>) => {
 		const { value } = evt.target;
-
 		if (backButtonClicked) {
 			setBackButtonClicked(false);
 			setEnteredEmail(enteredEmail);
@@ -47,7 +51,7 @@ function PopupAddFriend({ isOpen, onClose }) {
 		} else if (currentUser.friends.some((friend) => friend.email === value)) {
 			const friend = currentUser.friends.find((elem) => elem.email === value);
 			setEmailError(ValidationErrorMessages.friendExistErrorText);
-			setFoundFriend(friend);
+			setFoundFriend(friend ?? null);
 			setIsContinueBtnDisabled(true);
 		} else {
 			setEmailError(ValidationErrorMessages.emptyString);
@@ -76,8 +80,7 @@ function PopupAddFriend({ isOpen, onClose }) {
 		}
 	};
 
-	const handleSubmit = (evt) => {
-		evt.preventDefault();
+	const handleSubmit = () => {
 		if (step === 2) {
 			setStep(4);
 		} else {
@@ -85,19 +88,22 @@ function PopupAddFriend({ isOpen, onClose }) {
 		}
 	};
 
+	const getTitle = () => {
+		if (step === 1) {
+			return 'Введи адрес электронной почты, с которой твой друг зарегистрирован в «Где друзья?»';
+		}
+		if (step === 2) {
+			return `Добавить ${enteredEmail} в друзья?`;
+		}
+		if (step === 3) {
+			return `У ${enteredEmail} ещё нет приложения «Где друзья?» Хочешь отправить приглашение на электронную почту?`;
+		}
+		return '';
+	};
+
 	return (
 		<PopupWithForm
-			title={
-				step === 1
-					? 'Введи адрес электронной почты, с которой твой друг зарегистрирован в «Где друзья?»'
-					: step === 2
-					  ? `Добавить ${enteredEmail} в друзья?`
-					  : step === 3
-					    ? `У ${enteredEmail} ещё нет приложения «Где друзья?» Хочешь отправить приглашение на электронную почту?`
-					    : step === 4
-					      ? ''
-					      : ''
-			}
+			title={getTitle()}
 			name="add-friend"
 			isOpen={isOpen}
 			onClose={() => {
@@ -154,7 +160,6 @@ function PopupAddFriend({ isOpen, onClose }) {
 							inputError={emailError}
 							inputDirty={emailDirty}
 							onBlur={blurHandler}
-							className=""
 						/>
 						{foundFriend && (
 							<div className="friends-list__item add-friend__item">
@@ -210,7 +215,7 @@ function PopupAddFriend({ isOpen, onClose }) {
 							color="primary"
 							size="medium"
 							className="add-friend__btn"
-							onClick={() => handleSubmit()}
+							onClick={handleSubmit}
 						/>
 					</>
 				) : step === 3 ? (
@@ -232,7 +237,7 @@ function PopupAddFriend({ isOpen, onClose }) {
 							color="primary"
 							size="medium"
 							className="add-friend__btn"
-							onClick={() => handleSubmit()}
+							onClick={handleSubmit}
 						/>
 					</>
 				) : (
@@ -250,15 +255,5 @@ function PopupAddFriend({ isOpen, onClose }) {
 		</PopupWithForm>
 	);
 }
-
-PopupAddFriend.propTypes = {
-	isOpen: PropTypes.bool,
-	onClose: PropTypes.func,
-};
-
-PopupAddFriend.defaultProps = {
-	isOpen: false,
-	onClose: undefined,
-};
 
 export default PopupAddFriend;
