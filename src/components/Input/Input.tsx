@@ -4,7 +4,7 @@ import InputTypes from '../../constants/enums/inputTypes';
 
 interface InputProps {
 	label: string;
-	type: InputTypes;
+	type?: InputTypes;
 	id: string;
 	name: string;
 	className: string;

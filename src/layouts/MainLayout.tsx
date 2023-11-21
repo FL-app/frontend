@@ -14,7 +14,7 @@ import { RootState } from '../store';
 interface MainLayoutProps {
 	handleSearch?: () => void;
 	headerClassName: string;
-	footerClassName: string;
+	footerClassName?: string;
 	children: ReactElement | ReactElement[];
 }
 
