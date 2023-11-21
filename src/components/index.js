@@ -8,7 +8,7 @@ export { default as Carousel } from './Carousel/Carousel';
 export { default as Loader } from './Loader/Loader.tsx';
 export { default as Input } from './Input/Input.tsx';
 export { default as PopupAddFriend } from './PopupAddFriend/PopupAddFriend.tsx';
-export { default as GeneralMenuPopup } from './GeneralMenuPopup/GeneralMenuPopup.jsx';
+export { default as GeneralMenuPopup } from './GeneralMenuPopup/GeneralMenuPopup.tsx';
 export { default as InputSearch } from './InputSearch/InputSearch.tsx';
 export { default as PrivateRoute } from './PrivateRoute/PrivateRoute.tsx';
 export { default as PublicRoute } from './PublicRoute/PublicRoute.tsx';
