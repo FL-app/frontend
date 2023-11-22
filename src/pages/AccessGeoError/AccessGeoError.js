@@ -5,7 +5,7 @@ import {
 	setLocationError,
 } from '../../store/slices/location';
 import { Button } from '../../components';
-import { ROUTES } from '../../constants';
+import RoutesPath from '../../constants/enums/routesPath';
 import geoTag from '../../images/geo-tag-error.png';
 import './AccessGeoError.scss';
 import { logout } from '../../store/slices/user';
@@ -27,7 +27,7 @@ export const AccessGeoError = () => {
 			// 	longitude: position.coords.longitude,
 			// }));
 
-			navigate(ROUTES.MAP);
+			navigate(RoutesPath.map);
 		};
 
 		const handleError = (error) => {
@@ -60,7 +60,7 @@ export const AccessGeoError = () => {
 				<h3 className="access-geo-error_info">
 					Более подробно с информацией можно ознакомиться в разделе{' '}
 					<Link
-						to={ROUTES.TERMS_OF_USE}
+						to={RoutesPath.termsOfUse}
 						className="access-geo-error_terms-of-use-link"
 						target="_blank"
 					>
@@ -75,7 +75,7 @@ export const AccessGeoError = () => {
 					className="access-geo-error_locate-btn"
 					onClick={handleLocateBtnClick}
 				/>
-				<Link to={ROUTES.ROOT}>
+				<Link to={RoutesPath.root}>
 					<Button
 						label="Выйти"
 						type="button"

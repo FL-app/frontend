@@ -1,5 +1,5 @@
-@import "src/sassStyles/variables";
-@import "src/sassStyles/mixins";
+@import 'src/sassStyles/variables';
+@import 'src/sassStyles/mixins';
 
 .generalMenuPopup {
 	&__container {
@@ -57,7 +57,7 @@
 	}
 
 	&__link-img {
-        @include size(24px, 24px);
+		@include size(24px, 24px);
 		margin-right: 16px;
 	}
 

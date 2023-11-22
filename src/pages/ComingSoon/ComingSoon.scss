@@ -1,5 +1,5 @@
-@import "src/sassStyles/mixins";
-@import "src/sassStyles/variables";
+@import 'src/sassStyles/mixins';
+@import 'src/sassStyles/variables';
 
 .coming-soon {
 	display: flex;
@@ -7,7 +7,7 @@
 	position: relative;
 
 	&_diamond {
-        @include size(115.779px, 115.779px);
+		@include size(115.779px, 115.779px);
 		z-index: 2;
 		content: '';
 		background-image: url(../../images/coming-soon-diamond.png);
@@ -18,7 +18,7 @@
 	}
 
 	&_container {
-        @include size(375px, 812px);
+		@include size(375px, 812px);
 		background: $color_popup_background;
 		display: flex;
 		flex-direction: column;
@@ -28,7 +28,7 @@
 	}
 
 	&_container::before {
-        @include size(150px, 150px);
+		@include size(150px, 150px);
 		content: '';
 		background-image: url(../../images/coming-soon-vector-1.svg);
 		background-repeat: no-repeat;
@@ -38,7 +38,7 @@
 	}
 
 	&_container::after {
-        @include size(180px, 180px);
+		@include size(180px, 180px);
 		content: '';
 		background-image: url(../../images/coming-soon-vector-2.svg);
 		background-repeat: no-repeat;
@@ -55,13 +55,13 @@
 	}
 
 	&_logo {
-        @include size(167px, 65px);
+		@include size(167px, 65px);
 		margin-top: 70px;
 		margin-bottom: 24px;
 	}
 
 	&_main-img {
-        @include size(335px, 455px);
+		@include size(335px, 455px);
 		z-index: 1;
 	}
 
@@ -84,8 +84,8 @@
 	}
 
 	&_subtitle {
-        margin: 8px 0 0;
-        color: $color_main_font;
+		margin: 8px 0 0;
+		color: $color_main_font;
 		text-align: center;
 		font-size: 15px;
 		font-style: normal;

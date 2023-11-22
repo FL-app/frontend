@@ -1,5 +1,5 @@
-@import "src/sassStyles/mixins";
-@import "src/sassStyles/variables";
+@import 'src/sassStyles/mixins';
+@import 'src/sassStyles/variables';
 
 .access-age {
 	display: flex;
@@ -7,7 +7,7 @@
 	position: relative;
 
 	&_cylinder {
-        @include size(177px, 177px);
+		@include size(177px, 177px);
 		content: '';
 		background-image: url(../../images/access-age-cylinder.png);
 		background-repeat: no-repeat;
@@ -27,7 +27,7 @@
 				rgba(244, 66, 0, 0.2) 0%,
 				rgba(244, 66, 0, 0) 100%
 			),
-        $color_white;
+			$color_white;
 		max-width: 375px;
 		height: 812px;
 		display: flex;
@@ -38,7 +38,7 @@
 	}
 
 	&_container::before {
-        @include size(193px, 195px);
+		@include size(193px, 195px);
 		z-index: 1;
 		content: '';
 		background-image: url(../../images/access-age-vector-1.svg);
@@ -49,7 +49,7 @@
 	}
 
 	&_container::after {
-        @include size(135px, 68px);
+		@include size(135px, 68px);
 		content: '';
 		background-image: url(../../images/access-age-vector-2.svg);
 		background-repeat: no-repeat;
@@ -59,8 +59,8 @@
 	}
 
 	&_title {
-        margin: 308px 0 0;
-        color: $color_title;
+		margin: 308px 0 0;
+		color: $color_title;
 		text-align: center;
 		font-size: 24px;
 		font-style: normal;
@@ -70,8 +70,8 @@
 	}
 
 	&_subtitle {
-        margin: 16px 0 0;
-        color: $color_main_font;
+		margin: 16px 0 0;
+		color: $color_main_font;
 		text-align: center;
 		font-size: 15px;
 		font-style: normal;

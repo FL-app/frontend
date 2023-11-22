@@ -20,7 +20,7 @@ interface IUserData {
 	friends: IFrend[];
 }
 
-export const userData: IUserData = {
+const userData: IUserData = {
 	id: 1,
 	name: 'Екатерина',
 	surname: 'Иванова',
@@ -56,3 +56,5 @@ export const userData: IUserData = {
 		},
 	],
 };
+
+export default userData;

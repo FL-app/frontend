@@ -2,33 +2,20 @@ import './Registration.scss';
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-	namePattern,
-	emailPattern,
-	emptyNameErrorText,
-	emptySurnameErrorText,
-	emptyNicknameErrorText,
-	emptyEmailErrorText,
-	emptyPasswordErrorText,
-	invalidNameErrorText,
-	invalidSurnameErrorText,
-	invalidNicknameErrorText,
-	invalidEmailErrorText,
-	invalidConfirmPasswordErrorText,
-	ROUTES,
-	nicknamePattern,
-} from '../../constants';
-
 import { Button, InputText, InputPassword } from '../../components';
-
 import avatarman from '../../images/avatarman.png';
 import avatarwoman from '../../images/avatarwoman.png';
-
 import { registerUser } from '../../store/thunk/registerUser';
+import RoutesPath from '../../constants/enums/routesPath';
+import ValidationErrorMessages from '../../constants/enums/validation';
+import {
+	emailPattern,
+	namePattern,
+	nicknamePattern,
+} from '../../constants/regExp/validation';
 
 export const Registration = () => {
 	const navigate = useNavigate();
-
 	const [userData, setUserData] = useState({
 		name: '',
 		surname: '',
@@ -39,7 +26,6 @@ export const Registration = () => {
 		confirmPassword: '',
 		termsOfUse: false,
 	});
-
 	const [nameDirty, setNameDirty] = useState(false);
 	const [surnameDirty, setSurnameDirty] = useState(false);
 	const [nicknameDirty, setNicknameDirty] = useState(false);
@@ -49,19 +35,26 @@ export const Registration = () => {
 	const [termsOfUse, setTermsOfUse] = useState(false);
 	const [maleChecked, setMaleChecked] = useState(false);
 	const [femaleChecked, setFemaleChecked] = useState(true);
-
-	const [nameError, setNameError] = useState(emptyNameErrorText);
-	const [surnameError, setSurnameError] = useState(emptySurnameErrorText);
-	const [nicknameError, setNicknameError] = useState(emptyNicknameErrorText);
-	const [emailError, setEmailError] = useState(emptyEmailErrorText);
-	const [passwordError, setPasswordError] = useState(emptyPasswordErrorText);
+	const [nameError, setNameError] = useState(
+		ValidationErrorMessages.emptyNameErrorText
+	);
+	const [surnameError, setSurnameError] = useState(
+		ValidationErrorMessages.emptySurnameErrorText
+	);
+	const [nicknameError, setNicknameError] = useState(
+		ValidationErrorMessages.emptyNicknameErrorText
+	);
+	const [emailError, setEmailError] = useState(
+		ValidationErrorMessages.emptyEmailErrorText
+	);
+	const [passwordError, setPasswordError] = useState(
+		ValidationErrorMessages.emptyPasswordErrorText
+	);
 	const [confirmPasswordError, setConfirmPasswordError] = useState(
-		invalidConfirmPasswordErrorText
+		ValidationErrorMessages.invalidConfirmPasswordErrorText
 	);
 	const [checkboxError, setCheckboxError] = useState(false);
-
 	const [step, setStep] = useState(1);
-
 	const handleChange = (evt) => {
 		const { name, value } = evt.target;
 
@@ -73,60 +66,66 @@ export const Registration = () => {
 		switch (name) {
 			case 'name':
 				if (String(value).length === 0) {
-					setNameError(emptyNameErrorText);
+					setNameError(ValidationErrorMessages.emptyNameErrorText);
 				} else if (!value.match(namePattern)) {
-					setNameError(invalidNameErrorText);
+					setNameError(ValidationErrorMessages.invalidNameErrorText);
 				} else {
-					setNameError('');
+					setNameError(ValidationErrorMessages.emptyString);
 				}
 				break;
 			case 'surname':
 				if (String(value).length === 0) {
-					setSurnameError(emptySurnameErrorText);
+					setSurnameError(ValidationErrorMessages.emptySurnameErrorText);
 				} else if (!value.match(namePattern)) {
-					setSurnameError(invalidSurnameErrorText);
+					setSurnameError(ValidationErrorMessages.invalidSurnameErrorText);
 				} else {
-					setSurnameError('');
+					setSurnameError(ValidationErrorMessages.emptyString);
 				}
 				break;
 			case 'nickname':
 				if (String(value).length === 0) {
-					setNicknameError(emptyNicknameErrorText);
+					setNicknameError(ValidationErrorMessages.emptyNicknameErrorText);
 				} else if (!value.match(nicknamePattern)) {
-					setNicknameError(invalidNicknameErrorText);
+					setNicknameError(ValidationErrorMessages.invalidNicknameErrorText);
 				} else {
-					setNicknameError('');
+					setNicknameError(ValidationErrorMessages.emptyString);
 				}
 				break;
 			case 'email':
 				if (String(value).length === 0) {
-					setEmailError(emptyEmailErrorText);
+					setEmailError(ValidationErrorMessages.emptyEmailErrorText);
 				} else if (!value.match(emailPattern)) {
-					setEmailError(invalidEmailErrorText);
+					setEmailError(ValidationErrorMessages.invalidEmailErrorText);
 				} else {
-					setEmailError('');
+					setEmailError(ValidationErrorMessages.emptyString);
 				}
 				break;
 			case 'password':
 				if (String(value).length === 0) {
-					setPasswordError(emptyPasswordErrorText);
+					setPasswordError(ValidationErrorMessages.emptyPasswordErrorText);
 				} else {
-					setPasswordError('');
+					setPasswordError(ValidationErrorMessages.emptyString);
 				}
 
 				if (value !== userData.confirmPassword && confirmPasswordDirty) {
-					setConfirmPasswordError(invalidConfirmPasswordErrorText);
+					setConfirmPasswordError(
+						ValidationErrorMessages.invalidConfirmPasswordErrorText
+					);
 				} else {
-					setConfirmPasswordError('');
+					setConfirmPasswordError(ValidationErrorMessages.emptyString);
 				}
 				break;
 			case 'confirmPassword':
 				if (String(value).length === 0) {
-					setConfirmPasswordError(emptyPasswordErrorText);
+					setConfirmPasswordError(
+						ValidationErrorMessages.emptyPasswordErrorText
+					);
 				} else if (value !== userData.password) {
-					setConfirmPasswordError(invalidConfirmPasswordErrorText);
+					setConfirmPasswordError(
+						ValidationErrorMessages.invalidConfirmPasswordErrorText
+					);
 				} else {
-					setConfirmPasswordError('');
+					setConfirmPasswordError(ValidationErrorMessages.emptyString);
 				}
 				break;
 			case 'sex':
@@ -168,16 +167,16 @@ export const Registration = () => {
 			setStep(2);
 		} else if (userData.name.length === 0) {
 			setNameDirty(true);
-			setNameError(emptyNameErrorText);
+			setNameError(ValidationErrorMessages.emptyNameErrorText);
 		} else if (userData.surname.length === 0) {
 			setSurnameDirty(true);
-			setSurnameError(emptySurnameErrorText);
+			setSurnameError(ValidationErrorMessages.emptySurnameErrorText);
 		} else if (userData.nickname.length === 0) {
 			setNicknameDirty(true);
-			setNicknameError(emptyNicknameErrorText);
+			setNicknameError(ValidationErrorMessages.emptyNicknameErrorText);
 		} else if (userData.email.length === 0) {
 			setEmailDirty(true);
-			setEmailError(emptyEmailErrorText);
+			setEmailError(ValidationErrorMessages.emptyEmailErrorText);
 		}
 	};
 
@@ -229,15 +228,15 @@ export const Registration = () => {
 	);
 
 	useEffect(() => {
-		if (registerSuccess) navigate(ROUTES.ACCESS_GEO);
+		if (registerSuccess) navigate(RoutesPath.accessGeo);
 		if (!registerSuccess && errorMessage) {
 			const errors = JSON.parse(errorMessage);
 
-			setEmailError('');
-			setNicknameError('');
-			setNameError('');
-			setSurnameError('');
-			setPasswordError('');
+			setEmailError(ValidationErrorMessages.emptyString);
+			setNicknameError(ValidationErrorMessages.emptyString);
+			setNameError(ValidationErrorMessages.emptyString);
+			setSurnameError(ValidationErrorMessages.emptyString);
+			setPasswordError(ValidationErrorMessages.emptyString);
 
 			if (errors.email) {
 				setStep(1);
@@ -384,7 +383,7 @@ export const Registration = () => {
 
 							<span className="registration_form_span">
 								У тебя уже есть аккаунт?{' '}
-								<Link to={ROUTES.LOGIN} className="registration_form_link">
+								<Link to={RoutesPath.login} className="registration_form_link">
 									Войти
 								</Link>
 							</span>
@@ -449,7 +448,7 @@ export const Registration = () => {
 									Регистрируясь, ты подтверждаешь,
 									<br /> что прочитал(а) и принимаешь &nbsp;
 									<Link
-										to={ROUTES.PRIVACY_POLICY}
+										to={RoutesPath.privacyPolicy}
 										className="registration_form_terms-of-use-link"
 										target="_blank"
 									>
@@ -457,7 +456,7 @@ export const Registration = () => {
 									</Link>
 									&nbsp;и&nbsp;
 									<Link
-										to={ROUTES.TERMS_OF_USE}
+										to={RoutesPath.termsOfUse}
 										className="registration_form_terms-of-use-link"
 										target="_blank"
 									>
@@ -476,7 +475,7 @@ export const Registration = () => {
 
 							<span className="registration_form_span">
 								У тебя уже есть аккаунт?{' '}
-								<Link to={ROUTES.LOGIN} className="registration_form_link">
+								<Link to={RoutesPath.login} className="registration_form_link">
 									Войти
 								</Link>
 							</span>

@@ -5,7 +5,7 @@ import {
 	setLocationError,
 } from '../../store/slices/location';
 import { Button } from '../../components';
-import { ROUTES } from '../../constants';
+import RoutesPath from '../../constants/enums/routesPath';
 import geoTag from '../../images/geo-tag.png';
 import './AccessGeo.scss';
 // import { sendCoords } from '../../store/thunk/sendCoords';
@@ -25,7 +25,7 @@ export const AccessGeo = () => {
 			// 	latitude: position.coords.latitude,
 			// 	longitude: position.coords.longitude,
 			// }));
-			navigate(ROUTES.MAP);
+			navigate(RoutesPath.map);
 		};
 
 		const handleError = (error) => {
@@ -34,7 +34,7 @@ export const AccessGeo = () => {
 					errorMessage: error.message,
 				})
 			);
-			navigate(ROUTES.ACCESS_GEO_ERROR);
+			navigate(RoutesPath.accessGeoError);
 		};
 
 		navigator.geolocation.getCurrentPosition(handleSuccess, handleError);
@@ -64,7 +64,7 @@ export const AccessGeo = () => {
 					className="access-geo_locate-btn"
 					onClick={handleLocateBtnClick}
 				/>
-				<Link to={ROUTES.ACCESS_GEO_ERROR}>
+				<Link to={RoutesPath.accessGeoError}>
 					<Button
 						label="Отменить"
 						type="button"

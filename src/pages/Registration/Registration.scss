@@ -1,5 +1,5 @@
-@import "src/sassStyles/mixins";
-@import "src/sassStyles/variables";
+@import 'src/sassStyles/mixins';
+@import 'src/sassStyles/variables';
 
 .registration {
 	font-family: 'Noto Sans', 'Arial', sans-serif;
@@ -8,7 +8,7 @@
 	position: relative;
 
 	&_btn-back {
-        @include size(32px, 32px);
+		@include size(32px, 32px);
 		z-index: 11;
 		cursor: pointer;
 		position: absolute;
@@ -20,13 +20,14 @@
 	}
 
 	&_container {
-		background: radial-gradient(
+		background:
+			radial-gradient(
 					111.73% 51.6% at 116.4% 62.19%,
 					rgba(244, 66, 0, 0.4) 0%,
 					rgba(244, 66, 0, 0) 100%
 				)
 				/* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
-        $color_white;
+			$color_white;
 		height: 812px;
 		max-width: 375px;
 		display: flex;
@@ -42,12 +43,12 @@
 					rgba(244, 66, 0, 0.3) 0%,
 					rgba(244, 66, 0, 0) 100%
 				),
-            $color_white;
+				$color_white;
 		}
 	}
 
 	&_vector {
-        @include size(274.48px, 137.44px);
+		@include size(274.48px, 137.44px);
 		position: absolute;
 		top: 42px;
 		left: 0;
@@ -62,7 +63,7 @@
 	}
 
 	&_spiral {
-        @include size(222.412px, 222.412px);
+		@include size(222.412px, 222.412px);
 		z-index: 1;
 		position: absolute;
 		top: 15px;
@@ -72,7 +73,7 @@
 	}
 
 	&_diamond {
-        @include size(115.779px, 115.779px);
+		@include size(115.779px, 115.779px);
 		position: absolute;
 		top: 142px;
 		left: 40px;
@@ -106,7 +107,7 @@
 		}
 
 		&_terms-of-use_label::before {
-            @include size(20px, 20px);
+			@include size(20px, 20px);
 			content: '';
 			background: url(../../images/checkbox-unchecked.svg) no-repeat center;
 			padding: 2px;
@@ -185,7 +186,7 @@
 			}
 
 			&_label::before {
-                @include size(24px, 24px);
+				@include size(24px, 24px);
 				content: '';
 				background: url(../../images/radio-unchecked.svg) no-repeat center;
 				padding: 4px;

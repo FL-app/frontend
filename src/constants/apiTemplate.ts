@@ -25,7 +25,7 @@ interface IFetchParam {
 	token?: string;
 }
 
-export const fetchTemplate = ({
+const fetchTemplate = ({
 	path,
 	method,
 	body,
@@ -40,3 +40,5 @@ export const fetchTemplate = ({
 		},
 		body: JSON.stringify(body),
 	});
+
+export default fetchTemplate;

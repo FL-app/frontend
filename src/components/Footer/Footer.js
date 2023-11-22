@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { ROUTES } from '../../constants';
+import RoutesPath from '../../constants/enums/routesPath';
 import './Footer.scss';
 
 const Footer = ({ className }) => {
@@ -10,7 +10,7 @@ const Footer = ({ className }) => {
 	return (
 		<footer className={`footer ${className}`}>
 			<nav className="footer_container">
-				<NavLink to={ROUTES.MAP} className={setActive}>
+				<NavLink to={RoutesPath.map} className={setActive}>
 					<span className="footer__link-icon">
 						<svg
 							width="24"
@@ -33,7 +33,7 @@ const Footer = ({ className }) => {
 					</span>
 					<span className="footer__link-text">Карта</span>
 				</NavLink>
-				<NavLink to={ROUTES.COMING_SOON} className={setActive}>
+				<NavLink to={RoutesPath.comingSoon} className={setActive}>
 					<span className="footer__link-icon">
 						<svg
 							width="24"
@@ -47,7 +47,7 @@ const Footer = ({ className }) => {
 					</span>
 					<span className="footer__link-text">Чат</span>
 				</NavLink>
-				<NavLink to={ROUTES.FRIENDS} className={setActive}>
+				<NavLink to={RoutesPath.friends} className={setActive}>
 					<span className="footer__link-icon">
 						<svg
 							width="24"

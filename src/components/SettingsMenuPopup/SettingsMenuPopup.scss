@@ -1,5 +1,5 @@
-@import "src/sassStyles/variables";
-@import "src/sassStyles/mixins";
+@import 'src/sassStyles/variables';
+@import 'src/sassStyles/mixins';
 
 .settingsMenuPopup {
 	&__header {
@@ -16,7 +16,7 @@
 		cursor: pointer;
 
 		&_arrow-back {
-            @include size(24px, 24px);
+			@include size(24px, 24px);
 			background: url('../../images/arrow-back.svg') no-repeat center;
 			margin-right: 20px;
 		}

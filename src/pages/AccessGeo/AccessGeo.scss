@@ -1,5 +1,5 @@
-@import "src/sassStyles/mixins";
-@import "src/sassStyles/variables";
+@import 'src/sassStyles/mixins';
+@import 'src/sassStyles/variables';
 
 .access-geo {
 	display: flex;
@@ -7,7 +7,7 @@
 	position: relative;
 
 	&_spiral {
-        @include size(260.887px, 251.862px);
+		@include size(260.887px, 251.862px);
 		content: '';
 		background-image: url(../../images/spiral-access-geo.png);
 		background-repeat: no-repeat;
@@ -27,7 +27,7 @@
 				rgba(244, 66, 0, 0.2) 0%,
 				rgba(244, 66, 0, 0) 100%
 			),
-        $color_white;
+			$color_white;
 		max-width: 375px;
 		height: 812px;
 		display: flex;
@@ -38,7 +38,7 @@
 	}
 
 	&_container::before {
-        @include size(180px, 180px);
+		@include size(180px, 180px);
 		content: '';
 		background-image: url(../../images/vector-access-geo-1.svg);
 		background-repeat: no-repeat;
@@ -48,7 +48,7 @@
 	}
 
 	&_container::after {
-        @include size(150px, 150px);
+		@include size(150px, 150px);
 		content: '';
 		background-image: url(../../images/vector-access-geo-2.svg);
 		background-repeat: no-repeat;
@@ -58,13 +58,13 @@
 	}
 
 	&_geo-tag-img {
-        @include size(67px, 102px);
+		@include size(67px, 102px);
 		margin-top: 180px;
 	}
 
 	&_title {
-        margin: 24px 0 0;
-        color: $color_main_font;
+		margin: 24px 0 0;
+		color: $color_main_font;
 		text-align: center;
 		font-size: 24px;
 		font-style: normal;
@@ -74,8 +74,8 @@
 	}
 
 	&_subtitle {
-        margin: 16px 0 0;
-        color: $color_main_font;
+		margin: 16px 0 0;
+		color: $color_main_font;
 		text-align: center;
 		font-size: 15px;
 		font-style: normal;
