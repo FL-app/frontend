@@ -1,15 +1,18 @@
-import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import './SettingsMenuPopup.scss';
 import Checkbox from '../Checkbox/Checkbox';
 import RoutesPath from '../../constants/enums/routesPath';
 
-function SettingsMenuPopup({
-	onClose,
-	chooseNightTheme,
-	isActiveNightTheme,
-	deleteAccount,
-}) {
+interface SettingsMenuPopupProps {
+	onClose: () => void;
+	chooseNightTheme: () => void;
+	isActiveNightTheme: boolean;
+	deleteAccount: () => void;
+}
+
+const SettingsMenuPopup = (props: SettingsMenuPopupProps) => {
+	const { onClose, chooseNightTheme, isActiveNightTheme, deleteAccount } =
+		props;
 	return (
 		<>
 			<div className="settingsMenuPopup__header">
@@ -56,13 +59,6 @@ function SettingsMenuPopup({
 			</section>
 		</>
 	);
-}
-
-SettingsMenuPopup.propTypes = {
-	onClose: PropTypes.func.isRequired,
-	isActiveNightTheme: PropTypes.bool.isRequired,
-	chooseNightTheme: PropTypes.func.isRequired,
-	deleteAccount: PropTypes.func.isRequired,
 };
 
 export default SettingsMenuPopup;

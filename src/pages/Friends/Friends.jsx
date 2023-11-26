@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { Button, PopupAddFriend } from '../../components';
-import { useUser } from '../../context/AppContext';
-import MainLayout from '../../layouts/MainLayout';
+import { useUser } from '../../context/AppContext.tsx';
+import MainLayout from '../../layouts/MainLayout.tsx';
 import './Friends.scss';
 
 export const Friends = () => {
 	// @TODO Добавлять друзей из базы данных
 
-	const { currentUser } = useUser();
+	const currentUser = useUser();
 	const [addFreindsPopupOpened, setAddFreindsPopupOpened] = useState(false);
 	const [filteredFriends, setFilteredFriends] = useState(currentUser.friends);
 

@@ -34,7 +34,7 @@ function PopupDeleteAccount(props: PopupDeleteAccountProps) {
 				<div className="delete-account__container">
 					<img
 						className="delete-account__img"
-						src={success as string}
+						src={success}
 						alt="Профиль удалён"
 					/>
 					<p className="delete-account__text">Профиль удалён</p>

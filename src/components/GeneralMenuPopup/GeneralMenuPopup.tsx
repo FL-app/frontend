@@ -1,7 +1,6 @@
 import './GeneralMenuPopup.scss';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import { logout } from '../../store/slices/user';
 import UserAvatar from '../UserAvatar/UserAvatar';
 import Checkbox from '../Checkbox/Checkbox';
@@ -13,13 +12,22 @@ import profile from '../../images/profile_menu.svg';
 import settings from '../../images/settings_menu.svg';
 import events from '../../images/events_menu.svg';
 
-function GeneralMenuPopup({
-	onClose,
-	userStatus,
-	chooseInvisible,
-	isActiveInvisible,
-	openSettingsMenuPopup,
-}) {
+interface GeneralMenuPopupProps {
+	onClose: () => void;
+	userStatus: string;
+	chooseInvisible: () => void;
+	isActiveInvisible: boolean;
+	openSettingsMenuPopup: () => void;
+}
+
+function GeneralMenuPopup(props: GeneralMenuPopupProps) {
+	const {
+		onClose,
+		userStatus,
+		chooseInvisible,
+		isActiveInvisible,
+		openSettingsMenuPopup,
+	} = props;
 	const dispatch = useDispatch();
 
 	const handleExitClick = () => {
@@ -116,13 +124,5 @@ function GeneralMenuPopup({
 		</div>
 	);
 }
-
-GeneralMenuPopup.propTypes = {
-	onClose: PropTypes.func.isRequired,
-	userStatus: PropTypes.string.isRequired,
-	isActiveInvisible: PropTypes.bool.isRequired,
-	chooseInvisible: PropTypes.func.isRequired,
-	openSettingsMenuPopup: PropTypes.func.isRequired,
-};
 
 export default GeneralMenuPopup;
