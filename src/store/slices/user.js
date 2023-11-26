@@ -1,29 +1,32 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { registerUser } from '../thunk/registerUser';
 import { loginUser } from '../thunk/loginUser';
-import { getCurrentUser } from '../thunk/getCurrentUser';
+import getCurrentUser from '../thunk/getCurrentUser';
 import { refreshToken } from '../thunk/refreshToken';
 import { setNickname } from '../thunk/setNickname';
+import Gender from '../../constants/enums/gender.ts';
+
+const initialState = {
+	id: 0,
+	first_name: '',
+	last_name: '',
+	username: '',
+	gender: Gender.male,
+	email: '',
+	avatar: '',
+	status: '',
+	isLoading: false,
+	errorMessage: '',
+	registerSuccess: false,
+	isAuthenticated: false,
+	access: '',
+	refresh: '',
+	requestCounter: 0,
+};
 
 const userSlice = createSlice({
 	name: 'user',
-	initialState: {
-		id: 0,
-		first_name: '',
-		last_name: '',
-		username: '',
-		gender: 'male',
-		email: '',
-		avatar: '',
-		status: '',
-		isLoading: false,
-		errorMessage: '',
-		registerSuccess: false,
-		isAuthenticated: false,
-		access: '',
-		refresh: '',
-		requestCounter: 0,
-	},
+	initialState: initialState,
 	reducers: {
 		logout(state) {
 			localStorage.removeItem('access_token');

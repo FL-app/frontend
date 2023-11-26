@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-import { fetchTemplate } from '../constants';
+import fetchTemplate from '../constants/apiTemplate';
 
 export const register = ({ email, nickname, name, surname, password, sex }) =>
 	fetchTemplate({

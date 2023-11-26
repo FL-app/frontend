@@ -1,6 +1,4 @@
 node_modules
 public
-.eslintrc.js
-storybook-static
+.eslintrc.json
 build
-dist

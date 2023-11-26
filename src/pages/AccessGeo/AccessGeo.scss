@@ -1,17 +1,19 @@
+@import 'src/sassStyles/mixins';
+@import 'src/sassStyles/variables';
+
 .access-geo {
 	display: flex;
 	justify-content: center;
 	position: relative;
 
 	&_spiral {
+		@include size(260.887px, 251.862px);
 		content: '';
 		background-image: url(../../images/spiral-access-geo.png);
 		background-repeat: no-repeat;
 		position: absolute;
 		left: 160.07px;
 		top: 0;
-		width: 260.887px;
-		height: 251.862px;
 	}
 
 	&_container {
@@ -25,10 +27,9 @@
 				rgba(244, 66, 0, 0.2) 0%,
 				rgba(244, 66, 0, 0) 100%
 			),
-			#fff;
+			$color_white;
 		max-width: 375px;
 		height: 812px;
-
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -37,37 +38,33 @@
 	}
 
 	&_container::before {
+		@include size(180px, 180px);
 		content: '';
 		background-image: url(../../images/vector-access-geo-1.svg);
 		background-repeat: no-repeat;
 		position: absolute;
 		left: 270px;
 		top: 70px;
-		width: 180px;
-		height: 180px;
 	}
 
 	&_container::after {
+		@include size(150px, 150px);
 		content: '';
 		background-image: url(../../images/vector-access-geo-2.svg);
 		background-repeat: no-repeat;
 		position: absolute;
 		left: 0;
 		top: 458px;
-		width: 150px;
-		height: 150px;
 	}
 
 	&_geo-tag-img {
-		width: 67px;
-		height: 102px;
+		@include size(67px, 102px);
 		margin-top: 180px;
 	}
 
 	&_title {
-		margin: 0;
-		margin-top: 24px;
-		color: #141513;
+		margin: 24px 0 0;
+		color: $color_main_font;
 		text-align: center;
 		font-size: 24px;
 		font-style: normal;
@@ -77,9 +74,8 @@
 	}
 
 	&_subtitle {
-		margin: 0;
-		margin-top: 16px;
-		color: #141513;
+		margin: 16px 0 0;
+		color: $color_main_font;
 		text-align: center;
 		font-size: 15px;
 		font-style: normal;

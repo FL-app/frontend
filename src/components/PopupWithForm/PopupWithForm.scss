@@ -1,3 +1,6 @@
+@import 'src/sassStyles/variables';
+@import 'src/sassStyles/mixins';
+
 .popup {
 	position: fixed;
 	top: 0;
@@ -7,7 +10,9 @@
 	background-color: rgba(0, 0, 0, 0.5);
 	visibility: hidden;
 	opacity: 0;
-	transition: visibility 0.5s, opacity 0.5s;
+	transition:
+		visibility 0.5s,
+		opacity 0.5s;
 	z-index: 10;
 
 	&__container {
@@ -17,7 +22,7 @@
 		transform: translate(-50%, -50%);
 		width: 320px;
 		min-height: 160px;
-		background-color: #fff;
+		background-color: $color_white;
 		border-radius: 10px;
 		padding: 60px 20px 30px;
 		box-sizing: border-box;
@@ -26,14 +31,15 @@
 	&_opened {
 		visibility: visible;
 		opacity: 1;
-		transition: visibility 0.5s, opacity 0.5s;
+		transition:
+			visibility 0.5s,
+			opacity 0.5s;
 	}
 
 	/* @TODO добавить общие стили чтобы можно было убрать некоторые свойсва стилей */
 
 	&__title {
-		margin: 0;
-		margin-bottom: 25px;
+		margin: 0 0 25px;
 		padding: 0;
 		font-family: 'Noto Sans', 'Arial', sans-serif;
 		font-style: normal;
@@ -41,16 +47,15 @@
 		font-size: 15px;
 		line-height: 20px;
 		text-align: center;
-		color: #141513;
+		color: $color_main_font;
 	}
 
 	&__btn-close {
+		@include size(24px, 24px);
 		padding: 0;
 		position: absolute;
 		right: 15px;
 		top: 15px;
-		width: 24px;
-		height: 24px;
 		background-color: transparent;
 		background-image: url(../../images/icon_close.svg);
 		background-position: center;

@@ -1,8 +1,5 @@
-$grey: #cccdc2;
-$green-gradient: linear-gradient(#c3f402, #3fe911);
-$white: #fff;
-$black: #141513;
-$light-yellow: #fdffe2;
+@import 'src/sassStyles/variables';
+@import 'src/sassStyles/mixins';
 
 .generalMenuPopup {
 	&__container {
@@ -14,7 +11,7 @@ $light-yellow: #fdffe2;
 
 	&__header {
 		height: 64px;
-		border-bottom: 1px solid $grey;
+		border-bottom: 1px solid $color_background_disabled;
 		display: flex;
 		align-items: center;
 		padding: 12px 20px;
@@ -24,27 +21,15 @@ $light-yellow: #fdffe2;
 	&__status {
 		position: relative;
 		border-radius: 20px;
-		background: $white;
+		background: $color_white;
 		margin-left: 12px;
 		font-size: 14px;
 		font-weight: 500;
 		line-height: 140%;
 		padding: 8px 20px;
 
-		border: 1px solid #c3f402;
+		border: 1px solid $color_buttons_background_hover;
 	}
-
-	// &__status::before {
-	// 	content: '';
-	// 	position: absolute;
-	// 	top: -2px;
-	// 	right: -2px;
-	// 	bottom: -2px;
-	// 	left: -2px;
-	// 	background: $green-gradient;
-	// 	border-radius: 20px;
-	// 	z-index: -1;
-	// }
 
 	&__checkbox-container {
 		margin: 22px 20px 14px;
@@ -64,7 +49,7 @@ $light-yellow: #fdffe2;
 
 	&__link:hover,
 	&__button_settings:hover {
-		background: $light-yellow;
+		background: $color_popup_link_hover;
 	}
 
 	&__link:last-child {
@@ -72,9 +57,8 @@ $light-yellow: #fdffe2;
 	}
 
 	&__link-img {
+		@include size(24px, 24px);
 		margin-right: 16px;
-		width: 24px;
-		height: 24px;
 	}
 
 	&__link-text {
@@ -82,12 +66,12 @@ $light-yellow: #fdffe2;
 		font-size: 15px;
 		font-weight: 500;
 		line-height: normal;
-		color: $black;
+		color: $color_main_font;
 	}
 
 	&__button {
 		text-decoration: none;
-		color: $black;
+		color: $color_main_font;
 		font-size: 15px;
 		font-weight: 500;
 		line-height: normal;

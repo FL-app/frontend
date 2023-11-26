@@ -1,8 +1,10 @@
+@import 'src/sassStyles/variables';
+@import 'src/sassStyles/mixins';
+
 .buttonUserLocation {
-	width: 40px;
-	height: 40px;
-	background: url(../../images/location.svg) no-repeat center #fff;
-	border: 1px solid #cccdc2;
+	@include size(40px, 40px);
+	background: url(../../images/location.svg) no-repeat center $color_white;
+	border: 1px solid $color_background_disabled;
 	border-radius: 40px;
 	position: absolute;
 	bottom: 110px;

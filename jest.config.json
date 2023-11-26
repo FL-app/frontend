@@ -1,0 +1,6 @@
+{
+	"collectCoverage": true,
+	"collectCoverageFrom": ["src/__tests___/*.{ts,tsx}"],
+	"coverageDirectory": "coverage",
+	"testEnvironment": "jsdom"
+}
