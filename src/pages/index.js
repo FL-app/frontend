@@ -1,7 +1,7 @@
 export * from './Registration/Registration.jsx';
 export * from './Login/Login.jsx';
-export * from './TermsOfUse/TermsOfUse.jsx';
-export * from './PrivacyPolicy/PrivacyPolicy.jsx';
+export { default as TermsOfUse } from './TermsOfUse/TermsOfUse.tsx';
+export { default as PrivacyPolicy } from './PrivacyPolicy/PrivacyPolicy.tsx';
 export * from './Friends/Friends.jsx';
 export * from './Welcome/Welcome';
 export * from './AccessGeo/AccessGeo.jsx';

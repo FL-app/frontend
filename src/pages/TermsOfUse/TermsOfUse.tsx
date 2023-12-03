@@ -1,7 +1,8 @@
+import { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './TermsOfUse.scss';
 
-export const TermsOfUse = () => {
+const TermsOfUse: FC = () => {
 	const navigate = useNavigate();
 
 	const hadleBtnBackClick = () => {
@@ -31,3 +32,5 @@ export const TermsOfUse = () => {
 		</section>
 	);
 };
+
+export default TermsOfUse;
