@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { registerUser } from '../thunk/registerUser';
 import { loginUser } from '../thunk/loginUser';
 import getCurrentUser from '../thunk/getCurrentUser';
-import { refreshToken } from '../thunk/refreshToken';
+import { refreshToken } from '../thunk/refreshToken.js';
 import { setNickname } from '../thunk/setNickname';
 import Gender from '../../constants/enums/gender.ts';
 
