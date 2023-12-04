@@ -2,13 +2,18 @@ import './App.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import Routes from '../../routes';
-import { AppContextProvider } from '../../context/AppContext.tsx';
+import { AppContextProvider } from '../../context/AppContext';
 import getCurrentUser from '../../store/thunk/getCurrentUser';
-import { refreshToken } from '../../store/thunk/refreshToken';
+import refreshToken from '../../store/thunk/refreshToken';
+import TokenErrorMessage from '../../types/tokenErrorMessage';
+import TokenCodes from '../../constants/enums/TokenCodes';
+import { AppDispatch, RootState } from '../../store';
 
 function App() {
-	const dispatch = useDispatch();
-	const { errorMessage, isAuthenticated } = useSelector((state) => state.user);
+	const dispatch = useDispatch<AppDispatch>();
+	const { errorMessage, isAuthenticated } = useSelector(
+		(state: RootState) => state.user
+	);
 
 	useEffect(() => {
 		let token = localStorage.getItem('access_token');
@@ -16,8 +21,8 @@ function App() {
 			dispatch(getCurrentUser(token));
 		}
 		if (errorMessage) {
-			const error = JSON.parse(errorMessage);
-			if (error?.code === 'token_not_valid') {
+			const error = JSON.parse(errorMessage) as TokenErrorMessage;
+			if (error.code === TokenCodes.notValid) {
 				token = localStorage.getItem('refresh_token');
 				if (token) {
 					dispatch(refreshToken(token));
