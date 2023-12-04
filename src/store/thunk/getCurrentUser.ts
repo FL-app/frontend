@@ -3,13 +3,17 @@ import { getCurrentUser as getUser } from '../../untils/mianApi';
 
 const getCurrentUser = createAsyncThunk(
 	'user/me',
-	(payload: string, thunkAPI) => {
-		return getUser(payload)
-			.then((response: Response) => {
-				if (!response.ok) throw new Error(JSON.stringify(response.json()));
-				return response.json();
-			})
-			.catch((err: Error) => thunkAPI.rejectWithValue(err.message));
+	async (payload: string, thunkAPI) => {
+		try {
+			const response = await getUser(payload);
+			if (!response.ok) throw new Error(JSON.stringify(response.json()));
+			return await response.json();
+		} catch (err) {
+			if (err instanceof Error) {
+				return thunkAPI.rejectWithValue(err.message);
+			}
+			return err;
+		}
 	}
 );
 
