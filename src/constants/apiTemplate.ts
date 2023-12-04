@@ -1,7 +1,7 @@
 const BASE_URL = 'http://91.186.197.174/api/v1';
 
-export interface  IFetchBody {
-	name: string,
+export interface IFetchBody {
+	name: string;
 	email: string;
 	username: string;
 	first_name: string;
@@ -26,7 +26,7 @@ interface IFetchParam {
 	token?: string;
 }
 
-export const fetchTemplate = ({
+const fetchTemplate = ({
 	path,
 	method,
 	body,
@@ -41,3 +41,5 @@ export const fetchTemplate = ({
 		},
 		body: JSON.stringify(body),
 	});
+
+export default fetchTemplate;

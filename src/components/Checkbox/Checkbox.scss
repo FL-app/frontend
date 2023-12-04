@@ -1,3 +1,6 @@
+@import 'src/sassStyles/variables';
+@import 'src/sassStyles/mixins';
+
 .checkbox {
 	display: flex;
 	transition: all 0.2s ease;
@@ -8,15 +11,13 @@
 	}
 }
 .checkbox__input {
+	@include size(36px, 20px);
 	appearance: none;
-	width: 36px;
-	height: 20px;
 	cursor: pointer;
 	&::after {
-		background-color: #cccdc2;
+		@include size(36px, 20px);
+		background-color: $color_background_disabled;
 		border-radius: 10px;
-		width: 36px;
-		height: 20px;
 		content: '';
 		position: absolute;
 	}
@@ -27,7 +28,7 @@
 			}
 		}
 		&::after {
-			background-color: #3fe911;
+			background-color: $color_buttons_background_active;
 		}
 	}
 }
@@ -35,15 +36,14 @@
 	font-size: 14px;
 	font-weight: 400;
 	line-height: 140%;
-	color: #141513;
+	color: $color_main_font;
 	margin-right: 12px;
 }
 .checkbox__toggle {
-	width: 16px;
-	height: 16px;
+	@include size(16px, 16px);
 	border-radius: 10px;
 	position: absolute;
-	background-color: #ffffff;
+	background-color: $color_white;
 	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 	left: 2px;
 	transition: all 0.3s ease;

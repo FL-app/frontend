@@ -1,17 +1,19 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { useNavigate } from 'react-router-dom';
-import { sendCoords } from '../thunk/sendCoords';
-import { ROUTES } from '../../constants';
+import sendCoords from '../thunk/sendCoords';
+import RoutesPath from '../../constants/enums/routesPath';
+
+const initialState = {
+	latitude: '',
+	longitude: '',
+	errorMessage: '',
+	isAccessAllowed: false,
+	isLoading: false,
+};
 
 const locationSlice = createSlice({
 	name: 'location',
-	initialState: {
-		latitude: '',
-		longitude: '',
-		errorMessage: '',
-		isAccessAllowed: false,
-		isLoading: false,
-	},
+	initialState: initialState,
 	reducers: {
 		setAccessAllowed(state, action) {
 			return {
@@ -48,7 +50,7 @@ const locationSlice = createSlice({
 		}));
 		builder.addCase(sendCoords.rejected, (state, action) => {
 			const navigate = useNavigate();
-			navigate(ROUTES.ACCESS_GEO_ERROR);
+			navigate(RoutesPath.accessGeoError);
 
 			return {
 				...state,

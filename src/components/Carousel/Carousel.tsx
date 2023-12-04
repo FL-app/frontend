@@ -1,10 +1,8 @@
-import { FC } from 'react';
+import React, { FC } from 'react';
 import Slider from 'react-slick';
-
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import './Carousel.scss';
-
 import carousel1 from '../../images/Carousel1.png';
 import carousel2 from '../../images/Carousel2.png';
 import carousel3 from '../../images/Carousel3.png';

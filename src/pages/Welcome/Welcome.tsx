@@ -1,16 +1,17 @@
+import React from 'react';
 import './Welcome.scss';
 import { Link } from 'react-router-dom';
 import Button from '../../components/Button/Button';
 import Carousel from '../../components/Carousel/Carousel';
-import { ROUTES } from '../../constants';
+import RoutesPath from '../../constants/enums/routesPath';
 
-export function Welcome() {
+export default function Welcome() {
 	return (
 		<main className="welcome">
 			<div className="welcome_container">
 				<Carousel />
 				<div className="welcome__button-container">
-					<Link to={ROUTES.ACCESS_AGE}>
+					<Link to={RoutesPath.accessAge}>
 						<Button
 							label="Зарегистрироваться"
 							type="button"
@@ -18,7 +19,7 @@ export function Welcome() {
 							color="primary"
 						/>
 					</Link>
-					<Link to={ROUTES.LOGIN}>
+					<Link to={RoutesPath.login}>
 						<Button
 							label="Войти"
 							type="button"

@@ -1,4 +1,4 @@
-$white: #fff;
+@import 'src/sassStyles/variables';
 
 .map {
 	display: flex;
@@ -32,10 +32,10 @@ $white: #fff;
 	z-index: 1;
 	border: none;
 	&__menu {
-		background-color: $white;
+		background-color: $color_white;
 	}
 	&__input {
-		background-color: $white;
+		background-color: $color_white;
 	}
 }
 

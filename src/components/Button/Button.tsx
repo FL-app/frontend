@@ -1,17 +1,18 @@
+import React from 'react';
 import './Button.scss';
 
 interface IButtonProps {
-	label: string,
-	url?: string,
-	type: 'link' | 'button' | 'submit',
-	color?: 'primary' | 'secondary',
-	size: 'medium' | 'large',
-	disabled?: boolean,
-	onClick?: () => void,
-	className?: string
+	label: string;
+	url?: string;
+	type: 'link' | 'button' | 'submit';
+	color?: 'primary' | 'secondary';
+	size: 'medium' | 'large';
+	disabled?: boolean;
+	onClick?: () => void;
+	className?: string;
 }
 
-export default function Button({
+const Button = ({
 	label,
 	url = undefined,
 	type = 'button',
@@ -20,7 +21,7 @@ export default function Button({
 	disabled = false,
 	onClick = undefined,
 	className = '',
-}: IButtonProps) {
+}: IButtonProps) => {
 	const props = {
 		disabled,
 		onClick,
@@ -49,4 +50,6 @@ export default function Button({
 				</button>
 			);
 	}
-}
+};
+
+export default Button;

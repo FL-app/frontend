@@ -1,19 +1,25 @@
-/* eslint-disable no-undef */
-import { IFetchBody, fetchTemplate } from '../constants';
+import fetchTemplate, { IFetchBody } from '../constants/apiTemplate';
 
 export interface IFetchParam extends IFetchBody {
-	id: string
-	nickname: string,
-	name: string,
-	surname: string,
-	sex: string,
-	newPassword: string,
-	currentPassword: string,
-	firstName: string,
-	lastName: string
+	id: string;
+	nickname: string;
+	name: string;
+	surname: string;
+	sex: string;
+	newPassword: string;
+	currentPassword: string;
+	firstName: string;
+	lastName: string;
 }
 
-export const register = ({ email, nickname, name, surname, password, sex }: IFetchParam) =>
+export const register = ({
+	email,
+	nickname,
+	name,
+	surname,
+	password,
+	sex,
+}: IFetchParam) =>
 	fetchTemplate({
 		path: '/users/',
 		method: 'POST',
@@ -23,10 +29,9 @@ export const register = ({ email, nickname, name, surname, password, sex }: IFet
 			first_name: name,
 			last_name: surname,
 			password,
-			gender: sex
-		}
+			gender: sex,
+		},
 	});
-
 
 export const login = ({ email, password }: IFetchParam) =>
 	fetchTemplate({
@@ -378,7 +383,10 @@ export const getUserPlaces = (userId: string) =>
 		method: 'GET',
 	});
 
-export const createPlace = (userId: string, { name, latitude, longitude }: IFetchParam) =>
+export const createPlace = (
+	userId: string,
+	{ name, latitude, longitude }: IFetchParam
+) =>
 	fetchTemplate({
 		path: `/users/${userId}/places/`,
 		method: 'POST',
@@ -401,7 +409,11 @@ export const getPlaceById = (userId: string, placeId: string) =>
 		method: 'GET',
 	});
 
-export const updatePlace = (userId: string, placeId: string, { name, latitude, longitude }:IFetchParam) =>
+export const updatePlace = (
+	userId: string,
+	placeId: string,
+	{ name, latitude, longitude }: IFetchParam
+) =>
 	fetchTemplate({
 		path: `/users/${userId}/places/${placeId}/`,
 		method: 'PUT',
@@ -415,7 +427,7 @@ export const updatePlace = (userId: string, placeId: string, { name, latitude, l
 export const updatePlaceDetails = (
 	userId: string,
 	placeId: string,
-	{ name, latitude, longitude }:IFetchParam
+	{ name, latitude, longitude }: IFetchParam
 ) =>
 	fetchTemplate({
 		path: `/users/${userId}/places/${placeId}/`,
@@ -433,7 +445,11 @@ export const deletePlace = (userId: string, placeId: string) =>
 		method: 'DELETE',
 	});
 
-export const sharePlace = (userId: string, placeId: string, { name, latitude, longitude }: IFetchParam) =>
+export const sharePlace = (
+	userId: string,
+	placeId: string,
+	{ name, latitude, longitude }: IFetchParam
+) =>
 	fetchTemplate({
 		path: `/users/${userId}/places/${placeId}/share-place/`,
 		method: 'POST',
@@ -460,7 +476,12 @@ export const setNickname = ({ username, token }: IFetchParam) =>
 		},
 	});
 
-export const updateCoordinates = ({ token, id, longitude, latitude }: IFetchParam) =>
+export const updateCoordinates = ({
+	token,
+	id,
+	longitude,
+	latitude,
+}: IFetchParam) =>
 	fetchTemplate({
 		path: `/users/${id}/update-coordinates/`,
 		method: 'PATCH',

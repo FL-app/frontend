@@ -1,3 +1,5 @@
+@import 'src/sassStyles/mixins';
+
 /*переопределение стилей библиотеки slick.css*/
 
 .slick-list {
@@ -32,8 +34,7 @@
 	text-align: center;
 }
 .slick-image {
-	width: 375px;
-	height: 455px;
+	@include size(375px, 455px);
 	background-size: cover;
 	margin: 0 0 20px;
 }

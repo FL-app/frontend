@@ -1,27 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { registerUser } from '../thunk/registerUser';
-import { loginUser } from '../thunk/loginUser';
-import { getCurrentUser } from '../thunk/getCurrentUser';
-import { refreshToken } from '../thunk/refreshToken';
-import { setNickname } from '../thunk/setNickname';
+import registerUser from '../thunk/registerUser';
+import loginUser from '../thunk/loginUser';
+import getCurrentUser from '../thunk/getCurrentUser';
+// import refreshToken from '../thunk/refreshToken';
+import setNickname from '../thunk/setNickname';
 
-export interface IUserState {
-	id: number,
-	first_name: string,
-	last_name: string,
-	username: string,
-	gender: string,
-	email: string,
-	avatar: string,
-	status: string,
-	isLoading: boolean,
-	errorMessage: string,
-	registerSuccess: boolean,
-	isAuthenticated: boolean,
-	access: string,
-	refresh: string,
-	requestCounter: number
-}
+import { IUserState } from './userTypes';
 
 const initialState: IUserState = {
 	id: 0,
@@ -38,8 +22,8 @@ const initialState: IUserState = {
 	isAuthenticated: false,
 	access: '',
 	refresh: '',
-	requestCounter: 0
-}
+	requestCounter: 0,
+};
 
 const userSlice = createSlice({
 	name: 'user',
@@ -69,18 +53,19 @@ const userSlice = createSlice({
 		}));
 		builder.addCase(registerUser.rejected, (state, action) => {
 			let error;
-			if(action.payload){
+			if (action.payload) {
 				error = action.payload;
 			} else {
 				error = JSON.stringify(action.error);
 			}
 			return {
-			...state,
-			isLoading: false,
-			errorMessage: error,
-			registerSuccess: false,
-			requestCounter: state.requestCounter + 1,
-		}});
+				...state,
+				isLoading: false,
+				errorMessage: error,
+				registerSuccess: false,
+				requestCounter: state.requestCounter + 1,
+			};
+		});
 		builder.addCase(loginUser.pending, (state) => ({
 			...state,
 			isLoading: true,
@@ -95,7 +80,7 @@ const userSlice = createSlice({
 		}));
 		builder.addCase(loginUser.rejected, (state, action) => {
 			let error;
-			if(action.payload){
+			if (action.payload) {
 				error = action.payload;
 			} else {
 				error = JSON.stringify(action.error);
@@ -105,8 +90,9 @@ const userSlice = createSlice({
 				isLoading: false,
 				errorMessage: error,
 				isAuthenticated: false,
-				requestCounter: state.requestCounter + 1
-			}});
+				requestCounter: state.requestCounter + 1,
+			};
+		});
 		builder.addCase(getCurrentUser.pending, (state) => ({
 			...state,
 			isLoading: true,
