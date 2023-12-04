@@ -1,20 +1,18 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { refreshToken as refresh } from '../../untils/mianApi';
+import { IUserState } from '../slices/user';
 
-export const refreshToken = createAsyncThunk(
+export const refreshToken = createAsyncThunk<Partial<IUserState>, string, {rejectValue: string}>(
 	'jwt/refresh',
 	async (payload, thunkAPI) => {
-		try {
 			const response = await refresh(payload);
 			const data = await response.json();
 			if (!response.ok) {
-				throw new Error(JSON.stringify(data));
+				return thunkAPI.rejectWithValue(JSON.stringify(data));
 			}
 			localStorage.setItem('access_token', data.access);
-
+			console.log("refreshToken")
+			console.log(data)
 			return data;
-		} catch (error) {
-			return thunkAPI.rejectWithValue(error.message);
-		}
 	}
 );

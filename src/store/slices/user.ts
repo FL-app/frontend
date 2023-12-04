@@ -55,48 +55,62 @@ const userSlice = createSlice({
 		},
 	},
 	extraReducers: (builder) => {
-		// builder.addCase(registerUser.pending, (state) => ({
-		// 	...state,
-		// 	isLoading: true,
-		// }));
-		// builder.addCase(registerUser.fulfilled, (state, action) => ({
-		// 	...state,
-		// 	...action.payload,
-		// 	isLoading: false,
-		// 	registerSuccess: true,
-		// 	errorMessage: '',
-		// 	requestCounter: state.requestCounter + 1,
-		// }));
-		// builder.addCase(registerUser.rejected, (state, action) => ({
-		// 	...state,
-		// 	isLoading: false,
-		// 	errorMessage: action.payload,
-		// 	registerSuccess: false,
-		// 	requestCounter: state.requestCounter + 1,
-		// }));
-		// builder.addCase(loginUser.pending, (state) => ({
-		// 	...state,
-		// 	isLoading: true,
-		// }));
-		// builder.addCase(loginUser.fulfilled, (state, action) => ({
-		// 	...state,
-		// 	...action.payload,
-		// 	isLoading: false,
-		// 	isAuthenticated: true,
-		// 	errorMessage: '',
-		// 	requestCounter: state.requestCounter + 1,
-		// }));
-		// builder.addCase(loginUser.rejected, (state, action) => ({
-		// 	...state,
-		// 	isLoading: false,
-		// 	errorMessage: action.payload,
-		// 	isAuthenticated: false,
-		// 	requestCounter: state.requestCounter + 1,
-		// }));
-		// builder.addCase(getCurrentUser.pending, (state) => ({
-		// 	...state,
-		// 	isLoading: true,
-		// }));
+		builder.addCase(registerUser.pending, (state) => ({
+			...state,
+			isLoading: true,
+		}));
+		builder.addCase(registerUser.fulfilled, (state, action) => ({
+			...state,
+			...action.payload,
+			isLoading: false,
+			registerSuccess: true,
+			errorMessage: '',
+			requestCounter: state.requestCounter + 1,
+		}));
+		builder.addCase(registerUser.rejected, (state, action) => {
+			let error;
+			if(action.payload){
+				error = action.payload;
+			} else {
+				error = JSON.stringify(action.error);
+			}
+			return {
+			...state,
+			isLoading: false,
+			errorMessage: error,
+			registerSuccess: false,
+			requestCounter: state.requestCounter + 1,
+		}});
+		builder.addCase(loginUser.pending, (state) => ({
+			...state,
+			isLoading: true,
+		}));
+		builder.addCase(loginUser.fulfilled, (state, action) => ({
+			...state,
+			...action.payload,
+			isLoading: false,
+			isAuthenticated: true,
+			errorMessage: '',
+			requestCounter: state.requestCounter + 1,
+		}));
+		builder.addCase(loginUser.rejected, (state, action) => {
+			let error;
+			if(action.payload){
+				error = action.payload;
+			} else {
+				error = JSON.stringify(action.error);
+			}
+			return {
+				...state,
+				isLoading: false,
+				errorMessage: error,
+				isAuthenticated: false,
+				requestCounter: state.requestCounter + 1
+			}});
+		builder.addCase(getCurrentUser.pending, (state) => ({
+			...state,
+			isLoading: true,
+		}));
 		// builder.addCase(getCurrentUser.fulfilled, (state, action) => ({
 		// 	...state,
 		// 	...action.payload,

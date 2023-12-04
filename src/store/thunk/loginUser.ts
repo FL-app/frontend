@@ -1,21 +1,21 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { login } from '../../untils/mianApi';
+import { IFetchParam, login } from '../../untils/mianApi';
 
-export const loginUser = createAsyncThunk(
+interface IReturnedData {
+	access: string;
+	refresh: string;
+}
+
+export const loginUser = createAsyncThunk<IReturnedData, IFetchParam, {rejectValue: string}>(
 	'jwt/create',
 	async (payload, thunkAPI) => {
-		try {
 			const response = await login(payload);
 			const data = await response.json();
 			if (!response.ok) {
-				throw new Error(JSON.stringify(data));
+				return thunkAPI.rejectWithValue(JSON.stringify(data));
 			}
 			localStorage.setItem('access_token', data.access);
 			localStorage.setItem('refresh_token', data.refresh);
-
 			return data;
-		} catch (error) {
-			return thunkAPI.rejectWithValue(error.message);
 		}
-	}
 );

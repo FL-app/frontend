@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { IFetchParam, setNickname as changeNickname } from '../../untils/mianApi';
 import { IUserState } from '../slices/user';
 
-export const setNickname = createAsyncThunk<IUserState, IFetchParam, {rejectValue: string | undefined}>(
+export const setNickname = createAsyncThunk<Partial<IUserState>, IFetchParam, {rejectValue: string | undefined}>(
 	'user/me/setNickname',
 	async (payload, thunkAPI) => {
 		const response = await changeNickname(payload);
