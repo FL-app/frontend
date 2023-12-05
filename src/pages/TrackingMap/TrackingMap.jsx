@@ -7,7 +7,7 @@ import { Icon } from 'leaflet';
 import MainLayout from '../../layouts/MainLayout.tsx';
 import './TrackingMap.scss';
 import geotag from '../../images/geotag_map.svg';
-import friendsLocation from './friendsLocation'; // TODO делать запрос к серверу для получения списка друзей, брать их координаты
+import friendsLocation from './friendsLocation';
 import ButtonUserLocation from '../../components/ButtonUserLocation/ButtonUserLocation.tsx';
 import RoutesPath from '../../constants/enums/routesPath';
 import { sendCoords } from '../../store/thunk/sendCoords';
@@ -20,22 +20,18 @@ const userIcon = new Icon({
 
 export function TrackingMap() {
 	const [map, setMap] = useState(null);
-
 	const location = useSelector((state) => state.location);
 	const position = useMemo(
 		() => [location.latitude, location.longitude],
 		[location]
 	);
-
 	const { access, id } = useSelector((state) => state.user);
-
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 
 	useEffect(() => {
 		const handleSuccess = (pos) => {
 			map.setView(position);
-			// if (access && id !== 0) {
 			if (location.isAccessAllowed) {
 				if (
 					location.latitude !== pos.coords.latitude ||
@@ -53,23 +49,18 @@ export function TrackingMap() {
 			} else {
 				navigate(RoutesPath.accessGeo);
 			}
-			// };
 		};
-
 		const handleError = () => {
 			navigate(RoutesPath.accessGeoError);
 		};
-
 		const idWatch = navigator.geolocation.watchPosition(
 			handleSuccess,
 			handleError
 		);
-
 		return () => {
 			navigator.geolocation.clearWatch(idWatch);
 		};
 	}, [navigate, dispatch, location, access, id, position, map]);
-
 	const displayMap = useMemo(
 		() => (
 			<MapContainer
@@ -99,11 +90,9 @@ export function TrackingMap() {
 		),
 		[position]
 	);
-
 	const findUserLocation = useCallback(() => {
 		map.setView(position);
 	}, [map, position]);
-
 	return (
 		<section className="map">
 			<div className="map_container">
