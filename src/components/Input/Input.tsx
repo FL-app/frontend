@@ -10,7 +10,7 @@ interface InputProps {
 	className: string;
 	isRequired?: boolean;
 	inputValue: string;
-	onChange?: () => void;
+	onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 	placeholder: string;
 	onBlur?: () => void;
 	inputDirty?: boolean;
