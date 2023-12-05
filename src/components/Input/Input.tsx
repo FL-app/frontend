@@ -12,7 +12,7 @@ interface InputProps {
 	inputValue: string;
 	onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 	placeholder: string;
-	onBlur?: () => void;
+	onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
 	inputDirty?: boolean;
 	inputError?: string;
 }
