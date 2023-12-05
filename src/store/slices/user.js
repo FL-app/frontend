@@ -3,7 +3,7 @@ import { registerUser } from '../thunk/registerUser';
 import { loginUser } from '../thunk/loginUser';
 import getCurrentUser from '../thunk/getCurrentUser';
 import refreshToken from '../thunk/refreshToken.ts';
-import { setNickname } from '../thunk/setNickname';
+import setNickname from '../thunk/setNickname.ts';
 import Gender from '../../constants/enums/gender.ts';
 
 const initialState = {
