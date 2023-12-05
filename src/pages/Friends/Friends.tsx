@@ -1,32 +1,27 @@
 import { useState } from 'react';
 import { Button, PopupAddFriend } from '../../components';
-import { useUser } from '../../context/AppContext.tsx';
-import MainLayout from '../../layouts/MainLayout.tsx';
+import { useUser } from '../../context/AppContext';
+import MainLayout from '../../layouts/MainLayout';
 import './Friends.scss';
 
-export const Friends = () => {
-	// @TODO Добавлять друзей из базы данных
-
+const Friends = () => {
 	const currentUser = useUser();
 	const [addFreindsPopupOpened, setAddFreindsPopupOpened] = useState(false);
 	const [filteredFriends, setFilteredFriends] = useState(currentUser.friends);
-
-	const handleSearch = (searchTerm) => {
+	const handleSearch = (searchTerm: string) => {
 		const filtered = currentUser.friends.filter((friend) =>
 			friend.name.toLowerCase().includes(searchTerm.toLowerCase())
 		);
 		setFilteredFriends(filtered);
 	};
-
 	const handleAddFriend = () => {
 		setAddFreindsPopupOpened(true);
 	};
-
 	return (
 		<section className="friends">
 			<div className="friends_container">
 				<MainLayout
-					handleSearch={handleSearch}
+					handleSearch={() => handleSearch}
 					headerClassName="friends__header"
 					footerClassName="friends__footer"
 				>
@@ -61,3 +56,5 @@ export const Friends = () => {
 		</section>
 	);
 };
+
+export default Friends;
