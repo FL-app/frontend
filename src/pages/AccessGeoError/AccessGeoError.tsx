@@ -9,38 +9,24 @@ import RoutesPath from '../../constants/enums/routesPath';
 import geoTag from '../../images/geo-tag-error.png';
 import './AccessGeoError.scss';
 import { logout } from '../../store/slices/user';
-// import { sendCoords } from '../../store/thunk/sendCoords';
 
-export const AccessGeoError = () => {
+const AccessGeoError = () => {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
-
-	// const { access, id } = useSelector(state => state.user);
-
 	const handleLocateBtnClick = () => {
 		const handleSuccess = (/* position */) => {
 			dispatch(setAccessAllowed(true));
-			// dispatch(sendCoords({
-			// 	token: access,
-			// 	id,
-			// 	latitude: position.coords.latitude,
-			// 	longitude: position.coords.longitude,
-			// }));
-
 			navigate(RoutesPath.map);
 		};
-
-		const handleError = (error) => {
+		const handleError = (error: GeolocationPositionError) => {
 			dispatch(
 				setLocationError({
 					errorMessage: error.message,
 				})
 			);
 		};
-
 		navigator.geolocation.getCurrentPosition(handleSuccess, handleError);
 	};
-
 	const handleExit = () => {
 		dispatch(logout());
 	};
@@ -89,3 +75,5 @@ export const AccessGeoError = () => {
 		</section>
 	);
 };
+
+export default AccessGeoError;
