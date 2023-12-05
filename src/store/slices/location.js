@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { useNavigate } from 'react-router-dom';
-import { sendCoords } from '../thunk/sendCoords';
+import { sendCoords } from '../thunk/sendCoords.js';
 import RoutesPath from '../../constants/enums/routesPath';
 
 const initialState = {
