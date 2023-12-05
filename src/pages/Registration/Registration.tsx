@@ -1,11 +1,11 @@
 import './Registration.scss';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button, InputText, InputPassword } from '../../components';
-import avatarman from '../../images/avatarman.png';
-import avatarwoman from '../../images/avatarwoman.png';
-import { registerUser } from '../../store/thunk/registerUser';
+import avatarMan from '../../images/avatarman.png';
+import avatarWoman from '../../images/avatarwoman.png';
+import registerUser from '../../store/thunk/registerUser';
 import RoutesPath from '../../constants/enums/routesPath';
 import ValidationErrorMessages from '../../constants/enums/validation';
 import {
@@ -13,8 +13,9 @@ import {
 	namePattern,
 	nicknamePattern,
 } from '../../constants/regExp/validation';
+import { AppDispatch, RootState } from '../../store';
 
-export const Registration = () => {
+const Registration = () => {
 	const navigate = useNavigate();
 	const [userData, setUserData] = useState({
 		name: '',
@@ -55,7 +56,7 @@ export const Registration = () => {
 	);
 	const [checkboxError, setCheckboxError] = useState(false);
 	const [step, setStep] = useState(1);
-	const handleChange = (evt) => {
+	const handleChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
 		const { name, value } = evt.target;
 
 		setUserData({
@@ -137,7 +138,7 @@ export const Registration = () => {
 		}
 	};
 
-	const blurHandler = (evt) => {
+	const blurHandler = (evt: React.FocusEvent<HTMLInputElement>) => {
 		switch (evt.target.name) {
 			case 'name':
 				setNameDirty(true);
@@ -198,7 +199,7 @@ export const Registration = () => {
 		}
 	};
 
-	const hadleBtnBackClick = () => {
+	const handleBtnBackClick = () => {
 		if (step === 2) {
 			setStep(1);
 		} else {
@@ -206,7 +207,7 @@ export const Registration = () => {
 		}
 	};
 
-	const formValidCheck = (validationStep) => {
+	const formValidCheck = (validationStep: number) => {
 		const isFormValidStepOne =
 			!nameError && !surnameError && !nicknameError && !emailError;
 		const isFormValidStepTwo =
@@ -222,16 +223,21 @@ export const Registration = () => {
 		return isFormValidStepTwo;
 	};
 
-	const dispatch = useDispatch();
+	const dispatch = useDispatch<AppDispatch>();
 	const { errorMessage, registerSuccess, requestCounter } = useSelector(
-		(state) => state.user
+		(state: RootState) => state.user
 	);
 
 	useEffect(() => {
 		if (registerSuccess) navigate(RoutesPath.accessGeo);
 		if (!registerSuccess && errorMessage) {
-			const errors = JSON.parse(errorMessage);
-
+			const errors = JSON.parse(errorMessage) as {
+				email: ValidationErrorMessages[];
+				username: ValidationErrorMessages[];
+				firstname: ValidationErrorMessages[];
+				lastname: ValidationErrorMessages[];
+				password: ValidationErrorMessages[];
+			};
 			setEmailError(ValidationErrorMessages.emptyString);
 			setNicknameError(ValidationErrorMessages.emptyString);
 			setNameError(ValidationErrorMessages.emptyString);
@@ -260,13 +266,10 @@ export const Registration = () => {
 		}
 	}, [navigate, errorMessage, registerSuccess, requestCounter]);
 
-	const handleSubmit = (event) => {
-		event.preventDefault();
-
+	const handleSubmit = () => {
 		if (formValidCheck(2)) {
 			dispatch(registerUser(userData));
 		}
-
 		setPasswordDirty(true);
 		setConfirmPasswordDirty(true);
 		setCheckboxError(true);
@@ -282,7 +285,7 @@ export const Registration = () => {
 				<button
 					type="button"
 					className="registration_btn-back"
-					onClick={hadleBtnBackClick}
+					onClick={handleBtnBackClick}
 					aria-label="Back"
 				/>
 				{step === 1 ? (
@@ -353,7 +356,7 @@ export const Registration = () => {
 										htmlFor="female"
 										className="registration_form_sex-fieldset_label"
 									/>
-									<img src={avatarwoman} alt="Avatar woman" />
+									<img src={avatarWoman} alt="Avatar woman" />
 								</div>
 								<div className="registration_form_sex-fieldset_radio-container">
 									<input
@@ -369,7 +372,7 @@ export const Registration = () => {
 										htmlFor="male"
 										className="registration_form_sex-fieldset_label"
 									/>
-									<img src={avatarman} alt="Avatar man" />
+									<img src={avatarMan} alt="Avatar man" />
 								</div>
 							</fieldset>
 							<Button
@@ -428,9 +431,9 @@ export const Registration = () => {
 									id="terms-of-use-checkbox"
 									type="checkbox"
 									className={`registration_form_terms-of-use_checkbox ${
-										checkboxError === true ? 'checkbox-error' : ''
+										checkboxError ? 'checkbox-error' : ''
 									}`}
-									value={termsOfUse}
+									value={String(termsOfUse)}
 									onChange={() => {
 										setTermsOfUse(!termsOfUse);
 										setUserData({
@@ -486,3 +489,5 @@ export const Registration = () => {
 		</section>
 	);
 };
+
+export default Registration;
