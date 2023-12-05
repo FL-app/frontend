@@ -1,5 +1,5 @@
 import './Login.scss';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginUser } from '../../store/thunk/loginUser';
@@ -7,8 +7,10 @@ import { Button, InputText, InputPassword } from '../../components';
 import RoutesPath from '../../constants/enums/routesPath';
 import { emailPattern } from '../../constants/regExp/validation';
 import ValidationErrorMessages from '../../constants/enums/validation';
+import { AppDispatch, RootState } from '../../store';
+import TokenErrorMessage from '../../types/tokenErrorMessage';
 
-export const Login = () => {
+const Login = () => {
 	const navigate = useNavigate();
 
 	const [userData, setUserData] = useState({
@@ -28,7 +30,7 @@ export const Login = () => {
 
 	const [passwordType, setPasswordType] = useState('password');
 
-	const handleChange = (evt) => {
+	const handleChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
 		const { name, value } = evt.target;
 
 		setUserData({
@@ -58,7 +60,7 @@ export const Login = () => {
 		}
 	};
 
-	const blurHandler = (evt) => {
+	const blurHandler = (evt: React.FocusEvent<HTMLInputElement>) => {
 		switch (evt.target.name) {
 			case 'email':
 				setEmailDirty(true);
@@ -79,38 +81,32 @@ export const Login = () => {
 		}
 	};
 
-	const hadleBtnBackClick = () => {
+	const handleBtnBackClick = () => {
 		navigate(-1);
 	};
 
 	const formValidCheck = () => !emailError && !passwordError;
 
-	const dispatch = useDispatch();
+	const dispatch = useDispatch<AppDispatch>();
 	const { errorMessage, isAuthenticated, requestCounter } = useSelector(
-		(state) => state.user
+		(state: RootState) => state.user
 	);
 
 	useEffect(() => {
-		if (isAuthenticated) {
-			navigate(RoutesPath.map);
-		}
+		if (isAuthenticated) navigate(RoutesPath.map);
 		if (!isAuthenticated && errorMessage) {
-			const errors = JSON.parse(errorMessage);
+			const errors = JSON.parse(errorMessage) as TokenErrorMessage;
 			setPasswordError(ValidationErrorMessages.emptyString);
-
 			if (errors.detail) {
 				setPasswordError(ValidationErrorMessages.wrongLoginOrPassword);
 			}
 		}
 	}, [navigate, errorMessage, isAuthenticated, requestCounter]);
 
-	const handleSubmit = (event) => {
-		event.preventDefault();
-
+	const handleSubmit = () => {
 		if (formValidCheck()) {
 			dispatch(loginUser(userData));
 		}
-
 		setEmailDirty(true);
 		setPasswordDirty(true);
 	};
@@ -121,7 +117,7 @@ export const Login = () => {
 				<button
 					type="button"
 					className="signin_btn-back"
-					onClick={hadleBtnBackClick}
+					onClick={handleBtnBackClick}
 					aria-label="Back"
 				/>
 				<div className="signin_vector-1" />
@@ -174,3 +170,5 @@ export const Login = () => {
 		</section>
 	);
 };
+
+export default Login;
