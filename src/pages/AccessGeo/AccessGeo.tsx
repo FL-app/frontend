@@ -8,27 +8,16 @@ import { Button } from '../../components';
 import RoutesPath from '../../constants/enums/routesPath';
 import geoTag from '../../images/geo-tag.png';
 import './AccessGeo.scss';
-// import { sendCoords } from '../../store/thunk/sendCoords';
 
-export const AccessGeo = () => {
+const AccessGeo = () => {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
-
-	// const { access, id } = useSelector(state => state.user);
-
 	const handleLocateBtnClick = () => {
 		const handleSuccess = (/* position */) => {
 			dispatch(setAccessAllowed(true));
-			// dispatch(sendCoords({
-			// 	token: access,
-			// 	id,
-			// 	latitude: position.coords.latitude,
-			// 	longitude: position.coords.longitude,
-			// }));
 			navigate(RoutesPath.map);
 		};
-
-		const handleError = (error) => {
+		const handleError = (error: GeolocationPositionError) => {
 			dispatch(
 				setLocationError({
 					errorMessage: error.message,
@@ -39,7 +28,6 @@ export const AccessGeo = () => {
 
 		navigator.geolocation.getCurrentPosition(handleSuccess, handleError);
 	};
-
 	return (
 		<section className="access-geo">
 			<div className="access-geo_container">
@@ -77,3 +65,5 @@ export const AccessGeo = () => {
 		</section>
 	);
 };
+
+export default AccessGeo;
