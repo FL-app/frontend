@@ -1,6 +1,6 @@
 export * from './Registration/Registration';
 export * from './Login/Login';
-export * from './TermsOfUse/TermsOfUse';
+export { default as TermsOfUse } from './TermsOfUse/TermsOfUse';
 export { default as PrivacyPolicy } from './PrivacyPolicy/PrivacyPolicy';
 export { default as Friends } from './Friends/Friends';
 export { default as Welcome } from './Welcome/Welcome';

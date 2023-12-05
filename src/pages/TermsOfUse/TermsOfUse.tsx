@@ -1,10 +1,10 @@
 import { useNavigate } from 'react-router-dom';
 import './TermsOfUse.scss';
 
-export const TermsOfUse = () => {
+const TermsOfUse = () => {
 	const navigate = useNavigate();
 
-	const hadleBtnBackClick = () => {
+	const handleBtnBackClick = () => {
 		navigate(-1);
 	};
 
@@ -15,7 +15,7 @@ export const TermsOfUse = () => {
 					<button
 						type="button"
 						className="terms-of-use__btn-back"
-						onClick={hadleBtnBackClick}
+						onClick={handleBtnBackClick}
 						aria-label="Back"
 					/>
 					<h2 className="terms-of-use__title">Условия использования</h2>
@@ -31,3 +31,5 @@ export const TermsOfUse = () => {
 		</section>
 	);
 };
+
+export default TermsOfUse;
