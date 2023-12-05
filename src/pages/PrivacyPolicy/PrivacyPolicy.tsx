@@ -1,13 +1,11 @@
 import { useNavigate } from 'react-router-dom';
 import './PrivacyPolicy.scss';
 
-export const PrivacyPolicy = () => {
+const PrivacyPolicy = () => {
 	const navigate = useNavigate();
-
 	const hadleBtnBackClick = () => {
 		navigate(-1);
 	};
-
 	return (
 		<section className="privacy-policy">
 			<div className="privacy-policy__container">
@@ -31,3 +29,5 @@ export const PrivacyPolicy = () => {
 		</section>
 	);
 };
+
+export default PrivacyPolicy;
