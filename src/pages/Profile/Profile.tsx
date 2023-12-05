@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Button, PopupWithForm, Input } from '../../components';
-import MainLayout from '../../layouts/MainLayout.tsx';
+import { Button, Input, PopupWithForm } from '../../components';
+import MainLayout from '../../layouts/MainLayout';
 import spiralPng from '../../images/spiral-banner.png';
 import vectorCircle from '../../images/vector-signin-2.svg';
 import avatarMale from '../../images/icon_profile_man.png';
 import avatarFemale from '../../images/icon_profile_woman.png';
-// import { useUser } from '../../context/AppContext';
 import './Profile.scss';
-import { setNickname } from '../../store/thunk/setNickname';
+import setNickname from '../../store/thunk/setNickname';
+import { AppDispatch, RootState } from '../../store';
+import Gender from '../../constants/enums/gender';
 
 const recommendedStatuses = [
 	'На работе',
@@ -16,42 +17,25 @@ const recommendedStatuses = [
 	'Не беспокоить',
 ].slice(0, 3);
 
-export const Profile = () => {
-	const currentUser = useSelector((state) => state.user);
-	// const { currentUser, setCurrentUser } = useUser();
+const Profile = () => {
+	const currentUser = useSelector((state: RootState) => state.user);
 	const [nicknamePopupOpened, setNicknamePopupOpened] = useState(false);
-	const [inviteFreindsPopupOpened, setInviteFreindsPopupOpened] =
+	const [inviteFriendsPopupOpened, setInviteFriendsPopupOpened] =
 		useState(false);
 	const [formValues, setFormValues] = useState({
 		status: currentUser.status,
 		nicknameValue: currentUser.username,
 		inviteEmailValue: '',
 	});
-
-	const dispatch = useDispatch();
-
-	// @TODO Переделать статусы через Redux
-
-	// const handleSubmitStatus = (newStatus) => {
-	// 	setCurrentUser((prevState) => ({
-	// 		...prevState,
-	// 		status: newStatus,
-	// 	}));
-	// 	setFormValues((prevState) => ({
-	// 		...prevState,
-	// 		status: '',
-	// 	}));
-	// };
-
-	const handleStatusChange = (newStatus) => {
+	const dispatch = useDispatch<AppDispatch>();
+	const handleStatusChange = (newStatus: string) => {
 		setFormValues((prevState) => ({
 			...prevState,
 			status: newStatus,
 		}));
 	};
 
-	const handleSubmitNickname = (e) => {
-		e.preventDefault();
+	const handleSubmitNickname = () => {
 		const updatedUser = { ...currentUser };
 		updatedUser.username = formValues.nicknameValue;
 		dispatch(
@@ -69,15 +53,13 @@ export const Profile = () => {
 		setNicknamePopupOpened(false);
 	};
 
-	const handleSubmitInvite = (e) => {
-		e.preventDefault();
-		// Здесь нужно реализовать логику отправки приглашения
+	const handleSubmitInvite = () => {
 		setFormValues((prevState) => ({ ...prevState, inviteEmailValue: '' }));
-		setInviteFreindsPopupOpened(false);
+		setInviteFriendsPopupOpened(false);
 	};
 
-	function getUserAvatar(sex) {
-		return sex === 'male' ? avatarMale : avatarFemale;
+	function getUserAvatar(sex: Gender) {
+		return sex === Gender.male ? avatarMale : avatarFemale;
 	}
 
 	return (
@@ -93,12 +75,11 @@ export const Profile = () => {
 							aria-label="Изменить аватар"
 						>
 							<img
-								src={getUserAvatar(currentUser.gender)}
+								src={getUserAvatar(currentUser.gender as Gender)}
 								alt="Avatar"
 								className="profile-avatar-image"
 							/>
 						</button>
-						{/* <Avatar url={getUserAvatar(UserInfo.sex)} /> */}
 						<div className="profile-user-info">
 							<div className="profile-user-name">{`${currentUser.first_name} ${currentUser.last_name}`}</div>
 							<div className="profile-user-nickname">
@@ -117,7 +98,6 @@ export const Profile = () => {
 						className="profile-status-container"
 						onSubmit={(e) => {
 							e.preventDefault();
-							// handleSubmitStatus(formValues.status);
 						}}
 					>
 						<label htmlFor="status" className="profile-status-label">
@@ -139,9 +119,12 @@ export const Profile = () => {
 								<button
 									key={statusValue}
 									type="button"
-									onClick={(e) => {
-										e.preventDefault();
-										// handleSubmitStatus(statusValue);
+									onClick={() => {
+										setFormValues((prevState) => ({
+											status: statusValue,
+											nicknameValue: prevState.nicknameValue,
+											inviteEmailValue: prevState.inviteEmailValue,
+										}));
 									}}
 									className="profile-status-bar-button"
 								>
@@ -167,9 +150,8 @@ export const Profile = () => {
 							type="button"
 							color="secondary"
 							size="medium"
-							onClick={() => setInviteFreindsPopupOpened(true)}
+							onClick={() => setInviteFriendsPopupOpened(true)}
 							className="profile-invite-banner-add-btn"
-							onSubmit={() => void 0}
 						/>
 						<img
 							className="profile-invite-banner-circle"
@@ -200,13 +182,12 @@ export const Profile = () => {
 							placeholder="Имя пользователя"
 							className=""
 							inputValue={formValues.nicknameValue}
-							onChange={(e) => {
+							onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
 								setFormValues((prevState) => ({
 									...prevState,
 									nicknameValue: e.target.value,
 								}));
 							}}
-							onBlur={() => void 0}
 						/>
 						<div className="popup-button-container">
 							<Button
@@ -217,13 +198,12 @@ export const Profile = () => {
 								onClick={() => {
 									setFormValues((prevState) => ({
 										...prevState,
-										nicknameValue: currentUser.nickname,
+										nicknameValue: currentUser.username,
 									}));
 									setNicknamePopupOpened(false);
 								}}
 								className="popup-button"
 							/>
-							{/* TODO отправка - ожидание ответа - вызов попапа с результатом */}
 							<Button
 								label="Готово"
 								type="submit"
@@ -235,12 +215,11 @@ export const Profile = () => {
 						</div>
 					</>
 				</PopupWithForm>
-
 				<PopupWithForm
 					title="Введи адрес электронной почты. Мы отправим другу письмо с приглашением"
 					name="invite-form"
-					isOpen={inviteFreindsPopupOpened}
-					onClose={() => setInviteFreindsPopupOpened(false)}
+					isOpen={inviteFriendsPopupOpened}
+					onClose={() => setInviteFriendsPopupOpened(false)}
 					onSubmit={handleSubmitInvite}
 				>
 					<>
@@ -251,13 +230,12 @@ export const Profile = () => {
 							placeholder="Электронная почта"
 							className=""
 							inputValue={formValues.inviteEmailValue}
-							onChange={(e) => {
+							onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
 								setFormValues((prevState) => ({
 									...prevState,
 									inviteEmailValue: e.target.value,
 								}));
 							}}
-							onBlur={() => void 0}
 						/>
 						<div className="popup-button-container">
 							<Button
@@ -270,20 +248,17 @@ export const Profile = () => {
 										...prevState,
 										inviteEmailValue: '',
 									}));
-									setInviteFreindsPopupOpened(false);
+									setInviteFriendsPopupOpened(false);
 								}}
 								className="popup-button"
 							/>
-							{/* TODO отправка - ожидание ответа - вызов попапа с результатом */}
 							<Button
 								label="Подтвердить"
 								type="submit"
 								color="primary"
 								size="medium"
-								onClick={(e) => {
-									e.preventDefault();
-									// Функция с отправко сообщения другу на почту
-									setInviteFreindsPopupOpened(false);
+								onClick={() => {
+									setInviteFriendsPopupOpened(false);
 									setFormValues((prevState) => ({
 										...prevState,
 										inviteEmailValue: '',
@@ -298,3 +273,5 @@ export const Profile = () => {
 		</section>
 	);
 };
+
+export default Profile;
