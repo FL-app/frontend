@@ -1,4 +1,4 @@
-import { ChangeEvent } from 'react';
+import React, { ChangeEvent } from 'react';
 import './InputText.scss';
 import InputTypes from '../../constants/enums/inputTypes';
 
@@ -9,8 +9,8 @@ interface InputTextProps {
 	name: string;
 	isRequired?: boolean;
 	inputValue: string;
-	onChange?: (evt: ChangeEvent<HTMLInputElement>) => void;
-	onBlur?: () => void;
+	onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+	onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
 	inputDirty: boolean;
 	inputError: string;
 }
