@@ -1,4 +1,4 @@
-export * from './Registration/Registration';
+export { default as Registration } from './Registration/Registration';
 export { default as Login } from './Login/Login';
 export { default as TermsOfUse } from './TermsOfUse/TermsOfUse';
 export { default as PrivacyPolicy } from './PrivacyPolicy/PrivacyPolicy';
