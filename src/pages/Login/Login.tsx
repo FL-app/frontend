@@ -2,7 +2,7 @@ import './Login.scss';
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { loginUser } from '../../store/thunk/loginUser';
+import loginUser from '../../store/thunk/loginUser';
 import { Button, InputText, InputPassword } from '../../components';
 import RoutesPath from '../../constants/enums/routesPath';
 import { emailPattern } from '../../constants/regExp/validation';
