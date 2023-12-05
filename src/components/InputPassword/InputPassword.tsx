@@ -1,4 +1,5 @@
 import './InputPassword.scss';
+import React from 'react';
 import InputTypes from '../../constants/enums/inputTypes';
 
 interface InputPasswordProps {
@@ -8,8 +9,8 @@ interface InputPasswordProps {
 	name: string;
 	isRequired?: boolean;
 	inputValue: string;
-	onChange?: () => void;
-	onBlur?: () => void;
+	onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+	onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
 	passwordDirty: boolean;
 	passwordError: string;
 	onPasswordBtnClick?: () => void;
