@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { registerUser } from '../thunk/registerUser';
-import { loginUser } from '../thunk/loginUser';
+import loginUser from '../thunk/loginUser.ts';
 import getCurrentUser from '../thunk/getCurrentUser';
 import refreshToken from '../thunk/refreshToken.ts';
 import setNickname from '../thunk/setNickname.ts';
