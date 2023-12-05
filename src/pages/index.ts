@@ -1,5 +1,5 @@
 export * from './Registration/Registration';
-export * from './Login/Login';
+export { default as Login } from './Login/Login';
 export { default as TermsOfUse } from './TermsOfUse/TermsOfUse';
 export { default as PrivacyPolicy } from './PrivacyPolicy/PrivacyPolicy';
 export { default as Friends } from './Friends/Friends';
