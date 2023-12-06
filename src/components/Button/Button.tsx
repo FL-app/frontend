@@ -3,7 +3,7 @@ import './Button.scss';
 interface IButtonProps {
 	label: string;
 	url?: string;
-	type: 'link' | 'button' | 'submit';
+	type?: 'link' | 'button' | 'submit' | 'reset';
 	color?: 'primary' | 'secondary';
 	size: 'medium' | 'large';
 	disabled?: boolean;
@@ -11,44 +11,30 @@ interface IButtonProps {
 	className?: string;
 }
 
-const Button = ({
-	label,
-	url = undefined,
-	type = 'button',
-	color = undefined,
-	size = 'medium',
-	disabled = false,
-	onClick = undefined,
-	className = '',
-}: IButtonProps) => {
-	const props = {
-		disabled,
-		onClick,
-	};
+const Button = (props: IButtonProps) => {
+	const { label, url, type, color, size, disabled, onClick, className } = props;
 
-	switch (type) {
-		case 'link':
-			return (
-				<a
-					{...props}
-					href={url}
-					className={`button button_link button_${size} button_color-${color} ${className}`}
-				>
-					{label}
-				</a>
-			);
+	const getLink = () => (
+		<a
+			href={url}
+			className={`button button_link button_${size} button_color-${color} ${className}`}
+		>
+			{label}
+		</a>
+	);
 
-		default:
-			return (
-				<button
-					{...props}
-					type={type}
-					className={`button button_${size} button_color-${color} ${className}`}
-				>
-					{label}
-				</button>
-			);
-	}
+	const getButton = () => (
+		<button
+			disabled={disabled}
+			onClick={onClick}
+			type={type !== 'link' ? type : 'button'}
+			className={`button button_${size} button_color-${color} ${className}`}
+		>
+			{label}
+		</button>
+	);
+
+	return type === 'link' ? getLink() : getButton();
 };
 
 export default Button;

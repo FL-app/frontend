@@ -1,4 +1,3 @@
-import { FC } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -7,18 +6,16 @@ import carousel1 from '../../images/Carousel1.png';
 import carousel2 from '../../images/Carousel2.png';
 import carousel3 from '../../images/Carousel3.png';
 
-const Carousel: FC = () => {
-	const settings = {
-		dots: true,
-		infinite: true,
-		speed: 500,
-		slidesToShow: 1,
-		slidesToScroll: 1,
-		arrows: false,
-	};
-
+const Carousel = () => {
 	return (
-		<Slider {...settings}>
+		<Slider
+			dots
+			infinite
+			speed={500}
+			slidesToShow={1}
+			slidesToScroll={1}
+			arrows={false}
+		>
 			<div className="slick__container">
 				<div
 					className="slick-image"

@@ -30,7 +30,6 @@
 	"plugins": ["@typescript-eslint", "react", "prettier"],
 	"rules": {
 		"react/require-default-props": "off",
-		"react/jsx-props-no-spreading": "off",
 		"react/button-has-type": "off",
 		"react/function-component-definition": "off",
 		"import/no-extraneous-dependencies": "off",
