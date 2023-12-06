@@ -1,3 +1,5 @@
+import Gender from './enums/gender';
+
 const BASE_URL = 'http://91.186.197.174/api/v1';
 
 interface IFetchBody {
@@ -6,7 +8,7 @@ interface IFetchBody {
 	first_name?: string;
 	last_name?: string;
 	password?: string;
-	gender?: string;
+	gender?: Gender;
 	refresh?: string;
 	token?: string;
 	new_email?: string;
@@ -18,11 +20,48 @@ interface IFetchBody {
 	status?: string;
 }
 
+export interface RegistrationDTO {
+	email: string;
+	nickname: string;
+	name: string;
+	surname: string;
+	password: string;
+	sex: Gender;
+}
+
+export interface RefreshDTO {
+	refresh: string;
+}
+
+export interface ChangeCoordinatesDTO {
+	token: string;
+	id: string;
+	longitude: number;
+	latitude: number;
+}
+
+export interface ChangeNicknameDTO {
+	username: string;
+	token: string;
+}
+
 interface IFetchParam {
 	path: string;
 	method?: string;
-	body?: IFetchBody | string;
+	body?:
+		| IFetchBody
+		| string
+		| RegistrationDTO
+		| LoginDTO
+		| RefreshDTO
+		| Partial<ChangeNicknameDTO>
+		| Partial<ChangeCoordinatesDTO>;
 	token?: string;
+}
+
+export interface LoginDTO {
+	email: string;
+	password: string;
 }
 
 const fetchTemplate = ({
