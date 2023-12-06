@@ -17,16 +17,12 @@ function App() {
 
 	useEffect(() => {
 		let token = localStorage.getItem('access_token');
-		if (token) {
-			dispatch(getCurrentUser(token));
-		}
+		if (token) dispatch<void>(getCurrentUser(token));
 		if (errorMessage) {
 			const error = JSON.parse(errorMessage) as TokenErrorMessage;
 			if (error.code === TokenCodes.notValid) {
 				token = localStorage.getItem('refresh_token');
-				if (token) {
-					dispatch(refreshToken(token));
-				}
+				if (token) dispatch<void>(refreshToken(token));
 			}
 		}
 	}, [dispatch, errorMessage, isAuthenticated]);

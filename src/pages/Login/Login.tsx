@@ -103,9 +103,7 @@ function Login() {
 	}, [navigate, errorMessage, isAuthenticated, requestCounter]);
 
 	const handleSubmit = () => {
-		if (formValidCheck()) {
-			dispatch(loginUser(userData));
-		}
+		if (formValidCheck()) dispatch<void>(loginUser(userData));
 		setEmailDirty(true);
 		setPasswordDirty(true);
 	};

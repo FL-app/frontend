@@ -38,7 +38,7 @@ function TrackingMap() {
 					location.latitude !== pos.coords.latitude ||
 					location.longitude !== pos.coords.longitude
 				) {
-					dispatch(
+					dispatch<void>(
 						sendCoords({
 							token: access,
 							id,

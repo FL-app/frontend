@@ -268,9 +268,7 @@ function Registration() {
 	}, [navigate, errorMessage, registerSuccess, requestCounter]);
 
 	const handleSubmit = () => {
-		if (formValidCheck(2)) {
-			dispatch(registerUser(userData));
-		}
+		if (formValidCheck(2)) dispatch<void>(registerUser(userData));
 		setPasswordDirty(true);
 		setConfirmPasswordDirty(true);
 		setCheckboxError(true);

@@ -38,7 +38,7 @@ function Profile() {
 	const handleSubmitNickname = () => {
 		const updatedUser = { ...currentUser };
 		updatedUser.username = formValues.nicknameValue;
-		dispatch(
+		dispatch<void>(
 			setNickname({
 				username: updatedUser.username,
 				token: currentUser.access,
