@@ -19,7 +19,10 @@ function PopupWithForm(props: IProps) {
 	return (
 		<div
 			className={`popup popup_type_${name} ${isOpen && 'popup_opened'}`}
-			onMouseDown={handleMouseDown}
+			role="button"
+			tabIndex={0}
+			onKeyDown={undefined}
+			onClick={handleMouseDown}
 		>
 			<div className="popup__container">
 				{title && <h2 className="popup__title">{title}</h2>}
