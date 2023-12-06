@@ -1,4 +1,3 @@
-import React, { ChangeEvent } from 'react';
 import './InputText.scss';
 import InputTypes from '../../constants/enums/inputTypes';
 
