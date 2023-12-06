@@ -1,12 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit';
-import loginUser from '../thunk/loginUser.ts';
+import loginUser from '../thunk/loginUser';
 import getCurrentUser from '../thunk/getCurrentUser';
-import refreshToken from '../thunk/refreshToken.ts';
-import setNickname from '../thunk/setNickname.ts';
-import Gender from '../../constants/enums/gender.ts';
-import registerUser from '../thunk/registerUser.ts';
+import refreshToken from '../thunk/refreshToken';
+import setNickname from '../thunk/setNickname';
+import Gender from '../../constants/enums/gender';
+import registerUser from '../thunk/registerUser';
+import UserState from '../../types/userState.interface';
+import { TokensDTO } from '../../constants/apiTemplate';
 
-const initialState = {
+const initialState: UserState = {
 	id: 0,
 	first_name: '',
 	last_name: '',
@@ -26,7 +28,7 @@ const initialState = {
 
 const userSlice = createSlice({
 	name: 'user',
-	initialState: initialState,
+	initialState,
 	reducers: {
 		logout(state) {
 			localStorage.removeItem('access_token');
@@ -50,10 +52,10 @@ const userSlice = createSlice({
 			errorMessage: '',
 			requestCounter: state.requestCounter + 1,
 		}));
-		builder.addCase(registerUser.rejected, (state, action) => ({
+		builder.addCase(registerUser.rejected, (state) => ({
 			...state,
 			isLoading: false,
-			errorMessage: action.payload,
+			errorMessage: 'Registration unsuccessful',
 			registerSuccess: false,
 			requestCounter: state.requestCounter + 1,
 		}));
@@ -63,7 +65,8 @@ const userSlice = createSlice({
 		}));
 		builder.addCase(loginUser.fulfilled, (state, action) => ({
 			...state,
-			...action.payload,
+			access: (action.payload as TokensDTO).access,
+			refresh: (action.payload as TokensDTO).refresh,
 			isLoading: false,
 			isAuthenticated: true,
 			errorMessage: '',
@@ -72,7 +75,7 @@ const userSlice = createSlice({
 		builder.addCase(loginUser.rejected, (state, action) => ({
 			...state,
 			isLoading: false,
-			errorMessage: action.payload,
+			errorMessage: action.payload as string,
 			isAuthenticated: false,
 			requestCounter: state.requestCounter + 1,
 		}));
@@ -90,10 +93,10 @@ const userSlice = createSlice({
 			refresh: localStorage.getItem('refresh_token'),
 			requestCounter: state.requestCounter + 1,
 		}));
-		builder.addCase(getCurrentUser.rejected, (state, action) => ({
+		builder.addCase(getCurrentUser.rejected, (state) => ({
 			...state,
 			isLoading: false,
-			errorMessage: action.payload,
+			errorMessage: 'Unknown error',
 			isAuthenticated: false,
 			requestCounter: state.requestCounter + 1,
 		}));
@@ -103,18 +106,18 @@ const userSlice = createSlice({
 		}));
 		builder.addCase(refreshToken.fulfilled, (state, action) => ({
 			...state,
-			...action.payload,
+			...JSON.parse(action.payload as string),
 			isLoading: false,
 			errorMessage: '',
 			requestCounter: state.requestCounter + 1,
 		}));
-		builder.addCase(refreshToken.rejected, (state, action) => {
+		builder.addCase(refreshToken.rejected, (state) => {
 			localStorage.removeItem('access_token');
 			localStorage.removeItem('refresh_token');
 			return {
 				...state,
 				isLoading: false,
-				errorMessage: action.payload,
+				errorMessage: 'Incorrect refresh token',
 				requestCounter: state.requestCounter + 1,
 			};
 		});
@@ -129,10 +132,10 @@ const userSlice = createSlice({
 			errorMessage: '',
 			requestCounter: state.requestCounter + 1,
 		}));
-		builder.addCase(setNickname.rejected, (state, action) => ({
+		builder.addCase(setNickname.rejected, (state) => ({
 			...state,
 			isLoading: false,
-			errorMessage: action.payload,
+			errorMessage: 'Something went wrong...',
 			requestCounter: state.requestCounter + 1,
 		}));
 	},
