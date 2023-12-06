@@ -9,7 +9,7 @@ import UserState from '../../types/userState.interface';
 import { TokensDTO } from '../../constants/apiTemplate';
 
 const initialState: UserState = {
-	id: 0,
+	id: '',
 	first_name: '',
 	last_name: '',
 	username: '',

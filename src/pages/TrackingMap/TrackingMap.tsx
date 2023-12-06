@@ -3,14 +3,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { MapContainer, Marker, TileLayer } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-import { Icon } from 'leaflet';
-import MainLayout from '../../layouts/MainLayout.tsx';
+import { Icon, LatLngExpression, Map } from 'leaflet';
+import MainLayout from '../../layouts/MainLayout';
 import './TrackingMap.scss';
 import geotag from '../../images/geotag_map.svg';
 import friendsLocation from './friendsLocation';
-import ButtonUserLocation from '../../components/ButtonUserLocation/ButtonUserLocation.tsx';
+import ButtonUserLocation from '../../components/ButtonUserLocation/ButtonUserLocation';
 import RoutesPath from '../../constants/enums/routesPath';
-import sendCoords from '../../store/thunk/sendCoords.ts';
+import sendCoords from '../../store/thunk/sendCoords';
+import { AppDispatch, RootState } from '../../store';
 
 const userIcon = new Icon({
 	iconUrl: geotag,
@@ -18,20 +19,20 @@ const userIcon = new Icon({
 	iconAnchor: [15, 40],
 });
 
-export function TrackingMap() {
-	const [map, setMap] = useState(null);
-	const location = useSelector((state) => state.location);
+const TrackingMap = () => {
+	const [map, setMap] = useState<Map>();
+	const location = useSelector((state: RootState) => state.location);
 	const position = useMemo(
-		() => [location.latitude, location.longitude],
+		() => [location.latitude, location.longitude] as LatLngExpression,
 		[location]
 	);
-	const { access, id } = useSelector((state) => state.user);
+	const { access, id } = useSelector((state: RootState) => state.user);
 	const navigate = useNavigate();
-	const dispatch = useDispatch();
+	const dispatch = useDispatch<AppDispatch>();
 
 	useEffect(() => {
-		const handleSuccess = (pos) => {
-			map.setView(position);
+		const handleSuccess = (pos: GeolocationPosition) => {
+			map?.setView(position);
 			if (location.isAccessAllowed) {
 				if (
 					location.latitude !== pos.coords.latitude ||
@@ -67,7 +68,9 @@ export function TrackingMap() {
 				center={position}
 				zoom={13}
 				scrollWheelZoom={false}
-				ref={setMap}
+				ref={(mapRef) => {
+					if (mapRef) setMap(mapRef);
+				}}
 			>
 				<TileLayer
 					attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -91,7 +94,7 @@ export function TrackingMap() {
 		[position]
 	);
 	const findUserLocation = useCallback(() => {
-		map.setView(position);
+		map?.setView(position);
 	}, [map, position]);
 	return (
 		<section className="map">
@@ -99,7 +102,7 @@ export function TrackingMap() {
 				<MainLayout
 					headerClassName="header"
 					footerClassName="footer"
-					handleSearch={() => void 0}
+					handleSearch={undefined}
 				>
 					{displayMap}
 					<ButtonUserLocation handleClick={findUserLocation} />
@@ -107,4 +110,6 @@ export function TrackingMap() {
 			</div>
 		</section>
 	);
-}
+};
+
+export default TrackingMap;

@@ -5,8 +5,8 @@ import RoutesPath from '../../constants/enums/routesPath';
 import LocationState from '../../types/locationState.interface';
 
 const initialState: LocationState = {
-	latitude: '',
-	longitude: '',
+	latitude: 0,
+	longitude: 0,
 	errorMessage: '',
 	isAccessAllowed: false,
 	isLoading: false,
@@ -24,7 +24,7 @@ const locationSlice = createSlice({
 		},
 		setLocation(
 			state,
-			action: { payload: { latitude: string; longitude: string } }
+			action: { payload: { latitude: number; longitude: number } }
 		) {
 			return {
 				...state,
@@ -36,8 +36,8 @@ const locationSlice = createSlice({
 		setLocationError(state, action: { payload: { errorMessage: string } }) {
 			return {
 				...state,
-				latitude: '',
-				longitude: '',
+				latitude: 0,
+				longitude: 0,
 				errorMessage: action.payload.errorMessage,
 			};
 		},

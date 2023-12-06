@@ -1,7 +1,7 @@
 import Gender from '../constants/enums/gender';
 
 export default interface UserState {
-	id: number;
+	id: string;
 	first_name: string;
 	last_name: string;
 	username: string;
