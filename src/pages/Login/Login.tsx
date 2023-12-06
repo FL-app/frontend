@@ -8,7 +8,6 @@ import RoutesPath from '../../constants/enums/routesPath';
 import { emailPattern } from '../../constants/regExp/validation';
 import ValidationErrorMessages from '../../constants/enums/validation';
 import { AppDispatch, RootState } from '../../store';
-import TokenErrorMessage from '../../types/tokenErrorMessage';
 
 const Login = () => {
 	const navigate = useNavigate();
@@ -95,7 +94,7 @@ const Login = () => {
 	useEffect(() => {
 		if (isAuthenticated) navigate(RoutesPath.map);
 		if (!isAuthenticated && errorMessage) {
-			const errors = JSON.parse(errorMessage) as TokenErrorMessage;
+			const errors = JSON.parse(errorMessage) as { detail: string };
 			setPasswordError(ValidationErrorMessages.emptyString);
 			if (errors.detail) {
 				setPasswordError(ValidationErrorMessages.wrongLoginOrPassword);
