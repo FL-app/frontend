@@ -1,19 +1,10 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { register } from '../../untils/mianApi';
+import { register } from '../../untils/mainApi';
+import { RegistrationDTO } from '../../constants/apiTemplate';
 
 const registerUser = createAsyncThunk(
 	'user/register',
-	async (
-		payload: {
-			email: string;
-			nickname: string;
-			name: string;
-			surname: string;
-			password: string;
-			sex: string;
-		},
-		thunkAPI
-	) => {
+	async (payload: RegistrationDTO, thunkAPI) => {
 		try {
 			const response = await register(payload);
 			if (!response.ok) {

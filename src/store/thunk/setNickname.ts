@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { setNickname as changeNickname } from '../../untils/mianApi';
+import { setNickname as changeNickname } from '../../untils/mainApi';
 
 const setNickname = createAsyncThunk(
 	'user/me/setNickname',

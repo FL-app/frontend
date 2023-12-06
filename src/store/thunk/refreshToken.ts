@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { refreshToken as refresh } from '../../untils/mianApi';
+import { refreshToken as refresh } from '../../untils/mainApi';
 
 const refreshToken = createAsyncThunk(
 	'jwt/refresh',
