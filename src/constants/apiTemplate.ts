@@ -64,6 +64,11 @@ export interface LoginDTO {
 	password: string;
 }
 
+export interface TokensDTO {
+	access: string;
+	refresh: string;
+}
+
 const fetchTemplate = ({
 	path,
 	method,
