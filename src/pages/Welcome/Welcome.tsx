@@ -5,7 +5,7 @@ import Button from '../../components/Button/Button';
 import Carousel from '../../components/Carousel/Carousel';
 import RoutesPath from '../../constants/enums/routesPath';
 
-export default function Welcome() {
+const Welcome = () => {
 	return (
 		<main className="welcome">
 			<div className="welcome_container">
@@ -31,4 +31,6 @@ export default function Welcome() {
 			</div>
 		</main>
 	);
-}
+};
+
+export default Welcome;
