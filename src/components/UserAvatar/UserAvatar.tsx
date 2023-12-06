@@ -1,5 +1,4 @@
 import './UserAvatar.scss';
-import React from 'react';
 import { useSelector } from 'react-redux';
 import avatarMale from '../../images/icon_profile_man.png';
 import avatarFemale from '../../images/icon_profile_woman.png';

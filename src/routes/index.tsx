@@ -1,4 +1,3 @@
-import React from 'react';
 import { Routes as RoutesDOM, Route } from 'react-router-dom';
 import {
 	Registration,
@@ -13,7 +12,7 @@ import {
 } from '../pages';
 
 import RoutesPath from '../constants/enums/routesPath';
-import { TrackingMap } from '../pages/TrackingMap/TrackingMap';
+import TrackingMap from '../pages/TrackingMap/TrackingMap';
 import { PrivateRoute, PublicRoute } from '../components';
 import Welcome from '../pages/Welcome/Welcome';
 import AccessAge from '../pages/AccessAge/AccessAge';

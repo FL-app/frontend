@@ -1,4 +1,4 @@
-import React, { useState, useCallback, ReactElement } from 'react';
+import { useState, useCallback, ReactElement } from 'react';
 import { useSelector } from 'react-redux';
 import {
 	Header,
@@ -62,11 +62,6 @@ export default function MainLayout(props: MainLayoutProps) {
 		setIsActiveNightTheme(!isActiveNightTheme);
 	}, [isActiveNightTheme]);
 
-	// TODO исправить на удаление аккаунта
-	const handleDeleteAccount = useCallback(() => {
-		console.log('account deleted');
-	}, []);
-
 	return (
 		<>
 			<Header
@@ -103,7 +98,7 @@ export default function MainLayout(props: MainLayoutProps) {
 			<PopupDeleteAccount
 				isOpen={isPopupDeleteAccountOpen}
 				onClose={closePopupDeleteAccount}
-				deleteAccount={handleDeleteAccount}
+				deleteAccount={undefined}
 			/>
 		</>
 	);

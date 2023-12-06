@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Button, PopupWithForm } from '../../components';
 import RoutesPath from '../../constants/enums/routesPath';

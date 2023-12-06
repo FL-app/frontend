@@ -9,19 +9,14 @@ import success from '../../images/icon-success.svg';
 interface PopupDeleteAccountProps {
 	isOpen: boolean;
 	onClose: () => void;
-	deleteAccount: () => void;
+	deleteAccount?: () => void;
 }
 
 function PopupDeleteAccount(props: PopupDeleteAccountProps) {
 	const { isOpen, onClose, deleteAccount } = props;
-	const [title, setTitle] = useState(
+	const [title] = useState(
 		'Вы действительно хотите удалить свой профиль в «Где друзья»?'
 	);
-
-	const handleClick = () => {
-		deleteAccount();
-		setTitle('');
-	};
 
 	return (
 		<PopupWithForm
@@ -57,7 +52,7 @@ function PopupDeleteAccount(props: PopupDeleteAccountProps) {
 							type="button"
 							color="primary"
 							size="medium"
-							onClick={handleClick}
+							onClick={deleteAccount}
 						/>
 					</>
 				)}
