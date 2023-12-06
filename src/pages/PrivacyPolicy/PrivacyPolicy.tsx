@@ -3,7 +3,7 @@ import './PrivacyPolicy.scss';
 
 function PrivacyPolicy() {
 	const navigate = useNavigate();
-	const hadleBtnBackClick = () => {
+	const handleBtnBackClick = () => {
 		navigate(-1);
 	};
 	return (
@@ -13,7 +13,7 @@ function PrivacyPolicy() {
 					<button
 						type="button"
 						className="privacy-policy__btn-back"
-						onClick={hadleBtnBackClick}
+						onClick={handleBtnBackClick}
 						aria-label="Back"
 					/>
 					<h2 className="privacy-policy__title">Политика конфиденциальности</h2>

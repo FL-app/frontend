@@ -9,7 +9,7 @@ import avatar from '../../images/icon_profile_man.png';
 import success from '../../images/icon-success.svg';
 import ValidationErrorMessages from '../../constants/enums/validation';
 import { emailPattern } from '../../constants/regExp/validation';
-import { IFrend } from '../../constants/tempUserData';
+import { IFriend } from '../../constants/tempUserData';
 
 interface PopupAddFriendProps {
 	isOpen: boolean;
@@ -24,7 +24,7 @@ function PopupAddFriend(props: PopupAddFriendProps) {
 		ValidationErrorMessages.emptyEmailErrorText
 	);
 	const [emailDirty, setEmailDirty] = useState(false);
-	const [foundFriend, setFoundFriend] = useState<IFrend | null>(null);
+	const [foundFriend, setFoundFriend] = useState<IFriend | null>(null);
 	const [isContinueBtnDisabled, setIsContinueBtnDisabled] = useState(true);
 	const [enteredEmail, setEnteredEmail] = useState('');
 	const [backButtonClicked, setBackButtonClicked] = useState(false);

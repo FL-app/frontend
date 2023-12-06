@@ -1,6 +1,6 @@
 import Gender from './enums/gender';
 
-export interface IFrend {
+export interface IFriend {
 	id: number;
 	name: string;
 	sex: Gender;
@@ -17,5 +17,5 @@ export interface IUserData {
 	email: string;
 	avatar: string;
 	status: string;
-	friends: IFrend[];
+	friends: IFriend[];
 }
