@@ -86,6 +86,7 @@ const Profile = () => {
 								{currentUser.username}
 							</div>
 							<button
+								type="button"
 								className="profile-user-change-nickname"
 								aria-label="Изменить ник"
 								onClick={() => setNicknamePopupOpened(true)}

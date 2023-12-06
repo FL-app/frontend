@@ -2,8 +2,7 @@ import './Button.scss';
 
 interface IButtonProps {
 	label: string;
-	url?: string;
-	type?: 'link' | 'button' | 'submit' | 'reset';
+	type?: 'button' | 'submit' | 'reset';
 	color?: 'primary' | 'secondary';
 	size: 'medium' | 'large';
 	disabled?: boolean;
@@ -12,29 +11,18 @@ interface IButtonProps {
 }
 
 const Button = (props: IButtonProps) => {
-	const { label, url, type, color, size, disabled, onClick, className } = props;
+	const { label, type, color, size, disabled, onClick, className } = props;
 
-	const getLink = () => (
-		<a
-			href={url}
-			className={`button button_link button_${size} button_color-${color} ${className}`}
-		>
-			{label}
-		</a>
-	);
-
-	const getButton = () => (
+	return (
 		<button
 			disabled={disabled}
 			onClick={onClick}
-			type={type !== 'link' ? type : 'button'}
+			type={type === 'button' ? 'button' : 'submit'}
 			className={`button button_${size} button_color-${color} ${className}`}
 		>
 			{label}
 		</button>
 	);
-
-	return type === 'link' ? getLink() : getButton();
 };
 
 export default Button;

@@ -102,6 +102,7 @@ function GeneralMenuPopup(props: GeneralMenuPopupProps) {
 						<p className="generalMenuPopup__link-text">Профиль</p>
 					</Link>
 					<button
+						type="button"
 						onClick={openSettingsMenuPopup}
 						className="generalMenuPopup__link generalMenuPopup__link_settings"
 					>

@@ -17,6 +17,7 @@ const SettingsMenuPopup = (props: SettingsMenuPopupProps) => {
 		<>
 			<div className="settingsMenuPopup__header">
 				<button
+					type="button"
 					className="settingsMenuPopup__button settingsMenuPopup__button_arrow-back"
 					aria-label="Вернуться в главное меню"
 					onClick={onClose}
@@ -50,6 +51,7 @@ const SettingsMenuPopup = (props: SettingsMenuPopupProps) => {
 						Политика конфиденциальности
 					</Link>
 					<button
+						type="button"
 						className="settingsMenuPopup__button settingsMenuPopup__button_delete-account"
 						onClick={deleteAccount}
 					>
