@@ -14,6 +14,7 @@ import {
 	nicknamePattern,
 } from '../../constants/regExp/validation';
 import { AppDispatch, RootState } from '../../store';
+import Gender from '../../constants/enums/gender';
 
 const Registration = () => {
 	const navigate = useNavigate();
@@ -21,7 +22,7 @@ const Registration = () => {
 		name: '',
 		surname: '',
 		nickname: '',
-		sex: 'female',
+		sex: Gender.female,
 		email: '',
 		password: '',
 		confirmPassword: '',
@@ -347,7 +348,7 @@ const Registration = () => {
 										type="radio"
 										id="female"
 										name="sex"
-										value="female"
+										value={Gender.female}
 										className="registration_form_sex-fieldset_radio"
 										checked={femaleChecked}
 										onChange={handleChange}
@@ -363,7 +364,7 @@ const Registration = () => {
 										type="radio"
 										id="male"
 										name="sex"
-										value="male"
+										value={Gender.male}
 										className="registration_form_sex-fieldset_radio"
 										checked={maleChecked}
 										onChange={handleChange}
