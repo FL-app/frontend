@@ -6,7 +6,6 @@ import {
 	GeneralMenuPopup,
 	SettingsMenuPopup,
 } from '../components';
-import { useUser } from '../context/AppContext';
 import MenuPopup from '../components/MenuPopup/MenuPopup';
 import PopupDeleteAccount from '../components/PopupDeleteAccount/PopupDeleteAccount';
 import { RootState } from '../store';
@@ -20,11 +19,10 @@ interface MainLayoutProps {
 
 export default function MainLayout(props: MainLayoutProps) {
 	const { handleSearch, headerClassName, footerClassName, children } = props;
-	const currentUser = useUser();
 	const [isGeneralMenuPopupOpen, setIsGeneralMenuPopupOpen] = useState(false);
 	const [isSettingsMenuPopupOpen, setIsSettingsMenuPopupOpen] = useState(false);
 	const [isPopupDeleteAccountOpen, setIsPopupDeleteAccountOpen] =
-		useState(false);
+		useState<boolean>(false);
 	const [isActiveInvisible, setIsActiveInvisible] = useState(false);
 	const [isActiveNightTheme, setIsActiveNightTheme] = useState(false);
 	const userStatus = useSelector((state: RootState) => state.user.status);
@@ -65,7 +63,6 @@ export default function MainLayout(props: MainLayoutProps) {
 	return (
 		<>
 			<Header
-				user={currentUser}
 				handleSearch={handleSearch}
 				className={headerClassName}
 				openGeneralMenuPopup={handleOpenGeneralMenuPopup}
@@ -90,8 +87,6 @@ export default function MainLayout(props: MainLayoutProps) {
 					chooseNightTheme={toggleNightThemeOption}
 					isActiveNightTheme={isActiveNightTheme}
 					deleteAccount={handleOpenPopupDeleteAccount}
-					isOpen={isPopupDeleteAccountOpen}
-					onClose2={closePopupDeleteAccount}
 				/>
 			</MenuPopup>
 

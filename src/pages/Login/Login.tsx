@@ -3,11 +3,12 @@ import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import loginUser from '../../store/thunk/loginUser';
-import { Button, InputText, InputPassword } from '../../components';
+import { Button, InputPassword, InputText } from '../../components';
 import RoutesPath from '../../constants/enums/routesPath';
 import { emailPattern } from '../../constants/regExp/validation';
 import ValidationErrorMessages from '../../constants/enums/validation';
 import { AppDispatch, RootState } from '../../store';
+import InputTypes from '../../constants/enums/inputTypes';
 
 function Login() {
 	const navigate = useNavigate();
@@ -27,7 +28,7 @@ function Login() {
 		ValidationErrorMessages.emptyPasswordErrorText
 	);
 
-	const [passwordType, setPasswordType] = useState('password');
+	const [passwordType, setPasswordType] = useState(InputTypes.password);
 
 	const handleChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
 		const { name, value } = evt.target;
@@ -73,10 +74,10 @@ function Login() {
 	};
 
 	const handlePasswordBtnClick = () => {
-		if (passwordType === 'password') {
-			setPasswordType('text');
+		if (passwordType === InputTypes.password) {
+			setPasswordType(InputTypes.text);
 		} else {
-			setPasswordType('password');
+			setPasswordType(InputTypes.password);
 		}
 	};
 

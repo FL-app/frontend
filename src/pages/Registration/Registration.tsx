@@ -2,7 +2,7 @@ import './Registration.scss';
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { Button, InputText, InputPassword } from '../../components';
+import { Button, InputPassword, InputText } from '../../components';
 import avatarMan from '../../images/avatarman.png';
 import avatarWoman from '../../images/avatarwoman.png';
 import registerUser from '../../store/thunk/registerUser';
@@ -15,6 +15,7 @@ import {
 } from '../../constants/regExp/validation';
 import { AppDispatch, RootState } from '../../store';
 import Gender from '../../constants/enums/gender';
+import InputTypes from '../../constants/enums/inputTypes';
 
 function Registration() {
 	const navigate = useNavigate();
@@ -182,21 +183,23 @@ function Registration() {
 		}
 	};
 
-	const [passwordType, setPasswordType] = useState('password');
-	const [confirmPasswordType, setConfirmPasswordType] = useState('password');
+	const [passwordType, setPasswordType] = useState(InputTypes.password);
+	const [confirmPasswordType, setConfirmPasswordType] = useState(
+		InputTypes.password
+	);
 
 	const handlePasswordBtnClick = () => {
-		if (passwordType === 'password') {
-			setPasswordType('text');
+		if (passwordType === InputTypes.password) {
+			setPasswordType(InputTypes.text);
 		} else {
-			setPasswordType('password');
+			setPasswordType(InputTypes.password);
 		}
 	};
 	const handleConfirmPasswordBtnClick = () => {
-		if (confirmPasswordType === 'password') {
-			setConfirmPasswordType('text');
+		if (confirmPasswordType === InputTypes.password) {
+			setConfirmPasswordType(InputTypes.text);
 		} else {
-			setConfirmPasswordType('password');
+			setConfirmPasswordType(InputTypes.password);
 		}
 	};
 
