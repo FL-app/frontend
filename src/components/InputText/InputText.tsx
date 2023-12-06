@@ -1,4 +1,5 @@
 import './InputText.scss';
+import React from 'react';
 import InputTypes from '../../constants/enums/inputTypes';
 
 interface InputTextProps {
