@@ -8,13 +8,13 @@ interface PublicRouteProps {
 	children: ReactElement | ReactElement[];
 }
 
-const PublicRoute = (props: PublicRouteProps) => {
+function PublicRoute(props: PublicRouteProps) {
 	const { children } = props;
 	const isAuthenticated = useSelector(
 		(state: RootState) => state.user.isAuthenticated
 	);
 
 	return isAuthenticated ? <Navigate to={RoutesPath.map} replace /> : children;
-};
+}
 
 export default PublicRoute;

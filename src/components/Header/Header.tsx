@@ -7,7 +7,7 @@ interface HeaderProps {
 	openGeneralMenuPopup: () => void;
 }
 
-const Header = (props: HeaderProps) => {
+function Header(props: HeaderProps) {
 	const { handleSearch, className, openGeneralMenuPopup } = props;
 
 	return (
@@ -21,6 +21,6 @@ const Header = (props: HeaderProps) => {
 			{handleSearch && <InputSearch handleSearch={handleSearch} />}
 		</header>
 	);
-};
+}
 
 export default Header;

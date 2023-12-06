@@ -4,7 +4,7 @@ interface InputSearchProps {
 	handleSearch: (searchKeyword: string) => void;
 }
 
-const InputSearch = (props: InputSearchProps) => {
+function InputSearch(props: InputSearchProps) {
 	const { handleSearch } = props;
 
 	return (
@@ -14,6 +14,6 @@ const InputSearch = (props: InputSearchProps) => {
 			className="input-search"
 		/>
 	);
-};
+}
 
 export default InputSearch;

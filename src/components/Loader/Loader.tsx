@@ -1,5 +1,7 @@
 import './Loader.scss';
 
-const Loader = () => <div className="loader" />;
+function Loader() {
+	return <div className="loader" />;
+}
 
 export default Loader;

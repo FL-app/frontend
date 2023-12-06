@@ -4,7 +4,7 @@ import { useUser } from '../../context/AppContext';
 import MainLayout from '../../layouts/MainLayout';
 import './Friends.scss';
 
-const Friends = () => {
+function Friends() {
 	const currentUser = useUser();
 	const [addFreindsPopupOpened, setAddFreindsPopupOpened] = useState(false);
 	const [filteredFriends, setFilteredFriends] = useState(currentUser.friends);
@@ -55,6 +55,6 @@ const Friends = () => {
 			</div>
 		</section>
 	);
-};
+}
 
 export default Friends;

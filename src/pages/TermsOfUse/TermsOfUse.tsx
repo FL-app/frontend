@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import './TermsOfUse.scss';
 
-const TermsOfUse = () => {
+function TermsOfUse() {
 	const navigate = useNavigate();
 
 	const handleBtnBackClick = () => {
@@ -30,6 +30,6 @@ const TermsOfUse = () => {
 			</div>
 		</section>
 	);
-};
+}
 
 export default TermsOfUse;

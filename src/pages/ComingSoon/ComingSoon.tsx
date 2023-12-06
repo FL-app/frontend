@@ -4,7 +4,7 @@ import mainImg from '../../images/coming-soon-main-img.png';
 import logo from '../../images/Logo.png';
 import './ComingSoon.scss';
 
-const ComingSoon = () => {
+function ComingSoon() {
 	const navigate = useNavigate();
 	const handleBackBtnClick = () => {
 		navigate(-1);
@@ -36,6 +36,6 @@ const ComingSoon = () => {
 			</div>
 		</section>
 	);
-};
+}
 
 export default ComingSoon;

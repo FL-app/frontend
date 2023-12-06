@@ -17,7 +17,7 @@ const recommendedStatuses = [
 	'Не беспокоить',
 ].slice(0, 3);
 
-const Profile = () => {
+function Profile() {
 	const currentUser = useSelector((state: RootState) => state.user);
 	const [nicknamePopupOpened, setNicknamePopupOpened] = useState(false);
 	const [inviteFriendsPopupOpened, setInviteFriendsPopupOpened] =
@@ -169,7 +169,6 @@ const Profile = () => {
 					</div>
 				</MainLayout>
 				<PopupWithForm
-					title=""
 					name="change-nickname"
 					isOpen={nicknamePopupOpened}
 					onClose={() => setNicknamePopupOpened(false)}
@@ -273,6 +272,6 @@ const Profile = () => {
 			</div>
 		</section>
 	);
-};
+}
 
 export default Profile;

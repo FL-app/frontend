@@ -16,7 +16,7 @@ import {
 import { AppDispatch, RootState } from '../../store';
 import Gender from '../../constants/enums/gender';
 
-const Registration = () => {
+function Registration() {
 	const navigate = useNavigate();
 	const [userData, setUserData] = useState({
 		name: '',
@@ -489,6 +489,6 @@ const Registration = () => {
 			</div>
 		</section>
 	);
-};
+}
 
 export default Registration;

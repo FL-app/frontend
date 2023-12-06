@@ -9,7 +9,7 @@ import { emailPattern } from '../../constants/regExp/validation';
 import ValidationErrorMessages from '../../constants/enums/validation';
 import { AppDispatch, RootState } from '../../store';
 
-const Login = () => {
+function Login() {
 	const navigate = useNavigate();
 
 	const [userData, setUserData] = useState({
@@ -168,6 +168,6 @@ const Login = () => {
 			</div>
 		</section>
 	);
-};
+}
 
 export default Login;

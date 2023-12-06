@@ -9,7 +9,7 @@ import RoutesPath from '../../constants/enums/routesPath';
 import geoTag from '../../images/geo-tag.png';
 import './AccessGeo.scss';
 
-const AccessGeo = () => {
+function AccessGeo() {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 	const handleLocateBtnClick = () => {
@@ -64,6 +64,6 @@ const AccessGeo = () => {
 			</div>
 		</section>
 	);
-};
+}
 
 export default AccessGeo;

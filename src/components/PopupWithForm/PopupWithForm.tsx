@@ -1,4 +1,4 @@
-import { FC, ReactNode, MouseEvent } from 'react';
+import { ReactNode, MouseEvent } from 'react';
 import './PopupWithForm.scss';
 
 interface IProps {
@@ -8,30 +8,20 @@ interface IProps {
 	isOpen: boolean;
 	onClose: () => void;
 	onSubmit?: () => void;
-	formWidth?: string;
 }
 
-const PopupWithForm: FC<IProps> = ({
-	title = '',
-	name,
-	children,
-	isOpen = false,
-	onClose,
-	onSubmit,
-	formWidth = '320px',
-}) => {
-	function handleMouseDown(evt: MouseEvent<HTMLDivElement>) {
-		if (evt.target === evt.currentTarget) {
-			onClose();
-		}
-	}
+function PopupWithForm(props: IProps) {
+	const { title, name, children, isOpen = false, onClose, onSubmit } = props;
+	const handleMouseDown = (evt: MouseEvent<HTMLDivElement>) => {
+		if (evt.target === evt.currentTarget) onClose();
+	};
 
 	return (
 		<div
 			className={`popup popup_type_${name} ${isOpen && 'popup_opened'}`}
 			onMouseDown={handleMouseDown}
 		>
-			<div className="popup__container" style={{ width: `${formWidth}` }}>
+			<div className="popup__container">
 				{title && <h2 className="popup__title">{title}</h2>}
 				<form className="form" name={name} onSubmit={onSubmit} noValidate>
 					{children}
@@ -45,6 +35,6 @@ const PopupWithForm: FC<IProps> = ({
 			</div>
 		</div>
 	);
-};
+}
 
 export default PopupWithForm;

@@ -10,7 +10,7 @@ interface IButtonProps {
 	className?: string;
 }
 
-const Button = (props: IButtonProps) => {
+function Button(props: IButtonProps) {
 	const { label, type, color, size, disabled, onClick, className } = props;
 
 	return (
@@ -23,6 +23,6 @@ const Button = (props: IButtonProps) => {
 			{label}
 		</button>
 	);
-};
+}
 
 export default Button;

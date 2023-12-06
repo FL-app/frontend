@@ -7,7 +7,7 @@ interface MenuPopupProps {
 	children: ReactElement | ReactElement[];
 }
 
-const MenuPopup = (props: MenuPopupProps) => {
+function MenuPopup(props: MenuPopupProps) {
 	const { isOpen, onClose, children } = props;
 
 	return (
@@ -25,6 +25,6 @@ const MenuPopup = (props: MenuPopupProps) => {
 			<div className="menuPopup__container">{children}</div>
 		</div>
 	);
-};
+}
 
 export default MenuPopup;

@@ -8,7 +8,7 @@ interface PrivateRouteProps {
 	children: ReactElement | ReactElement[];
 }
 
-const PrivateRoute = (props: PrivateRouteProps) => {
+function PrivateRoute(props: PrivateRouteProps) {
 	const { children } = props;
 	const isAuthenticated = useSelector(
 		(state: RootState) => state.user.isAuthenticated
@@ -18,6 +18,6 @@ const PrivateRoute = (props: PrivateRouteProps) => {
 	) : (
 		<Navigate to={RoutesPath.login} replace />
 	);
-};
+}
 
 export default PrivateRoute;

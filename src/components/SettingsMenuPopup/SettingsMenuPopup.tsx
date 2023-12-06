@@ -10,7 +10,7 @@ interface SettingsMenuPopupProps {
 	deleteAccount: () => void;
 }
 
-const SettingsMenuPopup = (props: SettingsMenuPopupProps) => {
+function SettingsMenuPopup(props: SettingsMenuPopupProps) {
 	const { onClose, chooseNightTheme, isActiveNightTheme, deleteAccount } =
 		props;
 	return (
@@ -61,6 +61,6 @@ const SettingsMenuPopup = (props: SettingsMenuPopupProps) => {
 			</section>
 		</>
 	);
-};
+}
 
 export default SettingsMenuPopup;

@@ -37,8 +37,7 @@ export default function AccessAge() {
 					name="too-young"
 					isOpen={tooYoungPopupOpened}
 					onClose={() => setTooYoungPopupOpened(false)}
-					onSubmit={() => undefined}
-					formWidth="335px"
+					onSubmit={undefined}
 				>
 					<div className="access-age_popup-container">
 						<p className="access-age_popup-container_title">

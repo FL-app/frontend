@@ -5,7 +5,7 @@ import avatarFemale from '../../images/icon_profile_woman.png';
 import { RootState } from '../../store';
 import Gender from '../../constants/enums/gender';
 
-const UserAvatar = () => {
+function UserAvatar() {
 	const userSex: Gender = useSelector(
 		(state: RootState) => state.user.gender as Gender
 	);
@@ -20,6 +20,6 @@ const UserAvatar = () => {
 			className="userAvatar"
 		/>
 	);
-};
+}
 
 export default UserAvatar;

@@ -6,7 +6,7 @@ interface FooterProps {
 	className?: string;
 }
 
-const Footer = (props: FooterProps) => {
+function Footer(props: FooterProps) {
 	const { className } = props;
 	const setActive = ({ isActive }: { isActive: boolean }) =>
 		isActive ? 'footer__link footer__link_active' : 'footer__link';
@@ -79,6 +79,6 @@ const Footer = (props: FooterProps) => {
 			</nav>
 		</footer>
 	);
-};
+}
 
 export default Footer;

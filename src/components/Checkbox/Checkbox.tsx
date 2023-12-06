@@ -6,7 +6,7 @@ interface CheckboxProps {
 	isActiveOption: boolean;
 }
 
-const Checkbox = (props: CheckboxProps) => {
+function Checkbox(props: CheckboxProps) {
 	const { option, chooseOption, isActiveOption } = props;
 	return (
 		<label className="checkbox" htmlFor="checkbox">
@@ -23,6 +23,6 @@ const Checkbox = (props: CheckboxProps) => {
 			</div>
 		</label>
 	);
-};
+}
 
 export default Checkbox;

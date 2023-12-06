@@ -6,7 +6,7 @@ import carousel1 from '../../images/Carousel1.png';
 import carousel2 from '../../images/Carousel2.png';
 import carousel3 from '../../images/Carousel3.png';
 
-const Carousel = () => {
+function Carousel() {
 	return (
 		<Slider
 			dots
@@ -46,6 +46,6 @@ const Carousel = () => {
 			</div>
 		</Slider>
 	);
-};
+}
 
 export default Carousel;

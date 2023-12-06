@@ -15,7 +15,7 @@ interface InputTextProps {
 	inputError: string;
 }
 
-const InputText = (props: InputTextProps) => {
+function InputText(props: InputTextProps) {
 	const {
 		label,
 		type,
@@ -50,6 +50,6 @@ const InputText = (props: InputTextProps) => {
 			)}
 		</div>
 	);
-};
+}
 
 export default InputText;

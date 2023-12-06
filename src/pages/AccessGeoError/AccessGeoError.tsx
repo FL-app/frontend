@@ -10,7 +10,7 @@ import geoTag from '../../images/geo-tag-error.png';
 import './AccessGeoError.scss';
 import { logout } from '../../store/slices/user';
 
-const AccessGeoError = () => {
+function AccessGeoError() {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 	const handleLocateBtnClick = () => {
@@ -74,6 +74,6 @@ const AccessGeoError = () => {
 			</div>
 		</section>
 	);
-};
+}
 
 export default AccessGeoError;

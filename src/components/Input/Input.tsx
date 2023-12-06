@@ -17,7 +17,7 @@ interface InputProps {
 	inputError?: string;
 }
 
-const Input = (props: InputProps) => {
+function Input(props: InputProps) {
 	const {
 		label,
 		type,
@@ -55,6 +55,6 @@ const Input = (props: InputProps) => {
 			)}
 		</div>
 	);
-};
+}
 
 export default Input;

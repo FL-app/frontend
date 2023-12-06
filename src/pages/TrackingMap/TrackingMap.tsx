@@ -19,7 +19,7 @@ const userIcon = new Icon({
 	iconAnchor: [15, 40],
 });
 
-const TrackingMap = () => {
+function TrackingMap() {
 	const [map, setMap] = useState<Map>();
 	const location = useSelector((state: RootState) => state.location);
 	const position = useMemo(
@@ -110,6 +110,6 @@ const TrackingMap = () => {
 			</div>
 		</section>
 	);
-};
+}
 
 export default TrackingMap;
