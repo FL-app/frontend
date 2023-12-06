@@ -10,7 +10,7 @@ import geotag from '../../images/geotag_map.svg';
 import friendsLocation from './friendsLocation';
 import ButtonUserLocation from '../../components/ButtonUserLocation/ButtonUserLocation.tsx';
 import RoutesPath from '../../constants/enums/routesPath';
-import { sendCoords } from '../../store/thunk/sendCoords';
+import sendCoords from '../../store/thunk/sendCoords.ts';
 
 const userIcon = new Icon({
 	iconUrl: geotag,
