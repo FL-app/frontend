@@ -1,9 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { useNavigate } from 'react-router-dom';
-import sendCoords from '../thunk/sendCoords.ts';
+import sendCoords from '../thunk/sendCoords';
 import RoutesPath from '../../constants/enums/routesPath';
+import LocationState from '../../types/locationState.interface';
 
-const initialState = {
+const initialState: LocationState = {
 	latitude: '',
 	longitude: '',
 	errorMessage: '',
@@ -13,15 +14,18 @@ const initialState = {
 
 const locationSlice = createSlice({
 	name: 'location',
-	initialState: initialState,
+	initialState,
 	reducers: {
-		setAccessAllowed(state, action) {
+		setAccessAllowed(state, action: { payload: boolean }) {
 			return {
 				...state,
 				isAccessAllowed: action.payload,
 			};
 		},
-		setLocation(state, action) {
+		setLocation(
+			state,
+			action: { payload: { latitude: string; longitude: string } }
+		) {
 			return {
 				...state,
 				latitude: action.payload.latitude,
@@ -29,7 +33,7 @@ const locationSlice = createSlice({
 				errorMessage: '',
 			};
 		},
-		setLocationError(state, action) {
+		setLocationError(state, action: { payload: { errorMessage: string } }) {
 			return {
 				...state,
 				latitude: '',
@@ -48,14 +52,13 @@ const locationSlice = createSlice({
 			...action.payload,
 			isLoading: false,
 		}));
-		builder.addCase(sendCoords.rejected, (state, action) => {
+		builder.addCase(sendCoords.rejected, (state) => {
 			const navigate = useNavigate();
 			navigate(RoutesPath.accessGeoError);
-
 			return {
 				...state,
 				isLoading: false,
-				errorMessage: action.payload,
+				errorMessage: 'Unknown error',
 			};
 		});
 	},
