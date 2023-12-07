@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import './PrivacyPolicy.scss';
 
-export function PrivacyPolicy() {
+function PrivacyPolicy() {
 	const navigate = useNavigate();
 	const handleBtnBackClick = () => {
 		navigate(-1);
