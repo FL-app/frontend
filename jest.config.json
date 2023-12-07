@@ -4,7 +4,6 @@
 	"coverageDirectory": "coverage",
 	"testEnvironment": "jsdom",
 	"transform": {
-		"^.+\\.ts?$": "ts-jest",
-		"^.+\\.(js|jsx)$": "babel-jest"
+		"^.+\\.ts?$": "ts-jest"
 	}
 }
