@@ -1,6 +1,6 @@
 import Gender from './enums/gender';
 
-const BASE_URL = 'http://91.186.197.174/api/v1';
+const BASE_URL = 'https://flapp.sytes.net/api/v1';
 
 interface IFetchBody {
 	email?: string;
