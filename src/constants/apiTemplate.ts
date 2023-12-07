@@ -29,7 +29,7 @@ export interface RegistrationDTO {
 	sex: Gender;
 }
 
-export interface RefreshDTO {
+interface RefreshDTO {
 	refresh: string;
 }
 
