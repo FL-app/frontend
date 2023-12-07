@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import './TermsOfUse.scss';
 
-function TermsOfUse() {
+export function TermsOfUse() {
 	const navigate = useNavigate();
 
 	const handleBtnBackClick = () => {

@@ -1,11 +1,12 @@
 import { useNavigate } from 'react-router-dom';
 import './PrivacyPolicy.scss';
 
-function PrivacyPolicy() {
+export function PrivacyPolicy() {
 	const navigate = useNavigate();
 	const handleBtnBackClick = () => {
 		navigate(-1);
 	};
+
 	return (
 		<section className="privacy-policy">
 			<div className="privacy-policy__container">
