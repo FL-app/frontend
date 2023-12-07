@@ -65,5 +65,4 @@ const locationSlice = createSlice({
 });
 
 export default locationSlice.reducer;
-export const { setLocation, setLocationError, setAccessAllowed } =
-	locationSlice.actions;
+export const { setLocationError, setAccessAllowed } = locationSlice.actions;
