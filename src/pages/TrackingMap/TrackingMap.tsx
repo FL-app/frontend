@@ -8,7 +8,6 @@ import MainLayout from '../../layouts/MainLayout';
 import './TrackingMap.scss';
 import geotag from '../../images/geotag_map.svg';
 import friendsLocation from './friendsLocation';
-import ButtonUserLocation from '../../components/ButtonUserLocation/ButtonUserLocation';
 import RoutesPath from '../../constants/enums/routesPath';
 import sendCoords from '../../store/thunk/sendCoords';
 import { AppDispatch, RootState } from '../../store';
@@ -105,7 +104,12 @@ function TrackingMap() {
 					handleSearch={undefined}
 				>
 					{displayMap}
-					<ButtonUserLocation handleClick={findUserLocation} />
+					<button
+						className="buttonUserLocation"
+						type="button"
+						aria-label="Мое местоположение на карте"
+						onClick={findUserLocation}
+					/>
 				</MainLayout>
 			</div>
 		</section>
