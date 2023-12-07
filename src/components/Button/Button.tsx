@@ -1,16 +1,7 @@
 import './Button.scss';
+import { ButtonProps } from '../../types/ButtonProps.interface';
 
-interface IButtonProps {
-	label: string;
-	type?: 'button' | 'submit' | 'reset';
-	color?: 'primary' | 'secondary';
-	size: 'medium' | 'large';
-	disabled?: boolean;
-	onClick?: () => void;
-	className?: string;
-}
-
-function Button(props: IButtonProps) {
+function Button(props: ButtonProps) {
 	const { label, type, color, size, disabled, onClick, className } = props;
 
 	return (
