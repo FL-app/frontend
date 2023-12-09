@@ -9,13 +9,13 @@ function UserAvatar() {
 	const userSex: Gender = useSelector(
 		(state: RootState) => state.user.gender as Gender
 	);
-	const userAvatar: string = useSelector(
-		(state: RootState) => state.user.avatar
+	const userAvatar: string | null = useSelector(
+		(state: RootState) => state.user.userpic
 	);
 
 	return (
 		<img
-			src={userAvatar || userSex === Gender.male ? avatarMale : avatarFemale}
+			src={userAvatar ?? userSex === Gender.male ? avatarMale : avatarFemale}
 			alt="Аватар"
 			className="userAvatar"
 		/>
