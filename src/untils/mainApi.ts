@@ -2,6 +2,7 @@ import fetchTemplate, {
 	ChangeCoordinatesDTO,
 	ChangeNicknameDTO,
 	LoginDTO,
+	RefreshDTO,
 	RegistrationDTO,
 } from '../constants/apiTemplate';
 
@@ -26,13 +27,11 @@ export const getCurrentUser = (token: string) =>
 		token: `Bearer ${token}`,
 	});
 
-export const refreshToken = (token: string) =>
+export const refreshToken = (refresh: RefreshDTO) =>
 	fetchTemplate({
 		path: '/jwt/refresh/',
 		method: 'POST',
-		body: {
-			refresh: token,
-		},
+		body: refresh,
 	});
 
 // export const verifyToken = (token: string) =>
