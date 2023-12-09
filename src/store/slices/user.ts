@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import loginUser from '../thunk/loginUser';
-import getCurrentUser from '../thunk/getCurrentUser';
+import getCurrentUser, { UserDTO } from '../thunk/getCurrentUser';
 import refreshToken from '../thunk/refreshToken';
 import setNickname from '../thunk/setNickname';
 import Gender from '../../constants/enums/gender';
@@ -9,16 +9,18 @@ import UserState from '../../types/userState.interface';
 import { TokensDTO } from '../../constants/apiTemplate';
 
 const initialState: UserState = {
-	id: '',
+	id: 0,
 	first_name: '',
 	last_name: '',
 	username: '',
 	gender: Gender.male,
 	email: '',
-	avatar: '',
+	userpic: '',
 	status: '',
 	isLoading: false,
 	errorMessage: '',
+	longitude: 0,
+	latitude: 0,
 	registerSuccess: false,
 	isAuthenticated: false,
 	access: '',
@@ -85,7 +87,7 @@ const userSlice = createSlice({
 		}));
 		builder.addCase(getCurrentUser.fulfilled, (state, action) => ({
 			...state,
-			...action.payload,
+			...(JSON.parse(action.payload) as UserDTO),
 			isLoading: false,
 			isAuthenticated: true,
 			errorMessage: '',
@@ -106,7 +108,7 @@ const userSlice = createSlice({
 		}));
 		builder.addCase(refreshToken.fulfilled, (state, action) => ({
 			...state,
-			...JSON.parse(action.payload as string),
+			...(action.payload as { access: string }),
 			isLoading: false,
 			errorMessage: '',
 			requestCounter: state.requestCounter + 1,
