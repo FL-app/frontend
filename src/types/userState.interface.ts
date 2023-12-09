@@ -1,13 +1,13 @@
 import Gender from '../constants/enums/gender';
 
 export default interface UserState {
-	id: string;
+	id: number;
 	first_name: string;
 	last_name: string;
 	username: string;
 	gender: Gender;
 	email: string;
-	avatar: string;
+	userpic: string | null;
 	status: string;
 	isLoading: boolean;
 	errorMessage: string;
@@ -15,5 +15,7 @@ export default interface UserState {
 	isAuthenticated: boolean;
 	access: string;
 	refresh: string;
+	longitude: number;
+	latitude: number;
 	requestCounter: number;
 }
