@@ -1,7 +1,7 @@
-FROM node:16.15.0-alpine as build
+FROM node:18.16.1-alpine as build
 WORKDIR /app
 COPY package*.json ./
-RUN npm install
+RUN yarn install
 COPY . ./
-RUN npm run build
-CMD cp -r build result_build
+RUN yarn build
+CMD cp -r dist result_build # Дирректория сборки проекта по умолчанию dist, определяется в файле vite.config.ts
