@@ -29,13 +29,13 @@ export interface RegistrationDTO {
 	sex: Gender;
 }
 
-interface RefreshDTO {
+export interface RefreshDTO {
 	refresh: string;
 }
 
 export interface ChangeCoordinatesDTO {
 	token: string;
-	id: string;
+	id: number;
 	longitude: number;
 	latitude: number;
 }
