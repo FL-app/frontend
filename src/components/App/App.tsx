@@ -5,27 +5,34 @@ import Routes from '../../routes';
 import { AppContextProvider } from '../../context/AppContext';
 import getCurrentUser from '../../store/thunk/getCurrentUser';
 import refreshToken from '../../store/thunk/refreshToken';
-import TokenErrorMessage from '../../types/tokenErrorMessage';
-import TokenCodes from '../../constants/enums/TokenCodes';
 import { AppDispatch, RootState } from '../../store';
+import { setLocation } from '../../store/slices/location';
 
 function App() {
 	const dispatch = useDispatch<AppDispatch>();
 	const { errorMessage, isAuthenticated } = useSelector(
 		(state: RootState) => state.user
 	);
+	const location = useSelector((state: RootState) => state.location);
 
 	useEffect(() => {
 		let token = localStorage.getItem('access_token');
-		if (token) dispatch<void>(getCurrentUser(token));
-		if (errorMessage) {
-			const error = JSON.parse(errorMessage) as TokenErrorMessage;
-			if (error.code === TokenCodes.notValid) {
-				token = localStorage.getItem('refresh_token');
-				if (token) dispatch<void>(refreshToken(token));
-			}
+		navigator.geolocation.getCurrentPosition((position) => {
+			dispatch(
+				setLocation({
+					latitude: position.coords.latitude,
+					longitude: position.coords.longitude,
+				})
+			);
+		});
+		if (token && localStorage.getItem('refresh_token')) {
+			dispatch<void>(
+				refreshToken({ refresh: localStorage.getItem('refresh_token') ?? '' })
+			);
+			token = localStorage.getItem('access_token');
+			if (token) dispatch<void>(getCurrentUser(token));
 		}
-	}, [dispatch, errorMessage, isAuthenticated]);
+	}, [dispatch, errorMessage, isAuthenticated, location]);
 
 	return (
 		<AppContextProvider>
