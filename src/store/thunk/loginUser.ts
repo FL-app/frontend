@@ -11,8 +11,10 @@ const loginUser = createAsyncThunk(
 				return thunkAPI.rejectWithValue(JSON.stringify(await response.json()));
 			}
 			const data = (await response.json()) as TokensDTO;
-			localStorage.setItem('access_token', data.access);
-			localStorage.setItem('refresh_token', data.refresh);
+			if (data.access && data.refresh) {
+				localStorage.setItem('access_token', data.access);
+				localStorage.setItem('refresh_token', data.refresh);
+			}
 			return data;
 		} catch (error) {
 			if (error instanceof Error) {
