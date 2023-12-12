@@ -19,6 +19,7 @@ const recommendedStatuses = [
 
 function Profile() {
 	const currentUser = useSelector((state: RootState) => state.user);
+	const { access } = useSelector((state: RootState) => state.tokens);
 	const [nicknamePopupOpened, setNicknamePopupOpened] = useState(false);
 	const [inviteFriendsPopupOpened, setInviteFriendsPopupOpened] =
 		useState(false);
@@ -41,7 +42,7 @@ function Profile() {
 		dispatch<void>(
 			setNickname({
 				username: updatedUser.username,
-				token: currentUser.access,
+				token: access,
 			})
 		);
 
