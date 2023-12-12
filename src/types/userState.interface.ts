@@ -13,8 +13,6 @@ export default interface UserState {
 	errorMessage: string;
 	registerSuccess: boolean;
 	isAuthenticated: boolean;
-	access: string;
-	refresh: string;
 	longitude: number;
 	latitude: number;
 	requestCounter: number;
