@@ -8,7 +8,6 @@ import getCurrentUser from '../../store/thunk/getCurrentUser';
 import { AppDispatch, RootState } from '../../store';
 import { useCreateTokenMutation } from '../../store/rtk/tokensApi';
 import { readStorage } from '../../store/slices/tokens';
-import RoutesPath from '../../constants/enums/routesPath';
 
 function App() {
 	const dispatch = useDispatch<AppDispatch>();
@@ -17,10 +16,9 @@ function App() {
 	const navigate = useNavigate();
 
 	useEffect(() => {
-		dispatch(readStorage());
+		if (!refresh && !access) dispatch(readStorage());
 		if (refresh && access) {
 			dispatch<void>(getCurrentUser(access));
-			navigate(RoutesPath.map);
 		}
 	}, [dispatch, access, refresh, createToken, navigate]);
 
