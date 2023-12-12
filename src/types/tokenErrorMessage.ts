@@ -5,8 +5,12 @@ interface ErrorMessages {
 	token_type: string;
 	message: string;
 }
-export default interface TokenErrorMessage {
+
+export interface TokenErrorMessage {
 	detail: string;
 	code: TokenCodes;
+}
+
+export interface UserErrorMessage extends TokenErrorMessage {
 	messages: ErrorMessages[];
 }
