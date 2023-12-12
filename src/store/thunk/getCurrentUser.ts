@@ -1,5 +1,4 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { getCurrentUser as getUser } from '../../untils/mainApi';
 
 export interface UserDTO {
 	id: number;
@@ -13,22 +12,21 @@ export interface UserDTO {
 	userpic: string | null;
 }
 
-const getCurrentUser = createAsyncThunk(
-	'user/me',
-	async (payload: string, thunkAPI) => {
-		try {
-			const response = await getUser(payload);
-			if (!response.ok) {
-				return thunkAPI.rejectWithValue(JSON.stringify(await response.json()));
-			}
-			return JSON.stringify(await response.json());
-		} catch (error) {
-			if (error instanceof Error) {
-				return thunkAPI.rejectWithValue(JSON.stringify(error));
-			}
-			return JSON.stringify(error);
+const getCurrentUser = createAsyncThunk('user/me', async (token: string) => {
+	try {
+		const response = await fetch('https://flapp.sytes.net/api/v1/users/me', {
+			headers: {
+				'Content-Type': 'application/json',
+				Authorization: `Bearer ${token}`,
+			},
+		});
+		return (await response.json()) as UserDTO;
+	} catch (error) {
+		if (error instanceof Error) {
+			return error.message;
 		}
+		return {} as UserDTO;
 	}
-);
+});
 
 export default getCurrentUser;
