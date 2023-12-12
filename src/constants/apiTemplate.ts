@@ -1,5 +1,4 @@
 import Gender from './enums/gender';
-import TokenCodes from './enums/TokenCodes';
 
 const BASE_URL = 'https://flapp.sytes.net/api/v1';
 
@@ -30,10 +29,6 @@ export interface RegistrationDTO {
 	sex: Gender;
 }
 
-export interface RefreshDTO {
-	refresh: string;
-}
-
 export interface ChangeCoordinatesDTO {
 	token: string;
 	id: number;
@@ -54,7 +49,7 @@ interface IFetchParam {
 		| string
 		| RegistrationDTO
 		| LoginDTO
-		| RefreshDTO
+		| RefreshTokenDTO
 		| Partial<ChangeNicknameDTO>
 		| Partial<ChangeCoordinatesDTO>;
 	token?: string;
@@ -65,19 +60,15 @@ export interface LoginDTO {
 	password: string;
 }
 
-export interface TokensDTO {
-	access: string;
-	refresh: string;
-}
-
-export interface TokenErrorMessage {
-	detail: string;
-	code: TokenCodes;
-}
-
 export interface AccessTokenDTO {
 	access: string;
 }
+
+export interface RefreshTokenDTO {
+	refresh: string;
+}
+
+export interface TokensDTO extends AccessTokenDTO, RefreshTokenDTO {}
 
 const fetchTemplate = ({
 	path,
