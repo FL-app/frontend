@@ -1,4 +1,4 @@
-import TokenErrorMessage from './tokenErrorMessage.interface';
+import TokenErrorMessage from './TokenErrorMessage.interface';
 
 interface ErrorMessages {
 	token_class: string;

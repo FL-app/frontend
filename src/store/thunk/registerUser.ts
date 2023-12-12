@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { register } from '../../untils/mainApi';
-import RegistrationDTO from '../../types/registrationDTO.interface';
+import RegistrationDTO from '../../types/RegistrationDTO.interface';
 
 const registerUser = createAsyncThunk(
 	'user/register',

@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { useNavigate } from 'react-router-dom';
 import sendCoords from '../thunk/sendCoords';
 import RoutesPath from '../../constants/enums/routesPath';
-import LocationState from '../../types/locationState.interface';
+import LocationState from '../../types/LocationState.interface';
 
 const initialState: LocationState = {
 	latitude: 0,

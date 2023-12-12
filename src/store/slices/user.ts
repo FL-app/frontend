@@ -4,7 +4,7 @@ import getCurrentUser, { UserDTO } from '../thunk/getCurrentUser';
 import setNickname from '../thunk/setNickname';
 import Gender from '../../constants/enums/gender';
 import registerUser from '../thunk/registerUser';
-import UserState from '../../types/userState.interface';
+import UserState from '../../types/UserState.interface';
 
 const initialState: UserState = {
 	id: 0,
