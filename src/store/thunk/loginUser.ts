@@ -1,6 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { login } from '../../untils/mainApi';
-import { LoginDTO, TokensDTO } from '../../constants/apiTemplate';
+import LoginDTO from '../../types/LoginDTO.interface';
+import TokensDTO from '../../types/TokensDTO.interface';
 
 const loginUser = createAsyncThunk(
 	'jwt/create',

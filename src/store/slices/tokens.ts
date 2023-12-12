@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { TokensDTO } from '../../constants/apiTemplate';
+import TokensDTO from '../../types/TokensDTO.interface';
 
 const initialState = { refresh: '', access: '11' } as TokensDTO;
 

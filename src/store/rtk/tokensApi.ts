@@ -1,10 +1,8 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import {
-	LoginDTO,
-	RefreshTokenDTO,
-	TokensDTO,
-} from '../../constants/apiTemplate';
 import { TokenErrorMessage } from '../../types/tokenErrorMessage';
+import TokensDTO from '../../types/TokensDTO.interface';
+import LoginDTO from '../../types/LoginDTO.interface';
+import RefreshTokenDTO from '../../types/RefreshTokenDTO.interface';
 
 export const tokensApi = createApi({
 	reducerPath: 'tokensApi',
