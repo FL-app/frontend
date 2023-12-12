@@ -21,11 +21,12 @@ const userIcon = new Icon({
 function TrackingMap() {
 	const [map, setMap] = useState<Map>();
 	const location = useSelector((state: RootState) => state.location);
+	const { access } = useSelector((state: RootState) => state.tokens);
 	const position = useMemo(
 		() => [location.latitude, location.longitude] as LatLngExpression,
 		[location]
 	);
-	const { access, id } = useSelector((state: RootState) => state.user);
+	const { id } = useSelector((state: RootState) => state.user);
 	const navigate = useNavigate();
 	const dispatch = useDispatch<AppDispatch>();
 
