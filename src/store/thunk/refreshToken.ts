@@ -1,24 +1,26 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { refreshToken as refresh } from '../../untils/mainApi';
-import { RefreshDTO } from '../../constants/apiTemplate';
+import {
+	AccessTokenDTO,
+	RefreshDTO,
+	TokenErrorMessage,
+} from '../../constants/apiTemplate';
 
 const refreshToken = createAsyncThunk(
 	'jwt/refresh',
-	async (payload: RefreshDTO, thunkAPI) => {
-		try {
-			const response = await refresh(payload);
-			if (!response.ok) {
-				return thunkAPI.rejectWithValue(JSON.stringify(response.json()));
+	async (payload: RefreshDTO) => {
+		return fetch('https://flapp.sytes.net/api/v1/jwt/refresh/', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(payload),
+		}).then(async (response) => {
+			const data = (await response.json()) as unknown;
+			if (response.ok) {
+				return data as AccessTokenDTO;
 			}
-			const data = (await response.json()) as { access: string };
-			localStorage.setItem('access_token', data.access);
-			return data;
-		} catch (error) {
-			if (error instanceof Error) {
-				return thunkAPI.rejectWithValue(error.message);
-			}
-			return error;
-		}
+			return data as TokenErrorMessage;
+		});
 	}
 );
 
