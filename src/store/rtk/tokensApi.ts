@@ -1,10 +1,10 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import {
 	LoginDTO,
-	RefreshDTO,
-	TokenErrorMessage,
+	RefreshTokenDTO,
 	TokensDTO,
 } from '../../constants/apiTemplate';
+import { TokenErrorMessage } from '../../types/tokenErrorMessage';
 
 export const tokensApi = createApi({
 	reducerPath: 'tokensApi',
@@ -25,7 +25,7 @@ export const tokensApi = createApi({
 			}) => response.data.detail,
 		}),
 		refreshToken: builder.mutation({
-			query: (body: RefreshDTO) => ({
+			query: (body: RefreshTokenDTO) => ({
 				url: '/refresh/',
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
