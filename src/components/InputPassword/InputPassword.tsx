@@ -45,6 +45,7 @@ function InputPassword(props: InputPasswordProps) {
 					value={inputValue}
 					onChange={onChange}
 					onBlur={onBlur}
+					autoComplete="on"
 				/>
 				<button
 					type="button"
