@@ -1,38 +1,28 @@
 import './App.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Routes from '../../routes';
 import { AppContextProvider } from '../../context/AppContext';
 import getCurrentUser from '../../store/thunk/getCurrentUser';
-import refreshToken from '../../store/thunk/refreshToken';
 import { AppDispatch, RootState } from '../../store';
-import { setLocation } from '../../store/slices/location';
+import { useCreateTokenMutation } from '../../store/rtk/tokensApi';
+import { readStorage } from '../../store/slices/tokens';
+import RoutesPath from '../../constants/enums/routesPath';
 
 function App() {
 	const dispatch = useDispatch<AppDispatch>();
-	const { errorMessage, isAuthenticated } = useSelector(
-		(state: RootState) => state.user
-	);
-	const location = useSelector((state: RootState) => state.location);
+	const { refresh, access } = useSelector((state: RootState) => state.tokens);
+	const [createToken] = useCreateTokenMutation();
+	const navigate = useNavigate();
 
 	useEffect(() => {
-		let token = localStorage.getItem('access_token');
-		navigator.geolocation.getCurrentPosition((position) => {
-			dispatch(
-				setLocation({
-					latitude: position.coords.latitude,
-					longitude: position.coords.longitude,
-				})
-			);
-		});
-		if (token && localStorage.getItem('refresh_token')) {
-			dispatch<void>(
-				refreshToken({ refresh: localStorage.getItem('refresh_token') ?? '' })
-			);
-			token = localStorage.getItem('access_token');
-			if (token) dispatch<void>(getCurrentUser(token));
+		dispatch(readStorage());
+		if (refresh && access) {
+			dispatch<void>(getCurrentUser(access));
+			navigate(RoutesPath.map);
 		}
-	}, [dispatch, errorMessage, isAuthenticated, location]);
+	}, [dispatch, access, refresh, createToken, navigate]);
 
 	return (
 		<AppContextProvider>
