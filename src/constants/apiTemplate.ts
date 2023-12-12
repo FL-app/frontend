@@ -1,4 +1,5 @@
 import Gender from './enums/gender';
+import RegistrationDTO from '../types/registrationDTO.interface';
 
 const BASE_URL = 'https://flapp.sytes.net/api/v1';
 
@@ -18,15 +19,6 @@ interface IFetchBody {
 	longitude?: string;
 	latitude?: string;
 	status?: string;
-}
-
-export interface RegistrationDTO {
-	email: string;
-	nickname: string;
-	name: string;
-	surname: string;
-	password: string;
-	sex: Gender;
 }
 
 export interface ChangeCoordinatesDTO {
