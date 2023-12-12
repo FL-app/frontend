@@ -1,4 +1,5 @@
 import Gender from './enums/gender';
+import TokenCodes from './enums/TokenCodes';
 
 const BASE_URL = 'https://flapp.sytes.net/api/v1';
 
@@ -67,6 +68,15 @@ export interface LoginDTO {
 export interface TokensDTO {
 	access: string;
 	refresh: string;
+}
+
+export interface TokenErrorMessage {
+	detail: string;
+	code: TokenCodes;
+}
+
+export interface AccessTokenDTO {
+	access: string;
 }
 
 const fetchTemplate = ({
