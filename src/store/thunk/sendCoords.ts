@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { updateCoordinates } from '../../untils/mainApi';
-import { ChangeCoordinatesDTO } from '../../constants/apiTemplate';
+import ChangeCoordinatesDTO from '../../types/ChangeCoordinatesDTO.interface';
 
 const sendCoords = createAsyncThunk(
 	'location/send',

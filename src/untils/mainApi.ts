@@ -1,9 +1,9 @@
 import fetchTemplate, {
-	ChangeCoordinatesDTO,
 	ChangeNicknameDTO,
 	LoginDTO,
 } from '../constants/apiTemplate';
 import RegistrationDTO from '../types/registrationDTO.interface';
+import ChangeCoordinatesDTO from '../types/ChangeCoordinatesDTO.interface';
 
 export const register = (data: RegistrationDTO) =>
 	fetchTemplate({

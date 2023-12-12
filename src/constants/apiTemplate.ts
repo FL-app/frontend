@@ -1,5 +1,6 @@
 import Gender from './enums/gender';
 import RegistrationDTO from '../types/registrationDTO.interface';
+import ChangeCoordinatesDTO from '../types/ChangeCoordinatesDTO.interface';
 
 const BASE_URL = 'https://flapp.sytes.net/api/v1';
 
@@ -19,13 +20,6 @@ interface IFetchBody {
 	longitude?: string;
 	latitude?: string;
 	status?: string;
-}
-
-export interface ChangeCoordinatesDTO {
-	token: string;
-	id: number;
-	longitude: number;
-	latitude: number;
 }
 
 export interface ChangeNicknameDTO {
