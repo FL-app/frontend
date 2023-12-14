@@ -1,7 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
 import TokensDTO from '../../types/TokensDTO.interface';
+import { tokensApi } from '../rtk/tokensApi';
+import AccessTokenDTO from '../../types/AccessTokenDTO.interface';
 
-const initialState = { refresh: '', access: '11' } as TokensDTO;
+const initialState = { refresh: '', access: '' } as TokensDTO;
 
 const tokensSlice = createSlice({
 	name: 'tokens',
@@ -13,8 +15,36 @@ const tokensSlice = createSlice({
 				refresh: localStorage.getItem('refresh_token') ?? '',
 			};
 		},
+		clearStorage() {
+			localStorage.setItem('access_token', '');
+			localStorage.setItem('refresh_token', '');
+			return {
+				access: '',
+				refresh: '',
+			};
+		},
+	},
+	extraReducers: (builder) => {
+		builder.addMatcher(
+			tokensApi.endpoints?.refreshToken?.matchFulfilled,
+			(state, { payload }) => {
+				localStorage.setItem(
+					'access_token',
+					(payload as AccessTokenDTO).access
+				);
+				return {
+					...state,
+					...payload,
+				};
+			}
+		);
+		builder.addMatcher(tokensApi.endpoints?.refreshToken?.matchRejected, () => {
+			localStorage.setItem('access_token', '');
+			localStorage.setItem('refresh_token', '');
+			return { refresh: '', access: '' };
+		});
 	},
 });
 
 export default tokensSlice.reducer;
-export const { readStorage } = tokensSlice.actions;
+export const { readStorage, clearStorage } = tokensSlice.actions;

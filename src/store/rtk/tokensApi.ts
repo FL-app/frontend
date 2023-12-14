@@ -3,6 +3,7 @@ import TokensDTO from '../../types/TokensDTO.interface';
 import LoginDTO from '../../types/LoginDTO.interface';
 import RefreshTokenDTO from '../../types/RefreshTokenDTO.interface';
 import TokenErrorMessage from '../../types/TokenErrorMessage.interface';
+import AccessTokenDTO from '../../types/AccessTokenDTO.interface';
 
 export const tokensApi = createApi({
 	reducerPath: 'tokensApi',
@@ -22,13 +23,21 @@ export const tokensApi = createApi({
 				data: TokenErrorMessage;
 			}) => response.data.detail,
 		}),
-		refreshToken: builder.mutation({
+		refreshToken: builder.mutation<
+			AccessTokenDTO | TokenErrorMessage,
+			RefreshTokenDTO
+		>({
 			query: (body: RefreshTokenDTO) => ({
 				url: '/refresh/',
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
 				body,
 			}),
+			transformResponse: (response: AccessTokenDTO) => response,
+			transformErrorResponse: (response: {
+				status: number;
+				data: TokenErrorMessage;
+			}) => response.data,
 		}),
 		verifyToken: builder.mutation({
 			query: (body: string) => ({
