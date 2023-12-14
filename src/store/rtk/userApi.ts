@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { UserDTO } from '../thunk/getCurrentUser';
+import UserDTO from '../../types/UserDTO.interface';
 
 export const userApi = createApi({
 	reducerPath: 'userApi',
