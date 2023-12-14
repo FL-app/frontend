@@ -1,26 +1,44 @@
 import './App.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import Routes from '../../routes';
 import { AppContextProvider } from '../../context/AppContext';
-import getCurrentUser from '../../store/thunk/getCurrentUser';
-import { AppDispatch, RootState } from '../../store';
-import { useCreateTokenMutation } from '../../store/rtk/tokensApi';
-import { readStorage } from '../../store/slices/tokens';
+import { useRefreshTokenMutation } from '../../store/rtk/tokensApi';
+import { clearStorage, readStorage } from '../../store/slices/tokens';
+import AppDispatch from '../../types/AppDispatch';
+import RootState from '../../types/RootState';
+import { useGetUserMutation } from '../../store/rtk/userApi';
 
 function App() {
 	const dispatch = useDispatch<AppDispatch>();
 	const { refresh, access } = useSelector((state: RootState) => state.tokens);
-	const [createToken] = useCreateTokenMutation();
-	const navigate = useNavigate();
+	const [updateToken] = useRefreshTokenMutation();
+	const [getUser, { isError }] = useGetUserMutation();
 
 	useEffect(() => {
-		if (!refresh && !access) dispatch(readStorage());
-		if (refresh && access) {
-			dispatch<void>(getCurrentUser(access));
+		const getUserData = async () => {
+			await getUser(access).unwrap();
+		};
+		if (!access) {
+			dispatch(readStorage());
+		} else {
+			getUserData().then(async () => {
+				if (isError) {
+					if (refresh && access) {
+						await updateToken({ refresh })
+							.unwrap()
+							.then(async () => {
+								dispatch(readStorage());
+								await getUser(access).unwrap();
+								if (isError) {
+									dispatch(clearStorage());
+								}
+							});
+					}
+				}
+			});
 		}
-	}, [dispatch, access, refresh, createToken, navigate]);
+	}, [access, dispatch, getUser, isError, refresh, updateToken]);
 
 	return (
 		<AppContextProvider>
