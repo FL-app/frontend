@@ -33,6 +33,7 @@
 		"import/no-extraneous-dependencies": "off",
 		"@typescript-eslint/no-unsafe-return": "off",
 		"jsx-a11y/label-has-associated-control": "off",
-		"jsx-a11y/label-has-for": "off"
+		"jsx-a11y/label-has-for": "off",
+		"@typescript-eslint/no-floating-promises": "off"
 	}
 }
