@@ -13,9 +13,10 @@ import {
 	namePattern,
 	nicknamePattern,
 } from '../../constants/regExp/validation';
-import { AppDispatch, RootState } from '../../store';
 import Gender from '../../constants/enums/gender';
 import InputTypes from '../../constants/enums/inputTypes';
+import AppDispatch from '../../types/AppDispatch';
+import RootState from '../../types/RootState';
 
 function Registration() {
 	const navigate = useNavigate();

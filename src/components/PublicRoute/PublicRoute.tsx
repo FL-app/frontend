@@ -1,8 +1,8 @@
 import { ReactElement } from 'react';
 import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
-import { RootState } from '../../store';
 import RoutesPath from '../../constants/enums/routesPath';
+import RootState from '../../types/RootState';
 
 interface PublicRouteProps {
 	children: ReactElement | ReactElement[];

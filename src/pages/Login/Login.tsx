@@ -7,8 +7,9 @@ import { Button, InputPassword, InputText } from '../../components';
 import RoutesPath from '../../constants/enums/routesPath';
 import { emailPattern } from '../../constants/regExp/validation';
 import ValidationErrorMessages from '../../constants/enums/validation';
-import { AppDispatch, RootState } from '../../store';
 import InputTypes from '../../constants/enums/inputTypes';
+import AppDispatch from '../../types/AppDispatch';
+import RootState from '../../types/RootState';
 
 function Login() {
 	const navigate = useNavigate();

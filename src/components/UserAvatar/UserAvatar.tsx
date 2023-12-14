@@ -2,8 +2,8 @@ import './UserAvatar.scss';
 import { useSelector } from 'react-redux';
 import avatarMale from '../../images/icon_profile_man.png';
 import avatarFemale from '../../images/icon_profile_woman.png';
-import { RootState } from '../../store';
 import Gender from '../../constants/enums/gender';
+import RootState from '../../types/RootState';
 
 function UserAvatar() {
 	const userSex: Gender = useSelector(

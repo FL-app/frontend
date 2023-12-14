@@ -8,8 +8,9 @@ import avatarMale from '../../images/icon_profile_man.png';
 import avatarFemale from '../../images/icon_profile_woman.png';
 import './Profile.scss';
 import setNickname from '../../store/thunk/setNickname';
-import { AppDispatch, RootState } from '../../store';
 import Gender from '../../constants/enums/gender';
+import RootState from '../../types/RootState';
+import AppDispatch from '../../types/AppDispatch';
 
 const recommendedStatuses = [
 	'На работе',
