@@ -5,6 +5,7 @@ import setNickname from '../thunk/setNickname';
 import Gender from '../../constants/enums/gender';
 import registerUser from '../thunk/registerUser';
 import UserState from '../../types/UserState.interface';
+import { userApi } from '../rtk/userApi';
 
 const initialState: UserState = {
 	id: 0,
@@ -110,6 +111,17 @@ const userSlice = createSlice({
 			errorMessage: 'Something went wrong...',
 			requestCounter: state.requestCounter + 1,
 		}));
+		builder.addMatcher(
+			userApi.endpoints?.getUser.matchFulfilled,
+			(state, { payload }) => ({
+				...state,
+				...payload,
+				isLoading: false,
+				isAuthenticated: true,
+				errorMessage: '',
+				requestCounter: state.requestCounter + 1,
+			})
+		);
 	},
 });
 
