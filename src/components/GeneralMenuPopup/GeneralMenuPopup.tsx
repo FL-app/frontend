@@ -29,7 +29,6 @@ function GeneralMenuPopup(props: GeneralMenuPopupProps) {
 		openSettingsMenuPopup,
 	} = props;
 	const dispatch = useDispatch();
-
 	const handleExitClick = () => {
 		dispatch(logout());
 	};

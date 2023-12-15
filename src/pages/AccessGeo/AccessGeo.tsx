@@ -25,9 +25,9 @@ function AccessGeo() {
 			);
 			navigate(RoutesPath.accessGeoError);
 		};
-
 		navigator.geolocation.getCurrentPosition(handleSuccess, handleError);
 	};
+
 	return (
 		<section className="access-geo">
 			<div className="access-geo_container">

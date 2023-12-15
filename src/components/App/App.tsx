@@ -17,30 +17,24 @@ function App() {
 	const [getUser, { isError, isLoading }] = useGetUserMutation();
 
 	useEffect(() => {
-		if (store.getState().user.requestCounter === 0 && !isLoading) {
+		if (!isLoading) {
 			if (!access) {
 				dispatch(readStorage());
 			} else {
 				getUser(access)
 					.unwrap()
-					.then(async () => {
-						if (isError) {
+					.then(() => {
+						if (isError && store.getState().user.requestCounter === 0) {
 							if (refresh && access) {
-								await updateToken({ refresh })
+								updateToken({ refresh })
 									.unwrap()
-									.then(async () => {
-										dispatch(readStorage());
-										await getUser(access).unwrap();
-										if (isError) {
-											dispatch(clearStorage());
-										}
-									});
+									.catch(() => dispatch(clearStorage()));
 							}
 						}
 					});
 			}
 		}
-	}, [access, dispatch, getUser, isError, refresh, updateToken, isLoading]);
+	}, [access, dispatch, refresh, updateToken]);
 
 	return (
 		<AppContextProvider>

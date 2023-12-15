@@ -1,19 +1,11 @@
 import fetchTemplate from '../constants/apiTemplate';
 import RegistrationDTO from '../types/RegistrationDTO.interface';
 import ChangeCoordinatesDTO from '../types/ChangeCoordinatesDTO.interface';
-import LoginDTO from '../types/LoginDTO.interface';
 import ChangeNicknameDTO from '../types/ChangeNicknameDTO.interface';
 
 export const register = (data: RegistrationDTO) =>
 	fetchTemplate({
 		path: '/users/',
-		method: 'POST',
-		body: data,
-	});
-
-export const login = (data: LoginDTO) =>
-	fetchTemplate({
-		path: '/jwt/create/',
 		method: 'POST',
 		body: data,
 	});

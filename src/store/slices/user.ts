@@ -28,12 +28,11 @@ const userSlice = createSlice({
 	name: 'user',
 	initialState,
 	reducers: {
-		logout(state) {
+		logout() {
 			localStorage.removeItem('access_token');
 			localStorage.removeItem('refresh_token');
 			return {
-				...state,
-				isAuthenticated: false,
+				...initialState,
 			};
 		},
 	},
@@ -78,21 +77,15 @@ const userSlice = createSlice({
 			(state, { payload }) => ({
 				...state,
 				...payload,
-				isLoading: false,
 				isAuthenticated: true,
 				errorMessage: undefined,
 				requestCounter: 0,
 			})
 		);
-		builder.addMatcher(userApi.endpoints?.getUser.matchPending, (state) => ({
-			...state,
-			isLoading: true,
-		}));
 		builder.addMatcher(
 			userApi.endpoints?.getUser.matchRejected,
 			(state, { payload }) => ({
 				...state,
-				isLoading: false,
 				errorMessage: payload?.data as UserErrorMessage,
 				isAuthenticated: false,
 				requestCounter: state.requestCounter + 1,
