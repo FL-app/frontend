@@ -5,6 +5,7 @@ import Gender from '../../constants/enums/gender';
 import registerUser from '../thunk/registerUser';
 import UserState from '../../types/UserState.interface';
 import { userApi } from '../rtk/userApi';
+import UserErrorMessage from '../../types/UserErrorMessage.interface';
 
 const initialState: UserState = {
 	id: 0,
@@ -18,7 +19,7 @@ const initialState: UserState = {
 	userpic: null,
 	status: '',
 	isLoading: false,
-	errorMessage: '',
+	errorMessage: undefined,
 	registerSuccess: false,
 	isAuthenticated: false,
 	requestCounter: 0,
@@ -98,21 +99,24 @@ const userSlice = createSlice({
 				...payload,
 				isLoading: false,
 				isAuthenticated: true,
-				errorMessage: '',
-				requestCounter: state.requestCounter + 1,
+				errorMessage: undefined,
+				requestCounter: 0,
 			})
 		);
 		builder.addMatcher(userApi.endpoints?.getUser.matchPending, (state) => ({
 			...state,
 			isLoading: true,
 		}));
-		builder.addMatcher(userApi.endpoints?.getUser.matchRejected, (state) => ({
-			...state,
-			isLoading: false,
-			errorMessage: 'Unknown error',
-			isAuthenticated: false,
-			requestCounter: state.requestCounter + 1,
-		}));
+		builder.addMatcher(
+			userApi.endpoints?.getUser.matchRejected,
+			(state, { payload }) => ({
+				...state,
+				isLoading: false,
+				errorMessage: payload?.data as UserErrorMessage,
+				isAuthenticated: false,
+				requestCounter: state.requestCounter + 1,
+			})
+		);
 	},
 });
 

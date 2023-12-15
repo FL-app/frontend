@@ -1,5 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import UserDTO from '../../types/UserDTO.interface';
+import UserErrorMessage from '../../types/UserErrorMessage.interface';
 
 export const userApi = createApi({
 	reducerPath: 'userApi',
@@ -13,8 +14,12 @@ export const userApi = createApi({
 				method: 'GET',
 				headers: { Authorization: `Bearer ${token}` },
 			}),
-			transformResponse: (response: Promise<UserDTO>) => response,
-			transformErrorResponse: (response) => response,
+			extraOptions: { maxRetries: 3 },
+			transformResponse: (response: UserDTO) => response,
+			transformErrorResponse: (response: {
+				status: number;
+				data?: UserErrorMessage;
+			}) => response,
 		}),
 	}),
 });
