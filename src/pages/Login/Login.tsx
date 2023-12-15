@@ -1,44 +1,37 @@
 import './Login.scss';
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import loginUser from '../../store/thunk/loginUser';
+import { useSelector } from 'react-redux';
 import { Button, InputPassword, InputText } from '../../components';
 import RoutesPath from '../../constants/enums/routesPath';
 import { emailPattern } from '../../constants/regExp/validation';
 import ValidationErrorMessages from '../../constants/enums/validation';
 import InputTypes from '../../constants/enums/inputTypes';
-import AppDispatch from '../../types/AppDispatch';
 import RootState from '../../types/RootState';
+import { useCreateTokenMutation } from '../../store/rtk/tokensApi';
+import LoginDTO from '../../types/LoginDTO.interface';
+import { useGetUserMutation } from '../../store/rtk/userApi';
 
 function Login() {
 	const navigate = useNavigate();
-
-	const [userData, setUserData] = useState({
-		email: '',
-		password: '',
-	});
-
+	const [createToken, { isError }] = useCreateTokenMutation();
+	const [getUser] = useGetUserMutation();
+	const [userData, setUserData] = useState({} as LoginDTO);
 	const [emailDirty, setEmailDirty] = useState(false);
 	const [passwordDirty, setPasswordDirty] = useState(false);
-
 	const [emailError, setEmailError] = useState(
 		ValidationErrorMessages.emptyEmailErrorText
 	);
 	const [passwordError, setPasswordError] = useState(
 		ValidationErrorMessages.emptyPasswordErrorText
 	);
-
 	const [passwordType, setPasswordType] = useState(InputTypes.password);
-
 	const handleChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
 		const { name, value } = evt.target;
-
 		setUserData({
 			...userData,
 			[name]: value,
 		});
-
 		switch (name) {
 			case 'email':
 				if (String(value).length === 0) {
@@ -60,7 +53,6 @@ function Login() {
 				break;
 		}
 	};
-
 	const blurHandler = (evt: React.FocusEvent<HTMLInputElement>) => {
 		switch (evt.target.name) {
 			case 'email':
@@ -73,7 +65,6 @@ function Login() {
 				break;
 		}
 	};
-
 	const handlePasswordBtnClick = () => {
 		if (passwordType === InputTypes.password) {
 			setPasswordType(InputTypes.text);
@@ -81,34 +72,25 @@ function Login() {
 			setPasswordType(InputTypes.password);
 		}
 	};
-
-	const handleBtnBackClick = () => {
-		navigate(-1);
-	};
-
-	const formValidCheck = () => !emailError && !passwordError;
-
-	const dispatch = useDispatch<AppDispatch>();
-	const { errorMessage, isAuthenticated, requestCounter } = useSelector(
-		(state: RootState) => state.user
-	);
-
-	useEffect(() => {
-		if (isAuthenticated) navigate(RoutesPath.map);
-		if (!isAuthenticated && errorMessage) {
-			const errors = JSON.parse(errorMessage) as { detail: string };
-			setPasswordError(ValidationErrorMessages.emptyString);
-			if (errors.detail) {
-				setPasswordError(ValidationErrorMessages.wrongLoginOrPassword);
-			}
-		}
-	}, [navigate, errorMessage, isAuthenticated, requestCounter]);
-
+	const { isAuthenticated } = useSelector((state: RootState) => state.user);
 	const handleSubmit = () => {
-		if (formValidCheck()) dispatch<void>(loginUser(userData));
+		if (!emailError && !passwordError) {
+			createToken(userData)
+				.unwrap()
+				.then((data) => {
+					getUser(data.access).unwrap();
+				});
+		}
 		setEmailDirty(true);
 		setPasswordDirty(true);
 	};
+	useEffect(() => {
+		if (isAuthenticated) navigate(RoutesPath.map);
+		if (!isAuthenticated && isError) {
+			setPasswordError(ValidationErrorMessages.emptyString);
+			setPasswordError(ValidationErrorMessages.wrongLoginOrPassword);
+		}
+	}, [navigate, isAuthenticated, isError]);
 
 	return (
 		<section className="signin">
@@ -116,7 +98,9 @@ function Login() {
 				<button
 					type="button"
 					className="signin_btn-back"
-					onClick={handleBtnBackClick}
+					onClick={() => {
+						navigate(-1);
+					}}
 					aria-label="Back"
 				/>
 				<div className="signin_vector-1" />

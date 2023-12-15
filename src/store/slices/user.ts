@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-import loginUser from '../thunk/loginUser';
 import setNickname from '../thunk/setNickname';
 import Gender from '../../constants/enums/gender';
 import registerUser from '../thunk/registerUser';
@@ -55,24 +54,6 @@ const userSlice = createSlice({
 			isLoading: false,
 			errorMessage: 'Registration unsuccessful',
 			registerSuccess: false,
-			requestCounter: state.requestCounter + 1,
-		}));
-		builder.addCase(loginUser.pending, (state) => ({
-			...state,
-			isLoading: true,
-		}));
-		builder.addCase(loginUser.fulfilled, (state) => ({
-			...state,
-			isLoading: false,
-			isAuthenticated: true,
-			errorMessage: '',
-			requestCounter: state.requestCounter + 1,
-		}));
-		builder.addCase(loginUser.rejected, (state) => ({
-			...state,
-			isLoading: false,
-			errorMessage: 'fdsfs',
-			isAuthenticated: false,
 			requestCounter: state.requestCounter + 1,
 		}));
 		builder.addCase(setNickname.pending, (state) => ({

@@ -43,6 +43,17 @@ const tokensSlice = createSlice({
 			localStorage.setItem('refresh_token', '');
 			return { refresh: '', access: '' };
 		});
+		builder.addMatcher(
+			tokensApi.endpoints?.createToken?.matchFulfilled,
+			(state, { payload }) => {
+				localStorage.setItem('access_token', payload.access);
+				localStorage.setItem('refresh_token', payload.refresh);
+				return {
+					...state,
+					...payload,
+				};
+			}
+		);
 	},
 });
 
