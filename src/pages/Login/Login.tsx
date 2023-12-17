@@ -77,8 +77,8 @@ function Login() {
 		if (!emailError && !passwordError) {
 			createToken(userData)
 				.unwrap()
-				.then((data) => {
-					getUser(data.access).unwrap();
+				.then(() => {
+					getUser(null).unwrap();
 				});
 		}
 		setEmailDirty(true);

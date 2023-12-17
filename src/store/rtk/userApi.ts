@@ -16,7 +16,7 @@ export const userApi = createApi({
 		},
 	}),
 	endpoints: (builder) => ({
-		getUser: builder.mutation<UserDTO, undefined>({
+		getUser: builder.mutation({
 			query: () => ({
 				url: '/me/',
 				method: 'GET',

@@ -19,7 +19,7 @@ function App() {
 			if (!access) {
 				dispatch(readStorage());
 			} else {
-				getUser(access)
+				getUser(null)
 					.unwrap()
 					.then(() => {
 						if (isError && store.getState().user.requestCounter === 0) {
