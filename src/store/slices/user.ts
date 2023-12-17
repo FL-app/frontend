@@ -24,7 +24,6 @@ const initialState: UserState = {
 	registerSuccess: false,
 	isAuthenticated: false,
 	requestCounter: 0,
-	isAccessAllowed: false,
 };
 
 const userSlice = createSlice({
@@ -36,23 +35,6 @@ const userSlice = createSlice({
 			localStorage.removeItem('refresh_token');
 			return {
 				...initialState,
-			};
-		},
-		setAccessAllowed(state, action: { payload: boolean }) {
-			return {
-				...state,
-				isAccessAllowed: action.payload,
-			};
-		},
-		setLocation(
-			state,
-			action: { payload: { latitude: number; longitude: number } }
-		) {
-			return {
-				...state,
-				latitude: action.payload.latitude,
-				longitude: action.payload.longitude,
-				errorMessage: '',
 			};
 		},
 		setLocationError(state, action: { payload: { errorMessage: string } }) {
@@ -158,5 +140,4 @@ const userSlice = createSlice({
 
 export default userSlice.reducer;
 
-export const { logout, setAccessAllowed, setLocation, setLocationError } =
-	userSlice.actions;
+export const { logout, setLocationError } = userSlice.actions;

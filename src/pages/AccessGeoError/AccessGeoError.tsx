@@ -4,18 +4,13 @@ import { Button } from '../../components';
 import RoutesPath from '../../constants/enums/routesPath';
 import geoTag from '../../images/geo-tag-error.png';
 import './AccessGeoError.scss';
-import {
-	logout,
-	setAccessAllowed,
-	setLocationError,
-} from '../../store/slices/user';
+import { logout, setLocationError } from '../../store/slices/user';
 
 function AccessGeoError() {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 	const handleLocateBtnClick = () => {
-		const handleSuccess = (/* position */) => {
-			dispatch(setAccessAllowed(true));
+		const handleSuccess = () => {
 			navigate(RoutesPath.map);
 		};
 		const handleError = (error: GeolocationPositionError) => {

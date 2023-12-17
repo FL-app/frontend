@@ -4,14 +4,14 @@ import { Button } from '../../components';
 import RoutesPath from '../../constants/enums/routesPath';
 import geoTag from '../../images/geo-tag.png';
 import './AccessGeo.scss';
-import { setAccessAllowed, setLocationError } from '../../store/slices/user';
+import { setLocationError } from '../../store/slices/user';
+import { store } from '../../store';
 
 function AccessGeo() {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 	const handleLocateBtnClick = () => {
-		const handleSuccess = (/* position */) => {
-			dispatch(setAccessAllowed(true));
+		const handleSuccess = () => {
 			navigate(RoutesPath.map);
 		};
 		const handleError = (error: GeolocationPositionError) => {
@@ -35,7 +35,7 @@ function AccessGeo() {
 					className="access-geo_geo-tag-img"
 				/>
 				<h1 className="access-geo_title">
-					%UserName%, где ты сейчас находишься?
+					{store.getState().user.username} где ты сейчас находишься?
 				</h1>
 				<h2 className="access-geo_subtitle">
 					Чтобы показывать друзьям где ты находишься, предоставь приложению

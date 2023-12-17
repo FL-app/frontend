@@ -21,17 +21,20 @@ const userIcon = new Icon({
 function TrackingMap() {
 	const [map, setMap] = useState<Map>();
 	const [updateCoordinates] = useUpdateCoordinatesMutation();
-	const { id, latitude, longitude, isAccessAllowed } = useSelector(
+	const { id, latitude, longitude } = useSelector(
 		(state: RootState) => state.user
 	);
-	const position = useMemo(() => [latitude, longitude] as LatLngExpression, []);
+	const position = useMemo(
+		() => [latitude, longitude] as LatLngExpression,
+		[latitude, longitude]
+	);
 	const navigate = useNavigate();
 	const dispatch = useDispatch<AppDispatch>();
 
 	useEffect(() => {
 		const handleSuccess = (pos: GeolocationPosition) => {
 			map?.setView(position);
-			if (isAccessAllowed) {
+			if (navigator.geolocation) {
 				if (
 					latitude !== pos.coords.latitude ||
 					longitude !== pos.coords.longitude
