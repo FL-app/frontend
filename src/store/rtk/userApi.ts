@@ -3,6 +3,7 @@ import UserDTO from '../../types/UserDTO.interface';
 import UserErrorMessage from '../../types/UserErrorMessage.interface';
 import type { RootState } from '../index';
 import ChangeCoordinatesDTO from '../../types/ChangeCoordinatesDTO.interface';
+import Coordinates from '../../types/Coordinates.interface';
 
 export const userApi = createApi({
 	reducerPath: 'userApi',
@@ -29,10 +30,7 @@ export const userApi = createApi({
 				data?: UserErrorMessage;
 			}) => response,
 		}),
-		updateCoordinates: builder.mutation<
-			ChangeCoordinatesDTO,
-			ChangeCoordinatesDTO
-		>({
+		updateCoordinates: builder.mutation<Coordinates, ChangeCoordinatesDTO>({
 			query: (location) => ({
 				url: `/${location.id}/update-coordinates/`,
 				method: 'PATCH',
@@ -42,4 +40,4 @@ export const userApi = createApi({
 	}),
 });
 
-export const { useGetUserMutation } = userApi;
+export const { useGetUserMutation, useUpdateCoordinatesMutation } = userApi;

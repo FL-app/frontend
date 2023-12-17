@@ -9,8 +9,8 @@ import './TrackingMap.scss';
 import geotag from '../../images/geotag_map.svg';
 import friendsLocation from './friendsLocation';
 import RoutesPath from '../../constants/enums/routesPath';
-import sendCoords from '../../store/thunk/sendCoords';
 import { AppDispatch, RootState } from '../../store';
+import { useUpdateCoordinatesMutation } from '../../store/rtk/userApi';
 
 const userIcon = new Icon({
 	iconUrl: geotag,
@@ -20,32 +20,27 @@ const userIcon = new Icon({
 
 function TrackingMap() {
 	const [map, setMap] = useState<Map>();
-	const location = useSelector((state: RootState) => state.location);
-	const { access } = useSelector((state: RootState) => state.tokens);
-	const position = useMemo(
-		() => [location.latitude, location.longitude] as LatLngExpression,
-		[location]
+	const [updateCoordinates] = useUpdateCoordinatesMutation();
+	const { id, latitude, longitude, isAccessAllowed } = useSelector(
+		(state: RootState) => state.user
 	);
-	const { id } = useSelector((state: RootState) => state.user);
+	const position = useMemo(() => [latitude, longitude] as LatLngExpression, []);
 	const navigate = useNavigate();
 	const dispatch = useDispatch<AppDispatch>();
 
 	useEffect(() => {
 		const handleSuccess = (pos: GeolocationPosition) => {
 			map?.setView(position);
-			if (location.isAccessAllowed) {
+			if (isAccessAllowed) {
 				if (
-					location.latitude !== pos.coords.latitude ||
-					location.longitude !== pos.coords.longitude
+					latitude !== pos.coords.latitude ||
+					longitude !== pos.coords.longitude
 				) {
-					dispatch<void>(
-						sendCoords({
-							token: access,
-							id,
-							latitude: pos.coords.latitude,
-							longitude: pos.coords.longitude,
-						})
-					);
+					updateCoordinates({
+						id,
+						latitude: pos.coords.latitude,
+						longitude: pos.coords.longitude,
+					}).unwrap();
 				}
 			} else {
 				navigate(RoutesPath.accessGeo);
@@ -61,7 +56,7 @@ function TrackingMap() {
 		return () => {
 			navigator.geolocation.clearWatch(idWatch);
 		};
-	}, [navigate, dispatch, location, access, id, position, map]);
+	}, [navigate, dispatch, id, position, map]);
 	const displayMap = useMemo(
 		() => (
 			<MapContainer

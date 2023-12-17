@@ -1,10 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { useNavigate } from 'react-router-dom';
 import setNickname from '../thunk/setNickname';
 import Gender from '../../constants/enums/gender';
 import registerUser from '../thunk/registerUser';
 import type UserState from '../../types/UserState.interface';
 import { userApi } from '../rtk/userApi';
 import type UserErrorMessage from '../../types/UserErrorMessage.interface';
+import RoutesPath from '../../constants/enums/routesPath';
 
 const initialState: UserState = {
 	id: 0,
@@ -22,6 +24,7 @@ const initialState: UserState = {
 	registerSuccess: false,
 	isAuthenticated: false,
 	requestCounter: 0,
+	isAccessAllowed: false,
 };
 
 const userSlice = createSlice({
@@ -94,6 +97,36 @@ const userSlice = createSlice({
 				isAuthenticated: false,
 				requestCounter: state.requestCounter + 1,
 			})
+		);
+		builder.addMatcher(
+			userApi.endpoints?.updateCoordinates.matchFulfilled,
+			(state, { payload }) => ({
+				...state,
+				...payload,
+				errorMessage: undefined,
+				isLoading: false,
+				requestCounter: 0,
+			})
+		);
+		builder.addMatcher(
+			userApi.endpoints?.updateCoordinates.matchPending,
+			(state) => ({
+				...state,
+				isLoading: true,
+			})
+		);
+		builder.addMatcher(
+			userApi.endpoints?.getUser.matchRejected,
+			(state, { payload }) => {
+				const navigate = useNavigate();
+				navigate(RoutesPath.accessGeoError);
+				return {
+					...state,
+					errorMessage: payload?.data as UserErrorMessage,
+					isLoading: false,
+					requestCounter: state.requestCounter + 1,
+				};
+			}
 		);
 	},
 });

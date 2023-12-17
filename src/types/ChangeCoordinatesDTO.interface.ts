@@ -1,6 +1,5 @@
-export default interface ChangeCoordinatesDTO {
-	token: string;
+import Coordinates from './Coordinates.interface';
+
+export default interface ChangeCoordinatesDTO extends Coordinates {
 	id: number;
-	longitude: number;
-	latitude: number;
 }

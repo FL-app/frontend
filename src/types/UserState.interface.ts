@@ -9,4 +9,5 @@ export default interface UserState extends UserDTO {
 	registerSuccess: boolean;
 	isAuthenticated: boolean;
 	requestCounter: number;
+	isAccessAllowed: boolean;
 }
