@@ -82,6 +82,10 @@ const userSlice = createSlice({
 				requestCounter: 0,
 			})
 		);
+		builder.addMatcher(userApi.endpoints?.getUser.matchPending, (state) => ({
+			...state,
+			isLoading: true,
+		}));
 		builder.addMatcher(
 			userApi.endpoints?.getUser.matchRejected,
 			(state, { payload }) => ({

@@ -7,10 +7,10 @@ import RoutesPath from '../../constants/enums/routesPath';
 import { emailPattern } from '../../constants/regExp/validation';
 import ValidationErrorMessages from '../../constants/enums/validation';
 import InputTypes from '../../constants/enums/inputTypes';
-import RootState from '../../types/RootState';
 import { useCreateTokenMutation } from '../../store/rtk/tokensApi';
 import LoginDTO from '../../types/LoginDTO.interface';
 import { useGetUserMutation } from '../../store/rtk/userApi';
+import { RootState } from '../../store';
 
 function Login() {
 	const navigate = useNavigate();

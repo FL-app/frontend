@@ -5,10 +5,8 @@ import Routes from '../../routes';
 import { AppContextProvider } from '../../context/AppContext';
 import { useRefreshTokenMutation } from '../../store/rtk/tokensApi';
 import { clearStorage, readStorage } from '../../store/slices/tokens';
-import AppDispatch from '../../types/AppDispatch';
-import RootState from '../../types/RootState';
 import { useGetUserMutation } from '../../store/rtk/userApi';
-import store from '../../store';
+import { store, AppDispatch, RootState } from '../../store';
 
 function App() {
 	const dispatch = useDispatch<AppDispatch>();

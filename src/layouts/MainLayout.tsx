@@ -8,7 +8,7 @@ import {
 } from '../components';
 import MenuPopup from '../components/MenuPopup/MenuPopup';
 import PopupDeleteAccount from '../components/PopupDeleteAccount/PopupDeleteAccount';
-import RootState from '../types/RootState';
+import { RootState } from '../store';
 
 interface MainLayoutProps {
 	handleSearch?: () => void;

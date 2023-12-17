@@ -13,7 +13,7 @@ const rootReducer = combineReducers({
 	[userApi.reducerPath]: userApi.reducer,
 });
 
-const store = configureStore({
+export const store = configureStore({
 	reducer: rootReducer,
 	middleware: (getDefaultMiddleware) =>
 		getDefaultMiddleware()
@@ -21,4 +21,5 @@ const store = configureStore({
 			.concat(userApi.middleware),
 });
 
-export default store;
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;

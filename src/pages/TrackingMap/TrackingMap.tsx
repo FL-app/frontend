@@ -10,8 +10,7 @@ import geotag from '../../images/geotag_map.svg';
 import friendsLocation from './friendsLocation';
 import RoutesPath from '../../constants/enums/routesPath';
 import sendCoords from '../../store/thunk/sendCoords';
-import AppDispatch from '../../types/AppDispatch';
-import RootState from '../../types/RootState';
+import { AppDispatch, RootState } from '../../store';
 
 const userIcon = new Icon({
 	iconUrl: geotag,

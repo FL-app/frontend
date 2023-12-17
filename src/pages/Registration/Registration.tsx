@@ -15,8 +15,7 @@ import {
 } from '../../constants/regExp/validation';
 import Gender from '../../constants/enums/gender';
 import InputTypes from '../../constants/enums/inputTypes';
-import AppDispatch from '../../types/AppDispatch';
-import RootState from '../../types/RootState';
+import { AppDispatch, RootState } from '../../store';
 
 function Registration() {
 	const navigate = useNavigate();
@@ -236,7 +235,7 @@ function Registration() {
 	useEffect(() => {
 		if (registerSuccess) navigate(RoutesPath.accessGeo);
 		if (!registerSuccess && errorMessage) {
-			const errors = JSON.parse(errorMessage) as {
+			const errors = JSON.parse(errorMessage as string) as {
 				email: ValidationErrorMessages[];
 				username: ValidationErrorMessages[];
 				firstname: ValidationErrorMessages[];
