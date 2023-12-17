@@ -1,6 +1,5 @@
 import fetchTemplate from '../constants/apiTemplate';
 import RegistrationDTO from '../types/RegistrationDTO.interface';
-import ChangeCoordinatesDTO from '../types/ChangeCoordinatesDTO.interface';
 import ChangeNicknameDTO from '../types/ChangeNicknameDTO.interface';
 
 export const register = (data: RegistrationDTO) =>
@@ -18,15 +17,4 @@ export const setNickname = (data: ChangeNicknameDTO) =>
 		body: {
 			username: data.username,
 		},
-	});
-
-export const updateCoordinates = (data: ChangeCoordinatesDTO) =>
-	fetchTemplate({
-		path: `/users/${data.id}/update-coordinates/`,
-		method: 'PATCH',
-		body: {
-			longitude: data.longitude,
-			latitude: data.latitude,
-		},
-		token: `Bearer ${data.token}`,
 	});

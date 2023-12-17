@@ -38,6 +38,31 @@ const userSlice = createSlice({
 				...initialState,
 			};
 		},
+		setAccessAllowed(state, action: { payload: boolean }) {
+			return {
+				...state,
+				isAccessAllowed: action.payload,
+			};
+		},
+		setLocation(
+			state,
+			action: { payload: { latitude: number; longitude: number } }
+		) {
+			return {
+				...state,
+				latitude: action.payload.latitude,
+				longitude: action.payload.longitude,
+				errorMessage: '',
+			};
+		},
+		setLocationError(state, action: { payload: { errorMessage: string } }) {
+			return {
+				...state,
+				latitude: 0,
+				longitude: 0,
+				errorMessage: action.payload.errorMessage,
+			};
+		},
 	},
 	extraReducers: (builder) => {
 		builder.addCase(registerUser.pending, (state) => ({
@@ -133,4 +158,5 @@ const userSlice = createSlice({
 
 export default userSlice.reducer;
 
-export const { logout } = userSlice.actions;
+export const { logout, setAccessAllowed, setLocation, setLocationError } =
+	userSlice.actions;

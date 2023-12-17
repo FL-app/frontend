@@ -1,14 +1,14 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import {
-	setAccessAllowed,
-	setLocationError,
-} from '../../store/slices/location';
 import { Button } from '../../components';
 import RoutesPath from '../../constants/enums/routesPath';
 import geoTag from '../../images/geo-tag-error.png';
 import './AccessGeoError.scss';
-import { logout } from '../../store/slices/user';
+import {
+	logout,
+	setAccessAllowed,
+	setLocationError,
+} from '../../store/slices/user';
 
 function AccessGeoError() {
 	const dispatch = useDispatch();
