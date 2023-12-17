@@ -2,9 +2,9 @@ import { createSlice } from '@reduxjs/toolkit';
 import setNickname from '../thunk/setNickname';
 import Gender from '../../constants/enums/gender';
 import registerUser from '../thunk/registerUser';
-import UserState from '../../types/UserState.interface';
+import type UserState from '../../types/UserState.interface';
 import { userApi } from '../rtk/userApi';
-import UserErrorMessage from '../../types/UserErrorMessage.interface';
+import type UserErrorMessage from '../../types/UserErrorMessage.interface';
 
 const initialState: UserState = {
 	id: 0,

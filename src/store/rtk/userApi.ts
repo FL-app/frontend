@@ -2,6 +2,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import UserDTO from '../../types/UserDTO.interface';
 import UserErrorMessage from '../../types/UserErrorMessage.interface';
 import type { RootState } from '../index';
+import ChangeCoordinatesDTO from '../../types/ChangeCoordinatesDTO.interface';
 
 export const userApi = createApi({
 	reducerPath: 'userApi',
@@ -27,6 +28,16 @@ export const userApi = createApi({
 				status: number;
 				data?: UserErrorMessage;
 			}) => response,
+		}),
+		updateCoordinates: builder.mutation<
+			ChangeCoordinatesDTO,
+			ChangeCoordinatesDTO
+		>({
+			query: (location) => ({
+				url: `/${location.id}/update-coordinates/`,
+				method: 'PATCH',
+				body: { longitude: location.longitude, latitude: location.latitude },
+			}),
 		}),
 	}),
 });
