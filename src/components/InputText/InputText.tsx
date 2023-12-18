@@ -9,8 +9,8 @@ interface InputTextProps {
 	name: string;
 	isRequired?: boolean;
 	inputValue: string;
-	onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-	onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
+	onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+	onBlur: (e: React.FocusEvent<HTMLInputElement>) => void;
 	inputDirty: boolean;
 	inputError: string;
 }
