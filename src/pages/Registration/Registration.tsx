@@ -23,7 +23,7 @@ function Registration() {
 		first_name: '',
 		last_name: '',
 		username: '',
-		sex: Gender.female,
+		gender: Gender.female,
 		email: '',
 		password: '',
 		confirmPassword: '',
@@ -68,7 +68,7 @@ function Registration() {
 		});
 
 		switch (name) {
-			case 'name':
+			case 'first_name':
 				if (String(value).length === 0) {
 					setNameError(ValidationErrorMessages.emptyNameErrorText);
 				} else if (!value.match(namePattern)) {
@@ -77,7 +77,7 @@ function Registration() {
 					setNameError(ValidationErrorMessages.emptyString);
 				}
 				break;
-			case 'surname':
+			case 'last_name':
 				if (String(value).length === 0) {
 					setSurnameError(ValidationErrorMessages.emptySurnameErrorText);
 				} else if (!value.match(namePattern)) {
@@ -86,7 +86,7 @@ function Registration() {
 					setSurnameError(ValidationErrorMessages.emptyString);
 				}
 				break;
-			case 'nickname':
+			case 'username':
 				if (String(value).length === 0) {
 					setNicknameError(ValidationErrorMessages.emptyNicknameErrorText);
 				} else if (!value.match(nicknamePattern)) {
@@ -132,7 +132,7 @@ function Registration() {
 					setConfirmPasswordError(ValidationErrorMessages.emptyString);
 				}
 				break;
-			case 'sex':
+			case 'gender':
 				setMaleChecked(!maleChecked);
 				setFemaleChecked(!femaleChecked);
 				break;
@@ -143,13 +143,13 @@ function Registration() {
 
 	const blurHandler = (evt: React.FocusEvent<HTMLInputElement>) => {
 		switch (evt.target.name) {
-			case 'name':
+			case 'first_name':
 				setNameDirty(true);
 				break;
-			case 'surname':
+			case 'last_name':
 				setSurnameDirty(true);
 				break;
-			case 'nickname':
+			case 'username':
 				setNicknameDirty(true);
 				break;
 			case 'email':
@@ -271,7 +271,16 @@ function Registration() {
 	}, [navigate, errorMessage, registerSuccess, requestCounter]);
 
 	const handleSubmit = () => {
-		if (formValidCheck(2)) registerUser(userData);
+		if (formValidCheck(2)) {
+			registerUser({
+				email: userData.email,
+				username: userData.username,
+				first_name: userData.first_name,
+				last_name: userData.last_name,
+				password: userData.password,
+				gender: userData.gender,
+			}).unwrap();
+		}
 		setPasswordDirty(true);
 		setConfirmPasswordDirty(true);
 		setCheckboxError(true);
@@ -348,7 +357,7 @@ function Registration() {
 									<input
 										type="radio"
 										id="female"
-										name="sex"
+										name="gender"
 										value={Gender.female}
 										className="registration_form_sex-fieldset_radio"
 										checked={femaleChecked}
@@ -364,7 +373,7 @@ function Registration() {
 									<input
 										type="radio"
 										id="male"
-										name="sex"
+										name="gender"
 										value={Gender.male}
 										className="registration_form_sex-fieldset_radio"
 										checked={maleChecked}

@@ -6,5 +6,5 @@ export default interface RegistrationDTO {
 	first_name?: string;
 	last_name?: string;
 	password: string;
-	sex?: Gender;
+	gender?: Gender;
 }
