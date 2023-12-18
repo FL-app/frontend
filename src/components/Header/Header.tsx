@@ -1,4 +1,3 @@
-import InputSearch from '../InputSearch/InputSearch';
 import './Header.scss';
 
 interface HeaderProps {
@@ -18,7 +17,13 @@ function Header(props: HeaderProps) {
 				aria-label="Кнопка меню"
 				onClick={openGeneralMenuPopup}
 			/>
-			{handleSearch && <InputSearch handleSearch={handleSearch} />}
+			<input
+				placeholder="Введите имя друга"
+				onChange={handleSearch}
+				className="header__search"
+				autoFocus
+				hidden={!handleSearch}
+			/>
 		</header>
 	);
 }
