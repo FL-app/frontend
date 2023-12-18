@@ -1,8 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { useNavigate } from 'react-router-dom';
-import setNickname from '../thunk/setNickname';
 import Gender from '../../constants/enums/gender';
-import registerUser from '../thunk/registerUser';
 import type UserState from '../../types/UserState.interface';
 import { userApi } from '../rtk/userApi';
 import type UserErrorMessage from '../../types/UserErrorMessage.interface';
@@ -47,41 +45,6 @@ const userSlice = createSlice({
 		},
 	},
 	extraReducers: (builder) => {
-		builder.addCase(registerUser.pending, (state) => ({
-			...state,
-			isLoading: true,
-		}));
-		builder.addCase(registerUser.fulfilled, (state) => ({
-			...state,
-			isLoading: false,
-			registerSuccess: true,
-			errorMessage: '',
-			requestCounter: state.requestCounter + 1,
-		}));
-		builder.addCase(registerUser.rejected, (state) => ({
-			...state,
-			isLoading: false,
-			errorMessage: 'Registration unsuccessful',
-			registerSuccess: false,
-			requestCounter: state.requestCounter + 1,
-		}));
-		builder.addCase(setNickname.pending, (state) => ({
-			...state,
-			isLoading: true,
-		}));
-		builder.addCase(setNickname.fulfilled, (state, action) => ({
-			...state,
-			...action.payload,
-			isLoading: false,
-			errorMessage: '',
-			requestCounter: state.requestCounter + 1,
-		}));
-		builder.addCase(setNickname.rejected, (state) => ({
-			...state,
-			isLoading: false,
-			errorMessage: 'Something went wrong...',
-			requestCounter: state.requestCounter + 1,
-		}));
 		builder.addMatcher(
 			userApi.endpoints?.getUser.matchFulfilled,
 			(state, { payload }) => ({
@@ -134,6 +97,41 @@ const userSlice = createSlice({
 					requestCounter: state.requestCounter + 1,
 				};
 			}
+		);
+		builder.addMatcher(
+			userApi.endpoints?.registerUser.matchFulfilled,
+			(state, { payload }) => ({
+				...state,
+				...payload,
+				isLoading: false,
+				registerSuccess: true,
+				errorMessage: '',
+				requestCounter: 0,
+			})
+		);
+		builder.addMatcher(
+			userApi.endpoints?.registerUser.matchPending,
+			(state) => ({
+				...state,
+				isLoading: true,
+			})
+		);
+		builder.addMatcher(
+			userApi.endpoints?.updateUserInfo.matchFulfilled,
+			(state, { payload }) => ({
+				...state,
+				...payload,
+				isLoading: false,
+				errorMessage: '',
+				requestCounter: 0,
+			})
+		);
+		builder.addMatcher(
+			userApi.endpoints?.updateUserInfo.matchPending,
+			(state) => ({
+				...state,
+				isLoading: true,
+			})
 		);
 	},
 });

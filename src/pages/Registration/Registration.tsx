@@ -1,11 +1,10 @@
 import './Registration.scss';
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Button, InputPassword, InputText } from '../../components';
 import avatarMan from '../../images/avatarman.png';
 import avatarWoman from '../../images/avatarwoman.png';
-import registerUser from '../../store/thunk/registerUser';
 import RoutesPath from '../../constants/enums/routesPath';
 import ValidationErrorMessages from '../../constants/enums/validation';
 import {
@@ -15,20 +14,22 @@ import {
 } from '../../constants/regExp/validation';
 import Gender from '../../constants/enums/gender';
 import InputTypes from '../../constants/enums/inputTypes';
-import { AppDispatch, RootState } from '../../store';
+import { type RootState } from '../../store';
+import { useRegisterUserMutation } from '../../store/rtk/userApi';
 
 function Registration() {
 	const navigate = useNavigate();
 	const [userData, setUserData] = useState({
-		name: '',
-		surname: '',
-		nickname: '',
+		first_name: '',
+		last_name: '',
+		username: '',
 		sex: Gender.female,
 		email: '',
 		password: '',
 		confirmPassword: '',
 		termsOfUse: false,
 	});
+	const [registerUser] = useRegisterUserMutation();
 	const [nameDirty, setNameDirty] = useState(false);
 	const [surnameDirty, setSurnameDirty] = useState(false);
 	const [nicknameDirty, setNicknameDirty] = useState(false);
@@ -168,13 +169,13 @@ function Registration() {
 	const handleContinueButtonClick = () => {
 		if (!nameError && !surnameError && !nicknameError && !emailError) {
 			setStep(2);
-		} else if (userData.name.length === 0) {
+		} else if (userData.first_name.length === 0) {
 			setNameDirty(true);
 			setNameError(ValidationErrorMessages.emptyNameErrorText);
-		} else if (userData.surname.length === 0) {
+		} else if (userData.last_name.length === 0) {
 			setSurnameDirty(true);
 			setSurnameError(ValidationErrorMessages.emptySurnameErrorText);
-		} else if (userData.nickname.length === 0) {
+		} else if (userData.username.length === 0) {
 			setNicknameDirty(true);
 			setNicknameError(ValidationErrorMessages.emptyNicknameErrorText);
 		} else if (userData.email.length === 0) {
@@ -227,7 +228,6 @@ function Registration() {
 		return isFormValidStepTwo;
 	};
 
-	const dispatch = useDispatch<AppDispatch>();
 	const { errorMessage, registerSuccess, requestCounter } = useSelector(
 		(state: RootState) => state.user
 	);
@@ -271,7 +271,7 @@ function Registration() {
 	}, [navigate, errorMessage, registerSuccess, requestCounter]);
 
 	const handleSubmit = () => {
-		if (formValidCheck(2)) dispatch<void>(registerUser(userData));
+		if (formValidCheck(2)) registerUser(userData);
 		setPasswordDirty(true);
 		setConfirmPasswordDirty(true);
 		setCheckboxError(true);
@@ -298,10 +298,10 @@ function Registration() {
 							<h1 className="registration_form_title">Создаём аккаунт</h1>
 							<InputText
 								label="Имя"
-								id="name"
-								name="name"
+								id="first_name"
+								name="first_name"
 								isRequired
-								inputValue={userData.name}
+								inputValue={userData.first_name}
 								onChange={handleChange}
 								onBlur={blurHandler}
 								inputDirty={nameDirty}
@@ -309,10 +309,10 @@ function Registration() {
 							/>
 							<InputText
 								label="Фамилия"
-								id="surname"
-								name="surname"
+								id="last_name"
+								name="last_name"
 								isRequired
-								inputValue={userData.surname}
+								inputValue={userData.last_name}
 								onChange={handleChange}
 								onBlur={blurHandler}
 								inputDirty={surnameDirty}
@@ -320,10 +320,10 @@ function Registration() {
 							/>
 							<InputText
 								label="Твой ник"
-								id="nickname"
-								name="nickname"
+								id="username"
+								name="username"
 								isRequired
-								inputValue={userData.nickname}
+								inputValue={userData.username}
 								onChange={handleChange}
 								onBlur={blurHandler}
 								inputDirty={nicknameDirty}

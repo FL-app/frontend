@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Button, Input, PopupWithForm } from '../../components';
 import MainLayout from '../../layouts/MainLayout';
 import spiralPng from '../../images/spiral-banner.png';
@@ -7,9 +7,10 @@ import vectorCircle from '../../images/vector-signin-2.svg';
 import avatarMale from '../../images/icon_profile_man.png';
 import avatarFemale from '../../images/icon_profile_woman.png';
 import './Profile.scss';
-import setNickname from '../../store/thunk/setNickname';
 import Gender from '../../constants/enums/gender';
-import { AppDispatch, RootState } from '../../store';
+import { type RootState } from '../../store';
+import { useUpdateUserInfoMutation } from '../../store/rtk/userApi';
+import UserDTO from '../../types/UserDTO.interface';
 
 const recommendedStatuses = [
 	'На работе',
@@ -19,7 +20,6 @@ const recommendedStatuses = [
 
 function Profile() {
 	const currentUser = useSelector((state: RootState) => state.user);
-	const { access } = useSelector((state: RootState) => state.tokens);
 	const [nicknamePopupOpened, setNicknamePopupOpened] = useState(false);
 	const [inviteFriendsPopupOpened, setInviteFriendsPopupOpened] =
 		useState(false);
@@ -28,7 +28,7 @@ function Profile() {
 		nicknameValue: currentUser.username,
 		inviteEmailValue: '',
 	});
-	const dispatch = useDispatch<AppDispatch>();
+	const [updateUserInfo] = useUpdateUserInfoMutation();
 	const handleStatusChange = (newStatus: string) => {
 		setFormValues((prevState) => ({
 			...prevState,
@@ -37,18 +37,14 @@ function Profile() {
 	};
 
 	const handleSubmitNickname = () => {
-		const updatedUser = { ...currentUser };
-		updatedUser.username = formValues.nicknameValue;
-		dispatch<void>(
-			setNickname({
-				username: updatedUser.username,
-				token: access,
-			})
-		);
+		updateUserInfo({
+			email: currentUser.email,
+			username: formValues.nicknameValue,
+		} as Partial<UserDTO>);
 
 		setFormValues((prevState) => ({
 			...prevState,
-			nicknameValue: updatedUser.username,
+			nicknameValue: currentUser.username,
 		}));
 
 		setNicknamePopupOpened(false);
@@ -96,12 +92,7 @@ function Profile() {
 							</button>
 						</div>
 					</div>
-					<form
-						className="profile-status-container"
-						onSubmit={(e) => {
-							e.preventDefault();
-						}}
-					>
+					<form className="profile-status-container">
 						<label htmlFor="status" className="profile-status-label">
 							Твой статус
 							<input
@@ -207,7 +198,7 @@ function Profile() {
 							/>
 							<Button
 								label="Готово"
-								type="submit"
+								type="button"
 								color="primary"
 								size="medium"
 								onClick={handleSubmitNickname}

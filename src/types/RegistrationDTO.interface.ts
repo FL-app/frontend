@@ -2,9 +2,9 @@ import Gender from '../constants/enums/gender';
 
 export default interface RegistrationDTO {
 	email: string;
-	nickname: string;
-	name: string;
-	surname: string;
+	username: string;
+	first_name?: string;
+	last_name?: string;
 	password: string;
-	sex: Gender;
+	sex?: Gender;
 }

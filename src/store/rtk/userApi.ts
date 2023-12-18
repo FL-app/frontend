@@ -4,6 +4,7 @@ import UserErrorMessage from '../../types/UserErrorMessage.interface';
 import type { RootState } from '../index';
 import ChangeCoordinatesDTO from '../../types/ChangeCoordinatesDTO.interface';
 import Coordinates from '../../types/Coordinates.interface';
+import RegistrationDTO from '../../types/RegistrationDTO.interface';
 
 export const userApi = createApi({
 	reducerPath: 'userApi',
@@ -37,7 +38,26 @@ export const userApi = createApi({
 				body: { longitude: location.longitude, latitude: location.latitude },
 			}),
 		}),
+		registerUser: builder.mutation<Partial<UserDTO>, RegistrationDTO>({
+			query: (body) => ({
+				url: ``,
+				method: 'POST',
+				body,
+			}),
+		}),
+		updateUserInfo: builder.mutation<UserDTO, Partial<UserDTO>>({
+			query: (body) => ({
+				url: `/me/`,
+				method: 'PATCH',
+				body,
+			}),
+		}),
 	}),
 });
 
-export const { useGetUserMutation, useUpdateCoordinatesMutation } = userApi;
+export const {
+	useGetUserMutation,
+	useUpdateCoordinatesMutation,
+	useRegisterUserMutation,
+	useUpdateUserInfoMutation,
+} = userApi;
