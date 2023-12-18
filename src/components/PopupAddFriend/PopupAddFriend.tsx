@@ -159,6 +159,8 @@ function PopupAddFriend(props: PopupAddFriendProps) {
 							onChange={handleChange}
 							inputError={emailError}
 							inputDirty={emailDirty}
+							autoFocus={false}
+							placeholder=""
 							onBlur={blurHandler}
 						/>
 						{foundFriend && (

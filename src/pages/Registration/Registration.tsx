@@ -315,6 +315,8 @@ function Registration() {
 								onBlur={blurHandler}
 								inputDirty={nameDirty}
 								inputError={nameError}
+								autoFocus
+								placeholder="Введите ваше имя"
 							/>
 							<InputText
 								label="Фамилия"
@@ -326,6 +328,8 @@ function Registration() {
 								onBlur={blurHandler}
 								inputDirty={surnameDirty}
 								inputError={surnameError}
+								autoFocus={false}
+								placeholder="Введите вашу фамилию"
 							/>
 							<InputText
 								label="Твой ник"
@@ -337,6 +341,8 @@ function Registration() {
 								onBlur={blurHandler}
 								inputDirty={nicknameDirty}
 								inputError={nicknameError}
+								autoFocus={false}
+								placeholder="Придумайте ник"
 							/>
 							<InputText
 								label="Email"
@@ -348,6 +354,8 @@ function Registration() {
 								onBlur={blurHandler}
 								inputDirty={emailDirty}
 								inputError={emailError}
+								autoFocus={false}
+								placeholder="Введите ваш адрес электронной почты"
 							/>
 							<fieldset className="registration_form_sex-fieldset">
 								<legend className="registration_form_sex-fieldset_legend">
@@ -423,6 +431,8 @@ function Registration() {
 								passwordDirty={passwordDirty}
 								passwordError={passwordError}
 								onPasswordBtnClick={handlePasswordBtnClick}
+								placeholder="Придумайте надежный пароль"
+								autoFocus
 							/>
 							<InputPassword
 								label="Подтверждение пароля"
@@ -436,6 +446,8 @@ function Registration() {
 								passwordDirty={confirmPasswordDirty}
 								passwordError={confirmPasswordError}
 								onPasswordBtnClick={handleConfirmPasswordBtnClick}
+								placeholder="Повторите пароль"
+								autoFocus={false}
 							/>
 							<div className="registration_form_terms-of-use-container">
 								<input

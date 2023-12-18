@@ -13,6 +13,8 @@ interface InputTextProps {
 	onBlur: (e: React.FocusEvent<HTMLInputElement>) => void;
 	inputDirty: boolean;
 	inputError: string;
+	autoFocus: boolean;
+	placeholder: string;
 }
 
 function InputText(props: InputTextProps) {
@@ -27,6 +29,8 @@ function InputText(props: InputTextProps) {
 		onBlur,
 		inputDirty,
 		inputError,
+		autoFocus,
+		placeholder,
 	} = props;
 	return (
 		<div className="registration_form_input-container">
@@ -43,6 +47,9 @@ function InputText(props: InputTextProps) {
 					value={inputValue}
 					onChange={onChange}
 					onBlur={onBlur}
+					autoComplete="on"
+					autoFocus={autoFocus}
+					placeholder={placeholder}
 				/>
 			</label>
 			{inputDirty && inputError && (

@@ -14,6 +14,8 @@ interface InputPasswordProps {
 	passwordDirty: boolean;
 	passwordError: string;
 	onPasswordBtnClick?: () => void;
+	placeholder: string;
+	autoFocus: boolean;
 }
 
 function InputPassword(props: InputPasswordProps) {
@@ -29,6 +31,8 @@ function InputPassword(props: InputPasswordProps) {
 		passwordDirty,
 		passwordError,
 		onPasswordBtnClick,
+		placeholder,
+		autoFocus,
 	} = props;
 	return (
 		<div className="registration_form_input-container">
@@ -46,6 +50,8 @@ function InputPassword(props: InputPasswordProps) {
 					onChange={onChange}
 					onBlur={onBlur}
 					autoComplete="on"
+					placeholder={placeholder}
+					autoFocus={autoFocus}
 				/>
 				<button
 					type="button"

@@ -119,6 +119,8 @@ function Login() {
 						onBlur={blurHandler}
 						inputDirty={emailDirty}
 						inputError={emailError}
+						autoFocus
+						placeholder="Введите адрес электронной почты"
 					/>
 					<InputPassword
 						label="Пароль"
@@ -132,6 +134,8 @@ function Login() {
 						passwordDirty={passwordDirty}
 						passwordError={passwordError}
 						onPasswordBtnClick={handlePasswordBtnClick}
+						placeholder="Введите пароль"
+						autoFocus={false}
 					/>
 
 					<Button
