@@ -20,6 +20,7 @@ function Header(props: HeaderProps) {
 			<input
 				placeholder="Введите имя друга"
 				onChange={handleSearch}
+				type="search"
 				className="header__search"
 				autoFocus
 				hidden={!handleSearch}
