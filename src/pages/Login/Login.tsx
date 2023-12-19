@@ -123,7 +123,6 @@ function Login() {
 						onBlur={blurHandler}
 						inputDirty={emailDirty}
 						inputError={emailError}
-						autoFocus
 						placeholder="Введите адрес электронной почты"
 					/>
 					<InputPassword
@@ -139,7 +138,6 @@ function Login() {
 						passwordError={passwordError}
 						onPasswordBtnClick={handlePasswordBtnClick}
 						placeholder="Введите пароль"
-						autoFocus={false}
 					/>
 					<Button
 						label="Войти"
