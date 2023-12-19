@@ -21,6 +21,7 @@ export default function AccessAge() {
 						size="large"
 						color="primary"
 						className="access-age_yes-btn"
+						disabled={false}
 					/>
 				</Link>
 				<Button
@@ -32,6 +33,7 @@ export default function AccessAge() {
 					onClick={() => {
 						setTooYoungPopupOpened(true);
 					}}
+					disabled={false}
 				/>
 				<PopupWithForm
 					name="too-young"
@@ -61,6 +63,7 @@ export default function AccessAge() {
 								setTooYoungPopupOpened(false);
 								navigate(RoutesPath.root);
 							}}
+							disabled={false}
 						/>
 					</div>
 				</PopupWithForm>

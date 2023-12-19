@@ -1,5 +1,5 @@
 import './Login.scss';
-import React, { useEffect, useState } from 'react';
+import React, { FormEvent, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Button, InputPassword, InputText } from '../../components';
@@ -84,6 +84,10 @@ function Login() {
 		setEmailDirty(true);
 		setPasswordDirty(true);
 	};
+	const handleFormSubmit = (event: FormEvent<HTMLFormElement>) => {
+		event.preventDefault();
+		handleSubmit();
+	};
 	useEffect(() => {
 		if (isAuthenticated) navigate(RoutesPath.map);
 		if (!isAuthenticated && isError) {
@@ -107,7 +111,7 @@ function Login() {
 				<div className="signin_vector-2" />
 				<div className="signin_semicircle" />
 				<div className="signin_spiral" />
-				<form className="signin_form">
+				<form className="signin_form" onSubmit={handleFormSubmit}>
 					<h1 className="signin_form_title">С возвращением</h1>
 					<InputText
 						label="Email"
@@ -139,7 +143,7 @@ function Login() {
 					/>
 					<Button
 						label="Войти"
-						type="button"
+						type="submit"
 						color="primary"
 						size="large"
 						className="registration_form_btn-continue"

@@ -55,6 +55,7 @@ function AccessGeoError() {
 					color="primary"
 					className="access-geo-error_locate-btn"
 					onClick={handleLocateBtnClick}
+					disabled={false}
 				/>
 				<Link to={RoutesPath.root}>
 					<Button
@@ -64,6 +65,7 @@ function AccessGeoError() {
 						color="secondary"
 						className="access-geo-error_exit-btn"
 						onClick={handleExit}
+						disabled={false}
 					/>
 				</Link>
 			</div>

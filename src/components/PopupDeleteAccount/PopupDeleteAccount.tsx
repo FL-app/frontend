@@ -45,6 +45,7 @@ function PopupDeleteAccount(props: PopupDeleteAccountProps) {
 							color="secondary"
 							size="medium"
 							onClick={onClose}
+							disabled={false}
 						/>
 						<Button
 							className="delete-account__btn"
@@ -53,6 +54,7 @@ function PopupDeleteAccount(props: PopupDeleteAccountProps) {
 							color="primary"
 							size="medium"
 							onClick={deleteAccount}
+							disabled={false}
 						/>
 					</>
 				)}
@@ -63,6 +65,7 @@ function PopupDeleteAccount(props: PopupDeleteAccountProps) {
 							type="button"
 							color="primary"
 							size="medium"
+							disabled={false}
 						/>
 					</Link>
 				)}

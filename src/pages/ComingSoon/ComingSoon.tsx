@@ -32,6 +32,7 @@ function ComingSoon() {
 					color="primary"
 					className="coming-soon_back-btn"
 					onClick={handleBackBtnClick}
+					disabled={false}
 				/>
 			</div>
 		</section>

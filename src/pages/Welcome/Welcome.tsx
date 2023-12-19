@@ -16,6 +16,7 @@ function Welcome() {
 							type="button"
 							size="large"
 							color="primary"
+							disabled={false}
 						/>
 					</Link>
 					<Link to={RoutesPath.login}>
@@ -24,6 +25,7 @@ function Welcome() {
 							type="button"
 							size="large"
 							color="secondary"
+							disabled={false}
 						/>
 					</Link>
 				</div>

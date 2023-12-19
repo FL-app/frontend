@@ -45,6 +45,7 @@ function Friends() {
 							size="large"
 							onClick={handleAddFriend}
 							className="friends__add-btn"
+							disabled={false}
 						/>
 					</div>
 				</MainLayout>

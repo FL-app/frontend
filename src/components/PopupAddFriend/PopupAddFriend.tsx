@@ -187,6 +187,7 @@ function PopupAddFriend(props: PopupAddFriendProps) {
 							size="medium"
 							onClick={onClose}
 							className="add-friend__btn"
+							disabled={false}
 						/>
 						<Button
 							label="Подтвердить"
@@ -210,6 +211,7 @@ function PopupAddFriend(props: PopupAddFriendProps) {
 								setBackButtonClicked(true);
 								setStep(1);
 							}}
+							disabled={false}
 						/>
 						<Button
 							label="Добавить"
@@ -218,6 +220,7 @@ function PopupAddFriend(props: PopupAddFriendProps) {
 							size="medium"
 							className="add-friend__btn"
 							onClick={handleSubmit}
+							disabled={false}
 						/>
 					</>
 				) : step === 3 ? (
@@ -232,6 +235,7 @@ function PopupAddFriend(props: PopupAddFriendProps) {
 								setBackButtonClicked(true);
 								setStep(1);
 							}}
+							disabled={false}
 						/>
 						<Button
 							label="Отправить"
@@ -240,6 +244,7 @@ function PopupAddFriend(props: PopupAddFriendProps) {
 							size="medium"
 							className="add-friend__btn"
 							onClick={handleSubmit}
+							disabled={false}
 						/>
 					</>
 				) : (
@@ -251,6 +256,7 @@ function PopupAddFriend(props: PopupAddFriendProps) {
 						onClick={() => {
 							setStep(1);
 						}}
+						disabled={false}
 					/>
 				)}
 			</div>

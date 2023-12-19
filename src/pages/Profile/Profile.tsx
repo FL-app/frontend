@@ -145,6 +145,7 @@ function Profile() {
 							size="medium"
 							onClick={() => setInviteFriendsPopupOpened(true)}
 							className="profile-invite-banner-add-btn"
+							disabled={false}
 						/>
 						<img
 							className="profile-invite-banner-circle"
@@ -195,6 +196,7 @@ function Profile() {
 									setNicknamePopupOpened(false);
 								}}
 								className="popup-button"
+								disabled={false}
 							/>
 							<Button
 								label="Готово"
@@ -203,6 +205,7 @@ function Profile() {
 								size="medium"
 								onClick={handleSubmitNickname}
 								className="popup-button"
+								disabled={false}
 							/>
 						</div>
 					</>
@@ -243,6 +246,7 @@ function Profile() {
 									setInviteFriendsPopupOpened(false);
 								}}
 								className="popup-button"
+								disabled={false}
 							/>
 							<Button
 								label="Подтвердить"
@@ -257,6 +261,7 @@ function Profile() {
 									}));
 								}}
 								className="popup-button"
+								disabled={false}
 							/>
 						</div>
 					</>
