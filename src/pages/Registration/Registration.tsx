@@ -401,6 +401,12 @@ function Registration() {
 								size="large"
 								className="registration_form_btn-continue"
 								onClick={handleContinueButtonClick}
+								disabled={
+									!!nameError ||
+									!!surnameError ||
+									!!nicknameError ||
+									!!emailError
+								}
 							/>
 
 							<span className="registration_form_span">
@@ -497,6 +503,9 @@ function Registration() {
 								size="large"
 								className="registration_form_btn-continue"
 								onClick={handleSubmit}
+								disabled={
+									!!passwordError || !!confirmPasswordError || !termsOfUse
+								}
 							/>
 
 							<span className="registration_form_span">

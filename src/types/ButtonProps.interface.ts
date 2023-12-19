@@ -3,7 +3,7 @@ export declare interface ButtonProps {
 	type?: 'button' | 'submit' | 'reset';
 	color?: 'primary' | 'secondary';
 	size: 'medium' | 'large';
-	disabled?: boolean;
+	disabled: boolean;
 	onClick?: () => void;
 	className?: string;
 }

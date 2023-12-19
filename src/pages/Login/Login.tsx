@@ -137,7 +137,6 @@ function Login() {
 						placeholder="Введите пароль"
 						autoFocus={false}
 					/>
-
 					<Button
 						label="Войти"
 						type="button"
@@ -145,6 +144,7 @@ function Login() {
 						size="large"
 						className="registration_form_btn-continue"
 						onClick={handleSubmit}
+						disabled={!!emailError || !!passwordError}
 					/>
 					<span className="signin_form_span">
 						Еще нет аккаунта?{' '}
