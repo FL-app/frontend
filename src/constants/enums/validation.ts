@@ -4,7 +4,7 @@ enum ValidationErrorMessages {
 	emptyNicknameErrorText = 'Ник не может быть пустым',
 	emptyEmailErrorText = 'Email не может быть пустым',
 	emptyPasswordErrorText = 'Пароль не может быть пустым',
-	invalidNameErrorText = 'Имя должно содержать только латиницу, кириллицу, пробел и дефис',
+	invalidNameErrorText = 'Имя должно содержать только буквы, пробел и дефис',
 	invalidSurnameErrorText = 'Фамилия должна содержать только латиницу, кириллицу, пробел и дефис',
 	invalidNicknameErrorText = 'Ник должно содержать только латиницу, кириллицу, пробел и дефис',
 	invalidEmailErrorText = 'Некорректный email',

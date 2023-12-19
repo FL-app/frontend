@@ -87,9 +87,9 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		padding: 24px 36px 33px;
+		padding: 24px;
 		background: $color_white;
-		border-radius: 30px 30px 0 0;
+		border-radius: 30px 23px 0 0;
 		width: 100%;
 
 		&_terms-of-use-container {
@@ -157,7 +157,7 @@
 			font-size: 24px;
 			line-height: 130%;
 			color: $color_black;
-			margin-bottom: 12px;
+			margin: 0 0 12px;
 		}
 
 		&_sex-fieldset {
@@ -166,11 +166,12 @@
 			margin-top: 12px;
 			display: flex;
 			justify-content: center;
-			gap: 87px;
+			gap: 79px;
+			max-height: 73px;
+			padding: 0;
 
 			&_legend {
 				box-sizing: border-box;
-				margin-bottom: 12px;
 				color: $color_black;
 				font-size: 13px;
 				font-family: 'Noto Sans', 'Arial', sans-serif;
@@ -204,16 +205,22 @@
 			&_radio-container {
 				display: flex;
 				flex-direction: row;
+				max-height: 44px;
+				padding: 4px;
+
+				img {
+					height: 36px;
+				}
 			}
 		}
 
 		&_btn-continue {
-			margin-top: 36px;
+			margin-top: 12px;
 		}
 
 		&_span {
 			margin-top: 20px;
-			margin-bottom: 34px;
+			margin-bottom: 9px;
 			color: $color_main_font;
 			font-size: 14px;
 		}
