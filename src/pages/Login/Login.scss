@@ -102,8 +102,11 @@
 		}
 
 		&_link {
-			color: $color_buttons_background_active;
+			color: $color_link_forms;
 			font-size: 14px;
+			font-weight: 700;
+			line-height: 19px;
+			margin-left: 8px;
 			text-decoration-line: underline;
 		}
 	}

@@ -97,7 +97,10 @@
 			width: 100%;
 			align-items: flex-start;
 			gap: 8px;
-			margin-top: 12px;
+			margin: 12px 0 8px 0;
+			min-height: 60px;
+			line-height: 15px;
+			font-weight: 600;
 		}
 
 		&_terms-of-use_label {
@@ -133,11 +136,12 @@
 		&_terms-of-use-text {
 			color: $color_main_font;
 			font-size: 11px;
+			padding-right: 20px;
 		}
 
 		&_terms-of-use-link {
 			text-decoration: none;
-			color: $color_buttons_background_active;
+			color: $color_link_forms;
 			font-size: 11px;
 			cursor: pointer;
 		}
@@ -220,14 +224,17 @@
 
 		&_span {
 			margin-top: 20px;
-			margin-bottom: 9px;
+			margin-bottom: 32px;
 			color: $color_main_font;
 			font-size: 14px;
 		}
 
 		&_link {
-			color: $color_buttons_background_active;
+			color: $color_link_forms;
 			font-size: 14px;
+			font-weight: 700;
+			line-height: 19px;
+			margin-left: 8px;
 			text-decoration-line: underline;
 		}
 	}
