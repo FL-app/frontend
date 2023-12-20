@@ -1,61 +1,47 @@
 @import 'src/sassStyles/mixins';
+@import 'src/sassStyles/variables';
 
 .slick-list {
-	margin: 0 0 44px;
+	margin-bottom: 24px;
 }
 
 ul.slick-dots {
-	bottom: -35px;
+	bottom: -20px;
+
 	& li {
 		width: 10px;
 
 		&.slick-active {
 			margin-right: 18px;
+
 			& button::before {
-				font-size: 15px;
-				width: 24px;
-				height: 10px;
-				border-radius: 20px;
-				content: '';
-				background-color: black;
-				opacity: 1;
+				@include dots(24px, 20px, $color_main_font);
 			}
 		}
 
 		& button {
-			width: 10px;
-			height: 10px;
+			@include size(10px, 10px);
 
 			&::before {
-				content: '';
-				background-color: #cccdc2;
-				opacity: 1;
-				border-radius: 50%;
-				width: 10px;
-				height: 10px;
+				@include dots(10px, 50%, $color_background_disabled);
 			}
 		}
 	}
 }
 
 .slick__container {
-	display: flex;
 	text-align: center;
-}
-.slick-image {
-	@include size(375px, 455px);
-	background-size: cover;
-	margin: 0 0 20px;
-}
-.slick__title {
-	font-weight: 700;
-	font-size: 24px;
-	line-height: 31px;
-	margin: 0 0 16px;
-}
-.slick__description {
-	font-weight: 500;
-	font-size: 15px;
-	line-height: 20px;
-	margin: 0 0 10px;
+
+	.slick-image {
+		@include size(375px, 455px);
+		background-size: cover;
+	}
+
+	.slick__title {
+		@include slick-text(700, 24px, 31px, 16px);
+	}
+
+	.slick__description {
+		@include slick-text(500, 15px, 20px, 10px);
+	}
 }

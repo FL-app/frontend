@@ -15,3 +15,20 @@ This partial can hold any block of code that is repeatable.
 	line-height: normal;
 	color: $color_main_font;
 }
+
+@mixin dots($width, $radius, $color) {
+	width: $width;
+	border-radius: $radius;
+	background-color: $color;
+	font-size: 15px;
+	height: 10px;
+	content: '';
+	opacity: 1;
+}
+
+@mixin slick-text($weight, $size, $height, $margin) {
+	font-weight: $weight;
+	font-size: $size;
+	line-height: $height;
+	margin: 20px 0 $margin;
+}
