@@ -22,7 +22,6 @@ function Header(props: HeaderProps) {
 				onChange={handleSearch}
 				type="search"
 				className="header__search"
-				autoFocus
 				hidden={!handleSearch}
 			/>
 		</header>
