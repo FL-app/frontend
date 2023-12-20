@@ -1,31 +1,40 @@
 @import 'src/sassStyles/mixins';
 
-/*переопределение стилей библиотеки slick.css*/
-
 .slick-list {
-	margin: 0 0 54px;
+	margin: 0 0 44px;
 }
 
-/*переопределение стилей библиотеки slick-theme.css*/
+ul.slick-dots {
+	bottom: -35px;
+	& li {
+		width: 10px;
 
-.slick-dots li {
-	margin: 0;
-}
+		&.slick-active {
+			margin-right: 18px;
+			& button::before {
+				font-size: 15px;
+				width: 24px;
+				height: 10px;
+				border-radius: 20px;
+				content: '';
+				background-color: black;
+				opacity: 1;
+			}
+		}
 
-.slick-dots li.slick-active button:before {
-	font-size: 15px;
-}
+		& button {
+			width: 10px;
+			height: 10px;
 
-/*добавленные стили*/
-
-.slick-list {
-	margin: 0 0 54px;
-}
-
-.slick-dots li {
-	margin: 0;
-	&.slick-active button:before {
-		font-size: 15px;
+			&::before {
+				content: '';
+				background-color: #cccdc2;
+				opacity: 1;
+				border-radius: 50%;
+				width: 10px;
+				height: 10px;
+			}
+		}
 	}
 }
 
