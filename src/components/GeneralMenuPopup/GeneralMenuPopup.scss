@@ -27,7 +27,6 @@
 		font-weight: 500;
 		line-height: 140%;
 		padding: 8px 20px;
-
 		border: 1px solid $color_buttons_background_hover;
 	}
 
@@ -50,6 +49,11 @@
 	&__link:hover,
 	&__button_settings:hover {
 		background: $color_popup_link_hover;
+	}
+
+	&__link:active,
+	&__button_settings:active {
+		background: $color_popup_active;
 	}
 
 	&__link:last-child {
