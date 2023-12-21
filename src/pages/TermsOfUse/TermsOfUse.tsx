@@ -3,7 +3,6 @@ import './TermsOfUse.scss';
 
 function TermsOfUse() {
 	const navigate = useNavigate();
-
 	const handleBtnBackClick = () => {
 		navigate(-1);
 	};

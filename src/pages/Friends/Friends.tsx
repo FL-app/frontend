@@ -6,7 +6,7 @@ import './Friends.scss';
 
 function Friends() {
 	const currentUser = useUser();
-	const [addFreindsPopupOpened, setAddFreindsPopupOpened] = useState(false);
+	const [addFriendsPopupOpened, setAddFriendsPopupOpened] = useState(false);
 	const [filteredFriends, setFilteredFriends] = useState(currentUser.friends);
 	const handleSearch = (searchTerm: string) => {
 		const filtered = currentUser.friends.filter((friend) =>
@@ -15,7 +15,7 @@ function Friends() {
 		setFilteredFriends(filtered);
 	};
 	const handleAddFriend = () => {
-		setAddFreindsPopupOpened(true);
+		setAddFriendsPopupOpened(true);
 	};
 	return (
 		<section className="friends">
@@ -50,8 +50,8 @@ function Friends() {
 					</div>
 				</MainLayout>
 				<PopupAddFriend
-					isOpen={addFreindsPopupOpened}
-					onClose={() => setAddFreindsPopupOpened(false)}
+					isOpen={addFriendsPopupOpened}
+					onClose={() => setAddFriendsPopupOpened(false)}
 				/>
 			</div>
 		</section>
