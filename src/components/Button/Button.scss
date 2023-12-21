@@ -2,89 +2,89 @@
 @import 'src/sassStyles/mixins';
 
 .button {
-	box-sizing: border-box;
-	border: none;
-	border-radius: 8px;
-	font-weight: 500;
-	font-size: 16px;
-	line-height: 24px;
-	cursor: pointer;
-	color: $color_black;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  cursor: pointer;
+  color: $color_black;
 
-	&_link {
-		display: inline-flex;
-		text-decoration: none;
-		justify-content: center;
-		align-items: center;
-		font-weight: 400;
-	}
+  &_link {
+    display: inline-flex;
+    text-decoration: none;
+    justify-content: center;
+    align-items: center;
+    font-weight: 400;
+  }
 
-	/* Sizes */
+  /* Sizes */
 
-	&_medium {
-		padding: 8px 16px;
-	}
+  &_medium {
+    padding: 8px 16px;
+  }
 
-	&_large {
-		@include size(303px, 48px);
-	}
+  &_large {
+    @include size(303px, 48px);
+  }
 
-	/* Colors */
+  /* Colors */
 
-	&_color-primary {
-		background: linear-gradient(
-			94.71deg,
-			$color_buttons_background_hover 46.19%,
-			$color_buttons_background_active 124.54%
-		);
-	}
+  &_color-primary {
+    background: linear-gradient(
+      94.71deg,
+      $color_buttons_background_hover 46.19%,
+      $color_buttons_background_active 124.54%
+    );
+  }
 
-	&_color-primary:disabled {
-		background: $color_background_disabled;
-		color: $color_white;
-		cursor: auto;
-	}
+  &_color-primary:disabled {
+    background: $color_background_disabled;
+    color: $color_white;
+    cursor: auto;
+  }
 
-	&_color-primary:hover {
-		background: $color_buttons_background_hover;
-	}
+  &_color-primary:hover {
+    background: $color_buttons_background_hover;
+  }
 
-	&_color-primary:active {
-		background: $color_buttons_background_active;
-	}
+  &_color-primary:active {
+    background: $color_buttons_background_active;
+  }
 
-	&_color-primary:hover:disabled {
-		background: $color_background_disabled;
-	}
+  &_color-primary:hover:disabled {
+    background: $color_background_disabled;
+  }
 
-	&_color-secondary {
-		background: transparent;
-		padding: 6px 14px;
-		border: 2px solid $color_buttons_background_hover;
-	}
+  &_color-secondary {
+    background: transparent;
+    padding: 6px 14px;
+    border: 2px solid $color_buttons_background_hover;
+  }
 
-	&_color-secondary:disabled {
-		background: transparent;
-		border: 2px solid $color_background_disabled;
-		color: $color_background_disabled;
-		cursor: auto;
-	}
+  &_color-secondary:disabled {
+    background: transparent;
+    border: 2px solid $color_background_disabled;
+    color: $color_background_disabled;
+    cursor: auto;
+  }
 
-	&_color-secondary:hover {
-		border-color: rgba($color: $color_black, $alpha: 0);
-		padding: 6px 14px;
-		background: $color_buttons_background_hover;
-	}
+  &_color-secondary:hover {
+    border-color: rgba($color: $color_black, $alpha: 0);
+    padding: 6px 14px;
+    background: $color_buttons_background_hover;
+  }
 
-	&_color-secondary:active {
-		border-color: rgba($color: $color_black, $alpha: 0);
-		padding: 6px 14px;
-		background: $color_buttons_background_active;
-	}
+  &_color-secondary:active {
+    border-color: rgba($color: $color_black, $alpha: 0);
+    padding: 6px 14px;
+    background: $color_buttons_background_active;
+  }
 
-	&_color-secondary:hover:disabled {
-		background: transparent;
-		padding: 6px 14px;
-		border: 2px solid $color_background_disabled;
-	}
+  &_color-secondary:hover:disabled {
+    background: transparent;
+    padding: 6px 14px;
+    border: 2px solid $color_background_disabled;
+  }
 }

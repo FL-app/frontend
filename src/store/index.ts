@@ -5,18 +5,18 @@ import tokensSlice from './slices/tokens';
 import { userApi } from './rtk/userApi';
 
 const rootReducer = combineReducers({
-	user: userSlice,
-	tokens: tokensSlice,
-	[tokensApi.reducerPath]: tokensApi.reducer,
-	[userApi.reducerPath]: userApi.reducer,
+  user: userSlice,
+  tokens: tokensSlice,
+  [tokensApi.reducerPath]: tokensApi.reducer,
+  [userApi.reducerPath]: userApi.reducer,
 });
 
 export const store = configureStore({
-	reducer: rootReducer,
-	middleware: (getDefaultMiddleware) =>
-		getDefaultMiddleware()
-			.concat(tokensApi.middleware)
-			.concat(userApi.middleware),
+  reducer: rootReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware()
+      .concat(tokensApi.middleware)
+      .concat(userApi.middleware),
 });
 
 export type RootState = ReturnType<typeof store.getState>;

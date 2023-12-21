@@ -10,11 +10,11 @@ import './index.scss';
 const rootElement: HTMLDivElement | null = document.querySelector('#root');
 if (!rootElement) throw new Error('Failed to find the root element');
 ReactDOM.createRoot(rootElement).render(
-	<React.StrictMode>
-		<Provider store={store as Store<unknown>}>
-			<BrowserRouter>
-				<App />
-			</BrowserRouter>
-		</Provider>
-	</React.StrictMode>
+  <React.StrictMode>
+    <Provider store={store as Store<unknown>}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </Provider>
+  </React.StrictMode>,
 );

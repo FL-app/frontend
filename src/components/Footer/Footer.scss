@@ -2,49 +2,49 @@
 @import 'src/sassStyles/mixins';
 
 .footer {
-	box-sizing: border-box;
-	display: flex;
-	justify-content: center;
-	max-width: 375px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  max-width: 375px;
 
-	&_container {
-		width: 100%;
-		padding: 0 8px 20px 8px;
-		display: flex;
-		column-gap: 12px;
-		border-top: 1px solid $color_background_disabled;
-		background-color: $color_white;
-	}
+  &_container {
+    width: 100%;
+    padding: 0 8px 20px 8px;
+    display: flex;
+    column-gap: 12px;
+    border-top: 1px solid $color_background_disabled;
+    background-color: $color_white;
+  }
 
-	&__link {
-		width: calc(100% / 3);
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		padding: 8px 0;
-		border: none;
-		background-color: transparent;
-		text-decoration: none;
-		cursor: pointer;
-		color: $color_link;
-	}
+  &__link {
+    width: calc(100% / 3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 0;
+    border: none;
+    background-color: transparent;
+    text-decoration: none;
+    cursor: pointer;
+    color: $color_link;
+  }
 
-	&__link-icon {
-		@include size(24px, 24px);
-	}
+  &__link-icon {
+    @include size(24px, 24px);
+  }
 
-	&__link-text {
-		font-size: 14px;
-		font-weight: 500;
-		line-height: 140%;
-	}
+  &__link-text {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 140%;
+  }
 
-	&__link_active {
-		color: $color_black;
+  &__link_active {
+    color: $color_black;
 
-		& svg {
-			fill: $color_black;
-		}
-	}
+    & svg {
+      fill: $color_black;
+    }
+  }
 }

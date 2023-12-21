@@ -2,33 +2,33 @@
 @import 'src/sassStyles/mixins';
 
 .header {
-	@include size(100%, 64px);
-	position: relative;
-	box-sizing: border-box;
-	padding: 12px 20px;
-	display: flex;
-	background-color: $color_white;
-	border-bottom: 1px solid $color_background_disabled;
+  @include size(100%, 64px);
+  position: relative;
+  box-sizing: border-box;
+  padding: 12px 20px;
+  display: flex;
+  background-color: $color_white;
+  border-bottom: 1px solid $color_background_disabled;
 
-	&__menu {
-		@include size(40px, 40px);
-		box-sizing: border-box;
-		margin-right: 12px;
-		border-radius: 50%;
-		border: 1px solid $color_background_disabled;
-		background: url(../../images/icon-burger.svg) no-repeat center;
-		cursor: pointer;
-	}
+  &__menu {
+    @include size(40px, 40px);
+    box-sizing: border-box;
+    margin-right: 12px;
+    border-radius: 50%;
+    border: 1px solid $color_background_disabled;
+    background: url(../../images/icon-burger.svg) no-repeat center;
+    cursor: pointer;
+  }
 
-	&__search {
-		box-sizing: border-box;
-		min-width: 285px;
-		margin: 0;
-		padding: 8px 12px 8px 36px;
-		border-radius: 20px;
-		border: 1px solid $color_background_disabled;
-		background: $color_white url(../../images/icon-search.svg) no-repeat scroll
-			center;
-		background-position-x: calc(0% + 12px);
-	}
+  &__search {
+    box-sizing: border-box;
+    min-width: 285px;
+    margin: 0;
+    padding: 8px 12px 8px 36px;
+    border-radius: 20px;
+    border: 1px solid $color_background_disabled;
+    background: $color_white url(../../images/icon-search.svg) no-repeat scroll
+      center;
+    background-position-x: calc(0% + 12px);
+  }
 }

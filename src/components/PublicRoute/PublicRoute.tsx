@@ -5,16 +5,16 @@ import RoutesPath from '../../constants/enums/routesPath';
 import { RootState } from '../../store';
 
 interface PublicRouteProps {
-	children: ReactElement | ReactElement[];
+  children: ReactElement | ReactElement[];
 }
 
 function PublicRoute(props: PublicRouteProps) {
-	const { children } = props;
-	const isAuthenticated = useSelector(
-		(state: RootState) => state.user.isAuthenticated
-	);
+  const { children } = props;
+  const isAuthenticated = useSelector(
+    (state: RootState) => state.user.isAuthenticated,
+  );
 
-	return isAuthenticated ? <Navigate to={RoutesPath.map} replace /> : children;
+  return isAuthenticated ? <Navigate to={RoutesPath.map} replace /> : children;
 }
 
 export default PublicRoute;

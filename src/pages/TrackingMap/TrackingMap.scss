@@ -2,57 +2,57 @@
 @import 'src/sassStyles/mixins';
 
 .map {
-	display: flex;
-	justify-content: center;
+  display: flex;
+  justify-content: center;
 
-	&_container {
-		max-width: 375px;
-		position: relative;
-	}
+  &_container {
+    max-width: 375px;
+    position: relative;
+  }
 }
 
 /*переопределят стиль из библиотеки*/
 .leaflet-container {
-	height: 100vh;
-	width: 375px; // @TODO Когда будет desktop сделать 100vw
-	z-index: 0;
+  height: 100vh;
+  width: 375px; // @TODO Когда будет desktop сделать 100vw
+  z-index: 0;
 }
 
 .leaflet-top .leaflet-control {
-	margin-top: 78px;
+  margin-top: 78px;
 }
 
 .leaflet-left .leaflet-control {
-	margin-left: 20px;
+  margin-left: 20px;
 }
 
 /*переопределяет стиль компонента Header*/
 .header {
-	background-color: transparent;
-	position: absolute;
-	z-index: 1;
-	border: none;
-	&__menu {
-		background-color: $color_white;
-	}
-	&__input {
-		background-color: $color_white;
-	}
+  background-color: transparent;
+  position: absolute;
+  z-index: 1;
+  border: none;
+  &__menu {
+    background-color: $color_white;
+  }
+  &__input {
+    background-color: $color_white;
+  }
 }
 
 .footer {
-	position: absolute;
-	z-index: 1;
-	bottom: 0;
-	width: 100%;
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  width: 100%;
 }
 
 .buttonUserLocation {
-	@include size(40px, 40px);
-	background: url(../../images/location.svg) no-repeat center $color_white;
-	border: 1px solid $color_background_disabled;
-	border-radius: 40px;
-	position: absolute;
-	bottom: 110px;
-	left: 45%;
+  @include size(40px, 40px);
+  background: url(../../images/location.svg) no-repeat center $color_white;
+  border: 1px solid $color_background_disabled;
+  border-radius: 40px;
+  position: absolute;
+  bottom: 110px;
+  left: 45%;
 }

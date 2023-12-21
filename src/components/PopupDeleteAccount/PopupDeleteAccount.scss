@@ -1,26 +1,26 @@
 @import 'src/sassStyles/mixins';
 
 .popup__title {
-	margin-bottom: 24px;
+  margin-bottom: 24px;
 }
 
 .delete-account__img {
-	display: block;
-	margin: 0 auto 16px;
+  display: block;
+  margin: 0 auto 16px;
 }
 
 .delete-account__text {
-	@include font15;
-	margin: 0 0 24px;
-	text-align: center;
+  @include font15;
+  margin: 0 0 24px;
+  text-align: center;
 }
 
 .delete-account__btn-container {
-	display: flex;
-	justify-content: center;
-	margin-top: 24px;
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
 }
 
 .delete-account__btn:first-child {
-	margin-right: 16px;
+  margin-right: 16px;
 }

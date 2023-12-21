@@ -1,9 +1,9 @@
 {
-	"collectCoverage": true,
-	"collectCoverageFrom": ["src/__tests___/*.{ts,tsx}"],
-	"coverageDirectory": "coverage",
-	"testEnvironment": "jsdom",
-	"transform": {
-		"^.+\\.ts?$": "ts-jest"
-	}
+  "collectCoverage": true,
+  "collectCoverageFrom": ["src/__tests___/*.{ts,tsx}"],
+  "coverageDirectory": "coverage",
+  "testEnvironment": "jsdom",
+  "transform": {
+    "^.+\\.ts?$": "ts-jest"
+  }
 }

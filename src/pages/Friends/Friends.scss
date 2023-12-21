@@ -2,71 +2,71 @@
 @import 'src/sassStyles/variables';
 
 .friends {
-	display: flex;
-	justify-content: center;
+  display: flex;
+  justify-content: center;
 
-	&_container {
-		position: relative;
-		max-width: 375px;
-		height: 100vh;
-		display: grid;
-		grid-template-columns: 1fr;
-		grid-template-rows: 64px auto 92px 76px;
-	}
+  &_container {
+    position: relative;
+    max-width: 375px;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 64px auto 92px 76px;
+  }
 
-	&__header {
-		@include size(100%, 64px);
-		position: relative;
-		box-sizing: border-box;
-		padding: 12px 20px;
-		display: flex;
-		background-color: $color_white;
-		border-bottom: 1px solid $color_background_disabled;
-	}
+  &__header {
+    @include size(100%, 64px);
+    position: relative;
+    box-sizing: border-box;
+    padding: 12px 20px;
+    display: flex;
+    background-color: $color_white;
+    border-bottom: 1px solid $color_background_disabled;
+  }
 
-	&-list {
-		display: flex;
-		flex-direction: column;
-		row-gap: 12px;
-		margin: 0;
-		padding: 20px;
-		list-style: none;
-		background-color: $color_white;
-		overflow-y: scroll;
+  &-list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 12px;
+    margin: 0;
+    padding: 20px;
+    list-style: none;
+    background-color: $color_white;
+    overflow-y: scroll;
 
-		&__item {
-			display: flex;
-			padding: 4px 8px;
-			align-items: center;
-			gap: 12px;
-			align-self: stretch;
-			border-radius: 12px;
-			background-color: $color_popup_background;
+    &__item {
+      display: flex;
+      padding: 4px 8px;
+      align-items: center;
+      gap: 12px;
+      align-self: stretch;
+      border-radius: 12px;
+      background-color: $color_popup_background;
 
-			&-img {
-				@include size(42px, 42px);
-			}
-		}
-	}
+      &-img {
+        @include size(42px, 42px);
+      }
+    }
+  }
 
-	&__btn-container {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		background: linear-gradient(
-			180deg,
-			rgba(32, 31, 29, 0) 0%,
-			rgba(32, 31, 29, 0.08) 100%
-		);
-	}
+  &__btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(
+      180deg,
+      rgba(32, 31, 29, 0) 0%,
+      rgba(32, 31, 29, 0.08) 100%
+    );
+  }
 
-	&__add-btn {
-		width: 335px;
-	}
+  &__add-btn {
+    width: 335px;
+  }
 }
 .friends__footer {
-	box-sizing: border-box;
-	display: flex;
-	justify-content: center;
-	max-width: 375px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  max-width: 375px;
 }

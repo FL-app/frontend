@@ -2,62 +2,62 @@
 @import 'src/sassStyles/mixins';
 
 .settingsMenuPopup {
-	&__header {
-		height: 64px;
-		border-bottom: 1px solid $color_background_disabled;
-		display: flex;
-		align-items: center;
-		padding: 12px 20px;
-		box-sizing: border-box;
-	}
+  &__header {
+    height: 64px;
+    border-bottom: 1px solid $color_background_disabled;
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    box-sizing: border-box;
+  }
 
-	&__button {
-		border: none;
-		cursor: pointer;
+  &__button {
+    border: none;
+    cursor: pointer;
 
-		&_arrow-back {
-			@include size(24px, 24px);
-			background: url('../../images/arrow-back.svg') no-repeat center;
-			margin-right: 20px;
-		}
+    &_arrow-back {
+      @include size(24px, 24px);
+      background: url('../../images/arrow-back.svg') no-repeat center;
+      margin-right: 20px;
+    }
 
-		&_delete-account {
-			@include font15;
-			padding: 12px 0;
-			background: transparent;
-			text-align: left;
-		}
-	}
+    &_delete-account {
+      @include font15;
+      padding: 12px 0;
+      background: transparent;
+      text-align: left;
+    }
+  }
 
-	&__title {
-		@include font15;
-	}
+  &__title {
+    @include font15;
+  }
 
-	&__checkbox-container {
-		margin: 22px 20px 14px;
-	}
+  &__checkbox-container {
+    margin: 22px 20px 14px;
+  }
 
-	&__navigation {
-		margin-left: 20px;
-	}
+  &__navigation {
+    margin-left: 20px;
+  }
 
-	&__link-container {
-		display: flex;
-		flex-direction: column;
-	}
+  &__link-container {
+    display: flex;
+    flex-direction: column;
+  }
 
-	&__link-container:first-child {
-		margin-bottom: 68px;
-	}
+  &__link-container:first-child {
+    margin-bottom: 68px;
+  }
 
-	&__link {
-		@include font15;
-		text-decoration: none;
-		padding: 12px 0;
-	}
+  &__link {
+    @include font15;
+    text-decoration: none;
+    padding: 12px 0;
+  }
 
-	&__link:hover,
-	&__button_delete-account:hover {
-		background: $color_popup_link_hover;
-	}
+  &__link:hover,
+  &__button_delete-account:hover {
+    background: $color_popup_link_hover;
+  }
 }

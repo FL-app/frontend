@@ -2,68 +2,68 @@
 @import 'src/sassStyles/variables';
 
 .access-geo-error {
-	display: flex;
-	justify-content: center;
-	position: relative;
+  display: flex;
+  justify-content: center;
+  position: relative;
 
-	&_container {
-		max-width: 375px;
-		height: 812px;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		position: relative;
-		overflow: hidden;
-	}
+  &_container {
+    max-width: 375px;
+    height: 812px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
 
-	&_geo-tag-img {
-		@include size(67px, 98px);
-		margin-top: 180px;
-	}
+  &_geo-tag-img {
+    @include size(67px, 98px);
+    margin-top: 180px;
+  }
 
-	&_title {
-		margin: 24px 0 0;
-		color: $color_main_font;
-		text-align: center;
-		font-size: 24px;
-		font-style: normal;
-		font-weight: 700;
-		line-height: 130%;
-		max-width: 303px;
-	}
+  &_title {
+    margin: 24px 0 0;
+    color: $color_main_font;
+    text-align: center;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 130%;
+    max-width: 303px;
+  }
 
-	&_subtitle {
-		margin: 16px 0 0;
-		color: $color_main_font;
-		text-align: center;
-		font-size: 15px;
-		font-style: normal;
-		font-weight: 500;
-		line-height: normal;
-		max-width: 303px;
-	}
+  &_subtitle {
+    margin: 16px 0 0;
+    color: $color_main_font;
+    text-align: center;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    max-width: 303px;
+  }
 
-	&_info {
-		margin: 94px 0 0;
-		color: $color_main_font;
-		font-size: 14px;
-		font-style: normal;
-		font-weight: 400;
-		line-height: 140%;
-		max-width: 292px;
-		text-align: center;
-	}
+  &_info {
+    margin: 94px 0 0;
+    color: $color_main_font;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%;
+    max-width: 292px;
+    text-align: center;
+  }
 
-	&_terms-of-use-link {
-		color: $color_buttons_background_active;
-		text-decoration: none;
-	}
+  &_terms-of-use-link {
+    color: $color_buttons_background_active;
+    text-decoration: none;
+  }
 
-	&_locate-btn {
-		margin-top: 40px;
-	}
+  &_locate-btn {
+    margin-top: 40px;
+  }
 
-	&_exit-btn {
-		margin-top: 12px;
-	}
+  &_exit-btn {
+    margin-top: 12px;
+  }
 }

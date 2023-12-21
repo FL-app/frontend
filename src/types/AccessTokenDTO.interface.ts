@@ -1,3 +1,3 @@
 export default interface AccessTokenDTO {
-	access: string;
+  access: string;
 }

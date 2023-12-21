@@ -5,18 +5,18 @@ import mockCurrentUser from './mock';
 const AppContext = createContext<IUserData>(mockCurrentUser);
 
 interface AppContextProviderProps {
-	children: ReactElement | ReactElement[];
+  children: ReactElement | ReactElement[];
 }
 
 export function AppContextProvider(props: AppContextProviderProps) {
-	const { children } = props;
-	const [currentUser] = useState(mockCurrentUser);
+  const { children } = props;
+  const [currentUser] = useState(mockCurrentUser);
 
-	return (
-		<AppContext.Provider value={currentUser}>{children}</AppContext.Provider>
-	);
+  return (
+    <AppContext.Provider value={currentUser}>{children}</AppContext.Provider>
+  );
 }
 
 export function useUser() {
-	return useContext(AppContext);
+  return useContext(AppContext);
 }

@@ -2,228 +2,228 @@
 @import 'src/sassStyles/variables';
 
 .profile {
-	display: flex;
-	justify-content: center;
+  display: flex;
+  justify-content: center;
 
-	&-container {
-		@include size(375px, 100vh);
-		position: relative;
-		display: flex;
-		flex-direction: column;
-	}
+  &-container {
+    @include size(375px, 100vh);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
 
-	&-avatar {
-		@include size(72px, 72px);
-		padding: 0;
-		border: none;
-		border-radius: 50%;
-		background: none;
-		margin: 0 16px 0 0;
-		cursor: pointer;
+  &-avatar {
+    @include size(72px, 72px);
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: none;
+    margin: 0 16px 0 0;
+    cursor: pointer;
 
-		&-image {
-			@include size(100%, 100%);
-		}
-	}
+    &-image {
+      @include size(100%, 100%);
+    }
+  }
 
-	&-heading {
-		margin: 22px auto 26px 70px;
-		font-size: 15px;
-		font-weight: 500;
-		line-height: normal;
-	}
+  &-heading {
+    margin: 22px auto 26px 70px;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: normal;
+  }
 
-	&-user-container {
-		display: flex;
-		padding: 16px 20px;
-		align-items: flex-start;
-	}
+  &-user-container {
+    display: flex;
+    padding: 16px 20px;
+    align-items: flex-start;
+  }
 
-	&-user-avatar {
-		@include size(72px, 72px);
-		margin-right: 16px;
-		background: none;
-		border-radius: 50%;
-		border: none;
-		cursor: pointer;
-		-webkit-background-size: cover;
-		-moz-background-size: cover;
-		-o-background-size: cover;
-		background-size: cover;
-		padding: 0;
-	}
+  &-user-avatar {
+    @include size(72px, 72px);
+    margin-right: 16px;
+    background: none;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    padding: 0;
+  }
 
-	.profile-user {
-		&-info {
-			margin: 0;
-			padding: 0;
-		}
+  .profile-user {
+    &-info {
+      margin: 0;
+      padding: 0;
+    }
 
-		&-name {
-			margin: 0;
-			padding: 0;
-			font-size: 18px;
-			font-weight: 600;
-			line-height: normal;
-		}
+    &-name {
+      margin: 0;
+      padding: 0;
+      font-size: 18px;
+      font-weight: 600;
+      line-height: normal;
+    }
 
-		&-nickname {
-			margin: 0;
-			padding: 0;
-			font-size: 14px;
-			font-weight: 400;
-			line-height: 140%;
-		}
+    &-nickname {
+      margin: 0;
+      padding: 0;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 140%;
+    }
 
-		&-change-nickname {
-			margin: 0;
-			padding: 0;
-			color: $color_buttons_background_active;
-			font-size: 12px;
-			font-weight: 400;
-			line-height: normal;
-			border: none;
-			background: none;
-			cursor: pointer;
-		}
-	}
+    &-change-nickname {
+      margin: 0;
+      padding: 0;
+      color: $color_buttons_background_active;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: normal;
+      border: none;
+      background: none;
+      cursor: pointer;
+    }
+  }
 
-	.profile-status-label {
-		display: flex;
-		flex-direction: column;
-		align-items: flex-start;
-		color: var(--black, $color_main_font);
-		font-size: 13px;
-		font-weight: 500;
-		line-height: 130%;
-		letter-spacing: -0.247px;
-	}
+  .profile-status-label {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    color: var(--black, $color_main_font);
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 130%;
+    letter-spacing: -0.247px;
+  }
 
-	.profile-status {
-		&-container {
-			margin: 0 20px;
-		}
+  .profile-status {
+    &-container {
+      margin: 0 20px;
+    }
 
-		&-input {
-			font-size: 13px;
-			font-weight: 400;
-			line-height: normal;
-			height: 40px;
-			padding: 0 8px;
-			align-items: center;
-			gap: 8px;
-			align-self: stretch;
-			border-radius: 10px;
-			border: 1px solid var(--grey, $color_background_disabled);
-			background: var(--white, $color_white);
-		}
+    &-input {
+      font-size: 13px;
+      font-weight: 400;
+      line-height: normal;
+      height: 40px;
+      padding: 0 8px;
+      align-items: center;
+      gap: 8px;
+      align-self: stretch;
+      border-radius: 10px;
+      border: 1px solid var(--grey, $color_background_disabled);
+      background: var(--white, $color_white);
+    }
 
-		&-bar {
-			justify-content: center;
-			padding: 0;
-			margin: 16px auto 0;
-			display: flex;
-			align-items: flex-start;
-			gap: 8px;
-			align-self: stretch;
+    &-bar {
+      justify-content: center;
+      padding: 0;
+      margin: 16px auto 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      align-self: stretch;
 
-			&-button {
-				cursor: pointer;
-				padding: 8px;
-				justify-content: center;
-				align-items: center;
-				border-radius: 24px;
-				border: 1px solid var(--grey, $color_background_disabled);
-				background: var(--light-grey, $color_popup_background);
-				font-size: 12px;
-				font-weight: 400;
-				line-height: normal;
-			}
-		}
-	}
+      &-button {
+        cursor: pointer;
+        padding: 8px;
+        justify-content: center;
+        align-items: center;
+        border-radius: 24px;
+        border: 1px solid var(--grey, $color_background_disabled);
+        background: var(--light-grey, $color_popup_background);
+        font-size: 12px;
+        font-weight: 400;
+        line-height: normal;
+      }
+    }
+  }
 
-	.profile-invite-banner {
-		@include size(335px, 185px);
-		position: relative;
-		padding: 0;
-		margin: 24px auto 0;
-		flex-shrink: 0;
-		align-items: center;
-		color: white;
-		border-radius: 20px;
-		background: var(--black, $color_main_font);
-		overflow: hidden;
+  .profile-invite-banner {
+    @include size(335px, 185px);
+    position: relative;
+    padding: 0;
+    margin: 24px auto 0;
+    flex-shrink: 0;
+    align-items: center;
+    color: white;
+    border-radius: 20px;
+    background: var(--black, $color_main_font);
+    overflow: hidden;
 
-		&-add-btn {
-			margin: 24px auto 28px 20px;
-			padding: 8px 16px;
-			justify-content: center;
-			align-items: center;
-			gap: 8px;
-			border-radius: 8px;
-			border: 2px solid var(--laim, $color_buttons_background_hover);
-			background: var(--white, $color_white);
-		}
+    &-add-btn {
+      margin: 24px auto 28px 20px;
+      padding: 8px 16px;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      border-radius: 8px;
+      border: 2px solid var(--laim, $color_buttons_background_hover);
+      background: var(--white, $color_white);
+    }
 
-		&-text-container {
-			margin: 20px 20px 0 20px;
-			display: inline-flex;
-			flex-direction: column;
-			align-items: flex-start;
-			gap: 8px;
-		}
+    &-text-container {
+      margin: 20px 20px 0 20px;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+    }
 
-		&-heading {
-			margin: 0;
-			font-size: 18px;
-			font-weight: 500;
-			line-height: normal;
-		}
+    &-heading {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 500;
+      line-height: normal;
+    }
 
-		&-text {
-			width: 231px;
-			margin: 0;
-			font-size: 14px;
-			font-weight: 400;
-			line-height: 140%;
-		}
+    &-text {
+      width: 231px;
+      margin: 0;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 140%;
+    }
 
-		&-circle {
-			@include size(126px, 126px);
-			position: absolute;
-			right: -64px;
-			top: 39px;
-		}
+    &-circle {
+      @include size(126px, 126px);
+      position: absolute;
+      right: -64px;
+      top: 39px;
+    }
 
-		&-fixed-spiral {
-			position: absolute;
-			right: 164px;
-			top: 75px;
-		}
+    &-fixed-spiral {
+      position: absolute;
+      right: 164px;
+      top: 75px;
+    }
 
-		&-spiral {
-			@include size(164px, 164px);
-			position: fixed;
-		}
-	}
+    &-spiral {
+      @include size(164px, 164px);
+      position: fixed;
+    }
+  }
 }
 
 .popup-button-container {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	margin-top: 24px;
-	gap: 16px;
-	align-self: stretch;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 24px;
+  gap: 16px;
+  align-self: stretch;
 }
 
 .popup-button {
-	justify-content: center;
-	align-items: center;
-	gap: 8px;
-	flex: 1 0 0;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  flex: 1 0 0;
 }
 
 .header__menu {
-	border: none;
+  border: none;
 }

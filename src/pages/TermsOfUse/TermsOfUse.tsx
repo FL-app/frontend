@@ -2,33 +2,33 @@ import { useNavigate } from 'react-router-dom';
 import './TermsOfUse.scss';
 
 function TermsOfUse() {
-	const navigate = useNavigate();
-	const handleBtnBackClick = () => {
-		navigate(-1);
-	};
+  const navigate = useNavigate();
+  const handleBtnBackClick = () => {
+    navigate(-1);
+  };
 
-	return (
-		<section className="terms-of-use">
-			<div className="terms-of-use__container">
-				<div className="terms-of-use__header">
-					<button
-						type="button"
-						className="terms-of-use__btn-back"
-						onClick={handleBtnBackClick}
-						aria-label="Back"
-					/>
-					<h2 className="terms-of-use__title">Условия использования</h2>
-				</div>
-				<p className="terms-of-use__description">
-					Политика конфиденциальности — это документ, описывающий, как
-					организация обрабатывает и защищает личную информацию своих
-					пользователей или клиентов. Она должна содержать информацию о том,
-					какие данные собираются, как они используются, кто имеет доступ к этим
-					данным и как они защищены от несанкционированного доступа или утечек.
-				</p>
-			</div>
-		</section>
-	);
+  return (
+    <section className="terms-of-use">
+      <div className="terms-of-use__container">
+        <div className="terms-of-use__header">
+          <button
+            type="button"
+            className="terms-of-use__btn-back"
+            onClick={handleBtnBackClick}
+            aria-label="Back"
+          />
+          <h2 className="terms-of-use__title">Условия использования</h2>
+        </div>
+        <p className="terms-of-use__description">
+          Политика конфиденциальности — это документ, описывающий, как
+          организация обрабатывает и защищает личную информацию своих
+          пользователей или клиентов. Она должна содержать информацию о том,
+          какие данные собираются, как они используются, кто имеет доступ к этим
+          данным и как они защищены от несанкционированного доступа или утечек.
+        </p>
+      </div>
+    </section>
+  );
 }
 
 export default TermsOfUse;

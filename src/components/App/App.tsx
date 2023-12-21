@@ -10,41 +10,41 @@ import { store, AppDispatch, RootState } from '../../store';
 import Loader from '../Loader/Loader';
 
 function App() {
-	const dispatch = useDispatch<AppDispatch>();
-	const { refresh, access } = useSelector((state: RootState) => state.tokens);
-	const { isLoading } = useSelector((state: RootState) => state.user);
-	const [updateToken] = useRefreshTokenMutation();
-	const [getUser, { isError }] = useGetUserMutation();
+  const dispatch = useDispatch<AppDispatch>();
+  const { refresh, access } = useSelector((state: RootState) => state.tokens);
+  const { isLoading } = useSelector((state: RootState) => state.user);
+  const [updateToken] = useRefreshTokenMutation();
+  const [getUser, { isError }] = useGetUserMutation();
 
-	useEffect(() => {
-		if (!isLoading) {
-			if (!access) {
-				dispatch(readStorage());
-			} else {
-				getUser(null)
-					.unwrap()
-					.then(() => {
-						if (isError && store.getState().user.requestCounter === 0) {
-							if (refresh && access) {
-								updateToken({ refresh })
-									.unwrap()
-									.catch(() => dispatch(clearStorage()));
-							}
-						}
-					});
-			}
-		}
-	}, [access, dispatch, refresh, updateToken]);
+  useEffect(() => {
+    if (!isLoading) {
+      if (!access) {
+        dispatch(readStorage());
+      } else {
+        getUser(null)
+          .unwrap()
+          .then(() => {
+            if (isError && store.getState().user.requestCounter === 0) {
+              if (refresh && access) {
+                updateToken({ refresh })
+                  .unwrap()
+                  .catch(() => dispatch(clearStorage()));
+              }
+            }
+          });
+      }
+    }
+  }, [access, dispatch, refresh, updateToken]);
 
-	return isLoading ? (
-		<Loader />
-	) : (
-		<AppContextProvider>
-			<div className="page">
-				<Routes />
-			</div>
-		</AppContextProvider>
-	);
+  return isLoading ? (
+    <Loader />
+  ) : (
+    <AppContextProvider>
+      <div className="page">
+        <Routes />
+      </div>
+    </AppContextProvider>
+  );
 }
 
 export default App;

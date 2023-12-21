@@ -2,114 +2,114 @@
 @import 'src/sassStyles/variables';
 
 .access-age {
-	display: flex;
-	justify-content: center;
-	position: relative;
+  display: flex;
+  justify-content: center;
+  position: relative;
 
-	&_cylinder {
-		@include size(177px, 177px);
-		content: '';
-		background-image: url(../../images/access-age-cylinder.png);
-		background-repeat: no-repeat;
-		position: absolute;
-		left: 222.11px;
-		top: 36.11px;
-	}
+  &_cylinder {
+    @include size(177px, 177px);
+    content: '';
+    background-image: url(../../images/access-age-cylinder.png);
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 222.11px;
+    top: 36.11px;
+  }
 
-	&_container {
-		background: radial-gradient(
-				49.09% 85.88% at 147.6% 6.83%,
-				rgba(195, 244, 2, 0.3) 0%,
-				rgba(195, 244, 2, 0) 100%
-			),
-			radial-gradient(
-				58.69% 89.58% at -53.47% 73.15%,
-				rgba(244, 66, 0, 0.2) 0%,
-				rgba(244, 66, 0, 0) 100%
-			),
-			$color_white;
-		max-width: 375px;
-		height: 812px;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		position: relative;
-		overflow: hidden;
-	}
+  &_container {
+    background: radial-gradient(
+        49.09% 85.88% at 147.6% 6.83%,
+        rgba(195, 244, 2, 0.3) 0%,
+        rgba(195, 244, 2, 0) 100%
+      ),
+      radial-gradient(
+        58.69% 89.58% at -53.47% 73.15%,
+        rgba(244, 66, 0, 0.2) 0%,
+        rgba(244, 66, 0, 0) 100%
+      ),
+      $color_white;
+    max-width: 375px;
+    height: 812px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
 
-	&_container::before {
-		@include size(193px, 195px);
-		z-index: 1;
-		content: '';
-		background-image: url(../../images/access-age-vector-1.svg);
-		background-repeat: no-repeat;
-		position: absolute;
-		left: 200px;
-		top: 84px;
-	}
+  &_container::before {
+    @include size(193px, 195px);
+    z-index: 1;
+    content: '';
+    background-image: url(../../images/access-age-vector-1.svg);
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 200px;
+    top: 84px;
+  }
 
-	&_container::after {
-		@include size(135px, 68px);
-		content: '';
-		background-image: url(../../images/access-age-vector-2.svg);
-		background-repeat: no-repeat;
-		position: absolute;
-		left: 0;
-		top: 411px;
-	}
+  &_container::after {
+    @include size(135px, 68px);
+    content: '';
+    background-image: url(../../images/access-age-vector-2.svg);
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 0;
+    top: 411px;
+  }
 
-	&_title {
-		margin: 308px 0 0;
-		color: $color_title;
-		text-align: center;
-		font-size: 24px;
-		font-style: normal;
-		font-weight: 700;
-		line-height: 130%;
-		max-width: 328px;
-	}
+  &_title {
+    margin: 308px 0 0;
+    color: $color_title;
+    text-align: center;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 130%;
+    max-width: 328px;
+  }
 
-	&_subtitle {
-		margin: 16px 0 0;
-		color: $color_main_font;
-		text-align: center;
-		font-size: 15px;
-		font-style: normal;
-		font-weight: 500;
-		line-height: normal;
-		max-width: 296px;
-	}
+  &_subtitle {
+    margin: 16px 0 0;
+    color: $color_main_font;
+    text-align: center;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    max-width: 296px;
+  }
 
-	&_yes-btn {
-		margin-top: 230px;
-	}
+  &_yes-btn {
+    margin-top: 230px;
+  }
 
-	&_no-btn {
-		margin-top: 12px;
-	}
+  &_no-btn {
+    margin-top: 12px;
+  }
 
-	&_popup-container {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
+  &_popup-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-		&_title {
-			margin: 0;
-			color: $color_main_font;
-			text-align: center;
-			font-size: 15px;
-			font-style: normal;
-			font-weight: 500;
-			line-height: normal;
+    &_title {
+      margin: 0;
+      color: $color_main_font;
+      text-align: center;
+      font-size: 15px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
 
-			&_terms-of-use-link {
-				color: $color_buttons_background_active;
-				text-decoration: none;
-			}
-		}
+      &_terms-of-use-link {
+        color: $color_buttons_background_active;
+        text-decoration: none;
+      }
+    }
 
-		&_btn-ok {
-			margin-top: 24px;
-		}
-	}
+    &_btn-ok {
+      margin-top: 24px;
+    }
+  }
 }

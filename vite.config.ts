@@ -2,14 +2,14 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
 
 export default defineConfig({
-	base: '/',
-	plugins: [react()],
-	optimizeDeps: {
-		force: true,
-		esbuildOptions: {
-			loader: {
-				'.js': 'jsx',
-			},
-		},
-	},
+  base: '/',
+  plugins: [react()],
+  optimizeDeps: {
+    force: true,
+    esbuildOptions: {
+      loader: {
+        '.js': 'jsx',
+      },
+    },
+  },
 });
