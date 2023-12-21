@@ -62,7 +62,16 @@ function TrackingMap() {
     return () => {
       navigator.geolocation.clearWatch(idWatch);
     };
-  }, [navigate, dispatch, id, position, map]);
+  }, [
+    navigate,
+    dispatch,
+    id,
+    position,
+    map,
+    latitude,
+    longitude,
+    updateCoordinates,
+  ]);
   const displayMap = useMemo(
     () => (
       <MapContainer

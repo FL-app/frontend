@@ -1,6 +1,6 @@
 import './App.scss';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 import Routes from '../../routes';
 import { AppContextProvider } from '../../context/AppContext';
 import { useRefreshTokenMutation } from '../../store/rtk/tokensApi';
@@ -16,7 +16,7 @@ function App() {
   const [updateToken] = useRefreshTokenMutation();
   const [getUser, { isError }] = useGetUserMutation();
 
-  useEffect(() => {
+  const readInitialData = useCallback(() => {
     if (!isLoading) {
       if (!access) {
         dispatch(readStorage());
@@ -35,7 +35,11 @@ function App() {
           .catch(() => {});
       }
     }
-  }, [access, dispatch, refresh, updateToken]);
+  }, [access, dispatch, getUser, isError, isLoading, refresh, updateToken]);
+
+  useEffect(() => {
+    readInitialData();
+  }, [readInitialData]);
 
   return isLoading ? (
     <Loader />
