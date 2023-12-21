@@ -35,26 +35,21 @@ function Profile() {
 			status: newStatus,
 		}));
 	};
-
 	const handleSubmitNickname = () => {
 		updateUserInfo({
 			email: currentUser.email,
 			username: formValues.nicknameValue,
 		} as Partial<UserDTO>);
-
 		setFormValues((prevState) => ({
 			...prevState,
 			nicknameValue: currentUser.username,
 		}));
-
 		setNicknamePopupOpened(false);
 	};
-
 	const handleSubmitInvite = () => {
 		setFormValues((prevState) => ({ ...prevState, inviteEmailValue: '' }));
 		setInviteFriendsPopupOpened(false);
 	};
-
 	function getUserAvatar(sex: Gender) {
 		return sex === Gender.male ? avatarMale : avatarFemale;
 	}

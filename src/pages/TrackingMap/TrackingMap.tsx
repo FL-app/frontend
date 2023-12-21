@@ -21,13 +21,12 @@ const userIcon = new Icon({
 
 function TrackingMap() {
 	const [map, setMap] = useState<Map>();
-	const { isLoading } = useSelector((state: RootState) => state.user);
 	const [updateCoordinates] = useUpdateCoordinatesMutation();
-	const { id, latitude, longitude } = useSelector(
+	const { isLoading, id, latitude, longitude } = useSelector(
 		(state: RootState) => state.user
 	);
 	const position = useMemo(
-		() => [latitude, longitude] as LatLngExpression,
+		() => [latitude ?? 0, longitude ?? 0] as LatLngExpression,
 		[latitude, longitude]
 	);
 	const navigate = useNavigate();
@@ -35,7 +34,6 @@ function TrackingMap() {
 
 	useEffect(() => {
 		const handleSuccess = (pos: GeolocationPosition) => {
-			map?.setView(position);
 			if (navigator.geolocation) {
 				if (
 					latitude !== pos.coords.latitude ||
@@ -43,10 +41,11 @@ function TrackingMap() {
 				) {
 					updateCoordinates({
 						id,
-						latitude: pos.coords.latitude,
-						longitude: pos.coords.longitude,
+						latitude: pos.coords.latitude ?? 0,
+						longitude: pos.coords.longitude ?? 0,
 					}).unwrap();
 				}
+				map?.setView(position);
 			} else {
 				navigate(RoutesPath.accessGeo);
 			}

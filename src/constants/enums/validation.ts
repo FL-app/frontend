@@ -11,6 +11,7 @@ enum ValidationErrorMessages {
 	invalidConfirmPasswordErrorText = 'Пароли должны совпадать',
 	friendExistErrorText = 'Пользователь с такой почтой уже есть у тебя в друзьях',
 	wrongLoginOrPassword = 'Неверный логин или пароль',
+	wrongPassword = 'Неверный пароль',
 	emptyString = '',
 }
 

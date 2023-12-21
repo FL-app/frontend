@@ -93,7 +93,6 @@ export default function MainLayout(props: MainLayoutProps) {
 			<PopupDeleteAccount
 				isOpen={isPopupDeleteAccountOpen}
 				onClose={closePopupDeleteAccount}
-				deleteAccount={undefined}
 			/>
 		</>
 	);

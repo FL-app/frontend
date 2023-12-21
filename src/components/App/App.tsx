@@ -7,12 +7,14 @@ import { useRefreshTokenMutation } from '../../store/rtk/tokensApi';
 import { clearStorage, readStorage } from '../../store/slices/tokens';
 import { useGetUserMutation } from '../../store/rtk/userApi';
 import { store, AppDispatch, RootState } from '../../store';
+import Loader from '../Loader/Loader';
 
 function App() {
 	const dispatch = useDispatch<AppDispatch>();
 	const { refresh, access } = useSelector((state: RootState) => state.tokens);
+	const { isLoading } = useSelector((state: RootState) => state.user);
 	const [updateToken] = useRefreshTokenMutation();
-	const [getUser, { isError, isLoading }] = useGetUserMutation();
+	const [getUser, { isError }] = useGetUserMutation();
 
 	useEffect(() => {
 		if (!isLoading) {
@@ -34,7 +36,9 @@ function App() {
 		}
 	}, [access, dispatch, refresh, updateToken]);
 
-	return (
+	return isLoading ? (
+		<Loader />
+	) : (
 		<AppContextProvider>
 			<div className="page">
 				<Routes />

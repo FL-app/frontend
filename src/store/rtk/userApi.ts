@@ -5,6 +5,7 @@ import type { RootState } from '../index';
 import ChangeCoordinatesDTO from '../../types/ChangeCoordinatesDTO.interface';
 import Coordinates from '../../types/Coordinates.interface';
 import RegistrationDTO from '../../types/RegistrationDTO.interface';
+import DeleteAccountDTO from '../../types/DeleteAccountDTO';
 
 export const userApi = createApi({
 	reducerPath: 'userApi',
@@ -52,6 +53,13 @@ export const userApi = createApi({
 				body,
 			}),
 		}),
+		deleteAccount: builder.mutation<DeleteAccountDTO, DeleteAccountDTO>({
+			query: (body) => ({
+				url: `/me/`,
+				method: 'DELETE',
+				body,
+			}),
+		}),
 	}),
 });
 
@@ -60,4 +68,5 @@ export const {
 	useUpdateCoordinatesMutation,
 	useRegisterUserMutation,
 	useUpdateUserInfoMutation,
+	useDeleteAccountMutation,
 } = userApi;
