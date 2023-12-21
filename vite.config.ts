@@ -6,10 +6,5 @@ export default defineConfig({
   plugins: [react()],
   optimizeDeps: {
     force: true,
-    esbuildOptions: {
-      loader: {
-        '.js': 'jsx',
-      },
-    },
   },
 });
