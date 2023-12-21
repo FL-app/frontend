@@ -14,11 +14,11 @@
 		background-repeat: no-repeat;
 		position: absolute;
 		left: 270.01px;
-		top: 531px;
+		top: 485px;
 	}
 
 	&_container {
-		@include size(375px, 812px);
+		@include size(375px, auto);
 		background: $color_popup_background;
 		display: flex;
 		flex-direction: column;
@@ -34,7 +34,7 @@
 		background-repeat: no-repeat;
 		position: absolute;
 		left: 0;
-		top: 114px;
+		top: 68px;
 	}
 
 	&_container::after {
@@ -44,7 +44,7 @@
 		background-repeat: no-repeat;
 		position: absolute;
 		left: 245px;
-		top: 498px;
+		top: 480px;
 	}
 
 	&_img-container {
@@ -56,7 +56,7 @@
 
 	&_logo {
 		@include size(167px, 65px);
-		margin-top: 70px;
+		margin-top: 24px;
 		margin-bottom: 24px;
 	}
 
@@ -94,6 +94,6 @@
 	}
 
 	&_back-btn {
-		margin-top: 80px;
+		margin-top: 110px;
 	}
 }
