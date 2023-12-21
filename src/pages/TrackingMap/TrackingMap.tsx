@@ -11,6 +11,7 @@ import friendsLocation from './friendsLocation';
 import RoutesPath from '../../constants/enums/routesPath';
 import { AppDispatch, RootState } from '../../store';
 import { useUpdateCoordinatesMutation } from '../../store/rtk/userApi';
+import Loader from '../../components/Loader/Loader';
 
 const userIcon = new Icon({
 	iconUrl: geotag,
@@ -20,6 +21,7 @@ const userIcon = new Icon({
 
 function TrackingMap() {
 	const [map, setMap] = useState<Map>();
+	const { isLoading } = useSelector((state: RootState) => state.user);
 	const [updateCoordinates] = useUpdateCoordinatesMutation();
 	const { id, latitude, longitude } = useSelector(
 		(state: RootState) => state.user
@@ -94,7 +96,10 @@ function TrackingMap() {
 	const findUserLocation = useCallback(() => {
 		map?.setView(position);
 	}, [map, position]);
-	return (
+
+	return isLoading ? (
+		<Loader />
+	) : (
 		<section className="map">
 			<div className="map_container">
 				<MainLayout

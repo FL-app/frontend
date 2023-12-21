@@ -11,9 +11,13 @@ import { useCreateTokenMutation } from '../../store/rtk/tokensApi';
 import LoginDTO from '../../types/LoginDTO.interface';
 import { useGetUserMutation } from '../../store/rtk/userApi';
 import { RootState } from '../../store';
+import Loader from '../../components/Loader/Loader';
 
 function Login() {
 	const navigate = useNavigate();
+	const { isAuthenticated, isLoading } = useSelector(
+		(state: RootState) => state.user
+	);
 	const [createToken, { isError }] = useCreateTokenMutation();
 	const [getUser] = useGetUserMutation();
 	const [userData, setUserData] = useState({} as LoginDTO);
@@ -72,7 +76,6 @@ function Login() {
 			setPasswordType(InputTypes.password);
 		}
 	};
-	const { isAuthenticated } = useSelector((state: RootState) => state.user);
 	const handleSubmit = () => {
 		if (!emailError && !passwordError) {
 			createToken(userData)
@@ -96,7 +99,9 @@ function Login() {
 		}
 	}, [navigate, isAuthenticated, isError]);
 
-	return (
+	return isLoading ? (
+		<Loader />
+	) : (
 		<section className="signin">
 			<div className="signin_container">
 				<button

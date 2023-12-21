@@ -51,6 +51,7 @@ const userSlice = createSlice({
 				...state,
 				...payload,
 				isAuthenticated: true,
+				isLoading: false,
 				errorMessage: undefined,
 				requestCounter: 0,
 			})
@@ -65,6 +66,7 @@ const userSlice = createSlice({
 				...state,
 				errorMessage: payload?.data as UserErrorMessage,
 				isAuthenticated: false,
+				isLoading: false,
 				requestCounter: state.requestCounter + 1,
 			})
 		);
