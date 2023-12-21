@@ -81,8 +81,11 @@ function Login() {
       createToken(userData)
         .unwrap()
         .then(() => {
-          getUser(null).unwrap();
-        });
+          getUser(null)
+            .unwrap()
+            .catch(() => {});
+        })
+        .catch(() => {});
     }
     setEmailDirty(true);
     setPasswordDirty(true);

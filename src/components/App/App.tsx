@@ -31,7 +31,8 @@ function App() {
                   .catch(() => dispatch(clearStorage()));
               }
             }
-          });
+          })
+          .catch(() => {});
       }
     }
   }, [access, dispatch, refresh, updateToken]);

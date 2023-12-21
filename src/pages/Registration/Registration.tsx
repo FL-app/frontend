@@ -279,7 +279,9 @@ function Registration() {
         last_name: userData.last_name,
         password: userData.password,
         gender: userData.gender,
-      }).unwrap();
+      })
+        .unwrap()
+        .catch(() => {});
     }
     setPasswordDirty(true);
     setConfirmPasswordDirty(true);

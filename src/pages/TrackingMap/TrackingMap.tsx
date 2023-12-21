@@ -43,7 +43,9 @@ function TrackingMap() {
             id,
             latitude: pos.coords.latitude ?? 0,
             longitude: pos.coords.longitude ?? 0,
-          }).unwrap();
+          })
+            .unwrap()
+            .catch(() => {});
         }
         map?.setView(position);
       } else {

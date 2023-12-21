@@ -39,7 +39,7 @@ function Profile() {
     updateUserInfo({
       email: currentUser.email,
       username: formValues.nicknameValue,
-    } as Partial<UserDTO>);
+    } as Partial<UserDTO>).catch(() => {});
     setFormValues((prevState) => ({
       ...prevState,
       nicknameValue: currentUser.username,

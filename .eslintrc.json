@@ -30,7 +30,6 @@
   "plugins": ["@typescript-eslint", "react", "prettier"],
   "rules": {
     "jsx-a11y/label-has-associated-control": "off",
-    "@typescript-eslint/no-floating-promises": "off",
     "react-hooks/exhaustive-deps": "off"
   }
 }
