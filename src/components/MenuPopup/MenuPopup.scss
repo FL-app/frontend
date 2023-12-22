@@ -2,23 +2,23 @@
 @import 'src/sassStyles/mixins';
 
 .menuPopup {
-	position: absolute;
-	top: 0;
-	left: 0;
-	background-color: rgba(0, 0, 0, 0.5);
-	visibility: hidden;
-	opacity: 0;
-	z-index: 10;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  visibility: hidden;
+  opacity: 0;
+  z-index: 10;
 
-	&_opened {
-		width: 100%;
-		visibility: visible;
-		opacity: 1;
-	}
+  &_opened {
+    width: 100%;
+    visibility: visible;
+    opacity: 1;
+  }
 
-	&__container {
-		@include size(80%, 100vh);
-		background-color: $color_popup_background;
-		box-sizing: border-box;
-	}
+  &__container {
+    @include size(80%, 100vh);
+    background-color: $color_popup_background;
+    box-sizing: border-box;
+  }
 }

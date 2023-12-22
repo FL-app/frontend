@@ -2,45 +2,45 @@
 @import 'src/sassStyles/variables';
 
 .privacy-policy {
-	display: flex;
-	justify-content: center;
+  display: flex;
+  justify-content: center;
 
-	&__container {
-		max-width: 375px;
-		height: 100vh;
-		padding-top: 12px;
-		background-color: $color_white;
-	}
+  &__container {
+    max-width: 375px;
+    height: 100vh;
+    padding-top: 12px;
+    background-color: $color_white;
+  }
 
-	&__header {
-		display: flex;
-		align-items: center;
-		padding-bottom: 12px;
-		border-bottom: 1px solid $color_background_disabled;
-	}
+  &__header {
+    display: flex;
+    align-items: center;
+    padding-bottom: 12px;
+    border-bottom: 1px solid $color_background_disabled;
+  }
 
-	&__btn-back {
-		@include size(32px, 32px);
-		margin-left: 20px;
-		margin-right: 12px;
-		padding: 0;
-		cursor: pointer;
-		border: none;
-		outline: none;
-		background: url(../../images/arrow-back.svg) transparent no-repeat;
-	}
+  &__btn-back {
+    @include size(32px, 32px);
+    margin-left: 20px;
+    margin-right: 12px;
+    padding: 0;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: url(../../images/arrow-back.svg) transparent no-repeat;
+  }
 
-	&__title {
-		margin: 0;
-		padding: 0;
-		font-size: 15px;
-		font-weight: 500;
-	}
+  &__title {
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+    font-weight: 500;
+  }
 
-	&__description {
-		margin: 0;
-		padding: 16px 20px;
-		font-size: 14px;
-		line-height: 140%;
-	}
+  &__description {
+    margin: 0;
+    padding: 16px 20px;
+    font-size: 14px;
+    line-height: 140%;
+  }
 }

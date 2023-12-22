@@ -1,1 +1,5 @@
-storybook-static
+dist
+coverage
+.husky
+.github
+.idea

@@ -1,55 +1,19 @@
-import React from 'react';
 import './Button.scss';
+import { ButtonProps } from '../../types/ButtonProps.interface';
 
-interface IButtonProps {
-	label: string;
-	url?: string;
-	type: 'link' | 'button' | 'submit';
-	color?: 'primary' | 'secondary';
-	size: 'medium' | 'large';
-	disabled?: boolean;
-	onClick?: () => void;
-	className?: string;
+function Button(props: ButtonProps) {
+  const { label, type, color, size, disabled, onClick, className } = props;
+
+  return (
+    <button
+      disabled={disabled}
+      onClick={onClick}
+      type={type === 'button' ? 'button' : 'submit'}
+      className={`button button_${size} button_color-${color} ${className}`}
+    >
+      {label}
+    </button>
+  );
 }
-
-const Button = ({
-	label,
-	url = undefined,
-	type = 'button',
-	color = undefined,
-	size = 'medium',
-	disabled = false,
-	onClick = undefined,
-	className = '',
-}: IButtonProps) => {
-	const props = {
-		disabled,
-		onClick,
-	};
-
-	switch (type) {
-		case 'link':
-			return (
-				<a
-					{...props}
-					href={url}
-					className={`button button_link button_${size} button_color-${color} ${className}`}
-				>
-					{label}
-				</a>
-			);
-
-		default:
-			return (
-				<button
-					{...props}
-					type={type}
-					className={`button button_${size} button_color-${color} ${className}`}
-				>
-					{label}
-				</button>
-			);
-	}
-};
 
 export default Button;

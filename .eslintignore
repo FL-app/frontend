@@ -1,4 +1,6 @@
 node_modules
 public
 .eslintrc.json
-build
+dist
+src/__tests__
+vite.config.ts

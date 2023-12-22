@@ -1,37 +1,37 @@
 @import 'src/sassStyles/mixins';
 
 .add-friend__container {
-	margin-bottom: 25px;
+  margin-bottom: 25px;
 }
 
 .add-friend__btn-container {
-	display: flex;
-	justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .add-friend__item {
-	margin-top: 15px;
+  margin-top: 15px;
 }
 
 .add-friend__btn {
-	width: 132px;
+  width: 132px;
 }
 
 .add-friend__success {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	margin-top: -35px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -35px;
 
-	&-icon {
-		@include size(48px, 48px);
-		margin-bottom: 15px;
-	}
+  &-icon {
+    @include size(48px, 48px);
+    margin-bottom: 15px;
+  }
 
-	&-title {
-		font-size: 15px;
-		font-weight: 500;
-		line-height: normal;
-		text-align: center;
-	}
+  &-title {
+    font-size: 15px;
+    font-weight: 500;
+    line-height: normal;
+    text-align: center;
+  }
 }

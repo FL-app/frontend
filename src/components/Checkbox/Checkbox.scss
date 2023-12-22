@@ -2,55 +2,55 @@
 @import 'src/sassStyles/mixins';
 
 .checkbox {
-	display: flex;
-	transition: all 0.2s ease;
-	position: relative;
-	&:hover {
-		opacity: 0.7;
-		cursor: pointer;
-	}
+  display: flex;
+  transition: all 0.2s ease;
+  position: relative;
+  &:hover {
+    opacity: 0.7;
+    cursor: pointer;
+  }
 }
 .checkbox__input {
-	@include size(36px, 20px);
-	appearance: none;
-	cursor: pointer;
-	&::after {
-		@include size(36px, 20px);
-		background-color: $color_background_disabled;
-		border-radius: 10px;
-		content: '';
-		position: absolute;
-	}
-	&:checked {
-		+ {
-			.checkbox__toggle {
-				left: 18px;
-			}
-		}
-		&::after {
-			background-color: $color_buttons_background_active;
-		}
-	}
+  @include size(36px, 20px);
+  appearance: none;
+  cursor: pointer;
+  &::after {
+    @include size(36px, 20px);
+    background-color: $color_background_disabled;
+    border-radius: 10px;
+    content: '';
+    position: absolute;
+  }
+  &:checked {
+    + {
+      .checkbox__toggle {
+        left: 18px;
+      }
+    }
+    &::after {
+      background-color: $color_buttons_background_active;
+    }
+  }
 }
 .checkbox__title {
-	font-size: 14px;
-	font-weight: 400;
-	line-height: 140%;
-	color: $color_main_font;
-	margin-right: 12px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 140%;
+  color: $color_main_font;
+  margin-right: 12px;
 }
 .checkbox__toggle {
-	@include size(16px, 16px);
-	border-radius: 10px;
-	position: absolute;
-	background-color: $color_white;
-	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-	left: 2px;
-	transition: all 0.3s ease;
-	z-index: 1;
-	top: 2px;
+  @include size(16px, 16px);
+  border-radius: 10px;
+  position: absolute;
+  background-color: $color_white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  left: 2px;
+  transition: all 0.3s ease;
+  z-index: 1;
+  top: 2px;
 }
 
 .checkbox__container {
-	position: relative;
+  position: relative;
 }

@@ -2,93 +2,93 @@
 @import 'src/sassStyles/variables';
 
 .access-geo {
-	display: flex;
-	justify-content: center;
-	position: relative;
+  display: flex;
+  justify-content: center;
+  position: relative;
 
-	&_spiral {
-		@include size(260.887px, 251.862px);
-		content: '';
-		background-image: url(../../images/spiral-access-geo.png);
-		background-repeat: no-repeat;
-		position: absolute;
-		left: 160.07px;
-		top: 0;
-	}
+  &_spiral {
+    @include size(260.887px, 251.862px);
+    content: '';
+    background-image: url(../../images/spiral-access-geo.png);
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 160.07px;
+    top: 0;
+  }
 
-	&_container {
-		background: radial-gradient(
-				29.48% 59.08% at 84.93% 30.11%,
-				rgba(195, 244, 2, 0.2) 0%,
-				rgba(195, 244, 2, 0) 75.13%
-			),
-			radial-gradient(
-				26.88% 99.57% at -32.13% 78.45%,
-				rgba(244, 66, 0, 0.2) 0%,
-				rgba(244, 66, 0, 0) 100%
-			),
-			$color_white;
-		max-width: 375px;
-		height: 812px;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		position: relative;
-		overflow: hidden;
-	}
+  &_container {
+    background: radial-gradient(
+        29.48% 59.08% at 84.93% 30.11%,
+        rgba(195, 244, 2, 0.2) 0%,
+        rgba(195, 244, 2, 0) 75.13%
+      ),
+      radial-gradient(
+        26.88% 99.57% at -32.13% 78.45%,
+        rgba(244, 66, 0, 0.2) 0%,
+        rgba(244, 66, 0, 0) 100%
+      ),
+      $color_white;
+    max-width: 375px;
+    height: 812px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
 
-	&_container::before {
-		@include size(180px, 180px);
-		content: '';
-		background-image: url(../../images/vector-access-geo-1.svg);
-		background-repeat: no-repeat;
-		position: absolute;
-		left: 270px;
-		top: 70px;
-	}
+  &_container::before {
+    @include size(180px, 180px);
+    content: '';
+    background-image: url(../../images/vector-access-geo-1.svg);
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 270px;
+    top: 70px;
+  }
 
-	&_container::after {
-		@include size(150px, 150px);
-		content: '';
-		background-image: url(../../images/vector-access-geo-2.svg);
-		background-repeat: no-repeat;
-		position: absolute;
-		left: 0;
-		top: 458px;
-	}
+  &_container::after {
+    @include size(150px, 150px);
+    content: '';
+    background-image: url(../../images/vector-access-geo-2.svg);
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 0;
+    top: 458px;
+  }
 
-	&_geo-tag-img {
-		@include size(67px, 102px);
-		margin-top: 180px;
-	}
+  &_geo-tag-img {
+    @include size(67px, 102px);
+    margin-top: 180px;
+  }
 
-	&_title {
-		margin: 24px 0 0;
-		color: $color_main_font;
-		text-align: center;
-		font-size: 24px;
-		font-style: normal;
-		font-weight: 700;
-		line-height: 130%;
-		max-width: 303px;
-	}
+  &_title {
+    margin: 24px 0 0;
+    color: $color_main_font;
+    text-align: center;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 130%;
+    max-width: 303px;
+  }
 
-	&_subtitle {
-		margin: 16px 0 0;
-		color: $color_main_font;
-		text-align: center;
-		font-size: 15px;
-		font-style: normal;
-		font-weight: 500;
-		line-height: normal;
-		max-width: 303px;
-	}
+  &_subtitle {
+    margin: 16px 0 0;
+    color: $color_main_font;
+    text-align: center;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    max-width: 303px;
+  }
 
-	&_locate-btn {
-		margin-top: 174px;
-	}
+  &_locate-btn {
+    margin-top: 174px;
+  }
 
-	&_cancel-btn {
-		margin-top: 12px;
-	}
+  &_cancel-btn {
+    margin-top: 12px;
+  }
 }

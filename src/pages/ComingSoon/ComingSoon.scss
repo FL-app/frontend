@@ -2,98 +2,98 @@
 @import 'src/sassStyles/variables';
 
 .coming-soon {
-	display: flex;
-	justify-content: center;
-	position: relative;
+  display: flex;
+  justify-content: center;
+  position: relative;
 
-	&_diamond {
-		@include size(115.779px, 115.779px);
-		z-index: 2;
-		content: '';
-		background-image: url(../../images/coming-soon-diamond.png);
-		background-repeat: no-repeat;
-		position: absolute;
-		left: 270.01px;
-		top: 531px;
-	}
+  &_diamond {
+    @include size(115.779px, 115.779px);
+    z-index: 2;
+    content: '';
+    background-image: url(../../images/coming-soon-diamond.png);
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 270.01px;
+    top: 485px;
+  }
 
-	&_container {
-		@include size(375px, 812px);
-		background: $color_popup_background;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		position: relative;
-		overflow: hidden;
-	}
+  &_container {
+    @include size(375px, auto);
+    background: $color_popup_background;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
 
-	&_container::before {
-		@include size(150px, 150px);
-		content: '';
-		background-image: url(../../images/coming-soon-vector-1.svg);
-		background-repeat: no-repeat;
-		position: absolute;
-		left: 0;
-		top: 114px;
-	}
+  &_container::before {
+    @include size(150px, 150px);
+    content: '';
+    background-image: url(../../images/coming-soon-vector-1.svg);
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 0;
+    top: 68px;
+  }
 
-	&_container::after {
-		@include size(180px, 180px);
-		content: '';
-		background-image: url(../../images/coming-soon-vector-2.svg);
-		background-repeat: no-repeat;
-		position: absolute;
-		left: 245px;
-		top: 498px;
-	}
+  &_container::after {
+    @include size(180px, 180px);
+    content: '';
+    background-image: url(../../images/coming-soon-vector-2.svg);
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 245px;
+    top: 480px;
+  }
 
-	&_img-container {
-		position: relative;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-	}
+  &_img-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
-	&_logo {
-		@include size(167px, 65px);
-		margin-top: 70px;
-		margin-bottom: 24px;
-	}
+  &_logo {
+    @include size(167px, 65px);
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
 
-	&_main-img {
-		@include size(335px, 455px);
-		z-index: 1;
-	}
+  &_main-img {
+    @include size(335px, 455px);
+    z-index: 1;
+  }
 
-	&_text-container {
-		z-index: 2;
-		position: absolute;
-		margin-top: 180px;
-		display: flex;
-		flex-direction: column;
-	}
+  &_text-container {
+    z-index: 2;
+    position: absolute;
+    margin-top: 180px;
+    display: flex;
+    flex-direction: column;
+  }
 
-	&_title {
-		margin: 0;
-		color: $color_main_font;
-		text-align: center;
-		font-size: 24px;
-		font-style: normal;
-		font-weight: 700;
-		line-height: 130%;
-	}
+  &_title {
+    margin: 0;
+    color: $color_main_font;
+    text-align: center;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 130%;
+  }
 
-	&_subtitle {
-		margin: 8px 0 0;
-		color: $color_main_font;
-		text-align: center;
-		font-size: 15px;
-		font-style: normal;
-		font-weight: 500;
-		line-height: normal;
-	}
+  &_subtitle {
+    margin: 8px 0 0;
+    color: $color_main_font;
+    text-align: center;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
 
-	&_back-btn {
-		margin-top: 80px;
-	}
+  &_back-btn {
+    margin-top: 110px;
+  }
 }

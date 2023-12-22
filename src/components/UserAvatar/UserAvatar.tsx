@@ -1,26 +1,25 @@
 import './UserAvatar.scss';
-import React from 'react';
 import { useSelector } from 'react-redux';
 import avatarMale from '../../images/icon_profile_man.png';
 import avatarFemale from '../../images/icon_profile_woman.png';
-import { RootState } from '../../store';
 import Gender from '../../constants/enums/gender';
+import { RootState } from '../../store';
 
-const UserAvatar = () => {
-	const userSex: Gender = useSelector(
-		(state: RootState) => state.user.gender as Gender
-	);
-	const userAvatar: string = useSelector(
-		(state: RootState) => state.user.avatar
-	);
+function UserAvatar() {
+  const userSex: Gender = useSelector(
+    (state: RootState) => state.user.gender as Gender,
+  );
+  const userAvatar: string | null = useSelector(
+    (state: RootState) => state.user.userpic,
+  );
 
-	return (
-		<img
-			src={userAvatar || userSex === Gender.male ? avatarMale : avatarFemale}
-			alt="Аватар"
-			className="userAvatar"
-		/>
-	);
-};
+  return (
+    <img
+      src={userAvatar ?? userSex === Gender.male ? avatarMale : avatarFemale}
+      alt="Аватар"
+      className="userAvatar"
+    />
+  );
+}
 
 export default UserAvatar;
