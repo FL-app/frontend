@@ -3,3 +3,9 @@ Dockerfile
 .git
 .gitignore
 dist/
+build/
+.env
+makefile
+venv/
+.vscode
+.sqlite3
