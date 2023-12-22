@@ -1,4 +1,6 @@
 FROM node:18.16.1-alpine as build
+LABEL author='FLApp-Team'
+LABEL maintainer='<https://github.com/FL-app>'
 WORKDIR /app
 COPY package*.json ./
 RUN yarn install
