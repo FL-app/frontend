@@ -33,6 +33,7 @@ const userSlice = createSlice({
       localStorage.removeItem('refresh_token');
       return {
         ...initialState,
+        isLoading: false,
       };
     },
     setLocationError(state, action: { payload: { errorMessage: string } }) {
