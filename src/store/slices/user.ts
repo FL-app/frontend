@@ -43,6 +43,9 @@ const userSlice = createSlice({
         errorMessage: action.payload.errorMessage,
       };
     },
+    stopLoading(state) {
+      return { ...state, isLoading: false };
+    },
   },
   extraReducers: (builder) => {
     builder.addMatcher(
@@ -140,4 +143,4 @@ const userSlice = createSlice({
 
 export default userSlice.reducer;
 
-export const { logout, setLocationError } = userSlice.actions;
+export const { logout, stopLoading, setLocationError } = userSlice.actions;

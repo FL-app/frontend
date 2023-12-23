@@ -12,6 +12,7 @@ import { clearStorage, readStorage } from '../../store/slices/tokens';
 import { useGetUserMutation } from '../../store/rtk/userApi';
 import type { AppDispatch, RootState } from '../../store';
 import Loader from '../Loader/Loader';
+import { stopLoading } from '../../store/slices/user';
 
 function App() {
   const dispatch = useDispatch<AppDispatch>();
@@ -28,6 +29,7 @@ function App() {
   useEffect(() => {
     if (!access) {
       dispatch(readStorage());
+      dispatch(stopLoading());
     } else {
       verifyToken(access)
         .then((verification) => {
