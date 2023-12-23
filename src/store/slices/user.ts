@@ -17,7 +17,7 @@ const initialState: UserState = {
   email: '',
   userpic: null,
   status: '',
-  isLoading: false,
+  isLoading: true,
   errorMessage: undefined,
   registerSuccess: false,
   isAuthenticated: false,
@@ -33,6 +33,7 @@ const userSlice = createSlice({
       localStorage.removeItem('refresh_token');
       return {
         ...initialState,
+        isLoading: false,
       };
     },
     setLocationError(state, action: { payload: { errorMessage: string } }) {
@@ -42,6 +43,9 @@ const userSlice = createSlice({
         longitude: 0,
         errorMessage: action.payload.errorMessage,
       };
+    },
+    stopLoading(state) {
+      return { ...state, isLoading: false };
     },
   },
   extraReducers: (builder) => {
@@ -140,4 +144,4 @@ const userSlice = createSlice({
 
 export default userSlice.reducer;
 
-export const { logout, setLocationError } = userSlice.actions;
+export const { logout, stopLoading, setLocationError } = userSlice.actions;

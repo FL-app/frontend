@@ -25,12 +25,11 @@ export const userApi = createApi({
         url: '/me/',
         method: 'GET',
       }),
-      extraOptions: { maxRetries: 3 },
       transformResponse: (response: UserDTO) => response,
       transformErrorResponse: (response: {
         status: number;
         data?: UserErrorMessage;
-      }) => response,
+      }) => response.data,
     }),
     updateCoordinates: builder.mutation<Coordinates, ChangeCoordinatesDTO>({
       query: (location) => ({
