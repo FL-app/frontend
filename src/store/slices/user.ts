@@ -17,7 +17,7 @@ const initialState: UserState = {
   email: '',
   userpic: null,
   status: '',
-  isLoading: false,
+  isLoading: true,
   errorMessage: undefined,
   registerSuccess: false,
   isAuthenticated: false,

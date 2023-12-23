@@ -4,7 +4,10 @@ import { useEffect } from 'react';
 import { FetchBaseQueryError } from '@reduxjs/toolkit/query';
 import Routes from '../../routes';
 import { AppContextProvider } from '../../context/AppContext';
-import { useRefreshTokenMutation } from '../../store/rtk/tokensApi';
+import {
+  useRefreshTokenMutation,
+  useVerifyTokenMutation,
+} from '../../store/rtk/tokensApi';
 import { clearStorage, readStorage } from '../../store/slices/tokens';
 import { useGetUserMutation } from '../../store/rtk/userApi';
 import type { AppDispatch, RootState } from '../../store';
@@ -16,6 +19,8 @@ function App() {
   const { isLoading } = useSelector((state: RootState) => state.user);
   const [updateToken] = useRefreshTokenMutation();
   const [getUser] = useGetUserMutation();
+  const [verifyToken] = useVerifyTokenMutation();
+
   function isFetchBaseQueryError(error: unknown): error is FetchBaseQueryError {
     return typeof error === 'object' && error != null && 'status' in error;
   }
@@ -24,19 +29,43 @@ function App() {
     if (!access) {
       dispatch(readStorage());
     } else {
-      getUser(null)
-        .then((data) => {
-          if (isFetchBaseQueryError(data)) {
-            if (refresh && access) {
-              updateToken({ refresh })
-                .unwrap()
-                .catch(() => dispatch(clearStorage()));
+      verifyToken(access)
+        .then((verification) => {
+          if (isFetchBaseQueryError(verification)) {
+            if (refresh) {
+              verifyToken(refresh)
+                .then((refreshVerification) => {
+                  if (isFetchBaseQueryError(refreshVerification)) {
+                    dispatch(clearStorage());
+                  } else {
+                    getUser(null)
+                      .then((data) => {
+                        if (isFetchBaseQueryError(data)) {
+                          updateToken({ refresh })
+                            .unwrap()
+                            .catch(() => dispatch(clearStorage()));
+                        }
+                      })
+                      .catch(() => {});
+                  }
+                })
+                .catch(() => {});
             }
+          } else {
+            getUser(null)
+              .then((data) => {
+                if (isFetchBaseQueryError(data)) {
+                  updateToken({ refresh })
+                    .unwrap()
+                    .catch(() => dispatch(clearStorage()));
+                }
+              })
+              .catch(() => {});
           }
         })
         .catch(() => {});
     }
-  }, [dispatch, getUser, access, refresh, updateToken]);
+  }, [dispatch, getUser, access, refresh, updateToken, verifyToken]);
 
   return isLoading ? (
     <Loader />

@@ -30,7 +30,6 @@ export const tokensApi = createApi({
       query: (body: RefreshTokenDTO) => ({
         url: '/refresh/',
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
         body,
       }),
       transformResponse: (response: AccessTokenDTO) => response,
@@ -40,14 +39,26 @@ export const tokensApi = createApi({
       }) => response.data,
     }),
     verifyToken: builder.mutation({
-      query: (body: string) => ({
+      query: (token: string) => ({
         url: '/verify/',
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body,
+        body: { token },
       }),
+      transformResponse: (response: { status: number; data: unknown }) => {
+        return response.status === 200;
+      },
+      transformErrorResponse: (response: {
+        status: number;
+        data: TokenErrorMessage;
+      }) => {
+        return response.status === 200;
+      },
     }),
   }),
 });
 
-export const { useCreateTokenMutation, useRefreshTokenMutation } = tokensApi;
+export const {
+  useCreateTokenMutation,
+  useRefreshTokenMutation,
+  useVerifyTokenMutation,
+} = tokensApi;

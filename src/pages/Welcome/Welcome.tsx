@@ -1,11 +1,18 @@
 import './Welcome.scss';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import Button from '../../components/Button/Button';
 import Carousel from '../../components/Carousel/Carousel';
 import RoutesPath from '../../constants/enums/routesPath';
+import type { RootState } from '../../store';
+import Loader from '../../components/Loader/Loader';
 
 function Welcome() {
-  return (
+  const { isLoading } = useSelector((state: RootState) => state.user);
+
+  return isLoading ? (
+    <Loader />
+  ) : (
     <>
       <Carousel />
       <div className="welcome__button-container">
